@@ -1,0 +1,23 @@
+\contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
+\contentsline {section}{\numberline {2}Complex Differentiation}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}The Geometry of Harmonic Functions}{3}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Power Series}{6}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}The Exponential and Logarithm}{8}{subsection.2.3}%
+\contentsline {section}{\numberline {3}Contour Integration}{11}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Fundamental Theorem of Calculus}{13}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Cauchy's Theorem}{14}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Applications of CIF}{17}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Zeros and Singularities}{20}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Zeros of Holomorphic Maps}{20}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Analytic Continuation}{20}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Generalised Cauchy Integral Formula}{21}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Singularities and Laurent Expansions}{25}{subsection.4.4}%
+\contentsline {section}{\numberline {5}Residues}{29}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Residue Theorem}{29}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Computing Residues}{30}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Real Integrals via Contour Integrals}{31}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Rouch\'{e}'s Theorem}{36}{subsection.5.4}%
+\contentsline {section}{\numberline {6}Non-examinable Fun}{39}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Homotopy}{39}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Uniform Limits of Holomorphic Functions}{40}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Montel's Theorem}{42}{subsection.6.3}%

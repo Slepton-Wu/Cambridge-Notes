@@ -1,0 +1,448 @@
+\documentclass{article}
+
+\usepackage{amsmath,geometry,amsfonts,array,makecell,enumitem,bm,esint,booktabs,multirow,mathtools,upgreek,amssymb,pgfplots,mathrsfs}
+\usepackage[amsmath]{ntheorem}
+\usepackage[hidelinks,naturalnames]{hyperref}
+\usepackage[nameinlink,noabbrev]{cleveref}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead[L]{\itshape\nouppercase{\leftmark}}
+\fancyhead[R]{Path Integrals}
+
+\title{Path_Integral}
+\author{Yue Wu}
+
+\geometry{a4paper,hmargin=1.1in,vmargin=1.2in}
+
+\setlength{\parskip}{1em}
+\tolerance=1000
+\emergencystretch=1em
+\hyphenpenalty=1000
+\exhyphenpenalty=100
+\righthyphenmin=3
+
+\pgfplotsset{compat=1.18}
+
+\theoremstyle{plain}\theoremheaderfont{\normalfont\itshape}\theorembodyfont{\rmfamily}\theoremseparator{.}\newtheorem*{rem}{Remark}\newtheorem*{ex}{Example}\newtheorem*{proof}{Proof}\newtheorem*{altp}{Alternative proof}
+
+\theoremstyle{plain}\theoremheaderfont{\normalfont\bfseries}\theorembodyfont{\rmfamily}\theoremseparator{.}\newtheorem{thm}{Theorem}[section]\newtheorem{lem}[thm]{Lemma}\newtheorem{prop}[thm]{Proposition}\newtheorem*{cor}{Corollary}\newtheorem{defn}[thm]{Definition}\newtheorem{clm}[thm]{Claim}\newtheorem{clminproof}{Claim}
+
+\theoremstyle{break}\theoremheaderfont{\normalfont\itshape}\theorembodyfont{\rmfamily}\theoremseparator{.\medskip}\newtheorem*{proofskip}{Proof}\newtheorem*{exs}{Examples}\newtheorem*{rems}{Remarks}
+
+\theoremstyle{break}\theoremheaderfont{\normalfont\bfseries}\theorembodyfont{\rmfamily}\theoremseparator{.\medskip}\newtheorem{lemskip}[thm]{Lemma}\newtheorem{defnskip}[thm]{Definition}\newtheorem{propskip}[thm]{Proposition}\newtheorem{thmskip}[thm]{Theorem}
+
+\crefname{thm}{Theorem}{Theorems}\crefname{defn}{Definition}{Definitions}\crefname{lem}{Lemma}{Lemmas}\crefname{lemskip}{Lemma}{Lemmas}\crefname{cor}{Corollary}{Corollaries} \crefname{prop}{Proposition}{Propositions}\crefname{clm}{Claim}{Claims}
+
+\setcounter{tocdepth}{2}
+\setcounter{section}{0}
+\numberwithin{equation}{section}
+
+\newcommand{\qed}{\hfill\ensuremath{\Box}}
+\newcommand{\unit}[1]{\ \mathrm{#1}}
+\newcommand{\ii}{\mathrm{i}}
+\newcommand{\ee}{\mathrm{e}}
+\newcommand{\tp}{^\mathrm{T}}
+\newcommand{\dd}[2][]{\mathrm{d}^{#1} #2\,}
+\newcommand{\DD}[1]{\mathcal{D} #1\,}
+\renewcommand{\d}[2][]{\mathrm{d}^{#1} #2}
+\newcommand{\D}[1]{\mathcal{D} #1}
+\newcommand{\dv}[3][]{\frac{\mathrm{d}^{#1} #2}{{\mathrm{d} #3}^{#1}}}
+\newcommand{\pdv}[3][]{\frac{\partial^{#1} #2}{{\partial #3}^{#1}}}
+\newcommand{\bra}[1]{\left\langle #1 \right|}
+\newcommand{\ket}[1]{\left| #1 \right\rangle}
+\newcommand{\braket}[2]{\left\langle #1 \middle| #2 \right\rangle}
+\newcommand{\mel}[3]{\left\langle #1 \middle| #2 \middle| #3 \right\rangle}
+\newcommand{\redmel}[3]{\left\langle #1 \middle\| #2 \middle\| #3 \right\rangle}
+\newcommand{\eval}[1]{\left\langle #1 \right\rangle}
+\newcommand{\expval}[2]{\left\langle #2 \middle| #1 \middle| #2 \right\rangle}
+\newcommand{\vb}[1]{\bm{\mathrm{#1}}}
+\newcommand{\vu}[1]{\hat{\bm{\mathrm{#1}}}}
+\newcommand{\cross}{\bm{\times}}
+\newcommand{\vdot}{\bm{\cdot}}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\norm}[1]{\left\| #1 \right\|}
+\newcommand{\grad}{\vb{\nabla}}
+\renewcommand{\div}{\vb{\nabla}\cdot}
+\newcommand{\curl}{\vb{\nabla}\times}
+\newcommand{\laplacian}{\nabla^2}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\DeclareMathOperator{\tr}{tr}
+\newcommand{\rai}{\hat{a}^\dagger}
+\newcommand{\low}{\hat{a}}
+\newcommand{\nord}[1]{\,:#1:\,}
+
+
+\begin{document}
+    \setlength{\parindent}{0pt}
+	\Huge\textsf{\textbf{Path Integrals}}
+
+	\noindent\makebox[\linewidth]{\rule{\textwidth}{2pt}}
+
+	\large\textsf{\textbf{Yue Wu}}
+	\begin{itemize}[topsep=0pt,leftmargin=15pt]
+		\item[] \textit{Yusuf Hamied Department of Chemistry\\
+		Lensfield Road,\\
+		Cambridge, CB2 1EW}\\
+
+		\textit{yw628@cam.ac.uk}
+	\end{itemize}
+    \thispagestyle{empty}
+    \pagenumbering{roman}
+    \setlength{\parindent}{15pt}
+
+    \normalsize
+	\newpage
+	\tableofcontents
+	\newpage
+    \pagenumbering{arabic}
+
+    \section{Path Integrals}
+
+    \subsection{The Story}
+    Will write it later\dots
+
+    \subsection{Classical Limit}
+
+    \subsection{Equivalence to Schr\"{o}dinger Equation}
+
+    \newpage
+
+    \section{Configuration Space Path Integral}
+    For the time independent Hamiltonian
+    \begin{equation}
+        \hat{H}=\hat{T}+\hat{V}=\frac{\hat{p}^2}{2m}+V(\hat{q})\,,
+    \end{equation}
+    we want to derive the path integral expression of the propagator
+    \begin{equation}
+        \hat{U}(t,0)=\exp\left(-\frac{\ii t}{\hbar}\hat{H}\right)
+    \end{equation}
+    which evolves the quantum states
+    \begin{equation}
+        \ket{\psi(t)}=\hat{U}(t,0)\ket{\psi(0)}\,.
+    \end{equation}
+
+    The first thing we will do is to split the time evolution from \(t\equiv t_N\) to \(t_0\equiv 0\) into \(N\) equal intervals \(t_N,t_{N-1},\dots,t_0\). It is apparent that
+    \begin{equation}
+        \hat{U}(t_N,t_0)=\hat{U}(t_N,t_{N-1})\hat{U}(t_{N-1},t_{N-2})\dots \hat{U}(t_1,t_0)\,,
+    \end{equation}
+    so we can write
+    \begin{equation}
+        \hat{U}(t_N,t_0)=\left[\exp\left(-\frac{\ii \epsilon}{\hbar}\hat{H}\right)\right]^N\,,
+    \end{equation}
+    where we denoted the time interval \(\epsilon=t/N\). We will write everything in the position representation, so
+    \begin{align}
+        U(q_N,t_N;q_0,t_0)&=\mel{q_N}{\hat{U}(t_N,t_0)}{q_0}\notag \\
+        &=\mel{q_N}{\left[\exp\left(-\frac{\ii \epsilon}{\hbar}\hat{H}\right)\right]^N}{q_0}\,,
+    \end{align}
+    where \(q_N\) is the coordinate at \(t_N\) and \(q_0\) is the coordinate at \(t_0\). We will denote this quantity by \(U\) in the future for compactness. We have the freedom to insert identity operators
+    \begin{equation}
+        1=\int\dd{q_k}\ket{q_k}\bra{q_k}
+    \end{equation}
+    anywhere we want. We can insert \(N-1\) of them, each sandwiched between two of the \(N\) exponential operators, giving
+    \begin{align}
+        U&=\int\prod_{k=1}^{N-1}\dd{q_k} \mel{q_N}{\exp\left(-\frac{\ii \epsilon}{\hbar}\hat{H}\right)}{q_{N-1}}\dots\mel{q_1}{\exp\left(-\frac{\ii \epsilon}{\hbar}\hat{H}\right)}{q_0}\notag \\
+        &=\int\prod_{k=1}^{N-1}\dd{q_k} \prod_{n=1}^{N}\mel{q_n}{\exp\left(-\frac{\ii \epsilon}{\hbar}\hat{H}\right)}{q_{n-1}}\,.
+    \end{align}
+    Now \(q_k\) has the interpretation of the coordinate at \(t=t_k\).
+
+    This is actually a bit tricky to deal with because the Hamiltonian contains both a kinetic part that depends on momenta and a potential part that depends on coordinates. The momentum operator and the coordinate operator do not commute and this brings us trouble. This is because if \(X\) and \(Y\) are non-commutative, we no longer have \(\ee^{X}\ee^{Y}=\ee^{X+Y}\) --- otherwise this will be same as \(\ee^{Y}\ee^{X}\) and the non-commutativity will be broken. Instead, we have the following result:
+    \begin{lem}[Baker--Campbell--Hausdorff formula]
+        For possibly non-commutative \(\hat{X}\) and \(\hat{Y}\) in the Lie algebra of a Lie group,
+        \begin{equation}
+            \ee^{\hat{X}}\ee^{\hat{Y}}=\ee^{\hat{Z}}\,,
+        \end{equation}
+        where \(Z\) is given by
+        \begin{equation}
+            \hat{Z}=\hat{X}+\hat{Y}+\frac{1}{2}[\hat{X},\hat{Y}]+\frac{1}{12}([\hat{X},[\hat{X},\hat{Y}]]+[\hat{Y},[\hat{Y},\hat{X}]])+\dots,
+        \end{equation}
+        in which \([-,-]\) is the commutator.
+    \end{lem}
+    We can see that the commutators are introduced into the exponential.
+
+    But luckily, all the troubles are gone in the \(N\to\infty\) limit since
+    \begin{equation}
+        \exp\left(-\frac{\ii\epsilon}{\hbar}\hat{T}\right)\exp\left(-\frac{\ii\epsilon}{\hbar}\hat{V}\right)=\exp\left(-\frac{\ii\epsilon}{\hbar}(\hat{T}+\hat{V})-\frac{\epsilon^2}{2\hbar^2}[\hat{T},\hat{V}]+O(\epsilon^3)\right)\,,
+    \end{equation}
+    and we can ignore all the higher order infinitesimals as \(\epsilon\to 0\). Therefore, we can expand each term in the propagator as
+    \begin{equation}
+        \mel{q_n}{\exp\left(-\frac{\ii\epsilon}{2m\hbar}\hat{p}^2\right)\exp\left(-\frac{\ii\epsilon}{\hbar}\hat{V}\right)}{q_{n-1}}
+    \end{equation}
+    Since \(\hat{V}\) is just a function of \(\hat{q}\), we have
+    \begin{equation}
+        \mel{q_n}{\exp\left(-\frac{\ii\epsilon}{2m\hbar}\hat{p}^2\right)\exp\left(-\frac{\ii\epsilon}{\hbar}\hat{V}\right)}{q_{n-1}}=\mel{q_n}{\exp\left(-\frac{\ii\epsilon}{2m\hbar}\hat{p}^2\right)}{q_{n-1}}\exp\left(-\frac{\ii\epsilon}{\hbar}V(q_{n-1})\right)
+    \end{equation}
+    To evaluate the kinetic matrix element, we insert an identity operator in the \(p\) basis and get
+    \begin{align}
+        \mel{q_n}{\exp\left(-\frac{\ii\epsilon}{2m\hbar}\hat{p}^2\right)}{q_{n-1}}&=\int\dd{p}\braket{q_n}{p}\mel{p}{\exp\left(-\frac{\ii\epsilon}{2m\hbar}\hat{p}^2\right)}{q_{n-1}}\notag\\
+        &=\int\dd{p}\braket{q_n}{p}\braket{p}{q_{n-1}}\exp\left(-\frac{\ii\epsilon}{2m\hbar}p^2\right)\notag\\
+        &=\frac{1}{2\pi\hbar}\int\dd{p}\exp\left(-\frac{\ii\epsilon}{2m\hbar}p^2+\frac{\ii p(q_n-q_{n-1})}{\hbar}\right)\notag \\
+        &=\left(\frac{m}{2\pi\ii\hbar\epsilon}\right)^{\frac{1}{2}}\exp\left[\frac{\ii m(q_n - q_{n-1})^2}{2\hbar\epsilon}\right]
+    \end{align}
+    by completing the square and performing the Gaussian integral. Therefore the propagator becomes
+    \begin{align}
+        U&=\lim_{N\to\infty}\int\prod_{k=1}^{N-1}\dd{q_k} \prod_{n=1}^{N}\left(\frac{m}{2\pi\ii\hbar\epsilon}\right)^{\frac{1}{2}}\exp\left[\frac{\ii m(q_n - q_{n-1})^2}{2\hbar\epsilon}\right]\exp\left[-\frac{\ii\epsilon}{\hbar}V(q_{n-1})\right]\notag \\
+        &=\underbrace{\lim_{N\to\infty}\left(\frac{m}{2\pi\ii\hbar\epsilon}\right)^{\frac{N}{2}}\int\prod_{k=1}^{N-1}\d{q_k}}_{\int \D{q}}\,\exp\left(\sum_{n=1}^{N}\frac{\ii m(q_n-q_{n-1})^2}{2\hbar\epsilon}-\frac{\ii\epsilon}{\hbar}V(q_{n-1})\right)\,.
+    \end{align}
+    The term with a brace is integrating over all possible intermediate positions, and hence has the interpretation of integrating over all possible paths that the particle can take. Hence it is called a \textit{path integral}, denoted
+    \begin{equation}
+        \int \DD{q}\,.
+    \end{equation}
+    The integrand can be rewritten as
+    \begin{equation}
+        \exp\left[\frac{\ii}{\hbar}\epsilon\sum_{n=1}^{N}\frac{m}{2}\left(\frac{q_n - q_{n-1}}{\epsilon}\right)^2 -V(q_{n-1})\right]=\exp\left[\frac{\ii}{\hbar}\epsilon\sum_{n=1}^{N}T-V\right]\,.
+    \end{equation}
+    In the limit of \(N\to\infty\), the sum is replaced by an integral over time, and \(T-V\) is exactly the Lagrangian \(L\), and so this becomes
+    \begin{equation}
+        \exp\left[\frac{\ii}{\hbar}\int_{0}^{t}\dd{t'}L\right]=\exp\left(\frac{\ii S}{\hbar}\right)\,,
+    \end{equation}
+    where \(S\) is the action of the path. Hence we get the configuration space path integral expression of the propagator
+    \begin{equation}
+        U=\int \DD{q} \exp\left(\frac{\ii S}{\hbar}\right)\,.
+    \end{equation}
+    
+    
+    \newpage
+
+
+    \section{Phase Space Path Integral}
+    We go back to the expression
+    \begin{align}
+        U&=\int\prod_{k=1}^{N-1}\dd{q_k} \prod_{n=1}^{N}\mel{q_n}{\exp\left(-\frac{\ii \epsilon}{\hbar}\hat{H}\right)}{q_{n-1}}\notag \\
+        &=\lim_{N\to\infty}\int\prod_{k=1}^{N-1}\dd{q_k} \prod_{n=1}^{N}\mel{q_n}{\exp\left(-\frac{\ii \epsilon}{2m\hbar}\hat{p}^2\right)\exp\left(-\frac{\ii\epsilon}{\hbar}\hat{V}\right)}{q_{n-1}}\,.
+    \end{align}
+    This time we will not work out the momentum space explicitly. Instead, we insert an identity operator expanded in \(p_n\) basis in each matrix element between the kinetic exponent and the potential exponent and get
+    \begin{equation}
+        U=\lim_{N\to\infty}\int\prod_{k=1}^{N-1}\dd{p_k}\int\prod_{\ell=1}^{N}\dd{q_\ell}\prod_{n=1}^{N}\mel{q_n}{\exp\left(-\frac{\ii\epsilon}{2m\hbar}\hat{p}^2\right)}{p_n}\mel{p_n}{\exp\left(-\frac{\ii\epsilon}{\hbar}\hat{V}\right)}{q_{n-1}}\,.
+    \end{equation}
+    This time, each matrix element is much easier to evaluate. We have
+    \begin{align}
+        \mel{q_n}{\exp\left(-\frac{\ii\epsilon}{2m\hbar}\hat{p}^2\right)}{p_n}&=\braket{q_n}{p_n}\exp\left(-\frac{\ii\epsilon p_n^2}{2m\hbar}\right)\notag \\
+        &=\exp\left(-\frac{\ii\epsilon p_n^2}{2m\hbar}+\frac{\ii p_n q_n}{\hbar}\right)\frac{1}{\sqrt{2\pi\hbar}}
+    \end{align}
+    and
+    \begin{align}
+        \mel{p_n}{\exp\left(-\frac{\ii\epsilon}{\hbar}\hat{V}\right)}{q_{n-1}}&=\exp\left(-\frac{\ii\epsilon V(q_{n-1})}{\hbar}\right)\braket{p_n}{q_{n-1}}\notag \\
+        &=\exp\left(-\frac{\ii\epsilon V(q_{n-1})}{\hbar} - \frac{\ii p_n q_{n-1}}{\hbar}\right)\frac{1}{\sqrt{2\pi\hbar}}\,.
+    \end{align}
+
+    Collecting the terms, we have
+    \begin{equation}
+        U=\underbrace{\lim_{N\to\infty}\int\prod_{k=1}^{N-1}\dd{q_k}\prod_{\ell = 1}^{N}\frac{\d{p_\ell}}{2\pi\hbar}}_{\int\DD{p}\DD{q}}\, \exp\left[\frac{\ii}{\hbar}\epsilon\sum_{n=1}^{N}\left( p_n(q_n-q_{n-1})-\frac{p_n^2}{2m}-V(q_{n-1})\right)\right]\,.
+    \end{equation}
+    Again, the terms with a brace underneath has the interpretation of integrating over all possible paths with all possible momenta, and hence it is denoted
+    \begin{equation}
+        \int\DD{p}\DD{q}\,.
+    \end{equation}
+    The integrand is more interesting. In the \(N\to\infty\) limit, we can again replace the sum by an integral:
+    \begin{equation}
+        \exp\left[\frac{\ii}{\hbar}\int_{0}^{t}\dd{t'} p\dot{q}-H(p,q)\right]\,,
+    \end{equation}
+    where \(H\) is exactly the Hamiltonian. You know from classical mechanics that
+    \begin{equation}
+        L=p\dot{q}-H(p,q)\,,
+    \end{equation}
+    so this is actually a Lagrangian in disguise. Integrated over time, we again get the action of the path, and hence the phase space path integral expression of the propagator is
+    \begin{equation}
+        U=\int\DD{p}\DD{q} \exp\left(\frac{\ii S}{\hbar}\right)\,.
+    \end{equation}
+
+    \section{Coherent State Path Integral}
+    \subsection{Coherent States}
+    We'll now go back to harmonic oscillators. For simplicity, we will remove the constant zero point energy so the Hamiltonian can be written as
+    \begin{equation}
+        \hat{H}=\hbar\omega\rai\low
+    \end{equation}
+    in terms of the raising and lowering operators. The eigenstates of the harmonic oscillator are labelled by a non-negative integer \(n\) so that
+    \begin{equation}
+        \hat{H}\ket{n}=n\hbar\omega\ket{n}\,.
+    \end{equation}
+    The raising and lowering operators, as their names suggest, raise and lower the states:
+    \begin{align}
+        \low\ket{n}&=\sqrt{n}\ket{n-1}\,,\\
+        \rai \ket{n}&=\sqrt{n+1}\ket{n+1}\,.
+    \end{align}
+    This allows us to construct the excited states \(\ket{n}\) by repeatedly applying \(\rai\) to the ground state:
+    \begin{equation}
+        \ket{n}=\frac{(\rai)^n}{\sqrt{n!}}\ket{0}\,.
+    \end{equation}
+
+    Now we will introduce the \textit{coherent states}, each labelled by a complex number \(z\in\CC\), defined as
+    \begin{align}
+        \ket{z}&=\exp(z\rai)\ket{0}\notag \\
+        &=\sum_{n=0}^{\infty}\frac{z^n}{\sqrt{n!}}\ket{n}\,.
+    \end{align}
+    The coherent state has the nice property that if we act the lowering operator on it, we get
+    \begin{align}
+        \low\ket{z}&=\low\sum_{n=0}^{\infty}\frac{z^n}{\sqrt{n!}}\ket{n} \notag\\
+        &=\sum_{n=1}\frac{z^n\sqrt{n}}{\sqrt{n!}}\ket{n-1}\notag \\
+        &=\sum_{n'=0}z\frac{z^{n'}\sqrt{n'+1}}{\sqrt{(n'+1)!}}\ket{n'}\notag \\
+        &=z\ket{z}\,,\label{lower_coherent_state}
+    \end{align}
+    where we substituted \(n'=n-1\) in the second last line.
+
+    Similarly, for the bras, we have
+    \begin{align}
+        \bra{z}&=\bra{0}\exp[z^*\low]\,,\\
+        \bra{z}\rai&=\bra{z}z^*\,.\label{lower_coherent_dagger}
+    \end{align}
+    Therefore, the inner product of two coherent states is
+    \begin{equation}
+        \braket{z_2}{z_1}=\mel{0}{\exp[z_2^*\low]\exp[z_1\rai]}{0}=\ee^{z_2^* z_1}\,.
+    \end{equation}
+    Coherent states labelled by different values of \(z\) are not orthonormal. They are an example of an \textit{overcomplete basis}, meaning that they form a basis with enough vectors to expand any vector but with more than the smallest number one could have gotten away with. The completeness of the coherent states can be shown by the resolution of identity.
+    \begin{prop}
+        \begin{equation}
+            \hat{I}=\int\frac{\dd{z}\d{z^*}}{2\pi\ii}\ket{z}\bra{z}\ee^{-z^* z}\,.\label{coherent_identity}
+        \end{equation}
+        where \(z=x+\ii y\), \(x\) and \(y\) are real. 
+    \end{prop}
+    \begin{proof}
+        Defining \(z=x+\ii y\), where \(x\) and \(y\) are real. Then
+        \begin{align}
+            \int\frac{\dd{z}\d{z^*}}{2\pi\ii}\, \ket{z}\bra{z}\ee^{-z^* z}&=\int\frac{\dd{x}\d{y}}{\pi}\ket{z}\bra{z}\ee^{-z^* z}\notag \\
+            &=\int\frac{\dd{r}\d{\theta}}{\pi}\, r\left(\sum_{n=0}^{\infty}\frac{z^n}{\sqrt{n!}}\ket{n}\right)\left(\sum_{m=0}^{\infty}\frac{{z^*}^m}{\sqrt{m!}}\bra{m}\right)\ee^{-r^2}\notag \\
+            &=\int\frac{\dd{r}\d{\theta}}{\pi}\, r\sum_{n=0}^{\infty}\sum_{m=0}^{\infty}\frac{r^{n+m}\ee^{(n-m)\ii\theta}}{\sqrt{n!m!}}\ket{n}\bra{m}\ee^{-r^2}\notag \\
+            &=\sum_{n=0}^{\infty}\sum_{m=0}^{\infty}\frac{1}{\pi\sqrt{n!m!}}\ket{n}\bra{m}\int\dd{r}r^{n+m+1}\ee^{-r^2}\int_{0}^{2\pi}\dd{\theta}\ee^{(n-m)\ii\theta}\notag\\
+            &=\sum_{n=0}^{\infty}\sum_{m=0}^{\infty}\frac{1}{\pi\sqrt{n!m!}}\ket{n}\bra{m}\int\dd{r}r^{n+m+1}\ee^{-r^2}2\pi\delta_{mn}\notag \\
+            &=\sum_{n=0}^{\infty}\frac{1}{n!}\ket{n}\bra{n}\int_{0}^{\infty}\dd{r} 2r^{2n+1}\ee^{-r^2}\notag\\
+            &=\sum_{n=0}^{\infty}\ket{n}\bra{n}=\hat{I}\,.
+        \end{align}\qed
+    \end{proof}
+
+    Suppose there is an operator built up from the raising and lowering operators,
+    \begin{equation}
+        \hat{X}\equiv X(\rai,\low)\,,
+    \end{equation}
+    we define the \textit{normal ordering} of the operator to be the same operator with all the raising operators pushed to the left, and the lowering operator pushed to the right. It is denoted as \(\nord{\hat{X}}\). For example, if \(\hat{X}=\rai\low\low\rai\), then
+    \begin{equation}
+        \nord{\hat{X}}=\rai\rai\low\low\,.
+    \end{equation}
+    The difference between \(\nord{\hat{X}}\) and \(\hat{X}\) can be easily worked out by the commutator of \(\rai\) and \(\low\). This is a particularly useful concept in quantum field theory. The benefit of defining this here is that by (\ref{lower_coherent_state}) and (\ref{lower_coherent_dagger}), we can easily evaluate the matrix element of a normally ordered operator in the coherent states basis by associating all the \(\rai\) to the bra and all the \(\low\) to the ket, and therefore
+    \begin{equation}
+        \mel{z_2}{\nord{X(\rai,\low)}}{z_1}=X(z_2^*,z_1)\braket{z_2}{z_1}=X(z_2^*,z_1)\ee^{z_2^* z_1}\,.
+    \end{equation}
+    In particular, the Hamiltonian we introduced is already normally ordered, so
+    \begin{equation}
+        \mel{z_2}{H(\rai,\low)}{z_1}=H(z_2^*,z_1)\ee^{z_2^* z_1}=\hbar\omega z_2^* z_1\ee^{z_2^* z_1}\,.
+    \end{equation}
+
+    A surprisingly nice property of the coherent state is that it remains coherent over time, just evolving to a state with different label.
+    \begin{prop}\label[prop]{coherent_state_evolution}
+        \begin{equation}
+            \hat{U}(t,0)\ket{z}=\ket{z\ee^{-\ii\omega t}}\,.
+        \end{equation}
+    \end{prop}
+    \begin{proof}
+        We have
+        \begin{align}
+            \hat{U}(t)\ket{z}&=\hat{U}(t)\exp[\rai z]\hat{U}^\dagger(t)\hat{U}(t)\ket{0}\notag \\
+            &=\exp\left[\hat{U}(t)\rai\hat{U}^\dagger(t) z\right]\hat{U}(t)\ket{0}\,.
+        \end{align}
+        We have
+        \begin{equation}
+            \hat{U}(t)\rai\hat{U}^\dagger(t)=\hat{U}^\dagger(-t)\rai\hat{U}(-t)=\rai_{\text{H}}(-t)\,,
+        \end{equation}
+        where \(\rai_{\text{H}}\) is the raising operator in the Heisenberg picture. By the Heisenberg equation of motion, we have
+        \begin{equation}
+            \dv{\rai_{\text{H}}}{t}=\frac{\ii}{\hbar}[\hat{H},\rai_{\text{H}}]=+\ii\omega\rai_{\text{H}}\,,
+        \end{equation}
+        so
+        \begin{equation}
+            \rai_{\text{H}}(-t)=\rai_{\text{H}}(0)\ee^{+\ii\omega(-t)}=\rai\ee^{-\ii\omega t}\,.
+        \end{equation}
+        Therefore,
+        \begin{equation}
+            \hat{U}(t)\ket{z}=\exp[\rai\ee^{-\ii\omega t}z]\hat{U}(t)\ket{0}\,.
+        \end{equation}
+        Since we have removed the zero point energy in our definition of the Hamiltonian,
+        \begin{equation}
+            \hat{U}(t)\ket{0}=\ee^{-\ii\hat{H}t/\hbar}\ket{0}=\ket{0}\,,
+        \end{equation}
+        so we get
+        \begin{equation}
+            \hat{U}(t)\ket{z}=\exp[\rai \ee^{-\ii\omega t}z]\ket{0}=\ket{z\ee^{-\ii\omega t}}
+        \end{equation}
+        as claimed.\qed
+    \end{proof}
+
+    \subsection{Propagator in Coherent State Representation}
+    With \cref{coherent_state_evolution}, the propagator in the coherent state representation is easy to evaluate:
+    \begin{align}
+        U(z_N,t;z_0,0)&=\mel{z_N}{\hat{U}(t,0)}{z_0}\notag\\
+        &=\braket{z_N}{z_0\ee^{-\ii\omega t}}\notag\\
+        &=\exp[z_N^* z_0 \ee^{-\ii\omega t}]\,.
+    \end{align}
+
+    But instead, we are interested in the path integral formulation of the propagator. Again, we split the propagator into \(N\to\infty\) parts and insert identity operators (\ref{coherent_identity}) between each slice. Again, denoting \(\epsilon=t/N\), we get
+    \begin{align}
+        U(z_N,t;z_0,0)&=\lim_{N\to\infty}\mel{z_N}{\hat{U}(\epsilon)^N}{z_0}\notag \\
+        &=\lim_{N\to\infty}\int\prod_{k=1}^{N-1} \frac{\dd{z}\d{z^*}}{2\pi\ii}\, \ee^{-z_k^* z_k} \prod_{n=1}^{N}\mel{z_n}{\hat{U}(\epsilon)}{z_{n-1}}\notag\\
+        &=\underbrace{\lim_{N\to\infty}\int\prod_{k=1}^{N-1} \frac{\dd{z}\d{z^*}}{2\pi\ii}}_{\int\DD{z}\D{z^*}}\, \ee^{z_0^* z_0} \prod_{n=1}^{N}\ee^{-z_{n-1}^* z_{n-1}}\mel{z_n}{\exp\left(-\frac{\ii\epsilon}{\hbar}\hat{H}\right)}{z_{n-1}}\,.
+    \end{align}
+    where in the last step, by moving product of \(\ee^{-z_k^* z_k}\) for \(1\le k\le N-1\) to the product of \(\ee^{-z_{n-1}^* z_{n-1}}\) for \(1\le n\le N\), we have multiplied an extra \(\ee^{-z_0^* z_0}\) so we are dividing it outside the products. Again, we can interpret the integral as a path integral over all possible \(z\) and \(z^*\) values with appropriate normalisation, so we write
+    \begin{equation}
+        U=\int\DD{z}\DD{z^*}\ee^{z_0^* z_0}\prod_{n=1}^{N}\ee^{-z_{n-1}^* z_{n-1}}\mel{z_n}{\exp\left(-\frac{\ii\epsilon}{\hbar}\hat{H}\right)}{z_{n-1}}\,.
+    \end{equation}
+
+    We can expand the exponential as
+    \begin{equation}
+        \exp\left(-\frac{\ii\epsilon}{\hbar}\hat{H}\right)=\hat{I}-\frac{\ii\epsilon}{\hbar}\hat{H}+O(\epsilon^2)\,,
+    \end{equation}
+    where the higher order infinitesimals can be ignored so
+    \begin{align}
+        \mel{z_n}{\exp\left(-\frac{\ii\epsilon}{\hbar}\hat{H}\right)}{z_{n-1}}&=\mel{z_n}{\hat{I}-\frac{\ii\epsilon}{\hbar}\hat{H}}{z_{n-1}}\notag \\
+        &=\braket{z_n}{z_{n-1}}-\frac{\ii\epsilon}{\hbar}\mel{z_n}{H(\rai,\low)}{z_{n-1}}\notag \\
+        &=\left[\hat{I}-\frac{\ii\epsilon}{\hbar}H(z_n^*,z_{n-1})\right]\braket{z_n}{z_{n-1}}\notag \\
+        &=\left[\hat{I}-\frac{\ii\epsilon}{\hbar}H(z_n^*,z_{n-1})\right]\ee^{z_n^* z_{n-1}}\notag \\
+        &=\exp\left[-\frac{\ii\epsilon}{\hbar}H(z_n^*,z_{n-1})\right]\ee^{z_n^* z_{n-1}}
+    \end{align}
+    in the \(N\to\infty\) limit. Therefore the propagator is
+    \begin{align}
+        U&=\lim_{N\to\infty}\int\DD{z}\DD{z^*} \ee^{z_0^* z_0}\prod_{n=1}^{N}\exp\left[-\frac{\ii\epsilon}{\hbar}H(z_n^*,z_{n-1})\right]\ee^{z_n^* z_{n-1}}\ee^{-z_{n-1}^* z_{n-1}}\notag \\
+        &=\lim_{N\to\infty}\int\DD{z}\DD{z^*}\exp\left[-\frac{\ii}{\hbar}\epsilon\sum_{n=1}^{N}H(z_n^*,z_{n-1})\right]\exp\left[z_0^* z_0+\sum_{n=1}^{N}(z_n^* z_{n-1} - z_{n-1}^* z_{n-1})\right]\,.
+    \end{align}
+
+    Let's consider each exponential in turn. The sum in the first exponent, in the continuum limit, becomes an integral, so
+    \begin{equation}
+        \lim_{N\to\infty}\exp\left[-\frac{\ii}{\hbar}\epsilon\sum_{n=1}^{N}H(z_n^*,z_{n-1})\right]=\exp\left[-\frac{\ii}{\hbar}\int_{0}^{t}\dd{t'}H(z^*,z)\right]\,.
+    \end{equation}
+
+    We have two ways to write the second exponential. In the first way, we have
+    \begin{align}
+        \lim_{N\to\infty}\exp\left[z_0^* z_0+\sum_{n=1}^{N}(z_n^* z_{n-1} - z_{n-1}^* z_{n-1})\right] &= \lim_{N\to\infty}\exp\left[z_0^* z_0+\sum_{n=1}^{N}(z_n^* - z_{n-1}^*) z_{n-1}\right] \notag \\
+        &=\lim_{N\to\infty}\exp\left[z_0^* z_0+\sum_{n=1}^{N}\epsilon\dv{z(t_n)^*}{t} z(t_n)\right] \notag \\
+        &=\exp\left[z^*(0)z(0)+\int_{0}^{t}\dd{t'}\dv{z^*}{t'} z\right]
+    \end{align}
+    in the continuum limit. However, we can rearrange this sum and get
+    \begin{align}
+        \lim_{N\to\infty}\exp\left[z_0^* z_0+\sum_{n=1}^{N}(z_n^* z_{n-1} - z_{n-1}^* z_{n-1})\right] &=\lim_{N\to\infty}\exp\left[z_N^* z_N+\sum_{n=1}^{N}(-z_n^* z_{n} + z_{n}^* z_{n-1})\right]\notag \\
+        &=\lim_{N\to\infty}\exp\left[z_N^* z_N+\sum_{n=1}^{N}(z_{n} - z_{n-1}) z_{n}^* \right]\notag \\
+        &=\lim_{N\to\infty}\exp\left[z_N^* z_N - \epsilon\sum_{n=1}^{N}\dv{z(t_n)}{t}z^*(t_n)\right]\notag \\
+        &=\exp\left[z^*(t)z(t)-\int_{0}^{t}\dd{t'}\dv{z}{t'} z^*\right]\,.
+    \end{align}
+    We can proceed with either one of the two form, but we can also use a symmetric form
+    \begin{equation}
+        \exp\left[\frac{z^*(0) z(0) + z^*(t) z(t)}{2}+\frac{\ii}{\hbar}\int_{0}^{t}\dd{t'}\frac{\ii\hbar}{2}\left(z^*\dv{z}{t'}-\dv{z^*}{t'}z\right)\right]\,.
+    \end{equation}
+
+    Combining the results, we get the coherent state path integral in the symmetric form
+    \begin{equation}
+        U=\int\DD{z}\DD{z^*}\exp\left[\frac{z^*(t)z(t)+z^*(0)z(0)}{2}+\frac{\ii}{\hbar}\int_{0}^{t}\dd{t'}\left[\frac{\ii\hbar}{2}\left(z^*\dv{z}{t'}-\dv{z^*}{t}z\right)-H(z^*,z)\right]\right]\,,
+    \end{equation}
+    or we may simply use one of the asymmetric form, say
+    \begin{equation}
+        U=\int\DD{z}\DD{z^*}\exp\left[z^*(t) z(t)+\frac{\ii}{\hbar}\int_0^t\dd{t'} \left[\ii\hbar z^*\dv{z}{t}-H(z^*,z)\right]\right]\,.
+    \end{equation}
+
+    
+
+    \section{Imaginary Time Path Integral}
+
+
+\end{document}

@@ -1,0 +1,20 @@
+\contentsline {section}{\numberline {1}Surfaces and Interfaces}{1}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Surface Tension and Surface Free Energy}{1}{subsection.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1}Measurement of Surface Tension}{3}{subsubsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.2}Contact Angle}{3}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}Rough Surfaces}{4}{subsubsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.3}Calculation of Free Energies of Interfaces}{5}{subsection.1.3}%
+\contentsline {subsubsection}{\numberline {1.3.1}Owens--Wendt Method}{5}{subsubsection.1.3.1}%
+\contentsline {subsubsection}{\numberline {1.3.2}Good-van Oss-Chaudhury Theory}{6}{subsubsection.1.3.2}%
+\contentsline {section}{\numberline {2}Surface Measurement Techniques I}{7}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Vibrational Spectroscopy}{7}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Reflection Absorption Infra-Red Spectroscopy}{7}{subsubsection.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.2}Attenuated Total Internal Reflection Infra-Red Spectroscopy}{11}{subsubsection.2.1.2}%
+\contentsline {subsubsection}{\numberline {2.1.3}Sum Frequency Generation Spectroscopy}{12}{subsubsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.2}Energy Dispersive X-ray Analysis}{13}{subsection.2.2}%
+\contentsline {section}{\numberline {3}Colloid and Curved Surfaces}{15}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Young--Laplace Equation}{15}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Non-Spherical Surfaces}{16}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}Capillary Rise}{17}{subsubsection.3.1.2}%
+\contentsline {section}{\numberline {4}Surfactants}{18}{section.4}%
+\contentsline {section}{\numberline {5}Surface Measurement Techniques II}{18}{section.5}%

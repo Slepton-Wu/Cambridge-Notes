@@ -1,0 +1,56 @@
+\documentclass{article}
+
+\usepackage{physics,amsmath,geometry,amsfonts,wrapfig,graphicx,array,makecell,float,enumitem,bm,tikz}
+
+\title{Question 5}
+\author{Yue Wu}
+
+\geometry{a4paper,hmargin=0.8in,vmargin=1in}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+\begin{document}
+    \begin{center}
+        \LARGE\textbf{Post-Lecture Question 5}
+    \end{center}
+
+    \begin{enumerate}
+        \item[(a)]
+        \begin{align*}
+            \beta A(\lambda)&=-\ln Q(\lambda)\\
+            &=\ln(\Lambda^{3N} N!)-\ln\int\prod_{i=1}^{N}\dd{\vb{r}_i}\exp(-\beta U(\{\vb{r}_i\};\lambda))
+        \end{align*}
+        \item[(b)]
+        \begin{align*}
+            \qty(\pdv{A}{\lambda})_{N,V,T}&=-\frac{1}{\beta}\pdv{\lambda}\ln\int\prod_{i=1}^{N}\dd{\vb{r}_i}\exp(-\beta U(\{\vb{r}_i\};\lambda))\\
+            &=-\frac{\int\prod_{i=1}^{N}\dd{\vb{r}_i}\pdv{\lambda}\exp(-\beta U(\{\vb{r}_i\};\lambda))}{\beta\int\prod_{i=1}^{N}\dd{\vb{r}_i}\exp(-\beta U(\{\vb{r}_i\};\lambda))}\\
+            &=\frac{\int\prod_{i=1}^{N}\dd{\vb{r}_i}\pdv{U(\{\vb{r}_i\};\lambda)}{\lambda}\exp(-\beta U(\{\vb{r}_i\};\lambda))}{\beta\int\prod_{i=1}^{N}\dd{\vb{r}_i}\exp(-\beta U(\{\vb{r}_i\};\lambda))}\\
+            &=\expval{\qty(\pdv{U}{\lambda})_{N,V,T}}_\lambda
+        \end{align*}
+        \item[(c)]
+        \begin{align*}
+            A_1-A_0&=\int_{0}^{1}\dd{\lambda}\qty(\pdv{A}{\lambda})_{N,V,T}\\
+            &=\int_{0}^{1}\dd{\lambda}\expval{\qty(\pdv{U}{\lambda})_{N,V,T}}_\lambda\\
+            &=\int_{0}^{1}\dd{\lambda}\expval{-2(1-\lambda)U_0+2\lambda U_1}_\lambda
+        \end{align*}
+        \item[(d)]
+        \begin{align*}
+            \qty(\pdv[2]{A}{\lambda})_{N,V,T}&=\qty(\pdv{\lambda})_{N,V,T}\qty[\frac{\int\prod_{i=1}^{N}\dd{\vb{r}_i}\pdv{U}{\lambda}\exp(-\beta U(\{\vb{r}_i\};\lambda))}{\int\prod_{i=1}^{N}\dd{\vb{r}_i}\exp(-\beta U(\{\vb{r}_i\};\lambda))}]\\
+            &=\frac{1}{\qty[\int\prod_{i=1}^{N}\dd{\vb{r}_i}\exp(-\beta U)]^2}\left[\qty(\int\prod_{i=1}^{N}\dd{\vb{r}_i}\pdv[2]{U}{\lambda}\exp(-\beta U)-\beta\int\prod_{i=1}^{N}\dd{\vb{r}_i}\qty(\pdv{U}{\lambda})^2\exp(-\beta U))\right.\\
+            &\quad\left.\int\prod_{i=1}^{N}\dd{\vb{r}_i}\exp(-\beta U)+\beta\qty(\int\prod_{i=1}^{N}\dd{\vb{r}_i}\exp(-\beta U))^2\right]\\
+            &=\frac{\int\prod_{i=1}^{N}\dd{\vb{r}_i}\pdv[2]{U}{\lambda}\exp(-\beta U)}{\int\prod_{i=1}^{N}\dd{\vb{r}_i}\exp(-\beta U)}-\beta\frac{\int\prod_{i=1}^{N}\dd{\vb{r}_i}\qty(\pdv{U}{\lambda})^2\exp(-\beta U)}{\int\prod_{i=1}^{N}\dd{\vb{r}_i}\exp(-\beta U)}+\beta\qty[\frac{\int\prod_{i=1}^{N}\dd{\vb{r}_i}\pdv{U}{\lambda}\exp(-\beta U)}{\int\prod_{i=1}^{N}\dd{\vb{r}_i}\exp(-\beta U)}]^2\\
+            &=\expval{\pdv[2]{U}{\lambda}}_\lambda-\beta\expval{\qty[\qty(\pdv{U}{\lambda})_{N,V,T}]^2}_\lambda+\beta\expval{\qty(\pdv{U}{\lambda})_{N,V,T}}^2_\lambda
+        \end{align*}
+        $$\expval{\pdv[2]{U}{\lambda}}_\lambda=\expval{2U_0+2U_1}_\lambda$$
+        $$\expval{\qty[\qty(\pdv{U}{\lambda})_{N,V,T}]^2}_\lambda=\expval{(-2(1-\lambda)U_0+2\lambda U_1)^2}_\lambda$$
+        $$\expval{\qty(\pdv{U}{\lambda})_{N,V,T}}^2_\lambda=\expval{-2(1-\lambda)U_0+2\lambda U_1}^2_\lambda$$
+        \item[(e)]
+        \begin{align*}
+            \pdv[2]{A}{\lambda}&=\expval{\pdv[2]{U}{\lambda}}_\lambda-\beta\qty[\expval{\qty[\qty(\pdv{U}{\lambda})_{N,V,T}]^2}_\lambda-\beta\expval{\qty(\pdv{U}{\lambda})_{N,V,T}}^2_\lambda]\\
+            &=\expval{\pdv[2]{U}{\lambda}}_\lambda-\beta\sigma^2\qty(\qty(\pdv{U}{\lambda})_{N,V,T})\,,
+        \end{align*}
+        where the latter term is non-negative, while the former term has unknown sign. The Gibbs-Bogoliubov inequality does not hold.
+    \end{enumerate}
+
+\end{document}

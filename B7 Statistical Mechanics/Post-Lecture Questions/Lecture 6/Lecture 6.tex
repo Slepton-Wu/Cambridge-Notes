@@ -1,0 +1,70 @@
+\documentclass{article}
+
+\usepackage{physics,amsmath,geometry,amsfonts,wrapfig,graphicx,array,makecell,float,enumitem,bm,tikz}
+
+\title{Question 6}
+\author{Yue Wu}
+
+\geometry{a4paper,hmargin=1.1in,vmargin=1.2in}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+\begin{document}
+    \begin{center}
+        \LARGE\textbf{Post-Lecture Question 6}
+    \end{center}
+
+    \begin{enumerate}
+        \item[(a)]
+        \begin{align*}
+            \qty(\pdv{P}{V})_T&=\frac{2aN^2}{V^3}-\frac{Nk_BT}{(V-Nb)^2}=0\\
+            \qty(\pdv[2]{P}{V})_T&=-\frac{6aN^2}{V^4}+\frac{2Nk_BT}{(V-Nb)^3}=0
+        \end{align*}
+        $$\left\{\begin{aligned}
+            2aN^2(V_c-Nb)^2=V^3Nk_BT_c & \qquad\qquad (1)\\
+            3aN^2(V_c-Nb)^3=V^4Nk_BT_c & \qquad\qquad (2)
+        \end{aligned}\right.$$
+        \begin{align*}
+            \frac{(2)}{(1)}\quad\Rightarrow\quad V_c&=\frac{3}{2}(V_c-Nb)\\
+            V_c&=3Nb
+        \end{align*}
+        $$(1)\quad\Rightarrow\quad 2aN^2\cdot(2Nb)^2=(3Nb)^3Nk_BT_c$$
+        $$k_BT_c=\frac{8a}{27b}$$
+        \begin{align*}
+            P_c&=-\frac{aN^2}{V_c^2}+\frac{Nk_BT_c}{V_c-Nb}\\
+            &=\frac{a}{27b^2}
+        \end{align*}
+        \item[(b)]
+        \begin{align*}
+            P_r=\frac{P}{T_c}&=\frac{27b^2}{a}\qty[-a\frac{N^2}{V_c^2V_r^2}+\frac{Nk_BT_rT_c}{(V_rV_c-Nb)}]\\
+            &=-\frac{3}{V_r^2}+\frac{8T_r}{3V_r-1}
+        \end{align*}
+        \item[(c)]$\,$
+        
+        \begin{center}
+            \hfill\tikz{
+                \draw[->](-0.2,0) -- (5,0) node[right]{$V_r$};
+                \draw[->](0,-2) -- (0,4) node[above]{$P_r$};
+                \draw[dashed](0.33,-2) -- (0.33,4);
+                \draw[thick, dotted,domain=1.2:5, smooth, variable=\x] plot ({\x}, {-3/(\x*\x)});
+                \draw[thick, dotted,domain=1.1:5, smooth, variable=\x] plot ({\x}, {9.6/(3*\x-1)});
+                \draw[domain=0.59:5,,samples=100, smooth, variable=\x] plot ({\x}, {-3/(\x*\x)+ 9.6/(3*\x -1)});
+                \node at (4,1.5){$\frac{8T_r}{3V_r-1}$};
+                \node at (3.5,-0.7){$-\frac{3}{V_r^2}$};
+                \node at (2.6,-2.7){(a) $T_r>1$}
+            }\hfill\tikz{
+                \draw[->](-0.2,0) -- (5,0) node[right]{$V_r$};
+                \draw[->](0,-2) -- (0,4) node[above]{$P_r$};
+                \draw[dashed](0.33,-2) -- (0.33,4);
+                \draw[thick, dotted,domain=1.2:5, smooth, variable=\x] plot ({\x}, {-3/(\x*\x)});
+                \draw[thick, dotted,domain=0.9:5, smooth, variable=\x] plot ({\x}, {6.8/(3*\x-1)});
+                \draw[domain=0.46:5,,samples=100, smooth, variable=\x] plot ({\x}, {-3/(\x*\x)+ 6.8/(3*\x -1)});
+                \node at (4,1.5){$\frac{8T_r}{3V_r-1}$};
+                \node at (3.5,-0.7){$-\frac{3}{V_r^2}$};
+                \node at (2.6,-2.7){(b) $T_r<1$}
+            }$\qquad$
+        \end{center}
+    \end{enumerate}
+
+\end{document}

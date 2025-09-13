@@ -1,0 +1,85 @@
+\contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
+\contentsline {section}{\numberline {2}Hilbert Space}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Definition of Hilbert Spaces}{3}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Examples}{4}{subsubsection.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.2}Dual Spaces}{6}{subsubsection.2.1.2}%
+\contentsline {subsubsection}{\numberline {2.1.3}Dirac Notation and Continuum States}{6}{subsubsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.2}Operators}{8}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Composite Systems}{11}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Tensor Product of Hilbert Spaces}{11}{subsubsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.4}Postulates of Quantum Mechanics}{14}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}The Generalised Uncertainty Principle}{17}{subsubsection.2.4.1}%
+\contentsline {section}{\numberline {3}The Harmonic Oscillator}{18}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Raising and Lowering Operators}{18}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Dynamics of Oscillators}{20}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Anharmonic Oscillations}{22}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Transformations and Symmetries}{24}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Transformations of States and Operations}{24}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Translations}{26}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Rotations}{29}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}Translations Around a Circle}{33}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}Spin}{33}{subsubsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.4}Time Translations}{35}{subsection.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.1}The Heisenberg Picture}{36}{subsubsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.5}Dynamics}{37}{subsection.4.5}%
+\contentsline {subsubsection}{\numberline {4.5.1}Symmetries and Conservation Laws}{38}{subsubsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.6}Parity}{39}{subsection.4.6}%
+\contentsline {section}{\numberline {5}Angular Momentum}{43}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Angular Momentum Eigenstates}{43}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Rotations and Orientations}{45}{subsection.5.2}%
+\contentsline {subsubsection}{\numberline {5.2.1}Rotations of Diatomic Molecules}{46}{subsubsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.3}Spin}{48}{subsection.5.3}%
+\contentsline {subsubsection}{\numberline {5.3.1}Large Rotations}{48}{subsubsection.5.3.1}%
+\contentsline {subsubsection}{\numberline {5.3.2}The Stern--Gerlach Experiment}{49}{subsubsection.5.3.2}%
+\contentsline {subsubsection}{\numberline {5.3.3}Spinors and Projective Representation (Non-examinable)}{50}{subsubsection.5.3.3}%
+\contentsline {subsubsection}{\numberline {5.3.4}Spin Matrices}{53}{subsubsection.5.3.4}%
+\contentsline {subsubsection}{\numberline {5.3.5}Paramagnetic Resonance and MRI Scanners}{55}{subsubsection.5.3.5}%
+\contentsline {subsection}{\numberline {5.4}Orbital Angular Momentum}{57}{subsection.5.4}%
+\contentsline {subsubsection}{\numberline {5.4.1}Spherical Harmonics}{57}{subsubsection.5.4.1}%
+\contentsline {section}{\numberline {6}Addition of Angular Momentum}{60}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Combining the Angular Momenta of Two States}{60}{subsection.6.1}%
+\contentsline {subsubsection}{\numberline {6.1.1}\(\bm {j\otimes 0=j}\)}{63}{subsubsection.6.1.1}%
+\contentsline {subsubsection}{\numberline {6.1.2}\(\bm {\frac {1}{2}\otimes \frac {1}{2}=1\oplus 0}\)}{63}{subsubsection.6.1.2}%
+\contentsline {subsubsection}{\numberline {6.1.3}\(\bm {1\otimes \frac {1}{2}=\frac {3}{2}\otimes \frac {1}{2}}\)}{64}{subsubsection.6.1.3}%
+\contentsline {subsubsection}{\numberline {6.1.4}The Classical Limit}{65}{subsubsection.6.1.4}%
+\contentsline {subsection}{\numberline {6.2}Angular Momentum of Operators}{65}{subsection.6.2}%
+\contentsline {subsubsection}{\numberline {6.2.1}The Wigner--Eckart Theorem and Transition Dipole Moment}{66}{subsubsection.6.2.1}%
+\contentsline {subsubsection}{\numberline {6.2.2}The Runge--Lenz Vector in Hydrogen}{66}{subsubsection.6.2.2}%
+\contentsline {subsubsection}{\numberline {6.2.3}Enhanced Symmetry of the 3D Isotropic Harmonic Oscillator}{69}{subsubsection.6.2.3}%
+\contentsline {subsection}{\numberline {6.3}The Radial Hamiltonian for the Coulomb Potential}{70}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Angular Momentum of the Isotropic Oscillator}{73}{subsection.6.4}%
+\contentsline {section}{\numberline {7}Identical Particles}{75}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Bosons and Fermions}{75}{subsection.7.1}%
+\contentsline {subsubsection}{\numberline {7.1.1}Pauli's Exclusion Principle}{76}{subsubsection.7.1.1}%
+\contentsline {subsection}{\numberline {7.2}The Periodic Table}{77}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Exchange and Parity in the Centre of Momentum Frame}{79}{subsection.7.3}%
+\contentsline {subsubsection}{\numberline {7.3.1}Identical Particles and Inelastic Collisions}{80}{subsubsection.7.3.1}%
+\contentsline {section}{\numberline {8}Perturbation Theory I: Time Independent Case}{83}{section.8}%
+\contentsline {subsection}{\numberline {8.1}An Analytic Expansion}{83}{subsection.8.1}%
+\contentsline {subsubsection}{\numberline {8.1.1}Fine Structure of Hydrogen}{85}{subsubsection.8.1.1}%
+\contentsline {subsubsection}{\numberline {8.1.2}Hyperfine Structure of Hydrogen}{89}{subsubsection.8.1.2}%
+\contentsline {subsubsection}{\numberline {8.1.3}The Ground State of Helium}{90}{subsubsection.8.1.3}%
+\contentsline {subsubsection}{\numberline {8.1.4}The Quadratic Stark Effect}{91}{subsubsection.8.1.4}%
+\contentsline {subsection}{\numberline {8.2}Degenerate Perturbation Theory}{93}{subsection.8.2}%
+\contentsline {subsubsection}{\numberline {8.2.1}The Linear Stark Effect}{95}{subsubsection.8.2.1}%
+\contentsline {subsection}{\numberline {8.3}Does Perturbation Theory Converge?}{96}{subsection.8.3}%
+\contentsline {section}{\numberline {9}Perturbation Theory II: Time Dependent Case}{99}{section.9}%
+\contentsline {subsection}{\numberline {9.1}The Interaction Picture}{99}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Prodding the Harmonic Oscillator}{101}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}A Constant Perturbation Turned On at \(\bm {t=0}\)}{102}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}Fermi's Golden Rule}{103}{subsection.9.4}%
+\contentsline {subsubsection}{\numberline {9.4.1}The Photoelectric Effect}{105}{subsubsection.9.4.1}%
+\contentsline {subsubsection}{\numberline {9.4.2}Absorption and Stimulated Emission}{107}{subsubsection.9.4.2}%
+\contentsline {subsubsection}{\numberline {9.4.3}Spontaneous Emission}{109}{subsubsection.9.4.3}%
+\contentsline {section}{\numberline {10}Interpreting Quantum Mechanics}{112}{section.10}%
+\contentsline {subsection}{\numberline {10.1}The Density Operator}{112}{subsection.10.1}%
+\contentsline {subsubsection}{\numberline {10.1.1}The Bloch Sphere}{113}{subsubsection.10.1.1}%
+\contentsline {subsection}{\numberline {10.2}Entropy}{114}{subsection.10.2}%
+\contentsline {subsubsection}{\numberline {10.2.1}The Gibbs Distribution}{116}{subsubsection.10.2.1}%
+\contentsline {subsection}{\numberline {10.3}Reduced Density Operators}{116}{subsection.10.3}%
+\contentsline {subsection}{\numberline {10.4}Decoherence}{117}{subsection.10.4}%
+\contentsline {subsubsection}{\numberline {10.4.1}Time Evolution of Density Operators and Reduced Density Operators}{118}{subsubsection.10.4.1}%
+\contentsline {subsubsection}{\numberline {10.4.2}Decoherence and Measurement}{119}{subsubsection.10.4.2}%
+\contentsline {subsection}{\numberline {10.5}Quantum Mechanics or Hidden Variables}{121}{subsection.10.5}%
+\contentsline {subsubsection}{\numberline {10.5.1}Bell's Inequality}{122}{subsubsection.10.5.1}%
+\contentsline {subsubsection}{\numberline {10.5.2}The CHSH Inequality}{123}{subsubsection.10.5.2}%

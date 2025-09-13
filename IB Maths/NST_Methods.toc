@@ -1,0 +1,341 @@
+\contentsline {section}{\numberline {0}Assumed Knowledge}{1}{section.0}%
+\contentsline {subsection}{\numberline {0.1}Numbers and Sets}{1}{subsection.0.1}%
+\contentsline {subsection}{\numberline {0.2}Functions}{1}{subsection.0.2}%
+\contentsline {subsection}{\numberline {0.3}Calculus}{2}{subsection.0.3}%
+\contentsline {subsection}{\numberline {0.4}Vectors}{3}{subsection.0.4}%
+\contentsline {subsection}{\numberline {0.5}Vector Calculus}{3}{subsection.0.5}%
+\contentsline {subsubsection}{\numberline {0.5.1}Line Integral}{3}{subsubsection.0.5.1}%
+\contentsline {subsubsection}{\numberline {0.5.2}Multiple Integral}{4}{subsubsection.0.5.2}%
+\contentsline {subsubsection}{\numberline {0.5.3}Surface Integral}{4}{subsubsection.0.5.3}%
+\contentsline {subsection}{\numberline {0.6}Fourier Series}{4}{subsection.0.6}%
+\contentsline {section}{\numberline {1}Vector Calculus}{6}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Vectors and Basis}{6}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Suffix Notation}{7}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}Summation Convention}{7}{subsubsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2}Kronecker Delta and Levi--Civita Symbol}{8}{subsubsection.1.2.2}%
+\contentsline {subsubsection}{\numberline {1.2.3}Cauchy--Schwarz Inequality}{9}{subsubsection.1.2.3}%
+\contentsline {subsection}{\numberline {1.3}Vector Calculus in Cartesian Coordinates}{10}{subsection.1.3}%
+\contentsline {subsubsection}{\numberline {1.3.1}Gradient and Directional Derivative}{10}{subsubsection.1.3.1}%
+\contentsline {subsubsection}{\numberline {1.3.2}Divergence and Curl}{10}{subsubsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.4}Second-order Vector Differential Operators}{11}{subsection.1.4}%
+\contentsline {subsubsection}{\numberline {1.4.1}Curl Grad and Div Curl}{11}{subsubsection.1.4.1}%
+\contentsline {subsubsection}{\numberline {1.4.2}Laplacian}{13}{subsubsection.1.4.2}%
+\contentsline {subsection}{\numberline {1.5}Integral Theorems}{13}{subsection.1.5}%
+\contentsline {subsubsection}{\numberline {1.5.1}The Divergence Theorem (Gauss' Theorem)}{13}{subsubsection.1.5.1}%
+\contentsline {subsubsection}{\numberline {1.5.2}Stokes' Theorem}{15}{subsubsection.1.5.2}%
+\contentsline {subsubsection}{\numberline {1.5.3}Alternative Interpretation of Divergence and Curl}{16}{subsubsection.1.5.3}%
+\contentsline {subsection}{\numberline {1.6}Coordinate Systems}{17}{subsection.1.6}%
+\contentsline {subsubsection}{\numberline {1.6.1}The Jacobian}{17}{subsubsection.1.6.1}%
+\contentsline {subsection}{\numberline {1.7}Orthogonal Curvilinear Coordinates}{18}{subsection.1.7}%
+\contentsline {subsubsection}{\numberline {1.7.1}Orthogonality}{18}{subsubsection.1.7.1}%
+\contentsline {subsubsection}{\numberline {1.7.2}Relationship between Coordinates}{19}{subsubsection.1.7.2}%
+\contentsline {subsubsection}{\numberline {1.7.3}Spherical Polar Coordinates}{19}{subsubsection.1.7.3}%
+\contentsline {subsubsection}{\numberline {1.7.4}Cylindrical Polar Coordinates}{20}{subsubsection.1.7.4}%
+\contentsline {subsubsection}{\numberline {1.7.5}Volume and Surface Elements}{20}{subsubsection.1.7.5}%
+\contentsline {subsubsection}{\numberline {1.7.6}Gradient in Orthogonal Curvilinear Coordinates}{20}{subsubsection.1.7.6}%
+\contentsline {subsubsection}{\numberline {1.7.7}Divergence and Curl in Orthogonal Curvilinear Coordinates}{21}{subsubsection.1.7.7}%
+\contentsline {subsubsection}{\numberline {1.7.8}Laplacian in Orthogonal Curvilinear Coordinates}{23}{subsubsection.1.7.8}%
+\contentsline {section}{\numberline {2}Green's Functions}{24}{section.2}%
+\contentsline {subsection}{\numberline {2.1}The Dirac Delta Function}{24}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Definition as Limit of Sequences}{24}{subsubsection.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.2}Properties}{25}{subsubsection.2.1.2}%
+\contentsline {subsubsection}{\numberline {2.1.3}Alternative Definition of the Dirac Delta Function}{26}{subsubsection.2.1.3}%
+\contentsline {subsubsection}{\numberline {2.1.4}Derivative of the Delta Function}{26}{subsubsection.2.1.4}%
+\contentsline {subsection}{\numberline {2.2}The Heaviside Step Function}{26}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Properties}{26}{subsubsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.3}Formal Theory of Distributions (Non-examinable)}{27}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Distributions}{27}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}Differentiation of Distributions}{28}{subsubsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.4}Second-order Linear Ordinary Differential Equations}{29}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Homogeneous Second-order ODEs}{29}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}Inhomogeneous Second-order ODEs}{29}{subsubsection.2.4.2}%
+\contentsline {subsubsection}{\numberline {2.4.3}The Wronskian}{29}{subsubsection.2.4.3}%
+\contentsline {subsubsection}{\numberline {2.4.4}Initial-value and Boundary-value Problems}{30}{subsubsection.2.4.4}%
+\contentsline {subsection}{\numberline {2.5}Differential Equations Containing Delta Functions}{30}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Green's Functions}{31}{subsection.2.6}%
+\contentsline {subsubsection}{\numberline {2.6.1}The Green's Function for Two-point Homogeneous Boundary-value Problems}{31}{subsubsection.2.6.1}%
+\contentsline {subsubsection}{\numberline {2.6.2}Properties of the Green's Functions}{32}{subsubsection.2.6.2}%
+\contentsline {subsubsection}{\numberline {2.6.3}Construction of the Green's Function}{33}{subsubsection.2.6.3}%
+\contentsline {subsubsection}{\numberline {2.6.4}The Green's Function for Homogeneous Initial-value Problems}{34}{subsubsection.2.6.4}%
+\contentsline {subsubsection}{\numberline {2.6.5}Inhomogeneous Boundary Conditions}{35}{subsubsection.2.6.5}%
+\contentsline {section}{\numberline {3}Fourier Transforms}{36}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Fourier Transforms}{36}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Examples of Fourier Transforms}{36}{subsubsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.2}Fourier Inversion Theorem}{38}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Properties of Fourier Transforms}{39}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Fourier Series}{41}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Convolution}{42}{subsection.3.5}%
+\contentsline {subsubsection}{\numberline {3.5.1}Definition of Convolution}{42}{subsubsection.3.5.1}%
+\contentsline {subsubsection}{\numberline {3.5.2}Interpretation}{42}{subsubsection.3.5.2}%
+\contentsline {subsubsection}{\numberline {3.5.3}The Convolution Theorem}{43}{subsubsection.3.5.3}%
+\contentsline {subsection}{\numberline {3.6}Correlation}{44}{subsection.3.6}%
+\contentsline {subsection}{\numberline {3.7}Parseval's Theorem}{45}{subsection.3.7}%
+\contentsline {subsection}{\numberline {3.8}Solution of Ordinary Differential Equations using Fourier Transforms}{46}{subsection.3.8}%
+\contentsline {section}{\numberline {4}Linear Algebra}{47}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Vector Spaces}{47}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}Span and Linear Independence}{48}{subsubsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}Basis and Dimension}{48}{subsubsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.2}Vector Subspace and Direct Sum (Non-examinable)}{50}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Matrices}{51}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}Linear Maps}{51}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}Matrix Representations of Linear Operators}{51}{subsubsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.3}Transformation Matrices}{53}{subsubsection.4.3.3}%
+\contentsline {subsubsection}{\numberline {4.3.4}Transformation Law for Vector Components}{53}{subsubsection.4.3.4}%
+\contentsline {subsubsection}{\numberline {4.3.5}Transformation of Matrices Representing Linear Maps}{54}{subsubsection.4.3.5}%
+\contentsline {subsection}{\numberline {4.4}Some Definitions of Special Matrices}{55}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Scalar Product}{56}{subsection.4.5}%
+\contentsline {subsubsection}{\numberline {4.5.1}Definition of a Scalar Product}{56}{subsubsection.4.5.1}%
+\contentsline {subsubsection}{\numberline {4.5.2}Some Inequalities}{56}{subsubsection.4.5.2}%
+\contentsline {subsubsection}{\numberline {4.5.3}The Scalar Product in Terms of Components}{57}{subsubsection.4.5.3}%
+\contentsline {subsubsection}{\numberline {4.5.4}Properties of the Metric}{58}{subsubsection.4.5.4}%
+\contentsline {subsubsection}{\numberline {4.5.5}The Gram--Schmidt Process}{58}{subsubsection.4.5.5}%
+\contentsline {subsection}{\numberline {4.6}Eigenvalues, Eigenvectors and Diagonalisation}{59}{subsection.4.6}%
+\contentsline {subsubsection}{\numberline {4.6.1}Similarity Transformation}{60}{subsubsection.4.6.1}%
+\contentsline {subsubsection}{\numberline {4.6.2}Diagonalisation}{61}{subsubsection.4.6.2}%
+\contentsline {subsubsection}{\numberline {4.6.3}Eigenvalues and Eigenvectors of a Hermitian Matrix}{62}{subsubsection.4.6.3}%
+\contentsline {subsubsection}{\numberline {4.6.4}Diagonalisation of Hermitian Matrices}{63}{subsubsection.4.6.4}%
+\contentsline {subsection}{\numberline {4.7}Application of Diagonalisation}{64}{subsection.4.7}%
+\contentsline {subsubsection}{\numberline {4.7.1}Transformation Law for Metrics}{64}{subsubsection.4.7.1}%
+\contentsline {subsubsection}{\numberline {4.7.2}Diagonalisation of the Metric}{64}{subsubsection.4.7.2}%
+\contentsline {subsubsection}{\numberline {4.7.3}Orthonormal Bases}{65}{subsubsection.4.7.3}%
+\contentsline {subsubsection}{\numberline {4.7.4}Transformation between Orthonormal Bases}{65}{subsubsection.4.7.4}%
+\contentsline {subsubsection}{\numberline {4.7.5}Uses of Diagonalisation}{66}{subsubsection.4.7.5}%
+\contentsline {subsubsection}{\numberline {4.7.6}Cayley--Hamilton Theorem (Non-examinable)}{66}{subsubsection.4.7.6}%
+\contentsline {subsection}{\numberline {4.8}Jordan Normal Form (Non-examinable)}{67}{subsection.4.8}%
+\contentsline {subsubsection}{\numberline {4.8.1}Minimal Polynomial}{67}{subsubsection.4.8.1}%
+\contentsline {subsection}{\numberline {4.9}Duality (Non-examinable)}{69}{subsection.4.9}%
+\contentsline {subsubsection}{\numberline {4.9.1}Dual Spaces}{69}{subsubsection.4.9.1}%
+\contentsline {subsubsection}{\numberline {4.9.2}Dual Maps}{71}{subsubsection.4.9.2}%
+\contentsline {subsection}{\numberline {4.10}Forms}{71}{subsection.4.10}%
+\contentsline {subsubsection}{\numberline {4.10.1}Eigenvectors and Principal Axes}{73}{subsubsection.4.10.1}%
+\contentsline {subsubsection}{\numberline {4.10.2}Quadrics and Conics}{74}{subsubsection.4.10.2}%
+\contentsline {subsubsection}{\numberline {4.10.3}The Stationary Properties of the Eigenvalues}{75}{subsubsection.4.10.3}%
+\contentsline {section}{\numberline {5}Elementary Analysis}{78}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Sequences and Limits}{78}{subsection.5.1}%
+\contentsline {subsubsection}{\numberline {5.1.1}Sequences}{78}{subsubsection.5.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.2}Behaviour of sequences}{78}{subsubsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.2}Convergence of Infinite Series}{79}{subsection.5.2}%
+\contentsline {subsubsection}{\numberline {5.2.1}Convergent and Divergent Series}{79}{subsubsection.5.2.1}%
+\contentsline {subsubsection}{\numberline {5.2.2}Absolute and Conditional Convergence}{80}{subsubsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.3}Tests of Convergence}{80}{subsection.5.3}%
+\contentsline {subsubsection}{\numberline {5.3.1}The Comparison Test}{80}{subsubsection.5.3.1}%
+\contentsline {subsubsection}{\numberline {5.3.2}D'Alembert's Ratio Test}{81}{subsubsection.5.3.2}%
+\contentsline {subsubsection}{\numberline {5.3.3}Cauchy's Test}{82}{subsubsection.5.3.3}%
+\contentsline {subsection}{\numberline {5.4}Functions of a Continuous Variable}{82}{subsection.5.4}%
+\contentsline {subsubsection}{\numberline {5.4.1}Limits and Continuity}{82}{subsubsection.5.4.1}%
+\contentsline {subsubsection}{\numberline {5.4.2}The \(O\) Notation}{83}{subsubsection.5.4.2}%
+\contentsline {subsection}{\numberline {5.5}Differentiability}{83}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.6}Taylor's Theorem for Functions of a Real Variable}{84}{subsection.5.6}%
+\contentsline {subsection}{\numberline {5.7}Riemann Integration}{85}{subsection.5.7}%
+\contentsline {subsubsection}{\numberline {5.7.1}Properties of the Riemann Integral}{87}{subsubsection.5.7.1}%
+\contentsline {subsubsection}{\numberline {5.7.2}The Fundamental Theorems of Calculus}{87}{subsubsection.5.7.2}%
+\contentsline {subsubsection}{\numberline {5.7.3}Indefinite and Improper Integrals}{89}{subsubsection.5.7.3}%
+\contentsline {subsection}{\numberline {5.8}Convergence of Functions (Non-examinable)}{89}{subsection.5.8}%
+\contentsline {section}{\numberline {6}Complex Analysis}{93}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Complex Differentiation}{93}{subsection.6.1}%
+\contentsline {subsubsection}{\numberline {6.1.1}The Cauchy--Riemann Equations}{94}{subsubsection.6.1.1}%
+\contentsline {subsubsection}{\numberline {6.1.2}Holomorphic Functions}{94}{subsubsection.6.1.2}%
+\contentsline {subsubsection}{\numberline {6.1.3}Consequences of the Cauchy--Riemann Equations}{95}{subsubsection.6.1.3}%
+\contentsline {subsection}{\numberline {6.2}Power Series of a Complex Variable}{96}{subsection.6.2}%
+\contentsline {subsubsection}{\numberline {6.2.1}Convergence of Power Series}{96}{subsubsection.6.2.1}%
+\contentsline {subsubsection}{\numberline {6.2.2}Determination of the Radius of Convergence}{97}{subsubsection.6.2.2}%
+\contentsline {subsubsection}{\numberline {6.2.3}Holomorphicity of Analytic Functions (Non-examinable)}{98}{subsubsection.6.2.3}%
+\contentsline {subsection}{\numberline {6.3}Contour Integration}{98}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Cauchy--Goursat Theorem}{100}{subsection.6.4}%
+\contentsline {subsubsection}{\numberline {6.4.1}Deforming Contours}{100}{subsubsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.5}Cauchy's Integral Formula}{101}{subsection.6.5}%
+\contentsline {subsection}{\numberline {6.6}Taylor Expansion}{102}{subsection.6.6}%
+\contentsline {subsection}{\numberline {6.7}Analytic Continuation}{103}{subsection.6.7}%
+\contentsline {subsection}{\numberline {6.8}Singularities and the Laurent Expansion}{104}{subsection.6.8}%
+\contentsline {subsubsection}{\numberline {6.8.1}Meromorphic Functions}{107}{subsubsection.6.8.1}%
+\contentsline {subsubsection}{\numberline {6.8.2}Behaviour at Infinity}{107}{subsubsection.6.8.2}%
+\contentsline {section}{\numberline {7}Series Solutions of Ordinary Differential Equations}{108}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Linear Independence and the Wronskian}{108}{subsection.7.1}%
+\contentsline {subsubsection}{\numberline {7.1.1}Linearly Independent Solutions}{108}{subsubsection.7.1.1}%
+\contentsline {subsubsection}{\numberline {7.1.2}The Wronskian}{108}{subsubsection.7.1.2}%
+\contentsline {subsubsection}{\numberline {7.1.3}A Second Solution via Wronskian}{109}{subsubsection.7.1.3}%
+\contentsline {subsection}{\numberline {7.2}Taylor Series Solutions}{109}{subsection.7.2}%
+\contentsline {subsubsection}{\numberline {7.2.1}Ordinary and Singular Points}{109}{subsubsection.7.2.1}%
+\contentsline {subsubsection}{\numberline {7.2.2}The Solution at Ordinary Points in terms of a Power Series}{110}{subsubsection.7.2.2}%
+\contentsline {subsubsection}{\numberline {7.2.3}Example}{111}{subsubsection.7.2.3}%
+\contentsline {paragraph}{Linear independence.}{112}{section*.8}%
+\contentsline {paragraph}{Radius of convergence.}{112}{section*.9}%
+\contentsline {subsubsection}{\numberline {7.2.4}Example: Legendre's Equation}{112}{subsubsection.7.2.4}%
+\contentsline {paragraph}{Linear independence.}{113}{section*.11}%
+\contentsline {paragraph}{Radius of convergence.}{113}{section*.12}%
+\contentsline {subsection}{\numberline {7.3}Regular Singular Points}{114}{subsection.7.3}%
+\contentsline {subsubsection}{\numberline {7.3.1}The Indicial Equation}{114}{subsubsection.7.3.1}%
+\contentsline {subsubsection}{\numberline {7.3.2}Series Solutions}{115}{subsubsection.7.3.2}%
+\contentsline {subsubsection}{\numberline {7.3.3}Bessel's Equation of Order \(\nu \)}{115}{subsubsection.7.3.3}%
+\contentsline {paragraph}{Radius of convergence.}{116}{section*.15}%
+\contentsline {subsubsection}{\numberline {7.3.4}Irregular Singular Points}{118}{subsubsection.7.3.4}%
+\contentsline {subsection}{\numberline {7.4}The Method of Variation of Parameters (Non-examinable)}{119}{subsection.7.4}%
+\contentsline {section}{\numberline {8}Sturm--Liouville Theory}{121}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Abstract Eigenvalue Problems}{121}{subsection.8.1}%
+\contentsline {subsubsection}{\numberline {8.1.1}Eigenfunctions}{121}{subsubsection.8.1.1}%
+\contentsline {subsubsection}{\numberline {8.1.2}Inner Products of Functions}{121}{subsubsection.8.1.2}%
+\contentsline {subsubsection}{\numberline {8.1.3}Adjointness}{122}{subsubsection.8.1.3}%
+\contentsline {subsection}{\numberline {8.2}Sturm--Liouville Operators}{123}{subsection.8.2}%
+\contentsline {subsubsection}{\numberline {8.2.1}Reduction to Sturm--Liouville Form}{124}{subsubsection.8.2.1}%
+\contentsline {subsubsection}{\numberline {8.2.2}Hermite's Equation}{125}{subsubsection.8.2.2}%
+\contentsline {subsubsection}{\numberline {8.2.3}Legendre's Equation}{125}{subsubsection.8.2.3}%
+\contentsline {subsection}{\numberline {8.3}Eigenfunction Expansion}{126}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}Solution of Differential Equations}{127}{subsection.8.4}%
+\contentsline {subsubsection}{\numberline {8.4.1}Green's Functions for Sturm--Liouville Operators}{127}{subsubsection.8.4.1}%
+\contentsline {subsection}{\numberline {8.5}Bessel's Equation}{131}{subsection.8.5}%
+\contentsline {subsection}{\numberline {8.6}Approximation via Eigenfunction Expansions}{132}{subsection.8.6}%
+\contentsline {section}{\numberline {9}Calculus of Variations}{134}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Functionals}{134}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Functional Derivatives}{134}{subsection.9.2}%
+\contentsline {subsubsection}{\numberline {9.2.1}Functional Derivatives}{134}{subsubsection.9.2.1}%
+\contentsline {subsubsection}{\numberline {9.2.2}Geodesics of the Euclidean Plane}{135}{subsubsection.9.2.2}%
+\contentsline {subsubsection}{\numberline {9.2.3}First Integral Forms}{136}{subsubsection.9.2.3}%
+\contentsline {subsubsection}{\numberline {9.2.4}The Brachistochrone}{137}{subsubsection.9.2.4}%
+\contentsline {subsubsection}{\numberline {9.2.5}Geodesics on the Surface of a Sphere}{138}{subsubsection.9.2.5}%
+\contentsline {subsection}{\numberline {9.3}Variational Principles}{139}{subsection.9.3}%
+\contentsline {subsubsection}{\numberline {9.3.1}Fermat's Principle}{139}{subsubsection.9.3.1}%
+\contentsline {subsubsection}{\numberline {9.3.2}Hamilton's Principle}{140}{subsubsection.9.3.2}%
+\contentsline {subsection}{\numberline {9.4}Constrained Variation and Lagrange Multipliers}{145}{subsection.9.4}%
+\contentsline {subsubsection}{\numberline {9.4.1}Catenary}{146}{subsubsection.9.4.1}%
+\contentsline {subsubsection}{\numberline {9.4.2}Isoperimetric Problem}{147}{subsubsection.9.4.2}%
+\contentsline {subsubsection}{\numberline {9.4.3}Sturm--Liouville Theory}{148}{subsubsection.9.4.3}%
+\contentsline {subsection}{\numberline {9.5}Rayleigh--Ritz Method}{149}{subsection.9.5}%
+\contentsline {subsubsection}{\numberline {9.5.1}Extension to Higher Eigenvalues}{151}{subsubsection.9.5.1}%
+\contentsline {section}{\numberline {10}Partial Differential Equations and Separation of Variables}{153}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Nomenclature}{153}{subsection.10.1}%
+\contentsline {subsubsection}{\numberline {10.1.1}Linear Second-order Partial Differential Equations}{153}{subsubsection.10.1.1}%
+\contentsline {subsubsection}{\numberline {10.1.2}Boundary Conditions}{154}{subsubsection.10.1.2}%
+\contentsline {subsubsection}{\numberline {10.1.3}Superposition}{154}{subsubsection.10.1.3}%
+\contentsline {subsection}{\numberline {10.2}Common Partial Differential Equations}{155}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10.3}Physical Examples and Applications}{155}{subsection.10.3}%
+\contentsline {subsubsection}{\numberline {10.3.1}Waves on a Violin String}{155}{subsubsection.10.3.1}%
+\contentsline {subsubsection}{\numberline {10.3.2}Electromagnetic Waves}{156}{subsubsection.10.3.2}%
+\contentsline {subsubsection}{\numberline {10.3.3}Electrostatics}{156}{subsubsection.10.3.3}%
+\contentsline {subsubsection}{\numberline {10.3.4}Gravitational Fields}{157}{subsubsection.10.3.4}%
+\contentsline {subsubsection}{\numberline {10.3.5}Diffusion of a Passive Tracer}{157}{subsubsection.10.3.5}%
+\contentsline {subsubsection}{\numberline {10.3.6}Heat Flow}{158}{subsubsection.10.3.6}%
+\contentsline {subsubsection}{\numberline {10.3.7}Schr\"{o}dinger Equation}{159}{subsubsection.10.3.7}%
+\contentsline {subsubsection}{\numberline {10.3.8}Ideal Fluid Flow}{159}{subsubsection.10.3.8}%
+\contentsline {subsubsection}{\numberline {10.3.9}Other Equations}{159}{subsubsection.10.3.9}%
+\contentsline {subsection}{\numberline {10.4}Wave Equation}{160}{subsection.10.4}%
+\contentsline {subsubsection}{\numberline {10.4.1}One Dimensional Wave Equation}{160}{subsubsection.10.4.1}%
+\contentsline {subsubsection}{\numberline {10.4.2}Waves on a Drum}{162}{subsubsection.10.4.2}%
+\contentsline {subsubsection}{\numberline {10.4.3}Energy Conservation and Uniqueness of Solution}{163}{subsubsection.10.4.3}%
+\contentsline {subsection}{\numberline {10.5}Diffusion Equation}{164}{subsection.10.5}%
+\contentsline {subsubsection}{\numberline {10.5.1}1D Diffusion of Chemical}{164}{subsubsection.10.5.1}%
+\contentsline {subsubsection}{\numberline {10.5.2}Heating along a Square Sheet}{166}{subsubsection.10.5.2}%
+\contentsline {subsubsection}{\numberline {10.5.3}Energy Loss and Uniqueness of Solution}{166}{subsubsection.10.5.3}%
+\contentsline {subsection}{\numberline {10.6}Laplace's Equation and Poisson's Equation}{167}{subsection.10.6}%
+\contentsline {subsubsection}{\numberline {10.6.1}Uniqueness of Solutions of the Poisson's Equation}{167}{subsubsection.10.6.1}%
+\contentsline {subsubsection}{\numberline {10.6.2}Poisson's Equation on a Semi-infinite Rod}{168}{subsubsection.10.6.2}%
+\contentsline {subsubsection}{\numberline {10.6.3}Laplace's Equation in Plane Polar Coordinates}{169}{subsubsection.10.6.3}%
+\contentsline {subsubsection}{\numberline {10.6.4}Laplace's Equation in Spherical Polar Coordinates with Axial Symmetry}{172}{subsubsection.10.6.4}%
+\contentsline {subsection}{\numberline {10.7}General Method}{174}{subsection.10.7}%
+\contentsline {section}{\numberline {11}Cartesian Tensors}{175}{section.11}%
+\contentsline {subsection}{\numberline {11.1}Vectors}{175}{subsection.11.1}%
+\contentsline {subsubsection}{\numberline {11.1.1}Transformation of Basis}{175}{subsubsection.11.1.1}%
+\contentsline {subsubsection}{\numberline {11.1.2}Axial-vectors}{176}{subsubsection.11.1.2}%
+\contentsline {subsection}{\numberline {11.2}Tensors}{177}{subsection.11.2}%
+\contentsline {subsubsection}{\numberline {11.2.1}Kronecker Delta, \(\delta _{ij}\), and Levi--Civita Symbol \(\varepsilon _{ijk}\).}{178}{subsubsection.11.2.1}%
+\contentsline {subsubsection}{\numberline {11.2.2}Inertia Tensors}{178}{subsubsection.11.2.2}%
+\contentsline {subsubsection}{\numberline {11.2.3}Electric and Magnetic Susceptibility Tensor}{178}{subsubsection.11.2.3}%
+\contentsline {subsubsection}{\numberline {11.2.4}Stress and Elastic Strain Tensors}{179}{subsubsection.11.2.4}%
+\contentsline {subsubsection}{\numberline {11.2.5}Piezo-electric Strain Tensor}{179}{subsubsection.11.2.5}%
+\contentsline {subsection}{\numberline {11.3}Properties of Tensors}{179}{subsection.11.3}%
+\contentsline {subsubsection}{\numberline {11.3.1}Tensors as Maps}{179}{subsubsection.11.3.1}%
+\contentsline {subsubsection}{\numberline {11.3.2}Tensor Operations}{180}{subsubsection.11.3.2}%
+\contentsline {subsubsection}{\numberline {11.3.3}Symmetric and Anti-symmetric Tensors}{181}{subsubsection.11.3.3}%
+\contentsline {subsection}{\numberline {11.4}Rank Two Tensors}{182}{subsection.11.4}%
+\contentsline {subsubsection}{\numberline {11.4.1}Diagonalisation of Symmetric Rank Two Tensor}{183}{subsubsection.11.4.1}%
+\contentsline {subsection}{\numberline {11.5}Isotropic Tensors}{184}{subsection.11.5}%
+\contentsline {subsubsection}{\numberline {11.5.1}Application to Integrals}{185}{subsubsection.11.5.1}%
+\contentsline {subsection}{\numberline {11.6}Tensor Fields}{186}{subsection.11.6}%
+\contentsline {subsubsection}{\numberline {11.6.1}Tensor Differential Operators}{186}{subsubsection.11.6.1}%
+\contentsline {subsection}{\numberline {11.7}A Unification of the Integral Theorems (Non-examinable)}{187}{subsection.11.7}%
+\contentsline {subsubsection}{\numberline {11.7.1}Integrating in Higher Dimensions}{188}{subsubsection.11.7.1}%
+\contentsline {subsubsection}{\numberline {11.7.2}Differentiating Anti-symmetric Tensors}{189}{subsubsection.11.7.2}%
+\contentsline {section}{\numberline {12}Further Contour Integrations}{191}{section.12}%
+\contentsline {subsection}{\numberline {12.1}Residues}{191}{subsection.12.1}%
+\contentsline {subsection}{\numberline {12.2}Calculus of Residues}{191}{subsection.12.2}%
+\contentsline {subsection}{\numberline {12.3}The Point at Infinity}{193}{subsection.12.3}%
+\contentsline {subsection}{\numberline {12.4}Applications of the Calculus of Residues}{194}{subsection.12.4}%
+\contentsline {subsubsection}{\numberline {12.4.1}Integrals Involving Trigonometric Functions}{194}{subsubsection.12.4.1}%
+\contentsline {subsubsection}{\numberline {12.4.2}Closing a Contour at Infinity}{194}{subsubsection.12.4.2}%
+\contentsline {subsection}{\numberline {12.5}Multi-valued Functions and Branch Cuts}{195}{subsection.12.5}%
+\contentsline {subsection}{\numberline {12.6}Contour Integration around a Branch Cut}{196}{subsection.12.6}%
+\contentsline {section}{\numberline {13}Transform Methods}{199}{section.13}%
+\contentsline {subsection}{\numberline {13.1}Jordan's Lemma}{199}{subsection.13.1}%
+\contentsline {subsection}{\numberline {13.2}Example of applying Jordan's Lemma}{200}{subsection.13.2}%
+\contentsline {subsection}{\numberline {13.3}Fourier Transform Methods}{201}{subsection.13.3}%
+\contentsline {subsubsection}{\numberline {13.3.1}Fourier Transform using Contour Integration}{202}{subsubsection.13.3.1}%
+\contentsline {subsubsection}{\numberline {13.3.2}Damped Harmonic Oscillator}{203}{subsubsection.13.3.2}%
+\contentsline {subsubsection}{\numberline {13.3.3}Gaussian Integration Lemma}{205}{subsubsection.13.3.3}%
+\contentsline {subsubsection}{\numberline {13.3.4}Solutions to Partial Differential Equations}{205}{subsubsection.13.3.4}%
+\contentsline {subsection}{\numberline {13.4}Laplace Transforms (Non-examinable)}{207}{subsection.13.4}%
+\contentsline {subsubsection}{\numberline {13.4.1}Laplace Transform and Analytic Continuation}{207}{subsubsection.13.4.1}%
+\contentsline {subsubsection}{\numberline {13.4.2}Properties of the Laplace Transform}{207}{subsubsection.13.4.2}%
+\contentsline {subsubsection}{\numberline {13.4.3}The Inverse Laplace Transform}{209}{subsubsection.13.4.3}%
+\contentsline {subsubsection}{\numberline {13.4.4}Solving Differential Equations using Laplace Transform}{212}{subsubsection.13.4.4}%
+\contentsline {subsubsection}{\numberline {13.4.5}The Convolution Theorem}{212}{subsubsection.13.4.5}%
+\contentsline {section}{\numberline {14}Partial Differential Equations on Unbounded Domains}{214}{section.14}%
+\contentsline {subsection}{\numberline {14.1}Well-posedness (Non-examinable)}{214}{subsection.14.1}%
+\contentsline {subsection}{\numberline {14.2}Method of Characteristics (Non-examinable)}{215}{subsection.14.2}%
+\contentsline {subsection}{\numberline {14.3}Higher-dimensional Fourier Transform (Non-examinable)}{216}{subsection.14.3}%
+\contentsline {subsection}{\numberline {14.4}Green's Function for the Heat Equation (Non-examinable)}{217}{subsection.14.4}%
+\contentsline {subsubsection}{\numberline {14.4.1}Duhamel's Principle}{219}{subsubsection.14.4.1}%
+\contentsline {subsection}{\numberline {14.5}Green's Function for the Wave Equation (Non-examinable)}{220}{subsection.14.5}%
+\contentsline {subsection}{\numberline {14.6}Green's Function for the Laplacian}{223}{subsection.14.6}%
+\contentsline {subsection}{\numberline {14.7}The Method of Images}{226}{subsection.14.7}%
+\contentsline {subsubsection}{\numberline {14.7.1}3D Half Space}{226}{subsubsection.14.7.1}%
+\contentsline {subsubsection}{\numberline {14.7.2}2D Quarter Plane}{226}{subsubsection.14.7.2}%
+\contentsline {subsubsection}{\numberline {14.7.3}Sphere}{227}{subsubsection.14.7.3}%
+\contentsline {subsubsection}{\numberline {14.7.4}Circle}{227}{subsubsection.14.7.4}%
+\contentsline {subsection}{\numberline {14.8}The Integral Solution of Poisson's Equation}{228}{subsection.14.8}%
+\contentsline {section}{\numberline {15}Group Theory}{232}{section.15}%
+\contentsline {subsection}{\numberline {15.1}Mappings}{232}{subsection.15.1}%
+\contentsline {subsection}{\numberline {15.2}Groups}{232}{subsection.15.2}%
+\contentsline {subsubsection}{\numberline {15.2.1}Commutativity and Order}{233}{subsubsection.15.2.1}%
+\contentsline {subsection}{\numberline {15.3}Symmetry of the Square}{233}{subsection.15.3}%
+\contentsline {subsubsection}{\numberline {15.3.1}Group Table}{234}{subsubsection.15.3.1}%
+\contentsline {subsubsection}{\numberline {15.3.2}Subgroups}{235}{subsubsection.15.3.2}%
+\contentsline {subsubsection}{\numberline {15.3.3}Cyclic Groups}{235}{subsubsection.15.3.3}%
+\contentsline {subsection}{\numberline {15.4}Homomorphism}{236}{subsection.15.4}%
+\contentsline {subsection}{\numberline {15.5}Group Actions (Non-examinable)}{237}{subsection.15.5}%
+\contentsline {subsection}{\numberline {15.6}Cosets and Lagrange's Theorem}{238}{subsection.15.6}%
+\contentsline {subsubsection}{\numberline {15.6.1}Cosets}{238}{subsubsection.15.6.1}%
+\contentsline {subsubsection}{\numberline {15.6.2}Lagrange's Theorem}{238}{subsubsection.15.6.2}%
+\contentsline {subsection}{\numberline {15.7}Conjugacy Class}{239}{subsection.15.7}%
+\contentsline {subsubsection}{\numberline {15.7.1}Conjugacy Class}{239}{subsubsection.15.7.1}%
+\contentsline {subsubsection}{\numberline {15.7.2}Normal Subgroup}{240}{subsubsection.15.7.2}%
+\contentsline {subsubsection}{\numberline {15.7.3}Quotient Groups}{241}{subsubsection.15.7.3}%
+\contentsline {subsection}{\numberline {15.8}The Permutation Groups}{242}{subsection.15.8}%
+\contentsline {subsubsection}{\numberline {15.8.1}Permutation Groups and Permutations}{242}{subsubsection.15.8.1}%
+\contentsline {subsubsection}{\numberline {15.8.2}Transpositions}{244}{subsubsection.15.8.2}%
+\contentsline {section}{\numberline {16}Representation Theory}{245}{section.16}%
+\contentsline {subsection}{\numberline {16.1}Group of Matrices}{245}{subsection.16.1}%
+\contentsline {subsection}{\numberline {16.2}Representation}{246}{subsection.16.2}%
+\contentsline {subsubsection}{\numberline {16.2.1}Faithful Representation}{246}{subsubsection.16.2.1}%
+\contentsline {subsubsection}{\numberline {16.2.2}Regular Representation}{246}{subsubsection.16.2.2}%
+\contentsline {subsection}{\numberline {16.3}Equivalence and Inequivalence}{248}{subsection.16.3}%
+\contentsline {subsection}{\numberline {16.4}Characters}{250}{subsection.16.4}%
+\contentsline {subsection}{\numberline {16.5}Reducibility}{251}{subsection.16.5}%
+\contentsline {subsubsection}{\numberline {16.5.1}Group-invariant Inner Product and Unitarity}{253}{subsubsection.16.5.1}%
+\contentsline {subsubsection}{\numberline {16.5.2}Schur's Lemma}{255}{subsubsection.16.5.2}%
+\contentsline {subsection}{\numberline {16.6}Unfaithful Representations}{257}{subsection.16.6}%
+\contentsline {subsection}{\numberline {16.7}Character Table}{258}{subsection.16.7}%
+\contentsline {subsection}{\numberline {16.8}Decomposition of a Reducible Representation}{261}{subsection.16.8}%
+\contentsline {section}{\numberline {17}Small Oscillations}{263}{section.17}%
+\contentsline {subsection}{\numberline {17.1}Pendulum}{263}{subsection.17.1}%
+\contentsline {subsubsection}{\numberline {17.1.1}Simple Pendulum}{263}{subsubsection.17.1.1}%
+\contentsline {subsubsection}{\numberline {17.1.2}Coupled Pendula}{263}{subsubsection.17.1.2}%
+\contentsline {subsubsection}{\numberline {17.1.3}Lagrangian Dynamics and Coupled Pendula}{265}{subsubsection.17.1.3}%
+\contentsline {subsection}{\numberline {17.2}General Theory of Small Oscillations}{267}{subsection.17.2}%
+\contentsline {subsubsection}{\numberline {17.2.1}Normal Modes}{267}{subsubsection.17.2.1}%
+\contentsline {subsubsection}{\numberline {17.2.2}Orthogonality}{268}{subsubsection.17.2.2}%
+\contentsline {subsubsection}{\numberline {17.2.3}Normal Coordinates}{269}{subsubsection.17.2.3}%
+\contentsline {subsection}{\numberline {17.3}Examples}{270}{subsection.17.3}%
+\contentsline {subsubsection}{\numberline {17.3.1}Vibrations in a CO\(_2\) Molecule}{270}{subsubsection.17.3.1}%
+\contentsline {subsubsection}{\numberline {17.3.2}Triangular Spring System}{271}{subsubsection.17.3.2}%
+\contentsline {subsection}{\numberline {17.4}Normal Modes and Group Representations}{273}{subsection.17.4}%
+\contentsline {subsubsection}{\numberline {17.4.1}Example: CO\(_2\) Molecule Revisited}{275}{subsubsection.17.4.1}%
+\contentsline {subsubsection}{\numberline {17.4.2}Example: Equilateral Triangle Revisited}{275}{subsubsection.17.4.2}%

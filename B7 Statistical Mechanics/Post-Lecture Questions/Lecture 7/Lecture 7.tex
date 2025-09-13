@@ -1,0 +1,57 @@
+\documentclass{article}
+
+\usepackage{physics,amsmath,geometry,amsfonts,wrapfig,graphicx,array,makecell,float,enumitem,bm,tikz}
+
+\title{Question 7}
+\author{Yue Wu}
+
+\geometry{a4paper,hmargin=1.1in,vmargin=1.2in}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+\begin{document}
+    \begin{center}
+        \LARGE\textbf{Post-Lecture Question 7}
+    \end{center}
+
+    \begin{enumerate}
+        \item[(a)]
+        For an ideal gas, $U(\{\vb{r}_i\})\equiv 0$.
+        \begin{align*}
+            Q^{\text{id}}(N,V,T)&=\frac{1}{\Lambda^{3N}N!}\int\prod_{i=1}^{N}\dd[3]{\vb{r}}_i\\
+            &=\frac{V^N}{\Lambda^{3N}N!}
+        \end{align*}
+        \begin{align*}
+            \mu^{\text{id}}&=-k_BT\ln\qty[\frac{V^{N+1}}{\Lambda^{3(N+1)}N!}\cdot\frac{\Lambda^{3N}N!}{V^N}]\\
+            &=-k_BT\ln\qty[\frac{V}{\Lambda^3(N+1)}]\\
+            &=k_BT\ln\qty[\frac{N+1}{V}\Lambda^3]\\
+            &\approx k_BT\ln\rho\Lambda^3
+        \end{align*}
+        \item[(b)]
+        \begin{align*}
+            \mu_{\text{ex}}&=\mu-\mu^{\text{id}}\\
+            &=-k_BT\ln\qty[\frac{\frac{1}{\Lambda^{3(N+1)}(N+1)!}\int\prod_{i=1}^{N+1}\dd[3]{\vb{r}}_ie^{-\beta U(\{\vb{r}_i\}_{i=1}^{N+1})}}{\frac{1}{\Lambda^{3N}N!}\int\prod_{i=1}^{N}\dd[3]{\vb{r}}_ie^{-\beta U(\{\vb{r}_i\}_{i=1}^{N})}}]\\
+            &=-k_BT\ln\qty[\frac{\int\dd[3]{\vb{r}}_{N+1}\int\prod_{i=1}^{N}\dd[3]{\vb{r}}_i e^{-\beta\Delta U} e^{-\beta U(\{\vb{r}_i\}_{i=1}^{N})}}{V\int\prod_{i=1}^{N}\dd[3]{\vb{r}_i}e^{-\beta U(\{\vb{r}_i\}_{i=1}^{N})}}]\\
+            &=-k_BT\ln\qty[\frac{\dd[3]{\vb{r}}_{N+1}\expval{e^{-\beta\Delta U}}_N}{V}]\\
+            &=-k_BT\ln\expval{e^{-\beta\Delta U}}_N
+        \end{align*}
+        assuming the system is homogeneous, where $\expval{\dots}$ means the average over the configuration space of the $N$ particles in a canonical ensemble.
+        \item[(c)]
+        \begin{itemize}
+            \item Insertion.
+            $$\Delta U=\left\{\begin{aligned}
+                &\;\infty && \quad\qquad \text{overlap}:&&P=\frac{4\pi\sigma^3N}{3V}\\
+                &\;0 && \quad\qquad \text{no overlap}:&&P=1-\frac{4\pi\sigma^3N}{3V}
+            \end{aligned}\right.$$
+            $$\expval{e^{-\beta\Delta U}}_N=P_{\text{no overlap}}=1-\frac{4N\pi\sigma^3}{3V}$$
+            $$\mu^{\text{ex}}=-k_BT\ln\qty[1-\frac{4N\pi\sigma^3}{3V}]$$
+            \item Removal.
+            
+            $\Delta U\equiv 0$ as the removed particle is guarenteed to have no overlap with the other $N-1$ particles.
+            $$\expval{e^{-\beta\Delta U}}_N=1$$
+            $$\mu^{\text{ex}}=-k_BT\ln 1=0$$
+        \end{itemize}
+    \end{enumerate}
+
+\end{document}

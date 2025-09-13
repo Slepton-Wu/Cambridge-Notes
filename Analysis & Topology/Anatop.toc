@@ -1,0 +1,75 @@
+\contentsline {section}{\numberline {1}Uniform Convergence}{1}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Uniform Convergence}{1}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}The General Principle of Convergence}{4}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Power Series}{5}{subsection.1.3}%
+\contentsline {section}{\numberline {2}Uniform Continuity and Integrability}{7}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Uniform Continuity}{7}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Riemann Integrability}{7}{subsection.2.2}%
+\contentsline {section}{\numberline {3}Metric Spaces}{11}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Metric Spaces}{11}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Norms and Inner Products}{12}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Subspaces and Product Spaces}{14}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Convergence and Continuity}{15}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Topology of a Metric Space}{16}{subsection.3.5}%
+\contentsline {subsubsection}{\numberline {3.5.1}Continuity and Convergence using Topology}{17}{subsubsection.3.5.1}%
+\contentsline {subsubsection}{\numberline {3.5.2}Topology of a Metric space}{18}{subsubsection.3.5.2}%
+\contentsline {subsection}{\numberline {3.6}Completeness}{20}{subsection.3.6}%
+\contentsline {subsection}{\numberline {3.7}Contraction Mapping Theorem}{23}{subsection.3.7}%
+\contentsline {subsubsection}{\numberline {3.7.1}Contraction Mapping Theorem}{23}{subsubsection.3.7.1}%
+\contentsline {subsubsection}{\numberline {3.7.2}Lindel\"{o}f--Picard Theorem}{24}{subsubsection.3.7.2}%
+\contentsline {section}{\numberline {4}Topological Spaces}{26}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Topological Spaces}{26}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Neighbourhoods and Convergence}{27}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Interior and Closure}{28}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Continuity}{30}{subsection.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.1}Base}{30}{subsubsection.4.4.1}%
+\contentsline {subsubsection}{\numberline {4.4.2}Continuity}{31}{subsubsection.4.4.2}%
+\contentsline {subsubsection}{\numberline {4.4.3}Homeomorphisms}{31}{subsubsection.4.4.3}%
+\contentsline {subsection}{\numberline {4.5}Product Topology and Quotient Topology}{32}{subsection.4.5}%
+\contentsline {subsubsection}{\numberline {4.5.1}Product Topology}{32}{subsubsection.4.5.1}%
+\contentsline {subsubsection}{\numberline {4.5.2}Quotient Topology}{34}{subsubsection.4.5.2}%
+\contentsline {section}{\numberline {5}Connectedness}{37}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Connectedness}{37}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Path-connectedness}{39}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Components}{41}{subsection.5.3}%
+\contentsline {subsubsection}{\numberline {5.3.1}Path Components}{41}{subsubsection.5.3.1}%
+\contentsline {subsubsection}{\numberline {5.3.2}Connected Components}{41}{subsubsection.5.3.2}%
+\contentsline {section}{\numberline {6}Compactness}{43}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Compactness}{43}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Products and Quotients}{46}{subsection.6.2}%
+\contentsline {subsubsection}{\numberline {6.2.1}Products}{46}{subsubsection.6.2.1}%
+\contentsline {subsubsection}{\numberline {6.2.2}Quotients}{47}{subsubsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.3}Sequential Compactness}{47}{subsection.6.3}%
+\contentsline {section}{\numberline {7}Differentiation}{50}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Differentiation}{50}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Operator Norm}{51}{subsection.7.2}%
+\contentsline {subsubsection}{\numberline {7.2.1}Sup Norm}{51}{subsubsection.7.2.1}%
+\contentsline {subsubsection}{\numberline {7.2.2}Euclidean Norm}{53}{subsubsection.7.2.2}%
+\contentsline {subsection}{\numberline {7.3}Directional and Partial Derivatives}{55}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Mean Value Inequalities}{59}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.5}Inverse Function Theorem}{61}{subsection.7.5}%
+\contentsline {subsection}{\numberline {7.6}Second Order Derivative}{65}{subsection.7.6}%
+\contentsline {part}{\numberline {}Appendices: IA Analysis}{69}{part*.5}%
+\contentsline {section}{\numberline {A}The Real Number System}{69}{appendix.A}%
+\contentsline {section}{\numberline {B}Convergence of Sequences and Series}{69}{appendix.B}%
+\contentsline {subsection}{\numberline {B.1}Sequence}{69}{subsection.B.1}%
+\contentsline {subsection}{\numberline {B.2}Monotone Sequences Property}{70}{subsection.B.2}%
+\contentsline {subsection}{\numberline {B.3}Cauchy Sequences}{71}{subsection.B.3}%
+\contentsline {subsection}{\numberline {B.4}Limit Supremum and Infimum}{71}{subsection.B.4}%
+\contentsline {section}{\numberline {C}Convergence of Series}{71}{appendix.C}%
+\contentsline {subsection}{\numberline {C.1}Absolute Convergence}{72}{subsection.C.1}%
+\contentsline {subsection}{\numberline {C.2}Convergence Tests}{72}{subsection.C.2}%
+\contentsline {subsection}{\numberline {C.3}Complex Series}{73}{subsection.C.3}%
+\contentsline {section}{\numberline {D}Continuous Functions}{73}{appendix.D}%
+\contentsline {subsection}{\numberline {D.1}Continuous Functions}{73}{subsection.D.1}%
+\contentsline {subsection}{\numberline {D.2}Continuous Induction}{74}{subsection.D.2}%
+\contentsline {section}{\numberline {E}Differentiability}{74}{appendix.E}%
+\contentsline {subsection}{\numberline {E.1}Limits}{74}{subsection.E.1}%
+\contentsline {subsection}{\numberline {E.2}Differentiation Theorems}{75}{subsection.E.2}%
+\contentsline {subsection}{\numberline {E.3}Complex Differentiation}{76}{subsection.E.3}%
+\contentsline {section}{\numberline {F}Complex Power Series}{76}{appendix.F}%
+\contentsline {subsection}{\numberline {F.1}Exponential and Trigonometric Functions}{77}{subsection.F.1}%
+\contentsline {subsection}{\numberline {F.2}Hyperbolic Trigonometric Functions}{77}{subsection.F.2}%
+\contentsline {section}{\numberline {G}The Riemann Integral}{78}{appendix.G}%
+\contentsline {subsection}{\numberline {G.1}Riemann Integral}{78}{subsection.G.1}%
+\contentsline {subsection}{\numberline {G.2}Improper integral}{80}{subsection.G.2}%

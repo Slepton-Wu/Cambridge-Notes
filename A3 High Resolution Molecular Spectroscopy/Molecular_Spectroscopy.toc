@@ -1,0 +1,100 @@
+\contentsline {section}{\numberline {1}Interaction of Molecules with Radiation}{1}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Types of Interactions}{1}{subsection.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1}The Einstein Coefficients}{1}{subsubsection.1.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.2}Why Spontaneous Emission}{2}{subsubsection.1.1.2}%
+\contentsline {subsubsection}{\numberline {1.1.3}Relationship between the Einstein Coefficients}{3}{subsubsection.1.1.3}%
+\contentsline {subsection}{\numberline {1.2}Linewidths}{4}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}Natural Line Broadening}{5}{subsubsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2}Pressure (Collision) Broadening}{6}{subsubsection.1.2.2}%
+\contentsline {subsubsection}{\numberline {1.2.3}Doppler Broadening}{6}{subsubsection.1.2.3}%
+\contentsline {subsection}{\numberline {1.3}Notations and Conventions}{7}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}How to Think about Spectroscopy}{8}{subsection.1.4}%
+\contentsline {section}{\numberline {2}Rotational Spectroscopy}{9}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Classification of Rotating Molecules}{9}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Spherical Tops}{9}{subsubsection.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.2}Symmetric Top}{9}{subsubsection.2.1.2}%
+\contentsline {subsubsection}{\numberline {2.1.3}Asymmetric Tops}{10}{subsubsection.2.1.3}%
+\contentsline {subsubsection}{\numberline {2.1.4}Linear Molecules}{10}{subsubsection.2.1.4}%
+\contentsline {subsection}{\numberline {2.2}Rotational Energy Levels}{11}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Symmetric Tops}{11}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}Linear Molecules}{13}{subsubsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.3}Spherical Tops}{13}{subsubsection.2.2.3}%
+\contentsline {subsubsection}{\numberline {2.2.4}Asymmetric Tops}{13}{subsubsection.2.2.4}%
+\contentsline {subsection}{\numberline {2.3}Selection Rules and Spectra}{13}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Spectra of Symmetric Tops}{14}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}Spectra of Linear Molecules}{14}{subsubsection.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.3}Isotopic Substitution}{14}{subsubsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.4}Intensities}{15}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Centrifugal Distortion}{15}{subsection.2.5}%
+\contentsline {subsubsection}{\numberline {2.5.1}Symmetric Tops}{16}{subsubsection.2.5.1}%
+\contentsline {subsubsection}{\numberline {2.5.2}Linear Molecules}{17}{subsubsection.2.5.2}%
+\contentsline {subsection}{\numberline {2.6}The Stark Effect}{17}{subsection.2.6}%
+\contentsline {subsubsection}{\numberline {2.6.1}Dipole Moment in an Electric Field}{18}{subsubsection.2.6.1}%
+\contentsline {subsubsection}{\numberline {2.6.2}Energy Levels of Symmetric Top in Electric Field}{18}{subsubsection.2.6.2}%
+\contentsline {subsubsection}{\numberline {2.6.3}Effect on the Spectrum}{19}{subsubsection.2.6.3}%
+\contentsline {subsubsection}{\numberline {2.6.4}Stark Effects for Linear Molecules}{20}{subsubsection.2.6.4}%
+\contentsline {section}{\numberline {3}Vibrational Spectroscopy}{21}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Normal Modes and Symmetry: Revision of Part IB}{21}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Symmetry of the Vibrational Wavefunction}{21}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Non-degenerate Normal Modes}{22}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Degenerate Normal Modes}{23}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Overall Symmetry of the Vibrational Wavefunction}{24}{subsubsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.3}Determining Allowed Transitions using Symmetry}{24}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Fundamental Transition}{25}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Overtones}{26}{subsubsection.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.3}Hot Bands}{26}{subsubsection.3.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.4}Combination Lines}{26}{subsubsection.3.3.4}%
+\contentsline {subsubsection}{\numberline {3.3.5}Fermi Resonance}{27}{subsubsection.3.3.5}%
+\contentsline {subsection}{\numberline {3.4}Rotational Fine Structure}{28}{subsection.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}Linear Molecules}{28}{subsubsection.3.4.1}%
+\contentsline {subsubsection}{\numberline {3.4.2}Symmetric Tops}{29}{subsubsection.3.4.2}%
+\contentsline {subsubsection}{\numberline {3.4.3}Intensities}{31}{subsubsection.3.4.3}%
+\contentsline {subsubsection}{\numberline {3.4.4}Nuclear Spin Effects}{33}{subsubsection.3.4.4}%
+\contentsline {subsection}{\numberline {3.5}Direct Product}{33}{subsection.3.5}%
+\contentsline {section}{\numberline {4}Raman Spectroscopy}{34}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Theory of Raman Scattering}{34}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}Classical Description}{35}{subsubsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}Quantum Description}{36}{subsubsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.2}Experimental Raman Spectroscopy}{38}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Rotational Raman Spectroscopy}{38}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}Diatomics and Linear Polyatomics}{38}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}Symmetric Tops}{40}{subsubsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.3}Spherical Tops}{40}{subsubsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.4}Vibrational Raman Spectra}{40}{subsection.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.1}Diatomics}{40}{subsubsection.4.4.1}%
+\contentsline {subsubsection}{\numberline {4.4.2}Raman Activity of Normal Modes}{41}{subsubsection.4.4.2}%
+\contentsline {subsubsection}{\numberline {4.4.3}Intensities and Polarisations}{42}{subsubsection.4.4.3}%
+\contentsline {subsection}{\numberline {4.5}Applications of Raman Spectroscopy}{42}{subsection.4.5}%
+\contentsline {section}{\numberline {5}Electronic Spectroscopy of Diatomics}{43}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Electronic Energy Levels of Atoms}{43}{subsection.5.1}%
+\contentsline {subsubsection}{\numberline {5.1.1}Orbitals and Energy Levels}{43}{subsubsection.5.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.2}Atomic Term Symbols}{44}{subsubsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.2}Molecular Term Symbols for Diatomics}{44}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Potential Energy Curves}{45}{subsection.5.3}%
+\contentsline {subsubsection}{\numberline {5.3.1}Vibrational and Rotational Energy Levels in an Electronic State}{47}{subsubsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.4}Selection Rules}{48}{subsection.5.4}%
+\contentsline {subsubsection}{\numberline {5.4.1}Derivation of the Selection Rules using Symmetry}{48}{subsubsection.5.4.1}%
+\contentsline {subsubsection}{\numberline {5.4.2}Absorption and Emission Spectra}{49}{subsubsection.5.4.2}%
+\contentsline {subsection}{\numberline {5.5}Vibrational Coarse Structure}{49}{subsection.5.5}%
+\contentsline {subsubsection}{\numberline {5.5.1}Progressions and Sequences}{50}{subsubsection.5.5.1}%
+\contentsline {subsubsection}{\numberline {5.5.2}Vibrational Intensities and Franck--Condon Factors}{50}{subsubsection.5.5.2}%
+\contentsline {subsubsection}{\numberline {5.5.3}Measurement of Dissociation Energies}{53}{subsubsection.5.5.3}%
+\contentsline {subsection}{\numberline {5.6}Rotational Fine Structure}{54}{subsection.5.6}%
+\contentsline {section}{\numberline {6}Fluorescence and Phosphorescence}{57}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Fluorescence}{57}{subsection.6.1}%
+\contentsline {subsubsection}{\numberline {6.1.1}Fluorescence Spectra}{58}{subsubsection.6.1.1}%
+\contentsline {subsubsection}{\numberline {6.1.2}Jablonski Diagram}{60}{subsubsection.6.1.2}%
+\contentsline {subsubsection}{\numberline {6.1.3}Solvent Effect}{60}{subsubsection.6.1.3}%
+\contentsline {subsection}{\numberline {6.2}Phosphorescence}{61}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Kinetics of Excited States}{63}{subsection.6.3}%
+\contentsline {subsubsection}{\numberline {6.3.1}Fluorescence Lifetime and Quantum Yield}{63}{subsubsection.6.3.1}%
+\contentsline {subsubsection}{\numberline {6.3.2}Stern--Volmer Equation}{64}{subsubsection.6.3.2}%
+\contentsline {subsubsection}{\numberline {6.3.3}Quantum Yield for ISC and Phosphorescence}{66}{subsubsection.6.3.3}%
+\contentsline {subsection}{\numberline {6.4}Applications}{66}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.5}Fluorophores}{67}{subsection.6.5}%
+\contentsline {subsubsection}{\numberline {6.5.1}FRET}{67}{subsubsection.6.5.1}%
+\contentsline {part}{\numberline {}Appendices}{68}{part*.16}%
+\contentsline {section}{\numberline {A}Black Body Radiation}{68}{appendix.A}%
+\contentsline {section}{\numberline {B}Pressure Broadening}{69}{appendix.B}%
+\contentsline {section}{\numberline {C}Microwave Spectra Intensities}{70}{appendix.C}%
+\contentsline {section}{\numberline {D}Symmetries of Degenerate Normal Modes}{71}{appendix.D}%

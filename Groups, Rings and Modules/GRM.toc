@@ -1,0 +1,23 @@
+\contentsline {section}{\numberline {1}Groups}{1}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Basic Concepts}{1}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Normal Subgroups, Quotient, Homomorphism and Isomorphism}{2}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Actions and Permutations}{5}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Conjugacy Classes, Centralisers, Normalisers}{9}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.5}Finite \(\bm {p}\)-groups.}{11}{subsection.1.5}%
+\contentsline {subsection}{\numberline {1.6}Finite Abelian Groups}{12}{subsection.1.6}%
+\contentsline {subsection}{\numberline {1.7}Sylow's Theorems}{13}{subsection.1.7}%
+\contentsline {section}{\numberline {2}Rings}{16}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Definitions and Examples}{16}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Homomorphisms, Ideals, Quotients and Isomorphisms}{18}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Integral Domains, Field of Fractions, Maximal and Prime Ideals}{22}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Factorisation in Integral Domains --- Units, Primes and Irreducibles}{24}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Factorisations in Polynomial Rings}{28}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Gaussian Integers}{32}{subsection.2.6}%
+\contentsline {subsection}{\numberline {2.7}Algebraic Integer}{34}{subsection.2.7}%
+\contentsline {subsection}{\numberline {2.8}Hilbert Basis Theorem}{35}{subsection.2.8}%
+\contentsline {section}{\numberline {3}Modules}{38}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Definitions and Examples}{38}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Direct Sums and Free Modules}{41}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Matrices over Euclidean Domains}{44}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Modules over \(\mathbb {F}[X]\) and Normal Forms for Matrices}{51}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}*Conjugacy}{53}{subsection.3.5}%

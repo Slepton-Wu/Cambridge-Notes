@@ -1,0 +1,2313 @@
+\documentclass{article}
+
+\usepackage{amsmath,geometry,amsfonts,array,makecell,enumitem,bm,esint,booktabs,multirow,mathtools,upgreek,amssymb,pgfplots,mathrsfs,nicematrix,subcaption,adjustbox}
+\usepackage[amsmath]{ntheorem}
+\usepackage[hidelinks]{hyperref}
+\usepackage[nameinlink,noabbrev]{cleveref}
+\usepackage[thinlines]{easytable}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead[L]{\itshape\nouppercase{\leftmark}}
+\fancyhead[R]{C8 Computer Simulation Methods}
+
+
+\title{Computer Simulation Methods}
+\author{Yue Wu}
+
+\geometry{a4paper,hmargin=1.1in,vmargin=1.2in}
+
+\setlength{\parskip}{1em}
+\tolerance=1000
+\emergencystretch=1em
+\hyphenpenalty=1000
+\exhyphenpenalty=100
+\righthyphenmin=3
+
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{positioning, decorations.pathreplacing, calc, arrows.meta, shapes.geometric, math}
+\usepgfplotslibrary{groupplots}
+
+
+\tikzset{
+    fork/.style={decorate, decoration={show path construction, lineto code={
+        \draw[->](\tikzinputsegmentfirst)-|($(\tikzinputsegmentfirst)!.5!(\tikzinputsegmentlast)$)|-(\tikzinputsegmentlast);}
+    }}
+}
+
+\theoremstyle{plain}\theoremheaderfont{\normalfont\itshape}\theorembodyfont{\rmfamily}\theoremseparator{.}\newtheorem*{rem}{Remark}\newtheorem*{ex}{Example}\newtheorem*{proof}{Proof}\newtheorem*{altp}{Alternative proof}
+
+\theoremstyle{plain}\theoremheaderfont{\normalfont\bfseries}\theorembodyfont{\rmfamily}\theoremseparator{.}\newtheorem{thm}{Theorem}[section]\newtheorem{lem}[thm]{Lemma}\newtheorem{prop}[thm]{Proposition}\newtheorem*{cor}{Corollary}\newtheorem{defn}[thm]{Definition}\newtheorem{clm}[thm]{Claim}\newtheorem{clminproof}{Claim}\newtheorem{alg}[thm]{Algorithm}\newtheorem{hyp}[thm]{Hypothesis}\newtheorem{law}[thm]{Law}
+
+\theoremstyle{break}\theoremheaderfont{\normalfont\itshape}\theorembodyfont{\rmfamily}\theoremseparator{.\medskip}\newtheorem*{proofskip}{Proof}\newtheorem*{exs}{Examples}\newtheorem*{rems}{Remarks}
+
+\theoremstyle{break}\theoremheaderfont{\normalfont\bfseries}\theorembodyfont{\rmfamily}\theoremseparator{.\medskip}\newtheorem{lemskip}[thm]{Lemma}\newtheorem{defnskip}[thm]{Definition}\newtheorem{propskip}[thm]{Proposition}\newtheorem{thmskip}[thm]{Theorem}
+
+\crefname{thm}{Theorem}{Theorems}\crefname{defn}{Definition}{Definitions}\crefname{lem}{Lemma}{Lemmas}\crefname{lemskip}{Lemma}{Lemmas}\crefname{cor}{Corollary}{Corollaries} \crefname{prop}{Proposition}{Propositions}\crefname{clm}{Claim}{Claims}
+
+\setcounter{tocdepth}{2}
+\setcounter{section}{0}
+\numberwithin{equation}{section}
+
+\newcommand{\qed}{\hfill\ensuremath{\Box}}
+\newcommand{\unit}[1]{\ \mathrm{#1}}
+\newcommand{\ii}{\mathrm{i}}
+\newcommand{\ee}{\mathrm{e}}
+\newcommand{\tp}{^\mathrm{T}}
+\newcommand{\dd}[2][]{\mathrm{d}^{#1} #2\,}
+\renewcommand{\d}[2][]{\mathrm{d}^{#1} #2}
+\newcommand{\dv}[3][]{\frac{\mathrm{d}^{#1} #2}{{\mathrm{d} #3}^{#1}}}
+\newcommand{\pdv}[3][]{\frac{\partial^{#1} #2}{{\partial #3}^{#1}}}
+\newcommand{\bra}[1]{\left\langle #1 \right|}
+\newcommand{\ket}[1]{\left| #1 \right\rangle}
+\newcommand{\braket}[2]{\left\langle #1 \middle| #2 \right\rangle}
+\newcommand{\mel}[3]{\left\langle #1 \middle| #2 \middle| #3 \right\rangle}
+\newcommand{\redmel}[3]{\left\langle #1 \middle\| #2 \middle\| #3 \right\rangle}
+\newcommand{\eval}[1]{\left\langle #1 \right\rangle}
+\newcommand{\expval}[2]{\left\langle #2 \middle| #1 \middle| #2 \right\rangle}
+\newcommand{\vb}[1]{\bm{\mathrm{#1}}}
+\newcommand{\vu}[1]{\hat{\bm{\mathrm{#1}}}}
+\newcommand{\cross}{\bm{\times}}
+\newcommand{\vdot}{\bm{\cdot}}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\norm}[1]{\left\| #1 \right\|}
+\newcommand{\grad}{\vb{\nabla}}
+\renewcommand{\div}{\vb{\nabla}\cdot}
+\newcommand{\curl}{\vb{\nabla}\times}
+\newcommand{\laplacian}{\nabla^2}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\DeclareMathOperator{\round}{round}
+\DeclareMathOperator{\Prob}{Prob}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\erf}{erf}
+
+
+\NiceMatrixOptions{cell-space-limits = 2pt}
+
+
+\begin{document}
+    \setlength{\parindent}{0pt}
+	\Huge\textsf{\textbf{Computer Simulation Methods}}
+		
+	\Large\textsf{\textbf{University of Cambridge Part II Natural Sciences Tripos}}
+
+	\noindent\makebox[\linewidth]{\rule{\textwidth}{2pt}}
+
+	\large\textsf{\textbf{Yue Wu}}
+	\begin{itemize}[topsep=0pt,leftmargin=15pt]
+		\item[] \textit{Yusuf Hamied Department of Chemistry\\
+		Lensfield Road,\\
+		Cambridge, CB2 1EW}\\
+
+		\textit{yw628@cam.ac.uk}
+	\end{itemize}
+    \thispagestyle{empty}
+    \pagenumbering{roman}
+    \setlength{\parindent}{15pt}
+
+    \newpage
+    \begin{center}
+		\textbf{\Large{Acknowledgements}}
+	\end{center}
+	\large
+	Nothing in these lecture notes is original. They are largely based on the notes by Prof. Rosana Collepardo, who lectured this course in 2025. Moreover, they are nowhere near accurate representations of what was actually lectured, and in particular, all errors are almost surely mine.
+
+	\normalsize
+	\newpage
+	\tableofcontents
+	\newpage
+    \pagenumbering{arabic}
+    
+    \section{Molecular Dynamics}
+    \subsection{Integrating the Equations of Motion}
+    A famous conclusion in classical mechanics is that the motion of three bodies under gravitational interaction has no general analytic solution in closed form. The problem will only get worse if we introduce more bodies into the system or consider more complex forms of interaction. It is not uncommon for a system in physics and chemistry to have more than billions of interacting particles, so we usually have no choice but to treat their interactions numerically on a computer. The aim of \textit{Molecular Dynamics} (MD) is to study a system by recreating it on the computer as close to nature as possible.
+
+    \subsubsection{Newton's Equations of Motion}
+    We start from the most fundamental law in classical mechanics --- Newton's equation. If we have a system of \(N\) particles, and their positions are given by \(\{\vb{r}_i\}_{i=1}^{N}\) which we collectively denote as \(\vb{r}^N\), then the interactions between the particles will be completely determined by the positions of the particles, specified by the potential
+    \begin{equation}
+        V=V(\vb{r}_1,\dots,\vb{r}_N)\equiv V(\vb{r}^N)\,.
+    \end{equation}
+    The \textit{force} \(\vb{f}_i\) acting on particle \(i\) is the negative gradient of \(V\), which is again a function of the configuration \(\vb{r}^N\):
+    \begin{equation}
+        \vb{f}_i(\vb{r}^N)=-\grad_i V(\vb{r}^N)=-\pdv{V(\vb{r}^N)}{\vb{r}_i}\,.
+    \end{equation}
+    Then the future evolution of the system is given by the Newton's second law
+    \begin{equation}
+        m_i\ddot{\vb{r}}_i=\vb{f}_i(\vb{r}^N)\,,
+    \end{equation}
+    where \(m_i\) is the mass of particle \(i\). This is a system of \(N\) coupled second-order differential equations. Additionally, it is often useful to introduce the \textit{momentum} of a particle. In Cartesian coordinates, the momentum of a particle is given by
+    \begin{equation}
+        \vb{p}_i=m_i\dot{\vb{r}_i}\,.
+    \end{equation}
+
+    When modelling a system composed of atoms and molecules, interatomic interactions, as opposed to the forces related to chemical bonds keeping molecules together, are relatively weak. A good and extremely common approximation for intermolecular interactions is that they are \textit{pairwise additive}. Moreover, for atoms, these pair potentials can be assumed to be central so that they depend only on the interatomic distances. Then the total potential \(V\) can be resolved into a sum of pair potentials \(v_{ij}\) between all pairs of atoms \(i\) and \(j\), where \(v_{ij}\) is only a function of the interatomic distance \(r_{ij}\equiv\norm{\vb{r}_{ij}}\coloneqq\norm{\vb{r}_i-\vb{r}_j}\)
+    \begin{equation}
+        V(\vb{r}^N)=\sum_{i=1}^{N}\sum_{j>i}^{N}v_{ij}(r_{ij})\,.
+    \end{equation}
+    The sum is taken over \(j>i\) so that each pair of atoms \(i\) and \(j\) is summed exactly once. This restriction can be lifted by noting \(v_{ij}\) and \(v_{ji}\) both describes the potential between particle \(i\) and \(j\) so they should be the same, and \(r_{ij}=r_{ji}\), so
+    \begin{equation}\label{pairwise_potential}
+        V(\vb{r}^N)=\frac{1}{2}\sum_{i=1}^{N}\sum_{j\ne i}^{N}v_{ij}(r_{ij})\,.
+    \end{equation}
+    The factor of a half cancels with the problem of double counting, and self interactions with \(i=j\) are excluded.
+
+    If we identify the force acting on particle \(i\) by particle \(j\) is
+    \begin{equation}
+        \vb{f}_{ij}\coloneqq-\pdv{v_{ij}}{\vb{r}_i}\,,
+    \end{equation}
+    then it is easy to show that the total force acting on particle \(i\) is the sum of the forces acted by all other particles using the form of potential given by (\ref{pairwise_potential})
+    \begin{align}
+        \vb{f}_i&=-\pdv{V}{\vb{r}_i}\notag\\
+        &=-\frac{1}{2}\sum_{j\ne i}^{N}\left(\pdv{v_{ij}(r_{ij})}{\vb{r}_i}+\pdv{v_{ji}(r_{ji})}{\vb{r}_i}\right)\notag\\
+        &=-\sum_{j\ne i}^{N}\pdv{v_{ij}(r_{ij})}{\vb{r}_i}=\sum_{j\ne i}^{N}\vb{f}_{ij}\,.
+    \end{align}
+    It is also not difficult to show that the pair forces satisfy the Newton's third law
+    \begin{equation}
+        \vb{f}_{ij}=-\vb{f}_{ji}\,.
+    \end{equation}
+
+    \subsubsection{Properties of Classical Dynamics}
+    \subsubsection*{Energy Conservation}
+    A fundamental property of mechanical systems, for pair or many-body interactions, provided that they can be derived from a potential invariant in time, is that the total energy is conserved during the motion. The total energy is the sum of the potential energy \(V\) and the kinetic energy \(K\) defined by
+    \begin{equation}
+        K=\sum_{i=1}^{N}\frac{1}{2}m_i\vb{\dot{r}}_i^2\,.
+    \end{equation}
+    We define the \textit{Hamiltonian} of a system to be
+    \begin{equation}
+        H(\vb{r}^N,\dot{\vb{r}}^N,t)\coloneqq K+V=\sum_{i=1}^{N}\frac{1}{2}m_i\dot{r}_i^2+V(\vb{r}^N,t)\,,
+    \end{equation}
+    For our purposes, it is just another way of saying the total energy of the system.\footnote{Formally in classical mechanics, the Hamiltonian is defined as the Legendre transform of the Lagrangian, by
+    \begin{equation}
+        H=\sum_{i=1}^{n}p_i \dot{q}_i-L(q_i,\dot{q}_i,t)\,.
+    \end{equation}
+    \(p_i\) is the \textit{conjugated momentum} of the \textit{generalised coordinate} \(q_i\). Since the generalised coordinate is not necessarily the Cartesian coordinates (e.g. spherical, or even non-orthogonal), \(H\) may not be the energy.} In our cases, the potential \(V\) and hence the whole Hamiltonian has no explicit time dependence, meaning \(t\) does not appear explicitly in the expression of both \(K\) and \(V\), although both \(\vb{r}\) and \(\dot{\vb{r}}\) evolve in time. If this is the case, then the Hamiltonian (total energy) remains constant over time. This is the conservation of energy.
+
+    \begin{thm}[Energy Conservation]
+        If \(H(\vb{r}_i,\dot{\vb{r}}_i,t)\) has no explicit time dependence,
+        \begin{equation}
+            \pdv{H}{t}=0\,,
+        \end{equation}
+        then \(H\) is a constant of motion,
+        \begin{equation}
+            \dv{H}{t}=0\,.
+        \end{equation}
+    \end{thm}
+    \begin{proof}
+        By chain rule,
+        \begin{align}
+            \dv{H}{t}&=\pdv{H}{t}+\sum_{i=1}^{N}\pdv{H}{\vb{r}_i}\pdv{\vb{r}_i}{t}+\sum_{i=1}^{N}\pdv{H}{\dot{\vb{r}}_i}\pdv{\dot{\vb{r}}_i}{t}\notag\\
+            &=0+\sum_{i=1}^{N}\pdv{V}{\vb{r}_i}\vdot\dot{\vb{r}}_i+\sum_{i=1}^{N}m_i\dot{\vb{r}_i}\vdot\ddot{\vb{r}_i}\notag\\
+            &=\sum_{i=1}^{N}\dot{\vb{r}_i}\vdot\left(m_i\ddot{\vb{r}}_i-\vb{f}_i\right)=0
+        \end{align}
+        from Newton's second law.\qed
+    \end{proof}
+
+    Since the Hamiltonian is not explicitly dependent on time, the system has time-translational symmetry, meaning that we start the system at time \(t\) and at time \(t+\delta t\), the system will evolve in the same way. This result of a continuous symmetry of the system leading to a conserved quantity is an example of Noether's theorem, which is arguably the most beautiful and profound result in physics. We will briefly introduce this result in \cref{Appendix:Noether}.
+
+    The conservation of energy is fundamental in the derivation of the equilibrium ensembles in statistical mechanics. It can also be applied as a very powerful test of the stability of a numerical scheme for the integration of the equations of motion. We will repeatedly return to this point.
+
+    \subsubsection*{Time Reversal Symmetry}
+    Another feature of Newtonian dynamics that plays a role both in the theory of statistical mechanics and in the practice of the development of molecular dynamics algorithms is \textit{time reversal symmetry}. This states that if we reverse all velocities at time \(t\) while keeping the positions the same, then the system will retrace its trajectory back into the past. We introduce the notation
+    \begin{equation}
+        \vb{r}^N(t\mid \vb{r}_0^N,\vb{p}_0^N)
+    \end{equation}
+    to be \(\vb{r}^N\) under the initial condition \(\vb{r}^N(0)=\vb{r}_0^N\) and \(\vb{p}^N(0)=\vb{p}_0^N\). Then time reversal symmetry implies the relations
+    \begin{align}
+        \vb{r}^N(t\mid \vb{r}^N(0),-\vb{p}^N(0))&=\vb{r}^N(-t\mid\vb{r}^N(0),\vb{p}^N(0))\,,\\
+        \vb{p}^N(t\mid \vb{r}^N(0),-\vb{p}^N(0))&=-\vb{p}^N(-t\mid\vb{r}^N(0),\vb{p}^N(0))\,.
+    \end{align}
+
+    \subsubsection{Euler's Algorithm}
+    Molecular dynamics methods are iterative numerical schemes for solving the equations of motion of the system. The first step is to discretise the time into small intervals, and we assume each interval has equal length \(\delta t\). Then the evolution of the system is then described by the series of coordinates and velocities
+    \begin{align}
+        \vb{r}^N(t_0)&\equiv\vb{r}^N(0),\dots,\vb{r}^N(t_{m-1})\equiv\vb{r}^N(t_{m}-\delta t),\vb{r}^N(t_m),\vb{r}^N(t_{m+1})\equiv\vb{r}^N(t_m+\delta t),\dots \\
+        \dot{\vb{r}}^N(t_0)&\equiv\dot{\vb{r}}^N(0),\dots,\dot{\vb{r}}^N(t_{m-1})\equiv\dot{\vb{r}}^N(t_{m}-\delta t),\dot{\vb{r}}^N(t_m),\dot{\vb{r}}^N(t_{m+1})\equiv\dot{\vb{r}}^N(t_m+\delta t),\dots 
+    \end{align}
+    The schemes we will discuss all use the Cartesian coordinates.
+
+    The most fundamental integrator in molecular dynamics is \textit{Euler's algorithm}. It approximates the position of the molecule at time \(t+\delta t\) by a Taylor series about \(t\) truncated at \(O(\delta t^2)\)
+    \begin{align}
+        \vb{r}_i(t+\delta t)&=\vb{r}_i(t)+\dot{\vb{r}}(t)\delta t+\frac{1}{2}\ddot{\vb{r}}(t)\delta t^2+O(\delta t^3)\notag\\
+        &=\vb{r}_i(t)+\delta t\vb{v}_i(t)+\frac{\delta t^2}{2m_i}\vb{f}_i(t)+O(\delta t^3)\,.
+    \end{align}
+    Similarly one can obtain an expansion for \(\vb{v}_i(t+\delta t)\)
+    \begin{equation}
+        \vb{v}_i(t+\delta t)=\vb{v}_i(t)+\frac{\delta t}{m_i}\vb{f}_i(t)+O(\delta t^2)\,.
+    \end{equation}
+    Having an expression for \(\vb{f}_i\), which can be derived from the potential \(V\), we can perform this process iteratively.
+
+    \begin{alg}[Euler's Algorithm]
+        \begin{align}
+            \vb{r}_i(t+\delta t)&=\vb{r}_i(t)+\delta t\vb{v}_i(t)+\frac{\delta t^2}{2m_i}\vb{f}_i(t)\\
+            \vb{v}_i(t+\delta t)&=\vb{v}_i(t)+\frac{\delta t}{m_i}\vb{f}_i(t)\,.
+        \end{align}
+        The error of displacement is \(O(\delta t^3)\) and that of velocity is \(O(\delta t^2)\).
+    \end{alg}
+
+    Euler's algorithm is simple, but it has a huge drawback --- it is simply not accurate enough.
+
+    To illustrate this, we calculated the equation of motion of a standard Harmonic oscillator, with Hamiltonian
+    \begin{equation}
+        H=\frac{1}{2}v^2+\frac{1}{2}x^2
+    \end{equation}
+    and initial conditions \(x_0=0\) and \(v_0=1\). The results are plotted in \cref{Fig:Euler}. The exact solution is a sine wave
+    \begin{equation}
+        x(t)=\sin t\,.
+    \end{equation}
+    We can see that Euler's solution quickly diverges from the exact solution as amplitude of oscillation quickly grows larger and larger. Euler's algorithm has several problems, making it very limited in current practical use:
+    \begin{itemize}[topsep=0pt]
+        \item The solution is not time-reversible.
+        \item \textit{Liouville's theorem} states that the volume of a set in the phase space is conserved as it evolves in time. In Euler's algorithm, the volume in the phase space is not conserved. 
+        \item The system is susceptible to energy drift. As we can see in the plot, the energy drifts exponentially fast.
+    \end{itemize}
+
+    This suggests that we need a more accurate algorithm.
+
+    \begin{figure}[ht!]
+        \begin{subfigure}[h]{0.48\linewidth}
+            \begin{adjustbox}{width=\linewidth}
+            \input{Python_plots/Euler_displacement.tex}
+            \end{adjustbox}
+            \caption{Displacement against time}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[h]{0.48\linewidth}
+            \begin{adjustbox}{width=\linewidth}
+            \input{Python_plots/Euler_phase.tex}
+            \end{adjustbox}
+            \caption{Phase diagram}
+        \end{subfigure}\\
+        \vskip 0.5cm
+        \begin{subfigure}[h]{0.48\linewidth}
+            \begin{adjustbox}{width=\linewidth}
+            \input{Python_plots/Euler_energy.tex}
+            \end{adjustbox}
+            \caption{Energy against time}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[h]{0.48\linewidth}
+            \begin{adjustbox}{width=\linewidth}
+            \input{Python_plots/Euler_energy_error.tex}
+            \end{adjustbox}
+            \caption{Logarithmic error of energy}
+        \end{subfigure}%
+        \caption{The motion of a harmonic oscillator solved by Euler's method (blue) and the exact solution (orange). The step length in Euler's method is set to \(\delta t=0.05\unit{s}\).}
+        \label{Fig:Euler}
+    \end{figure}
+
+    \subsubsection{Verlet Algorithm}
+    An obvious thing to do to improve Euler's algorithm is to include more terms in the Taylor expansions. If we truncate the expansion of \(\vb{x}(t+\delta t)\) at \(O(\delta t^3)\), we get
+    \begin{equation}
+        \vb{r}_i(t+\delta t)=\vb{r}_i(t)+\delta t\vb{v}_i(t)+\frac{\delta t^2}{2m_i}\vb{f}_i(t)+\frac{\delta t^3}{6}\vb{b}_i(t)+O(\delta t^4)\,,
+    \end{equation}
+    where \(\vb{b}_i\coloneqq\dddot{\vb{r}}_i\) is the third derivative of position. But this leads to a problem --- it is not easy to evaluate this third derivative. But the trick is we don't have to evaluate it. If we expand the position backward in time, we get
+    \begin{equation}
+        \vb{r}_i(t-\delta t)=\vb{r}_i(t)-\delta t\vb{v}_i(t)+\frac{\delta t^2}{2m_i}\vb{f}_i(t)-\frac{\delta t^3}{6}\vb{b}_i(t)+O(\delta t^4)\,.
+    \end{equation}
+    Now if we add these two expressions together, the third derivatives nicely cancel out and we are left with
+    \begin{equation}
+        \vb{r}_i(t+\delta t)=2\vb{r}_i(t)-\vb{r}_i(t-\delta t)+\frac{\delta t^2}{m_i}\vb{f}_i(t)+O(\delta t^4)\,.
+    \end{equation}
+    Now this expression has error \(O(\delta t^4)\), and we don't even need to evaluate the velocities \(\vb{v}(t)\) if we are only interested in the particles' coordinates.
+
+    However, in most cases, the velocities still tell us valuable information. To calculate it, we can subtract the two expansions forward and backward in time and get
+    \begin{equation}
+        \vb{v}_i(t)=\frac{1}{2\delta t}[\vb{r}_i(t+\delta t)-\vb{r}_i(t-\delta t)]+O(\delta t^3)\,.
+    \end{equation}
+
+    \begin{alg}[Verlet Algorithm]
+        \begin{align}
+            \vb{r}_i(t+\delta t)&=2\vb{r}_i(t)-\vb{r}_i(t-\delta t)+\frac{\delta t^2}{m_i}\vb{f}_i(t)\label{verlet_position}\\
+            \vb{v}_i(t)&=\frac{1}{2\delta t}[\vb{r}_i(t+\delta t)-\vb{r}_i(t-\delta t)]\,.
+        \end{align}
+        The error of displacement is \(O(\delta t^4)\) and that of velocity is \(O(\delta t^3)\).
+    \end{alg}
+
+    However, to calculate \(\vb{v}(t)\), you need the knowledge of position at \(t+\delta t\), i.e. the velocity update in Verlet algorithm is one step behind the position update. This is not a problem for propagating position because, assuming that the forces are not dependent on velocity, information on \(\vb{v}_i(t)\) is not needed in (\cref{verlet_position}). Still, this may be inconvenient for the determination of velocity-dependent quantities or for the algorithms which manipulate the velocity during dynamics. The position and velocity update can be brought in the same step by a reformulation of the Verlet scheme, called \textit{velocity Verlet}. The prediction for position is now simply obtained from the Taylor expansion, again keeping to the second order
+    \begin{equation}\label{velocity_verlet_forward}
+        \vb{r}_i(t+\delta t)=\vb{r}_i(t)+\delta t\vb{v}_i(t)+\frac{\delta t^2}{2m_i}\vb{f}_i(t)+O(\delta t^3)\,.
+    \end{equation}
+    For the advanced position obtained this way, we compute the force at time \(t+\delta t\)
+    \begin{equation}
+        \vb{f}_i(t+\delta t)=\vb{f}_i(\{\vb{r}_j(t+\delta t)\})=\vb{f}_i\left(\left\{\vb{r}_i(t)+\delta t\vb{v}_i(t)+\frac{\delta t^2}{2m_i}\vb{f}_i(t)\right\}\right)\,,
+    \end{equation}
+    in which all particles have proceeded to their positions at \(t+\delta t\). Substituting this expression into the Taylor expansion of \(\vb{r}_i(t)\) about \(t+\delta t\) backward in time, we obtain
+    \begin{equation}
+        \vb{r}_i(\vb{t})=\vb{r}_i(t+\delta t)-\delta t\vb{v}_i(t+\delta t)+\frac{\delta t^2}{2m_i}\vb{f}_i(t+\delta t)+O(\delta t^3)\,.
+    \end{equation}
+    Adding this to the forward expansion (\ref{velocity_verlet_forward}) gives the prediction of velocity
+    \begin{equation}
+        \vb{v}_i(t+\delta t)=\vb{v}_i(t)+\frac{\delta t}{2m_i}[\vb{f}_i(t)+\vb{f}_i(t+\delta t)]+O(\delta t^3)\,.
+    \end{equation}
+
+    \begin{alg}[Velocity Verlet Algorithm]
+        \begin{align}
+            \vb{r}_i(t+\delta t)&=\vb{r}_i(t)+\delta t\vb{v}_i(t)+\frac{\delta t^2}{2m_i}\vb{f}_i(t)\label{velocity_verlet_position}\\
+            \vb{v}_i(t+\delta t)&=\vb{v}_i(t)+\frac{\delta t}{2m_i}[\vb{f}_i(t)+\vb{f}_i(t+\delta t)]\,.
+        \end{align}
+    \end{alg}
+
+    The velocity Verlet looks rather different than the Verlet algorithm, especially the \(O(\delta t^3)\) error terms when we derive it look concerning. However, we can show that these two algorithms are equivalent. We can show this by rewriting the velocity Verlet prediction of the position.
+
+    \begin{prop}
+        The velocity Verlet algorithm is equivalent to the Verlet algorithm.
+    \end{prop}
+    \begin{proof}
+        If we subtract the \(t-\delta t\to t\) prediction for the position from the \(t\to t+\delta t\) prediction in the velocity Verlet algorithm, we find
+        \begin{equation}\label{velocity_verlet_minus}
+            \vb{r}_i(t+\delta t)-\vb{r}_i(t)=\vb{r}_i(t)-\vb{r}_i(t-\delta t)+\delta t[\vb{v}_i(t)-\vb{v}_i(t-\delta t)]+\frac{\delta t^2}{2m_i}[\vb{f}_i(t)-\vb{f}_i(t-\delta t)]\,.
+        \end{equation}
+        The \(t-\delta t\to t\) update for the velocity is
+        \begin{equation}
+            \vb{v}_i(t)=\vb{v}_i(t-\delta t)+\frac{\delta t}{2m_i}[\vb{f}_i(t-\delta t)+\vb{f}_i(t)]\,.
+        \end{equation}
+        If we substitute this into (\ref{velocity_verlet_minus}), we get
+        \begin{equation}
+            \vb{r}_i(t+\delta t)=2\vb{r}_i(t)-\vb{r}_i(t-\delta t)+\frac{\delta t^2}{m_i}\vb{f}_i(t)\,.
+        \end{equation}
+        The velocity Verlet algorithm gives the same prediction as the Verlet algorithm.\qed
+    \end{proof}
+
+    \begin{figure}
+        \centering
+        \begin{tikzpicture}
+            \begin{scope}[shift={(-3.5,-1)}]
+                \node[draw,fill=white] (E) at (0,0){\(\vb{r}_i(t-\delta t)\)};
+                \node[draw,fill=white] (F) at (2,0){\(\vb{r}_i(t)\)};
+                \node[draw,fill=white] (G) at (4,0){\(\vb{r}_i(t+\delta t)\)};
+                \draw (E.north)--(0,0.5)--(2,0.5)--(F.north);
+                \draw[->] (1,0.5)--(1,0.8)--(4,0.8)--(G.north);
+                \node at (2,-1.5){Verlet algorithm};
+            \end{scope}
+            \begin{scope}[shift={(3.5,0)}]
+                \node[draw] (A) at (0,0){\(\vb{r}_i(t)\)};
+                \node[draw] (B) at (0,-1.5){\(\vb{v}_i(t)\)};
+                \node[draw] (C) at (3,0){\(\vb{r}_i(t+\delta t)\)};
+                \node[draw] (D) at (3,-1.5){\(\vb{v}_i(t+\delta t)\)};
+                \draw[->] (A)--(C);
+                \draw[fork] (B.east)--(C.west);
+                \draw[->] (C)--(D);
+                \node at (1.7,-2.5){velocity Verlet algorithm};
+            \end{scope}
+        \end{tikzpicture}
+        \caption{Schemes of Verlet and velocity Verlet algorithms.}
+    \end{figure}
+
+    Now let's examine the accuracy of Verlet's algorithm using harmonic oscillator.
+
+    \begin{figure}[ht!]
+        \begin{subfigure}[h]{0.48\linewidth}
+            \begin{adjustbox}{width=\linewidth}
+            \input{Python_plots/Verlet_position_short.tex}
+            \end{adjustbox}
+            \caption{Displacement against time}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[h]{0.48\linewidth}
+            \begin{adjustbox}{width=\linewidth}
+            \input{Python_plots/Verlet_position_long.tex}
+            \end{adjustbox}
+            \caption{Displacement at long \(t\)}
+        \end{subfigure}\\
+        \vskip 0.5cm
+        \begin{subfigure}[h]{0.48\linewidth}
+            \begin{adjustbox}{width=\linewidth}
+            \input{Python_plots/Verlet_phase.tex}
+            \end{adjustbox}
+            \caption{Phase diagram}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[h]{0.48\linewidth}
+            \begin{adjustbox}{width=\linewidth}
+            \input{Python_plots/Verlet_energy.tex}
+            \end{adjustbox}
+            \caption{Energy against time}
+        \end{subfigure}%
+        \caption{The motion of a harmonic oscillator solved by Verlet algorithm (blue) and the exact solution (orange). The step length in Verlet's method is also \(\delta t=0.05\unit{s}\).}
+        \label{Fig:Verlet}
+    \end{figure}
+
+    We can see that the Verlet algorithm is very accurate. Although the displacements deviate from the exact displacement over time, the phase-space volume is conserved exactly and the total energy remains nearly constant (with only small bounded oscillations) over very long times.
+
+    \subsubsection{Why use the Verlet Algorithm? (Non-examinable)}
+    While there are algorithms with better short time accuracy than the Verlet algorithm, the overwhelming majority of condensed matter molecular dynamics simulations is based on just the Verlet algorithm. There are a number of reasons for its popularity.
+    \begin{enumerate}[topsep=0pt,label=(\roman*)]
+        \item The Verlet algorithm is simple and only depends on forces. No higher derivatives of the energy are needed. This is important because the force evaluation is the most CPU time consuming in MD simulations of interacting many-particle systems. Computation of higher derivatives of energy will increase computational costs substantially. Although the algorithms using force derivatives are more accurate, this gain is actually relatively minor. Because of the chaotic nature of the motion in many-particle systems, the particles rapidly deviate from the ``true'' trajectories. This is known as \textit{Lyapunov instability}: trajectories that differ slightly in initial conditions will diverge exponentially in time. If we denote \(\vb{r}(t)=\vb{r}(t\mid \vb{r}_0,\vb{p}_0)\) and \(\vb{r}'(t)=\vb{r}(t\mid \vb{r}_0,\vb{p}_0+\epsilon)\), then
+        \begin{equation}
+            \abs{\vb{r}(t)-\vb{r}'(t)}\sim\epsilon\exp(\lambda t)\,,
+        \end{equation}
+        where \(\lambda\) is the \textit{Lyapunov exponent}. This can be seen if we plot the logarithmic error of displacement against time, where the upper bound of the plot is a straight line with gradient \(\lambda\).
+
+        \begin{figure}[ht!]
+            \centering
+            \input{Python_plots/Verlet_position_error.tex}
+            \caption{Logarithmic error of displacement of a harmonic oscillator using Verlet algorithm.}
+        \end{figure}
+        
+        Having an exponentially growing error may seems horrible, but it is actually not as big a problem as it seems!
+        \begin{thm}[Shadowing theorem]
+            Every numerical trajectory will be uniformly close to some true trajectory with slightly altered initial position. In other words, a numerical trajectory is ``shadowed'' by a true one.
+        \end{thm}
+        \begin{figure}[ht!]
+            \centering
+            \begin{tikzpicture}
+                \draw[red] plot[smooth, tension = 1] coordinates {(0,0) (1.22,1.2) (2.6,1) (4,0.7) (5,-0.2) (6,0.4) (6.5,-1) };
+                \node[red] at (6.5,-1) [right]{\small true path};
+                \draw[blue] plot[smooth, tension = 1] coordinates {(0,0) (0.8,1.1) (2.1,1.3) (3.3,1.8) (5,0.8) (7,1.6) };
+                \draw (0,0) -- (0.5,0.83) -- (1.2,1.26) -- (1.7,1.3) -- (2.1,1.3) -- (2.6,1.6) -- (3,1.85) -- (3.7,1.62) -- (4.1,1.2) -- (4.5,1) -- (5,0.8) --(5.7,0.88) -- (6.3,1.17) -- (7,1.6);
+                \node[blue] at (7,1.6) [below right]{\small shadowing path};
+                \node at (7,1.6) [above]{\small numerical path};
+            \end{tikzpicture}
+        \end{figure}
+
+        This strong molecular chaos is ultimately the justification of methods of statistical mechanics.
+        \item Even though it only uses forces, the Verlet algorithm is correct up to and including \(O(\delta t^3)\).
+        \item The Verlet algorithm is explicitly time reversible and, even though the trajectory relatively quickly diverges substantially from the true trajectory, the energy is conserved over an extremely long period of time. Moreover, the Verlet algorithm rigorously conserves the normalisation of an ensemble probability distribution of points in phase space. In more advanced language, the Verlet integrator is said to be \textit{symplectic}. These formal properties contribute to the superior long time stability of the Verlet algorithm.
+        
+        For example, as we will discuss later, energy is the defining quantity for the microcanonical ensemble, since, for chaotic systems, there are no constraints on the regions trajectories can reach in phase space other than that they are confined to the hypersurface of constant energy. Energy conservation, together with norm conservation are therefore necessary conditions for thermodynamic stability, and ultimately for a proper definition of temperature. Long time stability is particularly important for the simulation of liquids which are stabilised by finite temperature dynamical fluctuations.
+    \end{enumerate}
+
+    \subsection{Connection to Equilibrium Statistical Mechanics}
+    \subsubsection{The Microcanonical Ensemble}
+    So far, we have studied systems using Newtonian dynamics, in which the energy is naturally conserved if the system is closed. This corresponds to a microcanonical ensemble. For each observable \(A\) of the system, there is a corresponding \textit{phase function} \(\mathcal{A}(\vb{r}^N,\vb{p}^N)\) telling us the value of \(A\) given a state \((\vb{r}^N,\vb{p}^N)\) of the system. Then the ensemble average of the system is given by
+    \begin{equation}\label{microcanonical_average}
+        \eval{A}_{NVE}=\int\dd[3N]{\vb{r}^N}\dd[3N]{\vb{p}^N}\rho_{NVE}(\vb{r}^N,\vb{p}^N)\mathcal{A}(\vb{r}^N,\vb{p}^{N})\,,
+    \end{equation}
+    where \(\rho_{NVE}(\vb{r}^N,\vb{p}^N)\) is the \textit{microcanonical phase-space distribution function} restricting the manifold of accessible phase points \((\vb{r}^N,\vb{p}^N)\) to a hypersurface of constant energy \(E\) only, given by
+    \begin{equation}
+        \rho_{NVE}(\vb{r}^N,\vb{p}^N)=\frac{f(N)}{\Omega_N}\delta(\mathcal{H}(\vb{r}^N,\vb{p}^N)-E)\,.
+    \end{equation}
+    The phase function \(\mathcal{H}(\vb{r}^N,\vb{p}^N)\) is the Hamiltonian, \(f(N)\) is some function of the number of particles accounting for their indistinguishability, and \(\Omega_N\) is the microcanonical partition function given by
+    \begin{equation}
+        \Omega_N=f(N)\int\dd[3N]{\vb{r}^N}\dd[3N]{\vb{p}^N}\delta(\mathcal{H}(\vb{r}^N,\vb{p}^N)-E)\,.
+    \end{equation}
+    The factors \(f(N)\) in the above expression can be omitted if we are only interested in mechanical observable averages over the ensemble distributions using \(\rho_{NVE}\), but it becomes crucial if we want to give the normalisation factor \(\Omega_N\) a thermodynamical interpretation when calculating entropy, free energy \textit{etc.}
+
+    \subsubsection{The Ergodic Principle and Time Averages}
+    The above thermodynamic average of a quantity require us to evaluate it over the whole hypersurface of constant energy \(\mathcal{H}(\vb{r}^N,\vb{p}^N)\) in the phase space --- it is difficult to do this in a computer simulation. However, we know that the state of a deterministic \(NVE\) system also evolves on this hypersurface of constant energy with time, with trajectory \((\vb{r}^N(t),\vb{p}^N(t))\). This allows us to determine how the physical observable \(A\) evolve along a certain trajectory as a function of time
+    \begin{equation}
+        A(t)\equiv \mathcal{A}(\vb{r}^N(t),\vb{p}^N(t))\,.
+    \end{equation}
+    Now we are going to invoke some hypothesis.
+    \begin{hyp}[Ergodic Hypothesis]
+        Over a long enough period of time, the time spent by a system in some region of the phase space of microstates with the same energy is proportional to the volume of this region, i.e., that all accessible microstates are equiprobable over a long period of time.
+    \end{hyp}
+    This means that if we let our system evolves for a long period of time, then it will go over the whole subset of the phase space that it is allowed to go to --- it is not saying that it will travel to every single point in the hypersurface of constant energy, which is impossible for a finite amount of time. What we are saying is that the system is sampling through a large enough portion of the phase space, so that the time average of the quantity \(A(t)\) is essentially the ensemble average \(\eval{A}_{NVE}\). We are replacing the ensemble average with a time average from a very long trajectory.
+    \begin{equation}
+        \eval{A}_{NVE}=\lim_{\tau\to\infty}\overline{A}_{\tau}=\lim_{\tau\to\infty}\frac{1}{\tau}\int_{0}^{\tau}\dd{t}\mathcal{A}(\vb{r}^N(t),\vb{p}^N(t))\,.
+    \end{equation}
+    In molecular dynamics computer simulation, we can only approximate a discrete path of time interval \(\delta t\) over a finite amount of time \(\tau=M\delta t\). We then need to replace the above integral by a sum.
+    \begin{equation}
+        \eval{A}_{\tau}\approx\frac{1}{M}\sum_{m=1}^{M}\mathcal{A}(\vb{r}^N(t_m),\vb{p}^N(t_m))\,.
+    \end{equation}
+    
+    \begin{figure}[ht!]
+        \centering
+        \begin{tikzpicture}
+            \draw (0,0)--(5,0);
+            \draw (0,0)--(0,0.5);
+            \draw (0,2.63)--(0,5);
+            \draw (0,0)--(0,0,5);
+            \draw[thick] plot[smooth, tension = 0.9] coordinates {(0.4,1.7,4.5) (0.4,2.6,2.5) (0.4,3.2,0.3)};
+            \draw[thick] plot[smooth, tension = 0.9] coordinates {(0.4,1.7,4.5) (2.6,2.4,4.5) (4.8,2.1,4.5)};
+            \draw[thick] plot[smooth, tension = 0.9] coordinates {(0.4,3.2,0.3) (2.6,3.6,0.3) (4.8,3.5,0.3)};
+            \draw[thick] plot[smooth, tension = 0.9] coordinates {(4.8,2.1,4.5) (4.8,3.1,2.2) (4.8,3.5,0.3)};
+            \begin{scope}[shift={(-2.1,0.1)}]
+                \draw [scale=0.23,->] (8.11,3) .. controls (7.73,3) and (7.19,3.29) .. (6.89,3.47) .. controls (6.79,3.54) and (6.58,3.54) .. (6.52,3.66) .. controls (6.46,3.77) and (6.48,4.09) .. (6.49,4.13) .. controls (6.5,4.28) and (6.82,4.17) .. (6.99,4.16) .. controls (7.32,4.14) and (8.05,3.75) .. (8.18,4.22) .. controls (8.2,4.29) and (8.22,4.55) .. (8.21,4.6) .. controls (8.17,4.74) and (7.43,5.45) .. (7.91,5.54) .. controls (8.64,5.67) and (8.76,5.04) .. (8.85,4.54) .. controls (8.87,4.41) and (8.97,4.32) .. (8.99,4.19) .. controls (9.04,3.81) and (9.02,3.32) .. (9.46,3.22) .. controls (9.58,3.19) and (9.75,3.1) .. (9.87,3.09) .. controls (10.09,3.08) and (10.32,3.08) .. (10.54,3.09) .. controls (10.58,3.1) and (10.67,3.28) .. (10.68,3.31) .. controls (10.7,3.77) and (10.7,4.16) .. (10.81,4.57) .. controls (10.84,4.68) and (11.09,4.74) .. (11.22,4.75) .. controls (11.28,4.76) and (11.38,4.7) .. (11.42,4.75) .. controls (11.62,5.03) and (10.8,5.75) .. (10.61,5.91) .. controls (10.45,6.05) and (10.33,6.15) .. (10.17,6.23) .. controls (10.12,6.25) and (9.4,7.01) .. (9.26,7.1) .. controls (9.12,7.2) and (8.97,7.55) .. (8.85,7.61) .. controls (8.7,7.68) and (8.46,7.78) .. (8.31,7.95) .. controls (8.09,8.21) and (8.13,8.85) .. (8.51,8.98) .. controls (8.72,9.06) and (9.05,8.87) .. (9.22,8.8) .. controls (9.99,8.48) and (10.15,8.47) .. (10.68,7.73) .. controls (10.85,7.49) and (11.26,7.54) .. (11.55,7.35) .. controls (11.59,7.33) and (11.87,7.28) .. (11.89,7.23) .. controls (11.98,7.07) and (12.15,6.88) .. (12.23,6.67) .. controls (12.33,6.4) and (12.48,6.11) .. (12.5,5.82) .. controls (12.52,5.56) and (12.52,5.3) .. (12.5,5.04) .. controls (12.49,4.91) and (12.37,4.79) .. (12.37,4.66) .. controls (12.36,4.5) and (12.35,4.35) .. (12.37,4.19) .. controls (12.38,4.12) and (12.53,3.96) .. (12.57,3.91) .. controls (12.8,3.58) and (12.89,3.2) .. (13.38,3.28) .. controls (13.6,3.32) and (13.88,3.64) .. (14.05,3.72) .. controls (14.1,3.74) and (14.09,3.81) .. (14.12,3.85) .. controls (14.47,4.27) and (14.06,4.72) .. (14.02,5.19) .. controls (14.01,5.31) and (14.01,5.42) .. (14.02,5.54) .. controls (14.03,5.6) and (14.3,5.74) .. (14.33,5.91) .. controls (14.34,6.06) and (14.36,6.21) .. (14.33,6.35) .. controls (14.16,7.1) and (13.39,7.71) .. (12.87,8.23) .. controls (12.51,8.59) and (12.12,8.86) .. (11.79,9.17) .. controls (11.69,9.26) and (11.34,9.44) .. (11.28,9.55) .. controls (11.17,9.76) and (11.33,9.75) .. (11.66,9.83) .. controls (11.99,9.91) and (12.66,9.39) .. (12.7,9.36) .. controls (13,9.13) and (13.32,8.81) .. (13.55,8.55) .. controls (13.94,8.09) and (14.26,6.98) .. (15.07,7.1) .. controls (15.32,7.14) and (15.22,8.02) .. (15.41,8.11) .. controls (16.12,8.26) and (16.18,7.92) .. (16.62,7.45) .. controls (16.86,7.16) and (15.36,6.44) .. (15.54,6.1) .. controls (15.81,5.76) and (16.39,6.32) .. (16.59,5.98) .. controls (16.69,5.1) and (17.03,6.04) .. (17.43,5.32) .. controls (17.5,4.85) and (15.95,5.44) .. (15.58,5.01) .. controls (15.27,4.69) and (15.26,3.66) .. (15.95,3.41) .. controls (16.26,3.29) and (16.49,4.16) .. (16.99,4.16) .. controls (17.91,4.32) and (18.83,3.66) .. (19.33,4.19) .. controls (19.59,4.47) and (19.57,4.97) .. (19.93,5.22) .. controls (20.06,5.31) and (20.13,5.29) .. (20.31,5.35) .. controls (20.35,5.37) and (20.19,5.52) .. (20.17,5.54) .. controls (19.96,5.73) and (19.65,5.86) .. (19.39,5.98) .. controls (19.22,6.06) and (19,6.19) .. (18.82,6.23) .. controls (18.62,6.27) and (18.53,6.16) .. (18.38,6.23) .. controls (18.26,6.28) and (18.17,6.46) .. (18.11,6.54) .. controls (17.87,6.87) and (17.89,7.13) .. (18.41,7.23) .. controls (18.81,7.3) and (19.19,7.32) .. (19.6,7.23) .. controls (20,7.13) and (21.05,6.98) .. (21.35,6.7) .. controls (21.54,6.52) and (21.38,6.12) .. (21.29,5.91) .. controls (21.22,5.77) and (21.25,5.59) .. (21.22,5.44) .. controls (21.11,4.96) and (21.86,4.82) .. (20.47,4.6) .. controls (19.53,4.32) and (20.51,3.13) .. (21.22,3.31) .. controls (22.4,3.69) and (21.05,4.5) .. (21.72,4.47) .. controls (22.4,4.47) and (22.64,3.81) .. (23.11,3.94) .. controls (23.6,4.55) and (22.08,4.58) .. (22.57,4.96) .. controls (23.01,5.27) and (23.38,4.41) .. (23.52,4.94) .. controls (23.62,5.32) and (23.8,5.3) .. (24.03,5.96) .. controls (24.12,6.84) and (23.27,8.31) .. (22.74,8.26) .. controls (21.41,8.02) and (23.48,6.6) .. (23.48,6.26) .. controls (23.68,5.44) and (21.66,5.19) .. (22.06,5.88) .. controls (22.05,5.93) and (22.64,5.98) .. (22.5,6.79) .. controls (22.42,7.02) and (21.4,7.4) .. (21.32,7.64) .. controls (21.23,7.89) and (21.99,7.82) .. (21.96,8.29) .. controls (21.9,8.82) and (21.81,9.35) .. (21.25,9.61) .. controls (20.95,9.75) and (20.34,9.76) .. (20.07,9.74) .. controls (19.97,9.73) and (19.83,9.63) .. (19.73,9.61) .. controls (18.79,9.44) and (19.02,8.58) .. (18.04,8.51) .. controls (17.91,8.5) and (17.74,7.48) .. (17.03,8.14) .. controls (16.56,8.64) and (17.37,9.74) .. (16.28,9.27) .. controls (14.53,8.86) and (15.14,9.67) .. (15.24,10.17) .. controls (15.44,10.77) and (15.98,9.77) .. (16.45,10.08) .. controls (16.89,10.22) and (17.58,9.62) .. (18.05,9.68) .. controls (18.81,9.78) and (17.8,10.69) .. (18.64,10.59) .. controls (19.08,10.53) and (20.18,10.84) .. (20.61,10.68) .. controls (20.95,10.58) and (21.33,10.15) .. (21.62,10.02) .. controls (22.2,9.83) and (21.72,10.93) .. (22.81,10.61) .. controls (23.55,10.3) and (22.53,9.19) .. (22.97,8.98) .. controls (23.27,8.85) and (23.5,9.01) .. (23.72,9.17) .. controls (24.34,9.66) and (24.57,10.2) .. (23.99,10.74) .. controls (23.63,11.07) and (23.08,11.28) .. (22.64,11.49) .. controls (22.54,11.53) and (22.46,11.64) .. (22.37,11.68) .. controls (21.77,11.95) and (21.07,11.73) .. (20.41,11.75) .. controls (19.74,11.77) and (19.2,10.47) .. (18.48,11.19) .. controls (17.67,11.69) and (17.39,11.64) .. (17.08,11.03) .. controls (16.93,10.64) and (17.96,10.61) .. (17.49,10.39) .. controls (17.06,10.2) and (14.61,11.29) .. (14.46,10.86) .. controls (14.43,10.77) and (14.8,9.74) .. (14.19,9.74) .. controls (13.75,9.74) and (14.33,10.43) .. (13.85,10.61) .. controls (13.5,10.83) and (13.09,10.71) .. (12.84,11.08) .. controls (12.55,11.51) and (13.82,11.31) .. (13.17,11.77) .. controls (12.95,12.38) and (11.8,12.01) .. (11.12,11.5) .. controls (10.5,10.91) and (12.67,10.78) .. (12.3,10.26) .. controls (12.18,10.09) and (10.26,10.26) .. (10.44,11.53) .. controls (10.82,12.72) and (10.9,12.85) .. (11.89,12.93) .. controls (13.26,12.91) and (15.09,10.67) .. (15.13,11.86) .. controls (15.28,12.84) and (15.44,12.96) .. (16.4,12.55) .. controls (16.9,12.3) and (15.94,11.54) .. (16.24,11.44) .. controls (16.76,11.29) and (17.98,12.54) .. (18.51,12.52) .. controls (19.36,12.46) and (19.85,13.1) .. (20.88,12.52) .. controls (21.65,12.08) and (22.92,12.75) .. (23.3,12.99) .. controls (24.17,13.1) and (23.61,12.41) .. (24.67,11.86) ;
+            \end{scope}
+        \end{tikzpicture}
+        \caption{By the ergodic hypothesis, a trajectory will sample enough points on the whole hypersurface of constant energy such that the time average is a very good approximation to the ensemble average.}
+    \end{figure}
+    \subsubsection{The Canonical Ensemble}
+    Real world systems are hardly ever isolated. The least they do is to exchange energy with the environment. The states of such a system in equilibrium with a thermal reservoir of temperature \(T\) are distributed according to the canonical ensemble
+    \begin{equation}\label{canonical_state_distribution}
+        \rho_{NVT}(\vb{r}^N,\vb{p}^N)=\frac{f(N)}{Q_N}\exp\left(-\frac{\mathcal{H}(\vb{r}^N,\vb{p}^N)}{k_B T}\right)\,,
+    \end{equation}
+    where \(Q\) is the canonical partition function
+    \begin{equation}
+        Q_N=f(N)\int\dd[3N]{\vb{r}^N}\dd[3N]\vb{\vb{p}^N}\exp\left(-\frac{\mathcal{H}(\vb{r}^N,\vb{p}^N)}{k_B T}\right)\,.
+    \end{equation}
+    Canonical expectation values of observables are exponentially weighted averages over all points in phase space
+    \begin{align}
+        \eval{A}_{NVT}&=\int\dd[3N]{\vb{r}^N}\dd[3N]{\vb{p}^N}\rho_{NVT}(\vb{r}^N,\vb{p}^N)\mathcal{A}(\vb{r}^N,\vb{p}^N)\notag\\
+        &=\frac{f(N)}{Q_N}\int\dd[3N]{\vb{r}^N}\dd[3N]{\vb{p}^N}\mathcal{A}(\vb{r}^N,\vb{p}^N)\exp(-\beta \mathcal{H}(\vb{r}^N,\vb{p}^N))\,.\label{canonical_average}
+    \end{align}
+    By taking the classical limit of the quantum canonical ensemble, the expression for the factor \(f(N)\) can evaluated. If all \(N\) particles are identical, then it is
+    \begin{equation}
+        f(N)=\frac{1}{h^{3N}N!}\,.
+    \end{equation}
+    The canonical partition function \(Q_N\) and microcanonical partition function \(\Omega_N\) have all taken this into account. Their interpretation is suggested by considering the dimension of \(h\), which is equal to that of position times momentum. \(f(N)\) is therefore a very small reciprocal space volume which makes the canonical/microcanonical partition function dimensionless. Planck's constant therefore acts as a measure of the phase space metric and \(Q_N\) is interpreted as the effective number of accessible states at temperature \(T\). The \(N!\) factor takes account of the indistinguishability of the particles. It can be viewed as correcting for over-counting in the classical ensemble where permuting the position and momentum of a pair of particles would lead to a different but equivalent state (point) \((\vb{r}^N,\vb{p}^N)\) in the phase space. Similarly \(\Omega_N\) is also the number of accessible states, except that in microcanonical ensemble it is restricted to the hypersurface of constant energy in the phase space (a manifold of dimension \(6N-1\)). A mathematically more correct way of thinking the microcanonical partition function is that for a given infinitesimal change in energy \(\d{E}\), the quantity \(\Omega_N\d{E}\) gives the effective number of states contained in the volume between hypersurfaces with energy \(E\) and \(E+\d{E}\).
+
+    \(\Omega_N\) and \(Q_N\) are related to two very important thermodynamic quantities, namely the Boltzmann entropy
+    \begin{equation}
+        S=k_B\ln\Omega_N
+    \end{equation}
+    and the Helmholtz free energy
+    \begin{equation}\label{helmholtz_fundamental_eqn}
+        A=-k_B T\ln Q_N\,.
+    \end{equation}
+    They are the central relations linking statistical mechanics to thermodynamics. The factor \(f(N)\) plays a crucial role in this identification. The founding fathers of statistical mechanics arrived at these results without the help of quantum mechanics --- arguments concerning the additivity of entropy of mixing and similar considerations led them to postulate the form of the \(N\) dependence.
+
+    \subsubsection{The Configuration Integral}
+    It turns out that the kinetic energy is a rather trivial quantity in classical statistical thermodynamics.
+    \begin{thm}[Equipartition theorem]
+        The average kinetic energy per particle is
+        \begin{equation}
+            \eval{K}/N=\frac{d}{2}k_B T\,,
+        \end{equation}
+        where \(d\) is the dimension of the system.
+    \end{thm}
+    This result is independent of the interaction potential or the mass. The origin of this is because the kinetic energy always takes the same form
+    \begin{equation}
+        \mathcal{K}(\vb{p}^N)=\sum_{i=1}^{N}\frac{\vb{p}_i^2}{2m}\,.
+    \end{equation}
+    When we evaluate the partition function, we can separate the Hamiltonian into a kinetic and a potential part, and the integral over the kinetic part will always be the same.
+    \begin{align}
+        Q_N&=f(N)\int\dd[3N]{\vb{p}^N}\dd[3N]{\vb{r}^N}\exp(-\beta \mathcal{H}(\vb{r}^N,\vb{p}^N))\notag\\
+        &=f(N)\int\dd[3N]{\vb{p}^N}\exp(-\beta \mathcal{K}(\vb{p}^N))\int\dd[3N]{\vb{r}^N}\exp(-\beta \mathcal{V}(\vb{r}^N))\notag \\
+        &=f(N)\int\prod_{i=1}^{N}\dd[3]{\vb{p}_i}\exp\left(-\frac{\beta\vb{p}_i^2}{2m}\right)\int\dd[3N]{\vb{r}^N}\exp(-\beta \mathcal{V}(\vb{r}^N))\notag\\
+        &\eqqcolon\frac{1}{N!\Lambda^{3N}} Z_N\,,
+    \end{align}
+    where \(\Lambda=h/\sqrt{2\pi m k_B T}\) is the thermal wavelength and we have defined the \textit{configuration integral} to be
+    \begin{equation}\label{configuration_integral}
+        Z_N=\int\dd[3N]{\vb{r}^N}\exp(-\beta \mathcal{V}(\vb{r}^N))\,.
+    \end{equation}
+    This is the more interesting quantity. For example, if we want to know the probability distribution \(P_N(\vb{r}^N)\) for the configuration of the system, then we need to evaluate
+    \begin{equation}
+        P_N(\vb{r}^N)=\frac{\exp(-\beta \mathcal{V}(\vb{r}^N))}{Z_N}\,.
+    \end{equation}
+
+    The factor \(\Lambda^{3N}\) in the partition function, absorbing the \(h^{3N}\), can be seen as a temperature dependent version of the volume element in the configuration space. The deeper significance of \(\Lambda\) is that it provides a criterion for the approach from the quantum to the classical limit. Quantum effects can be ignored in equilibrium statistics if \(\Lambda\) is smaller than any characteristic length in the system.
+
+    \subsection{Temperature in Molecular Dynamics}
+    Temperature was introduced in (\ref{canonical_state_distribution}) as a parameter in the canonical ensemble, and via the fundamental equation (\ref{helmholtz_fundamental_eqn}), this statistical mechanical temperature is identified with the empirical temperature in classical thermodynamics. It is not immediately obvious, however, how to define and measure temperature in an MD simulation. To do this, we have to return to the microcanonical ensemble and find an observable (and correspondingly a phase function) whose microcanonical expectation value is a simple function of temperature, preferably linear. This would then allow us to measure the temperature of the ensemble by tracking the time average of the phase function over a sufficiently long period by the ergodic hypothesis. Such phase function is the kinetic energy, whose canonical average is
+    \begin{equation}
+        K=\eval{\sum_{i=1}^{N}\frac{\vb{p}_i^2}{2m_i}}_{NVT}=\frac{3}{2}Nk_B T
+    \end{equation} 
+    in three dimensional system, as given by the equipartition theorem. The microcanonical average \(\eval{-}_{NVE}\) (\ref{microcanonical_average}) and the canonical average \(\eval{-}_{NVT}\) (\ref{canonical_average}) are not identical in general. But in Part II Statistical Mechanics we have shown that such fractional difference is vanishing as \(N\to\infty\) --- all ensembles are equivalent in the thermodynamic limit. Therefore the microcanonical average of the kinetic energy of a many particle system will also approach \(\frac{3}{2}Nk_B T\). Hence we can define an instantaneous or kinetic temperature function \(\mathcal{T}\) in terms of the instantaneous kinetic energy \(\mathcal{K}\) via\footnote{Technically, we have \(\mathcal{T}=2\mathcal{K}/k_B N_{\text{dof}}\), where \(N_{\text{dof}}=3N-3\) is the degree of freedom if the centre of mass momentum of the system is removed.}
+    \begin{equation}
+        \mathcal{T}=\frac{1}{3k_B N}\sum_{i=1}^{N}m_i\vb{v}_i^2=\frac{2}{3k_B N}\mathcal{K}\,,
+    \end{equation}
+    which, averaged over an MD run over a long time will give us the temperature of a system
+    \begin{equation}
+        T=\frac{1}{M}\sum_{m=1}^{M}\mathcal{T}(t_m)\,.
+    \end{equation}
+    \subsubsection{Velocity Rescaling}
+    Having found a method of measuring temperature in an MD run, the next problem is how to impose a specified temperature on the system and control it during a simulation. Several approaches has been developed, and the most simple one of them is just to scale all particle velocities by a factor determined from the current instantaneous temperature and desired temperature. Suppose the current instantaneous temperature \(T(t)\) is considerably different from our desired target temperature, and we want to adjust it to \(T_0\). Then we only need to rescale all current velocities \(\vb{v}_i\) to
+    \begin{equation}
+        \vb{v}_i'=\sqrt{\frac{T_0}{T}}\vb{v}_i=\sqrt{\frac{K_0}{\mathcal{K}(\vb{x}^N(t),\vb{p}^N(t))}}\vb{v}_i\,.
+    \end{equation}
+
+    In the canonical ensemble, velocities are distributed according to a Gaussian, leading to the famous Maxwell--Boltzmann distributions. The probability functions for each of the three Cartesian components of velocity of every particle \(i\) is strictly a Gaussian
+    \begin{equation}
+        P(v_{x,i})=\sqrt{\frac{m_i}{2\pi k_B T}}\exp\left(-\frac{m_i v_{x,i}^2}{2k_B T}\right)\,,
+    \end{equation}
+    and the same for \(v_{y,i}\) and \(v_{z,i}\). Temperature rescaling only alters the width of the velocity distribution --- it will not change a non-equilibrium distribution (non-Gaussian) into a Gaussian. Due to the chaotic motion of particles, the velocity distribution should eventually converge to a Gaussian, although it may take a while for this to establish.
+
+    We can accelerate this equilibration process by interfering with the dynamics more strongly and randomise the velocities by a sampling from a Gaussian distribution --- the \textit{thermostats} described in the next section are one approach to do this.
+
+    \subsubsection{Thermostats}
+    The simple velocity scaling has an apparent advantage of interfering the dynamics minimally by only scaling the velocities and not changing anything else. However, in principle this action is not what a canonical ensemble (or any standard ensemble) does to keep the temperature of a system constant. In addition, this algorithm can produce artifacts when frequently applied because energy will be transferred from other modes to the translational and rotational degrees of freedom --- the system acquires high linear momentum and experiences extremely damped internal motions, being frozen into a single conformation, reminiscent of an ice cube flying through space, leading to a so called \textit{flying ice cube} effect. This is wholly unphysical, since it violates the principle of equipartition of energy, which states that the energy should be equally partitioned into every degree of freedom of the molecule.
+
+    This problem is solved by using a \textit{thermostat}, which simulates the effect of placing our small simulation system in contact with an infinite heat bath. From the statistical mechanical point of view, this exactly produces a canonical ensemble. There are multiple ways of achieving this, and the approaches can be broadly classified as being stochastic or deterministic. We will focus on stochastic thermostats.
+
+    Stochastic thermostats act by adding random noise to the system, which mimic the effect coupling with the heat bath. This will ensure that all accessible constant-energy surfaces are each visited according to their Boltzmann weight. Although this produces an exact canonical distribution, it comes at the expense of interfering with the dynamics, and so transport properties like diffusion will be affected. If those are of interest then the deterministic thermostat will be better.
+
+    \subsubsection*{Andersen Thermostat}
+    The Andersen method mimics the effect of a heat bath by selecting a certain fraction of the particles/atoms at a regular interval to undergo ``collisions'' with a heat bath. These collisions are characterised by a collision frequency \(\nu\). For discrete time steps of length \(\delta t\), the probability of a particle undergoing a collision is therefore \(\nu\delta t\).
+
+    To implement this, we just need to randomly select particles for collision with probability \(\nu\delta t\) at each time step, and reassign the velocity of the selected particles from a Maxwell--Boltzmann distribution with desired temperature. By doing so, the velocities after collisions are clearly completely uncorrelated with those before, so this procedure will strongly affect the dynamics if the collision frequency is high.
+
+    The Andersen thermostat is useful for sampling conformational space, but not so much for the computation of time-dependent properties.
+
+    \begin{figure}[ht!]
+        \centering
+        \input{Python_plots/Andersen_Verlet_disp.tex}
+        \caption{Displacements and velocities of a harmonic oscillator with Andersen thermostats of \(\nu=0.0005,0.005,0.05\) and \(0.5\) respectively.}
+    \end{figure}
+
+    \begin{figure}[ht!]
+        \centering
+        \input{Python_plots/Andersen_Verlet_dist.tex}
+        \caption{Distributions of displacements and velocities of a harmonic oscillator with Andersen thermostats of different \(\nu\).}
+    \end{figure}
+
+    \begin{figure}[ht!]
+        \centering
+        \input{Python_plots/Andersen_Verlet_phase.tex}
+        \caption{Phase diagram of a harmonic oscillator with Andersen thermostat of \(\nu=0.05\). At this thermalisation frequency, the dynamical nature of the harmonic oscillator is not lost while maintaining an efficient thermalisation such that a large area of phase space is explored according to their Boltzmann weight.}
+    \end{figure}
+
+    \subsubsection*{Canonical Velocity Rescaling (Non-examinable)}
+    Is it possible to somehow combine the advantages of the fairly continuous trajectory afforded by the velocity rescaling with the canonical sampling we desire in Andersen thermostat? The problem with velocity rescaling is that it will give the correct average kinetic energy by construction, but not necessarily the canonical distribution of kinetic energies. A simple way to fix this is to rescale to match not the average kinetic energy, but a kinetic energy chosen at random from the canonical distribution, given by
+    \begin{equation}
+        p(K)\d{K}=AK^{3N/2-1}\exp(-\beta K)\d{K}\,,
+    \end{equation}
+    where the factor \(K^{3N/2-1}\) comes from the volume element in the velocity hyperspace corresponding to the kinetic energy \(K\), and \(A\) is a normalisation constant given in this case by
+    \begin{equation}
+        A=\frac{\beta^{3N/2}}{\Gamma(\frac{3N}{2})}\,.
+    \end{equation}
+    In one dimension, this is more or less the same as the Andersen thermostat. However, in higher dimensions, the width of the kinetic energy distribution is relatively narrow, so the rescaling will generally be close to unity.
+
+    \subsubsection*{Berendsen Thermostat (Non-examinable)}
+    Instead of abruptly rescaling the temperature at a single time step, Berendsen thermostat rescales the temperature by an exponential relaxation
+    \begin{equation}
+        \dv{T(t)}{t}=\frac{T_0-T(t)}{\tau}\,,
+    \end{equation}
+    where \(T_0\) is the desired temperature and \(\tau\) is the characteristic time scale of relaxation. This leads to a temperature change of
+    \begin{equation}
+        \frac{\delta T}{T_0}=\left[1-\frac{T(t)}{T_0}\right]\frac{\delta t}{\tau}
+    \end{equation}
+    per step. This, however, still does not generate the correct kinetic energy distribution, and can lead to serious artifacts. The stochastic terms introduced by Bussi \textit{et al}. fix this problem. It submits the target temperature to a stochastic differential equation
+    \begin{equation}
+        \frac{\delta T}{T_0}=\left[1-\frac{T(t)}{T_0}\right]\frac{\delta t}{\tau}-2\sqrt{\frac{T(t)}{3T_0 N\tau}}\xi(t)\,,
+    \end{equation}
+    where an extra stochastic term is added.
+
+    \subsubsection*{Nos\'{e}--Hoover Thermostat (Non-examinable)}
+    Finally, let's briefly introduce a deterministic thermostat. It couples the system to a heat-bath ``particle'' with mass \(Q\), generalised coordinate \(s\) and conjugate momentum \(p_s\), giving what is known as the \textit{Nos\'{e} Hamiltonian}
+    \begin{equation}
+        \mathcal{H}_N=\sum_{i=1}^{N}\frac{\vb{p}_i^2}{2m_i s^2}+U(\vb{r}^N)+\frac{p_s^2}{2Q}+gk_B Tf(s)\,,
+    \end{equation}
+    where \(g\) and \(f(s)\) are chosen such that the \(NVE\) distribution function for the super-system (including the heat bath) corresponds to a canonical distribution function for the physical subsystem. To do this, we start by calculating the phase-space volume for a given total energy \(E\):
+    \begin{equation}
+        \Omega\propto\int\dd[3N]{\vb{r}^N}\dd[3N]{\vb{p}^N}\dd{s}\dd{p_s}\delta\left(\sum_{i=1}^{N}\frac{\vb{p}_i^2}{2m_i s^2}+U(\vb{r}^N)+\frac{p_s^2}{2Q}+gk_B Tf(s)-E\right)\,.
+    \end{equation}
+    We can recover the physical Hamiltonian
+    \begin{equation}
+        \mathcal{H}(\vb{r}^N,\vb{p}^N)=\sum_{i=1}^{N}\frac{\vb{p}_i}{2m_i}+U(\vb{r}^N)
+    \end{equation}
+    by scaling the momentum by \(\vb{p}_i\to\vb{p}_i/s\), giving
+    \begin{equation}
+        \Omega\propto\int\dd[3N]{\vb{r}^N}\dd[3N]{\vb{p}^N}\dd{s}\dd{p_s}s^{dN}\delta\left(\mathcal{H}(\vb{r}^N,\vb{p}^N)+\frac{p_s^2}{2Q}+gk_B Tf(s)-E\right)\,,
+    \end{equation}
+    where \(d\) is the dimension of the system. We need to find a way to integrate over the heat-bath coordinates \(s\) and \(p_s\). Assuming that the argument of the delta function has a single root at \(s=s_0\), then we can rewrite
+    \begin{equation}
+        \delta(h(s))=\frac{\delta(s-s_0)}{\abs{h'(s_0)}}\,,
+    \end{equation}
+    and so
+    \begin{equation}
+        \Omega\propto\int\dd[3N]{\vb{r}^N}\dd[3N]{\vb{p}^N}\dd{p_s}\frac{s_0^{dN}}{\abs{h'(s_0)}}\,.
+    \end{equation}
+    We would like to choose \(f(s)\) and \(g\) such that
+    \begin{equation}
+        \frac{s_0^{dN}}{\abs{h'(s_0)}}\sim\exp\left(-\frac{\mathcal{H}(\vb{r}^N,\vb{p}^N)}{k_B T}\right)\,.
+    \end{equation}
+    It turns out that this can be achieved via \(f(s)=\ln(s)\) and \(g=dN+1\), giving
+    \begin{align}
+        s_0&=\exp\left(\frac{E-\mathcal{H}(\vb{r}^N,\vb{p}^N)-\frac{p_s^2}{2Q}}{gk_B T}\right)\\
+        \frac{1}{\abs{h'(s_0)}}&=\frac{1}{gk_B T}\exp\left(\frac{E-\mathcal{H}(\vb{r}^N,\vb{p}^N)-\frac{p_s^2}{2Q}}{gk_B T}\right)\,.
+    \end{align}
+    By doing so, an integration over \(p_s\) finally leads to
+    \begin{equation}
+        \Omega\propto\frac{\exp\left(\frac{E}{k_B T}\right)\sqrt{2\pi Qk_B T}}{(dN+1)k_B T}\int\dd[3N]{\vb{p}^N}\dd[3N]{\vb{r}^N}\exp\left(-\frac{\mathcal{H}(\vb{r}^N,\vb{p}^N)}{k_B T}\right)\,,
+    \end{equation}
+    proportional to the canonical distribution. A molecular dynamics \(NVE\) simulation with the Hamiltonian \(\mathcal{H}_N\) should therefore produce a canonical distribution of \((\vb{r}^N,\vb{p}^N)\) with Hamiltonian \(\mathcal{H}\)! The equations of motion can be obtained using Hamilton's equation from classical mechanics.
+    \begin{align}
+        \dot{\vb{p}}_i&=-\pdv{H_N}{\vb{r}_i}=\vb{f}_i & \dot{\vb{r}}_i&=\pdv{H_N}{\vb{p}_i}=\frac{\vb{p}_i}{m_i s^2}\\
+        \dot{p}_s&=-\pdv{H_N}{s}=\frac{1}{s}\left[\sum_{i=1}^{N}\frac{\vb{p}_i^2}{m_i s^2}-gk_B T\right] & \dot{s}&=\pdv{H_N}{p_s}=\frac{p_s}{Q}\,.
+    \end{align}
+    The equations are, however, not straightforward to implement numerically. Hoover applied a non-canonical transformation to recast these equations into a more amenable form, known as the \textit{Nos\'{e}--Hoover equations}.
+    \begin{alg}[Nos\'{e}--Hoover equations]
+        \begin{align}
+            \dot{\vb{p}}_i&=\vb{f}_i-\frac{p_\eta}{Q}\vb{p}_i & \dot{\vb{r}}_i&=\frac{\vb{p}_i}{m_i} \\
+            \dot{p}_\eta&=\sum_{i=1}^{N}\frac{\vb{p}_i^2}{m_i}-dNk_B T & \dot{\eta}&=\frac{p_\eta}{Q}\,.
+        \end{align}
+    \end{alg}
+
+    \begin{figure}[ht!]
+        \centering
+        \input{Python_plots/Nose_Hoover_verlet_phase.tex}
+        \caption{Phase diagram of a harmonic oscillator with Nos\'{e}--Hoover thermostat.}
+    \end{figure}
+
+    \subsection{Pressure in Molecular Dynamics}
+    Experiments are most often performed at constant pressure, rendering the \(NPT\) (isothermal-isobaric) ensemble the most realistic choice. Especially during the initial equilibration, pressure coupling is essential in order to let the volume of the simulation cell adjust.
+
+    We first need an expression for the pressure. The macroscopic pressure can be derived from the free energy, and hence from the bridge relation (\ref{helmholtz_fundamental_eqn}), we get
+    \begin{align}
+        P&=-\left(\pdv{A}{V}\right)_{N,T}=k_B T\left(\pdv{\ln Q}{V}\right)_{N,T}\notag\\
+        &=\frac{k_B T}{Z}\left(\pdv{Z}{V}\right)_{N,T}\,,
+    \end{align}
+    where
+    \begin{equation}
+        Z(N,V,T)=\int\dd[3N]{\vb{r}^N}\exp(-\beta \mathcal{U}(\vb{r}^N))
+    \end{equation}
+    is the configuration integral. To differentiate with respect to \(V\), we switch to the scaled coordinate defined as
+    \begin{equation}
+        \vb{s}^N=\frac{1}{L}\vb{r}^N=V^{-1/3}\vb{r}^N\,,
+    \end{equation}
+    and so
+    \begin{equation}
+        Z(N,V,T)=V^N\int\dd[3N]{\vb{s}^N}\exp\left[-\beta \mathcal{U}(V^{1/3}\vb{s}_1,\dots,V^{1/3}\vb{s}_N)\right]\,.
+    \end{equation}
+    Differentiate with respect to \(V\) gives
+    \begin{equation}
+        \pdv{Z}{V}=\frac{N}{V}Z(N,V,T)-\beta\int\dd[3N]{\vb{s}^N}\left[\frac{1}{3V}\sum_{i=1}^{N}\vb{r}_i\vdot\pdv{\mathcal{U}}{\vb{r}_i}+\pdv{\mathcal{U}}{V}\right]\exp(-\beta\mathcal{U}(\vb{r}^N))
+    \end{equation}
+    and so
+    \begin{align}
+        P&=\frac{k_B T N}{V}+\frac{1}{3V}\eval{\sum_{i=1}^{N}\vb{r}_i\vdot\vb{f}_i}-\eval{\pdv{\mathcal{U}}{V}}\notag \\
+        &=\frac{1}{3V}\eval{\sum_{i=1}^{N}\left[\frac{\vb{p}_i^2}{m_i}+\vb{r}_i\vdot\vb{f}_i\right]}-\eval{\pdv{\mathcal{U}}{V}}\,.
+    \end{align}
+    The last term vanishes if \(\mathcal{U}\) has no explicit dependence on the volume \(V\). From this expression of the ensemble average of pressure, we get an expression of the \textit{isotropic instantaneous pressure}
+    \begin{equation}
+        \mathcal{P}=\frac{1}{3V}\sum_{i=1}^{N}\left[\frac{\vb{p}_i^2}{m_i}+\vb{r}_i\vdot\vb{f}_i\right]
+    \end{equation}
+    The quantity
+    \begin{equation}
+        \mathcal{W}\coloneqq\sum_{i=1}^{N}\vb{r}_i\vdot\vb{f}_i
+    \end{equation}
+    is also known as the \textit{virial} of the system, and hence the pressure can also be compactly denoted as
+    \begin{equation}
+        \mathcal{P}=\frac{1}{3V}\left(2\mathcal{K}+\mathcal{W}\right)\,.
+    \end{equation}
+
+    \subsubsection{Barostats}
+    As for simulating a canonical ensemble using thermostats, we can simulate an isothermal-isobaric ensemble using a \textit{barostat}. If the pressure coupling is only important during the initial equilibrium phase, it can be acceptable to use the simple Berendsen barostat, which imposes the correct external pressure \(P_0\), but violates the thermodynamic ensemble as it has no correct fluctuations. Similar to Berendsen thermostat, it is also an exponential relation
+    \begin{equation}
+        \dv{P(t)}{t}=\frac{P_0-P(t)}{\tau}\,.
+    \end{equation}
+    This is achieved via an isotropic scaling factor \(\mu\) applied to all particle coordinates as well as simulation-cell dimensions
+    \begin{equation}
+        \mu=1-\frac{\kappa_T\delta t}{3\tau}(P_0-P)\,,
+    \end{equation}
+    where the \(\kappa_T\) here is the isothermal compressibility.
+
+    There are also Nos\'{e}--Hoover type barostat, in which coordinates, momenta and volume are coupled to a barostat coordinate \(\epsilon\) via
+    \begin{align}
+        \dot{\vb{r}}_i&=\frac{\vb{p}_i}{m_i}+\underbrace{\frac{p_\epsilon}{W}\vb{r}_i}_{\text{barostat}} & \dot{\vb{p}}_i&=\vb{f}_i\underbrace{-\left(1+\frac{d}{N}\right)\frac{p_\epsilon}{W}\vb{p}_i}_{\text{barostat}}\underbrace{-\frac{p_{\eta,1}}{Q_1}\vb{p}_i}_{\begin{subarray}{c}\text{thermostat} \\ \text{chain}\end{subarray}}\,.
+    \end{align}
+
+    In addition, grand canonical ensemble can also be realised using an extended Lagrangian formalism
+    \begin{align}
+        L_{\mu VT}&=\sum_{i=1}^{N}\sum_\alpha\frac{1}{2}ms^2\dot{x}_{i,\alpha}^2-\sum_i\sum_{j\ne i,j\ne f}U_{ij}\notag\\
+        &\quad\ \underbrace{+(\nu-N)\left[\frac{1}{2}ms^2\sum_\alpha \dot{x}_{f,\alpha}^2-\sum_{i\ne f}U_{if}\right]+\frac{1}{2}W\dot{\nu}^2+U_\nu}_{\text{particle bath}}\notag\\
+        &\quad\ \underbrace{+\frac{1}{2}Q\dot{s}^2-U_s}_{\text{heat bath}}\,,
+    \end{align}
+    in which
+    \begin{align}
+        U_s&=gk_B T\ln(s)\\
+        U_\nu&=\nu\mu=\nu(\mu_{\text{id}}+\mu_{\text{ex}})\,.
+    \end{align}
+    However, this scheme is rarely used in practice due to its complexity. Monte Carlo (see later) is much more convenient for this purpose.
+
+    \subsection{Condensed Phase Simulations in Practice}
+    In this section, we will discuss some practical aspects of molecular dynamics simulations using condensed phase fluid (e.g. liquid argon) as an example. What is so special about liquids? Unlike solids the atoms in liquid have no fixed equilibrium position, so there is no \textit{long-range order} in the form of a lattice. This is true for gases as well, but unlike gases, the particle density in liquid is high, often comparable with the corresponding solid. The atoms in liquids are strongly interacting, establishing a local environment very similar to solids. Liquids exhibit solid-like \textit{short-range order}.
+
+    Under Born--Oppenheimer approximation, we can write the potential energy as a function of the nuclear positions only
+    \begin{equation}
+        U=U(\vb{r}_1,\dots,\vb{r}_N)=U(\vb{r}^N)\,,
+    \end{equation}
+    and then the force acting on particle \(i\) given a nuclear configuration \(\vb{r}^N\) is
+    \begin{equation}
+        \vb{f}_i(\vb{r}^N)=-\pdv{U(\vb{r}^N)}{\vb{r}_i}=m_i\ddot{\vb{r}}_i\,.
+    \end{equation}
+    We can then try to partition the Born--Oppenheimer potential energy surface onto many-body terms
+    \begin{equation}
+        U(\vb{r}^N)=\sum_i U_1(\vb{r}_i)+\sum_{i,j>i}U_2(\vb{r}_i,\vb{r}_j)+\sum_{i,j>i,k>j}U_3(\vb{r}_i,\vb{r}_j,\vb{r}_k)+\dots
+    \end{equation}
+    We can ignore the one-body term because it will be constant if the space is homogeneous, as this term will be a constant. Three-body interactions and above are usually due to polarisations, and accounts for \(\sim 10\%\) to the total interactions in liquid argons. This percentage may be higher for more polarisable systems. If we are assuming interactions are pairwise additive, then we are also ignoring three-body interactions and higher, so we are only left with two-body (pairwise) interactions.
+
+    \subsubsection{Lennard-Jones Potential}
+    A first step is to choose what model of interaction do we use. A simple example is the Lennard-Jones potential
+    \begin{equation}
+        V(\vb{r})=4\epsilon\left[\left(\frac{\sigma}{r}\right)^{12}-\left(\frac{\sigma}{r}\right)^6\right]\,.
+    \end{equation}
+    It has a long-range \(r^{-6}\) attractive force to account for the van der Waals dispersion, and a short-range \(r^{-12}\) repulsive force due to electron density overlap. For argon, \(\sigma\approx 3.4\,\text{\AA}\) and \(\epsilon\approx 1.65\times 10^{-21}\unit{J}\). This also allows us to express everything in reduced units, in which energies, lengths and masses are scaled by \(E^*=E/\epsilon\), \(r^*=r/\sigma\) and \(m^*=m/m_0\), where \(m_0\) is the mass of the particle. Under these definitions, all Lennard-Jones potentials are the same in reduced units
+    \begin{equation}
+        V^*(\vb{r})=4\left[\left(\frac{1}{r^*}\right)^{12}-\left(\frac{1}{r^*}\right)^{6}\right]\,.
+    \end{equation}
+    This also allows us to define other scaled quantities, like scales density \(\rho^*=\rho\sigma^3\), scales temperature \(T^*=k_B T/\epsilon\), scaled pressure \(P^*=P\sigma^3/\epsilon\) and scaled time \(t^*=\sqrt{\epsilon/m\sigma^2}t\).
+
+    \subsubsection{System Size and Periodic Boundary Conditions}
+    Having chosen the force field, we can set up our simulation cells. The thermodynamic state of a liquid is specified by only two parameters, the temperature \(T\) and the pressure \(P\), or alternatively the temperature \(T\) and the particle number density \(\rho=N/V\). This means that if you want to simulate a specific state of the liquid, choosing the system size is equivalent to choosing how many particles you want to put into the cell. Due to the limited computational power, we cannot make the cell as large as we want. In the early days of molecular dynamics, the number of atoms was typically on the order of 100. Due to the rapid progress in the performance of computer hardware, this number is continuously increasing. A simulation of systems consisting of \(10^5\) atoms are common nowadays.
+
+    System size in MD is in practice a compromise between the length scale of the problem of interest and the minimum duration of a run required for proper statistical sampling. If we are interested in, for example, the onset of freezing of the system, then the size of the system must be much larger than if we want to study the distribution of atoms in a stable liquid. Similarly, computations of transport properties, such as diffusion coefficients, will require much longer runs than the estimation of internal energy.
+
+    However, a real world system rarely consists of \(\sim 10^5\) atoms. There will be significant surface/boundary and some finite size effect if we directly use a small system for simulation. We want the system to mimic a bulk, homogeneous liquid or solid. To do this, we can either take a very big cluster and hope that in the interior of the cluster the surface effect can be neglected, or more cleverly, we can use the periodic boundary conditions. To do this, we make our simulation cell into a parallelepiped (e.g. simply a cube), and repeat its contents over the whole space, mimicking the homogeneous state of a liquid or solid. If the MD box is spanned by three vectors \(\vb{a},\vb{b},\vb{c}\) and the cells are displaced by \(\ell\vb{a}+m\vb{b}+n\vb{c}\), where \(\ell,m,n\in\ZZ\). This means that if we have a particle in \(\vb{r}_i\) in the central cell, then there will also be particles at \(\vb{r}_i+\ell\vb{a}+m\vb{b}+n\vb{c}\) for all \(\ell,m,n\in\ZZ\). This means that we can simulate an infinite system with infinite particles by only calculating the motion of \(N\) particles in the central cell.
+
+    Still, due to the periodic nature, applying periodic boundary conditions to a small cell will still introduce certain errors, called finite size effect. This can be small or rather serious depending on the nature of the system. Moreover, note that the linear momentum is still a constant of motion in such a set of infinitely replicated systems. The conservation of angular momentum, however, is lost as a result of the reduction of rotational symmetry from spherical to cubic.
+
+    \subsubsection{The Minimum Image Convention and Truncation of Interaction}
+    Periodic boundary conditions create some other difficulties. Since the size of the simulation cell is now effectively infinite, a particle will now interact with an infinite number of particles, making the force evaluation difficult. The potential energy of the particles in the central cell, corresponding to \((\ell,m,n)=(0,0,0)\), is a sum of the interactions over all cells:
+    \begin{align}
+        \mathcal{V}(\vb{r}^N)&=\frac{1}{2}\sum_{i}^{N}V_i(\vb{r}^N)\\
+        V_i(\vb{r}^N)&=\sum_{\ell,m,n=-\infty}^{\infty}{\sum_{j}^{N}}'V(\norm{\vb{r}_j+\ell\vb{a}+m\vb{b}+n\vb{c}-\vb{r}_i})\,,
+    \end{align} 
+    where the \('\) indicates that we are excluding \(j=i\) for \(\ell,m,n=0\) (self interaction in the central cell).
+
+    For short-range interactions like the van der Waals interaction, it is possible to make the simplification that if the system is sufficiently large, then the contributions of interactions with all images of the same atom, except the nearest, can be disregarded because they are too far away. Notice that the nearest image can be in the same (i.e. central) cell, but it can also be in one of the neighbouring cells if the two particles are more than half a box away in one direction in the central cell. This approximation is known as the \textit{minimum image approximation}. The distance of particle \(i\) to the nearest image of particle \(j\) can be easily calculated from their positions in the central cell, using
+    \begin{equation}
+        \vb{r}_{ij}^{\text{MIC}}=\vb{r}_j-\vb{r}_i-L\round\left(\frac{\vb{r}_j-\vb{r}_i}{L}\right)\,.
+    \end{equation}
+
+    One further thing we can do is to truncate the Lennard-Jones potential at some \textit{cutoff} radius. This is because such an interaction decays sufficiently quickly: if \(r=3\sigma\), then \(V(r)=-0.005\epsilon\). Therefore, we can choose to neglect the contribution to energy and forces beyond this distances. This is done by letting \(V_c(r)=0\) for \(r>r_c\), where \(r_c\) is the cutoff radius. However, we need to maintain the continuity of the potential, so we need to shift up the potential for \(r\le r_c\) by \(\abs{V(r_c)}\). The truncated potential therefore looks like
+    \begin{equation}
+        V_c(r)=\begin{cases}
+            V(r)-V(r_c) & r\le r_c \\
+            0 & r>r_c
+        \end{cases}\,.
+    \end{equation}
+    We would often set the cutoff radius \(r_c<\frac{L}{2}\) to avoid self-interaction artefact.
+
+    \begin{figure}
+        \centering
+        \begin{tikzpicture}
+            \fill[gray!20] (0,0) rectangle (2,2);
+            \foreach \i in {-2,0,2}{
+                \foreach \j in {-2,0,2}{
+                    \begin{scope}[shift={(\i,\j)}]
+                        \draw (0,0) rectangle (2,2);
+                        \draw (0.45,1.35) circle (0.1);
+                        \draw (0.9,0.9) circle (0.1);
+                        \draw (1.1,0.3) circle (0.1);
+                        \draw (1.5,0.5) circle (0.1);
+                        \draw (1.4,1.8) circle (0.1);
+                    \end{scope}
+                }
+            }
+            \draw[dashed] (1.5,0.5) circle (1);
+            \draw[->] (1.5,0.5)--node[below]{\(r_c\)}(2.3,1.1);
+        \end{tikzpicture}
+        \caption{A simulation cell with cyclic boundary condition and cutoff radius \(r=r_c\).}
+    \end{figure}
+
+    \subsubsection{Pair Lists}
+    When the cutoff radius \(r_c\) is much smaller than the cell dimensions, a lot of time will be spent checking whether a given pair of atoms is within the cutoff, when in fact most lie outside of it. In this case a useful time-saving measure is to use a ``pair list'' of atoms which are within \(r_c+\delta r\) of each other. Provided that this list is updated sufficiently often that no atom will have moved more than the buffer radius \(\delta r\) between updates, only this list of atom pairs needs to be checked at each time step, rather than all possible pairs.
+
+    \subsubsection{Initialising Positions and Momenta}
+    For most purposes, we want our simulation to get to equilibrium as fast as possible. You can either pre-arrange the particles on a regular lattice, or place them randomly within the simulation cell. However, putting particles randomly can sometimes lead to extreme coordinates (e.g. two molecules are too close to each other / overlapping), and so sometimes a short steepest-descent is required to remove those situations before the simulation has started.
+
+    To set up the initial momenta, we can sample randomly from a Gaussian distribution
+    \begin{equation}
+        P(v)\propto \exp\left(-\frac{mv^2}{2k_B T}\right)
+    \end{equation}
+    for each component of a particle's velocity. However, these randomly generated velocities sometimes give a non-zero total momentum of the system, so we want to correct non-zero velocities of the centre of mass:
+    \begin{align}
+        \vb{v}_{\text{CoM}}&=\frac{1}{M}\sum_i m_i\vb{v}_i \\
+        \vb{v}_i'&=\vb{v}_i-\vb{v}_{\text{CoM}}\,.
+    \end{align}
+    Moreover, the randomly generated velocity may deviate from our desired temperature (recall the equipartition theorem), so we need to rescale the velocity by a factor of \(\sqrt{T_{\text{target}}/T_{\text{sample}}}\) to reach the desired temperature.
+
+    \subsubsection{Time Steps}
+    A good choice of time step is a balance between accuracy and computational cost. Too large a time step will lead to large errors in numerical integration. The time step should be significantly smaller than the time scale \(\tau\) associated with the fastest-frequency oscillation in the system: a step of size \(\tau/20\) is usually safe for Verlet-based schemes. The best indication for the breakdown of accuracy in the Verlet scheme due to too large time steps is the drift of total energy, which should be rigorously conserved according to Newton's equation of motion.
+
+    \begin{figure}
+        \centering
+        \input{Python_plots/Verlet_timestep.tex}
+        \caption{Displacement and energy of a harmonic oscillator using Verlet algorithm with time steps \(\delta t=\tau/20\) (orange), \(\tau/10\) (green) and \(\tau/5\) (red) with exact results (blue).}
+    \end{figure}
+    \begin{figure}
+        \centering
+        \input{Python_plots/Verlet_timestep_phase.tex}
+        \caption{Phase diagram of a harmonic oscillator using Verlet algorithm with time steps \(\delta t=\tau/20\) (orange), \(\tau/10\) (green) and \(\tau/5\) (red) with exact results (blue).}
+    \end{figure}
+
+    \begin{figure}
+        \begin{subfigure}[h]{0.32\linewidth}
+            \begin{adjustbox}{width=\linewidth}
+            \input{Python_plots/vdW_fluid_0.001.tex}
+            \end{adjustbox}
+            \caption{\(\delta t^*=0.001\)}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[h]{0.32\linewidth}
+            \begin{adjustbox}{width=\linewidth}
+            \input{Python_plots/vdW_fluid_0.05.tex}
+            \end{adjustbox}
+            \caption{\(\delta t^*=0.05\)}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[h]{0.32\linewidth}
+            \begin{adjustbox}{width=\linewidth}
+            \input{Python_plots/vdW_fluid_0.19.tex}
+            \end{adjustbox}
+            \caption{\(\delta t^*=0.19\)}
+        \end{subfigure}%
+        \caption{A plot of the computed kinetic energy (blue), potential energy (orange) and total energy (green) of a Lennard-Jones fluid with 100 particles using times steps \(0.001,0.05\) and \(0.19\) in reduced time units. 5000 steps are used for each run. A significant energy drift occurred for \(\delta t^*=0.19\), suggesting that this time step is too large.}
+    \end{figure}
+
+    \subsection{Radial Distribution Function}
+    As we commented above, due to the high number density of atoms and strong interactions, liquid often exhibits short-range order. This can be captured by the \textit{spatial autocorrelation function}
+    \begin{equation}
+        g(\vb{r}_1,\vb{r}_2)\coloneqq\frac{1}{n_0^2}\eval{n(\vb{r}_1)n(\vb{r}_2)}
+    \end{equation}
+    where \(n_0=N/V\) is the average particle density, just like the velocity autocorrelation function you met in Part II Statistical Mechanics. In an isotropic, homogeneous medium, the autocorrelation function should be only dependent on the particle distance \(r=\norm{\vb{r}_1-\vb{r}_2}\), and so it allows us to define the \textit{radial distribution function}
+    \begin{equation}
+        g(r)=\frac{\eval{n(r)}}{n_0}\,.
+    \end{equation}
+    This can be understood as a histogram of two-particle distances, which can be constructed by going through the following steps:
+    \begin{enumerate}[topsep=0pt]
+        \item Pick a reference particle \(i\) at position \(\vb{r}_i\).
+        \item Draw a spherical shell of radius \(r\) and thickness \(\Delta r\) centred at \(\vb{r}_i\). Determine the number of particles in the shell, which we denote as \(n_i(r,\Delta r)\). A particle \(j\) in this shell would satisfy
+        \begin{equation}
+            r\le \norm{\vb{r}_i-\vb{r}_j}<r+\Delta r\,.
+        \end{equation}
+
+        A small \(\Delta r\) will give us a high resolution, but it will introduce noise. A large \(r\) will smooth the distribution function, but we may lose some of the structural details.
+        \item Divide \(n_i(r,\Delta r)\) by the volume of the shell to convert it into a number density, and average over reference particles.
+        \begin{equation}
+            \bar{\rho}(r,\Delta r)=\frac{1}{N}\sum_{i=1}^{N}\frac{n_i(r,\Delta r)}{4\pi r^2\Delta r}\,,
+        \end{equation}
+        where we assumed \(\Delta r\ll r\).
+        \item Normalise this quantity by the particle number density of \(\rho=(N-1)/V\)
+        \begin{equation}\label{radial_distribution_function}
+            g(r)=\frac{\bar{\rho}(r,\Delta r)}{\rho}=\frac{V}{4\pi r^2\Delta r N(N-1)}\sum_{i}^{N}n_i(r,\Delta r)\,.
+        \end{equation}
+        The resulting \(g(r)\) is a dimensionless quantity. Note that we use \(N-1\) because we do not consider a particle correlating with itself, although for large \(N\), we can replace \(N-1\) by \(N\).
+    \end{enumerate}
+
+    A \(g(r)>1\) at some \(r\) would mean that we have an enhanced probability of meeting another particle at distance \(r\) away from one particle, and \(g(r)<1\) means that there is a depletion region.
+
+    \begin{figure}
+        \centering
+        \begin{tikzpicture}
+            \draw[fill=gray!40] (0,0) circle (1.5);
+            \draw[fill=white] (0,0) circle (1.27);
+            \draw[fill=gray!40] (0,0) circle (0.75);
+            \draw[fill=white] (0,0) circle (0.52);
+            \draw[fill=gray!20] (0,0) circle (0.3);
+            \draw (2:0.65) circle (0.3);
+            \draw (61:0.63) circle (0.3);
+            \draw (117:0.67) circle (0.3);
+            \draw (188:0.68) circle (0.3);
+            \draw (242:0.71) circle (0.3);
+            \draw (306:0.66) circle (0.3);
+            \draw (32:1.3) circle (0.3);
+            \draw (61:1.27) circle (0.3);
+            \draw (91:1.4) circle (0.3);
+            \draw (118:1.35) circle (0.3);
+            \draw (142:1.72) circle (0.3);
+            \draw (164:1.4) circle (0.3);
+            \draw (198:1.42) circle (0.3);
+            \draw (230:1.58) circle (0.3);
+            \draw (258:1.36) circle (0.3);
+            \draw (284:1.71) circle (0.3);
+            \draw (311:1.42) circle (0.3);
+            \draw (337:1.28) circle (0.3);
+            \draw (4:1.46) circle (0.3);
+            \draw (14:2.05) circle (0.3);
+            \draw (33:2.11) circle (0.3);
+            \draw (-6:2.12) circle (0.3);
+            \draw (-22:2.31) circle (0.3);
+            \draw (-38:2.15) circle (0.3);
+            \draw[dashed] (0,0)--(0,2.5);
+            \draw[dashed] (0.52,0)--(0.52,4.2);
+            \draw[dashed] (0.75,0)--(0.75,3.7);
+            \draw[dashed] (1.27,0)--(1.27,3.4);
+            \draw[dashed] (1.5,0)--(1.5,3.4);
+            \draw[->] (0,2.5)--(4,2.5)node[above]{\(r\)};
+            \draw[->] (0,2.5)--(0,5)node[left]{\(g(r)\)};
+            \draw[dashed] (0,3.1)node[left]{\small\(1\)}--(4,3.1);
+            \draw[thick,domain=0:1, smooth, variable=\x,samples=50] plot ({\x+0.4}, {2.5+6*2.72^(-9*\x*\x)*(\x^0.5)});
+            \draw[thick,domain=-0.6:0.6, smooth, variable=\x,samples=50] plot ({\x+1.385}, {2.5+1.5*2.72^(-20*\x*\x)});
+            \draw[thick,domain=0:3.5, smooth, variable=\x,samples=50] plot ({0.8*\x+1.4}, {2.5+0.6*(\x*\x*\x*\x*\x*\x+0.8*\x*\x+\x)/(\x*\x*\x*\x*\x*\x+1)});
+        \end{tikzpicture}
+        \caption{A typical radial distribution function of liquid. \(g(r)=0\) for small \(r\) due to hard-core repulsion. There are several peaks with \(g(r)>1\) at intermediate range, corresponding to the first, second and higher coordination shells. At large \(r\), \(g(r)\to 1\) as the distribution of particles become decorrelated.}
+        \label{Fig:RDF}
+    \end{figure}
+
+    A schematic construction of the radial distribution function for a 2D Lennard-Jones fluid is shown in \cref{Fig:RDF}. For distances \(r\ll \sigma\), where \(\sigma\) is the repulsive core diameter, the radial distribution \(\to 0\) because particles are excluded from this region. The maximum at a distance little over \(\sigma\) reflects the well defined coordination shell of nearest neighbours around a particle in a liquid. This peak in \(g(r)\) is characteristic for the high density prevalent in liquids and is absent in the vapour phase. In most liquids there is also a broader second nearest neighbour peak. As a result of the disorder in liquids, this structure is considerably less pronounced compared to solids. For distances larger than second neighbours, fluctuations gradually takes over and the distribution of atoms becomes homogeneous, with \(g(r)\to 1\).
+
+    As for a comparison, a crystalline solid has long-range order extending to infinity, so the radial distribution function should have well defined peaks extending to infinity (ideally) except being broadened by thermal vibrations at non-zero temperatures.
+
+    \begin{figure}
+        \centering
+        \begin{tikzpicture}
+            \draw[fill=black] (0,0) circle (0.1);
+            \draw (-1,-1,-1)--(-1,-1,1)--(-1,1,1)--(-1,1,-1)--(-1,-1,-1);
+            \draw (1,-1,-1)--(1,-1,1)--(1,1,1)--(1,1,-1)--(1,-1,-1);
+            \draw (-1,1,1)--(1,1,1);
+            \draw (-1,1,-1)--(1,1,-1);
+            \draw (-1,-1,1)--(1,-1,1);
+            \draw (-1,-1,-1)--(1,-1,-1);
+            \foreach \i in {-1,1}{
+                \foreach \j in {-1,1}{
+                    \draw[fill=white] (\i,0,\j) circle (0.1);
+                    \draw[fill=white] (0.5*\i+0.5*\j,1,0.5*\i-0.5*\j) circle (0.1);
+                    \draw[fill=white] (0.5*\i+0.5*\j,-1,0.5*\i-0.5*\j) circle (0.1);
+                }
+            }
+            \foreach \l in {-2,2}{
+                \begin{scope}[shift={(\l,0,0)}]
+                    \draw[fill=gray] (0,0) circle (0.1);
+                    \draw (-1,-1,-1)--(-1,-1,1)--(-1,1,1)--(-1,1,-1)--(-1,-1,-1);
+                    \draw (1,-1,-1)--(1,-1,1)--(1,1,1)--(1,1,-1)--(1,-1,-1);
+                    \draw (-1,1,1)--(1,1,1);
+                    \draw (-1,1,-1)--(1,1,-1);
+                    \draw (-1,-1,1)--(1,-1,1);
+                    \draw (-1,-1,-1)--(1,-1,-1);
+                    \foreach \i in {-1,1}{
+                        \foreach \j in {-1,1}{
+                            \draw[fill=white] (\i,0,\j) circle (0.1);
+                            \draw[fill=white] (0.5*\i+0.5*\j,1,0.5*\i-0.5*\j) circle (0.1);
+                            \draw[fill=white] (0.5*\i+0.5*\j,-1,0.5*\i-0.5*\j) circle (0.1);
+                        }
+                    }
+                \end{scope}
+            }
+            \begin{scope}[shift={(2,2,0)}]
+                \draw[fill=gray] (0,0) circle (0.1);
+                \draw (-1,-1,-1)--(-1,-1,1)--(-1,1,1)--(-1,1,-1)--(-1,-1,-1);
+                \draw (1,-1,-1)--(1,-1,1)--(1,1,1)--(1,1,-1)--(1,-1,-1);
+                \draw (-1,1,1)--(1,1,1);
+                \draw (-1,1,-1)--(1,1,-1);
+                \draw (-1,-1,1)--(1,-1,1);
+                \draw (-1,-1,-1)--(1,-1,-1);
+                \foreach \i in {-1,1}{
+                    \foreach \j in {-1,1}{
+                        \draw[fill=white] (\i,0,\j) circle (0.1);
+                        \draw[fill=white] (0.5*\i+0.5*\j,1,0.5*\i-0.5*\j) circle (0.1);
+                        \draw[fill=white] (0.5*\i+0.5*\j,-1,0.5*\i-0.5*\j) circle (0.1);
+                    }
+                }
+            \end{scope}
+            \draw[->,red] (0,0,0)--node[left]{\small\(\sqrt{1/2}a\)}(0,-1,1);
+            \draw[->,red] (0,0,0)--node[above]{\small\(a\)}(2,0,0);
+            \draw[->,red] (0,0,0)--node[below]{\small\(\sqrt{3/2}a\)}(-2,1,1);
+            \draw[->,red] (0,0,0)--node[right]{\small\(\sqrt{2}a\)}(2,2,0);
+            \begin{scope}[shift={(5.5,-1)}]
+                \draw[->] (0,0)--(6,0)node[below]{\(r\)};
+                \draw[->] (0,0)--(0,4)node[left]{\(g(r)\)};
+                \draw[thick] (0,0)--(1.82,0);
+                \draw[thick] (2.42,0)--(2.7,0);
+                \draw[thick] (3.3,0)--(3.37,0);
+                \draw[thick,domain=-0.3:0.3, smooth, variable=\x,samples=30] plot ({\x+2.12}, {4*2.72^(-200*\x*\x)});
+                \draw[thick,domain=-0.3:0.3, smooth, variable=\x,samples=30] plot ({\x+3}, {1*2.72^(-200*\x*\x)});
+                \draw[thick,domain=-0.3:0.3, smooth, variable=\x,samples=30] plot ({\x+3.67}, {2.67*2.72^(-200*\x*\x)});
+                \draw[thick,domain=-0.3:0.3, smooth, variable=\x,samples=30] plot ({\x+4.24}, {1*2.72^(-200*\x*\x)});
+                \draw[thick,domain=-0.25:0.25, smooth, variable=\x,samples=30] plot ({\x+4.74}, {1.6*2.72^(-200*\x*\x)});
+                \draw[thick,domain=-0.25:0.2, smooth, variable=\x,samples=30] plot ({\x+5.2}, {0.44*2.72^(-200*\x*\x)});
+                \draw[thick,domain=-0.2:0.3, smooth, variable=\x,samples=30] plot ({\x+5.6}, {2.29*2.72^(-200*\x*\x)});
+            \end{scope}
+        \end{tikzpicture}
+        \caption{Radial distribution function in a solid fcc crystal.}
+    \end{figure}
+    
+    \subsubsection{Coordination Numbers}
+    As suggested by \cref{Fig:RDF} the integral of the first peak of RDF is related to the average number of particles \(n_c\) in the first coordination shell, which is also known as the \textit{coordination number}. In order to measure \(n_c\) we must specify how close an atom must approach the central particle in order to be counted as a first neighbour. The position \(r_{\text{min}}\) of the minimum between the first and second maximum is used as a common (but not unique) criterion to define the first coordination shell. \(n_c\) is then found from the integral (for three dimensional cases)
+    \begin{equation}
+        n_c=4\pi\rho\int_{0}^{r_c}\dd{r}r^2g(r)\,,
+    \end{equation}
+    with \(r_c=r_{\text{min}}\) in our cases.
+    \subsubsection{Radial Distribution Function in Statistical Mechanics}
+    The way we introduced the radial distribution function was operational in the sense that it is based on how this quantity is determined in a simulation. We will now give a proper statistical mechanical definition of the radial distribution function making use of the Dirac delta function. We first consider a more general pair correlation function which not only probes the distance \(r\) between particles but also the orientation of the displacement vector \(\vb{r}\).
+    \begin{equation}\label{pair_correlation_function}
+        \gamma(\vb{r})=\frac{V}{N(N-1)}\eval{\sum_{i,j\ne i}^{N}\delta(\vb{r}_{ij}-\vb{r})}\,,
+    \end{equation}
+    where the angular bracket denote an integral over the configurational probability distribution function (\ref{configuration_integral}). In a more explicit form,
+    \begin{equation}
+        \gamma(\vb{r})=\frac{V}{N(N-1)}\sum_{i,j\ne i}^{N}\int\dd[3N]{\vb{r}^N}P_N(\vb{r}^N)\delta(\vb{r}_{ij}-\vb{r})\,.
+    \end{equation}
+    It is proportional to the probability of observing two particles separated by a vector \(\vb{r}\). This correlation function with the information on the orientation of \(\vb{r}\) included is suitable for crystalline solids, in which the lattice defines special directions in space. Liquids are isotropic systems with no preference for a direction, so we expect the function \(\gamma(\vb{r})\) to depend only on the length \(r=\norm{\vb{r}}\). Using this property, we integrate over a spherical shell \(V(r,\Delta r)\) with radius between \(r\) and \(r+\Delta r\), and assuming that the shell is sufficiently thin, we then write
+    \begin{equation}
+        \int_{V(r,\Delta r)}\dd[3]{\vb{r}}\gamma(\vb{r})\approx 4\pi r^2\Delta r g(r)\,.
+    \end{equation}
+    Here the \(g(r)\) is the radial distribution function. Substituting the expression of \(\gamma(\vb{r})\), we get
+    \begin{align}
+        g(r)&\approx\frac{V}{4\pi r^2\Delta r N(N-1)}\int_{V(r,\Delta r)}\dd[3]{\vb{r}}\sum_{i,j\ne i}\int\dd[3N]{\vb{r}^N}P_N(\vb{r}^N)\delta(\vb{r}_{ij}-\vb{r})\notag \\
+        &=\frac{V}{4\pi r^2\Delta r N(N-1)}\int\dd[3N]{\vb{r}^N}P_N(\vb{r}^N)\sum_{i,j\ne i}\int_{V(r,\Delta r)}\dd[3]{\vb{r}}\delta(\vb{r}_{ij}-\vb{r})\,,
+    \end{align}
+    where we have changed the order of integration. The inner integral gives unity when the vector \(\vb{r}_{ij}=\vb{r}_i-\vb{r}_j\) lies within volume \(V(r,\Delta r)\) and zero otherwise. The delta function therefore counts the number of particle pairs with distances between \(r\) and \(r+\Delta r\). Taking particle \(i\) as reference we recover the quantity \(n_i(r,\Delta r)\) introduced before
+    \begin{equation}
+        n_i(r,\Delta r)=\sum_{j\ne i}\int_{V(r,\Delta r)}\dd[3]{\vb{r}}\delta(\vb{r}_{ij}-\vb{r})\,.
+    \end{equation}
+    Therefore,
+    \begin{align}
+        g(r)&\approx\frac{V}{4\pi r^2\Delta r N(N-1)}\int\dd[3N]{\vb{r}^N}P_N(\vb{r}^N)\sum_i n_i(r,\Delta r)\notag\\
+        &=\frac{V}{4\pi r^2\Delta r N(N-1)}\eval{\sum_i n_i(r,\Delta r)}\,.
+    \end{align}
+    This becomes an equality in the limit of an infinitely thin shell,
+    \begin{equation}
+        g(r)=\lim_{\Delta r\to 0}\frac{V}{4\pi r^2\Delta r N(N-1)}\eval{\sum_i n_i(r,\Delta r)}\,.
+    \end{equation}
+    Since all particles are equivalent, we must have
+    \begin{equation}
+        g(r)=\frac{V}{N-1}\lim_{\Delta r\to 0}\frac{1}{4\pi r^2\Delta r}\eval{n(r,\Delta r)}\,,
+    \end{equation}
+    where we removed the subscript \(i\) to indicate a generic particle. We identify this linked to our instantaneous, histogramic radial distribution function (\ref{radial_distribution_function}) via
+    \begin{equation}
+        g_{\text{stat}}(r)=\frac{N-1}{N}g_{\text{hist}}(r)\,,
+    \end{equation}
+    where \((N-1)/N\) is a good approximation to \(1\) except at very low density. We could have avoided this complexity if we used \(N^2\) as the normalisation factor in the definition of pair correlation function (\ref{pair_correlation_function}), but it turns out that \(N(N-1)\) is the correct normalisation factor for a good treatment at very low density, i.e. in a gas phase limit. Consider a system with only two particles (\(N=2\)) in a finite volume \(V\),
+    \begin{align}
+        \gamma(\vb{r})&=\frac{V}{N(N-1)}\eval{\sum_{i,j\ne i}\delta(\vb{r}_{ij}-\vb{r})}=V\eval{\delta(\vb{r}_{ij}-\vb{r})}\notag \\
+        &=V\int\dd[3]{\vb{r}_1}\dd[3]{\vb{r}_2}P_2(\vb{r}_1,\vb{r}_2)\delta(\vb{r}_{12}-\vb{r})\,.
+    \end{align}
+    \(P_2\) is just the Boltzmann exponent of the pair potential, and so
+    \begin{equation}
+        \gamma(\vb{r})=V\frac{\int\dd[3]{\vb{r}_1}\dd[3]{\vb{r}_2}\exp[-V(r_{12})/k_B T]\delta(\vb{r}_{12}-\vb{r})}{\int\dd[3]{\vb{r}_1}\dd[3]{\vb{r}_2}\exp[-V(r_{12})/k_B T]}\,.
+    \end{equation}
+    Transforming to the CoM coordinate \(\vb{r}\) and relative coordinate \(\vb{r}'=\vb{r}_{12}\) gives
+    \begin{equation}
+        \gamma(\vb{r})=V\frac{\int\dd[3]{\vb{R}}\dd[3]{\vb{r}'}\exp[-V(r'_{12})/k_B T]\delta(\vb{r}'-\vb{r})}{\int\dd[3]{\vb{R}}\dd[3]{\vb{r}'}\exp[-V(r'_{12})/k_B T]}\,.
+    \end{equation}
+    Since the potential is independent of \(\vb{R}\), the integral over \(\vb{R}\) gives a factor \(V\),
+    \begin{equation}
+        \gamma(\vb{r})=V\frac{\int\dd[3]{\vb{r}'}\exp[-V(r')/k_B T]\delta(\vb{r}'-\vb{r})}{\int\dd[3]{\vb{r}}\exp[-V(r')/k_B T]}=V\frac{\exp[-V(r')/k_B T]}{\int\dd[3]{\vb{r}'}\exp[-V(r')/k_B T]}\,.
+    \end{equation}
+    For \(V^{1/3}\gg\sigma\), we can identify
+    \begin{equation}
+        \int\dd[3]{\vb{r}'}\exp[-V(r')/k_B T]\approx V\,,
+    \end{equation}
+    and so
+    \begin{equation}
+        \gamma(\vb{r})=\ee^{-V(r)/k_B T}\,.
+    \end{equation}
+    As expected, \(\gamma(\vb{r})\) is isotropic and we can directly write
+    \begin{equation}\label{radial_distribution_potential}
+        g(r)=\ee^{-V(r)/k_B T}\,,
+    \end{equation}
+    or taking the logarithms,
+    \begin{equation}\label{effective_pair_potential}
+        -k_B T\ln g(r)=V(r)\,.
+    \end{equation}
+
+    In the low density limit of a many-particle gas, (\ref{radial_distribution_potential}) is still the leading term in an expansion in terms of powers of density, and so it remains approximately valid. This suggests that there is a close relation between the radial distribution function and pair potential. The equation (\ref{effective_pair_potential}) can be generalised to the condensed phase, with the logarithm of \(g(r)\) identified as an effective pair potential. This effective pair potential, which is really a free energy, is called the \textit{potential of mean force} and plays a crucial role in the statistical mechanics of liquids and solutions.
+
+    \subsubsection{Relation of Other Properties to the Radial Distribution Function}
+    For simple single-component atomic liquids, with a radial potential \(V(r)\), it turns out that many properties can be simply computed from the \(g(r)\), which contains all the information necessary about the statistics of pair distances. For example, one can show
+    \begin{align}
+        \frac{U}{N}&=2\pi\rho\int_{0}^{\infty}\dd{r}V(r)g(r)r^2\\
+        P&=\rho k_B T-\frac{2}{3}\pi\rho^2\int_{0}^{\infty}\dd{r}\dv{V(r)}{r}g(r)r^3\,.
+    \end{align}
+
+    \subsubsection{Experimental Determination of Radial Distribution Function}
+    Radial distribution functions can be observed in experiment from the diffraction patterns of radiation with a wavelength comparable to the interatomic distances. This means that for normal liquids with interatomic distances in the order of angstroms, we can use neutrons or X-rays.\footnote{For more on scattering, see my notes on Part II C6: \textit{Diffraction Methods in Chemistry}.} The quantity that is actually directly measured from a diffraction experiment is the intensity \(I(\theta)\) scattered in a direction at angle \(\theta\) to the incoming beam. If \(\vb{k}_{\text{in}}\) and \(k_{\text{out}}\) are the wavevectors of the incoming and outgoing beam, then the momentum transferred is
+    \begin{equation}
+        \vb{k}=\vb{k}_{\text{in}}-\vb{k}_{\text{out}}\,.
+    \end{equation}
+    In elastic scatterings, \(\norm{\vb{k}_{\text{in}}}=\norm{\vb{k}_{\text{out}}}\), and therefore
+    \begin{equation}
+        k=\norm{\vb{k}}=\frac{4\pi}{\lambda}\sin\left(\frac{\theta}{2}\right)\,.
+    \end{equation}
+    To a very good approximation, the observed scattered intensity can be separated into an atomic form factor \(f(k)\) and a structure factor \(S(k)\)
+    \begin{equation}
+        I(\theta)=\abs{f(k)}^2 S(k)\,.
+    \end{equation}
+    The form factor is specific to the atomic species and also depends on instrumental corrections. The \textit{structure factor} is given by
+    \begin{equation}\label{structure_factor}
+        S(\vb{k})=\frac{1}{N}\eval{\sum_{\ell,m}\exp[\ii\vb{k}\vdot(\vb{r}_\ell-\vb{r}_m)]}
+    \end{equation}
+    and contains all the information on the position of the particles. Similar to the RDF we have used a more general formulation allowing for possible dependence on the direction of the momentum transfer as is the case for example for Bragg scattering of crystals. For liquids, however, the structure factor is isotropic and only depends on the magnitude \(k=\norm{\vb{k}}\) of the scattering vector. To relate the structure factor to the radial distribution we use the formal definition of the RDF in terms of the delta function (\ref{pair_correlation_function}) and the identity
+    \begin{equation}
+        \delta(x)=\frac{1}{2\pi}\int_{-\infty}^{\infty}\dd{k}\ee^{\ii kx}\,.
+    \end{equation}
+    To proceed, we first separate the sum (\ref{structure_factor}) in \(\ell=m\) and \(\ell\ne m\) term
+    \begin{align}
+        S(\vb{k})&=\frac{1}{N}\eval{\sum_{\ell}^{N}\exp[\ii\vb{k}\vdot\vb{0}]}+\frac{1}{N}\eval{\sum_{\ell,m\ne\ell}\exp[\ii\vb{k}\vdot(\vb{r}_\ell-\vb{r}_m)]}\notag\\
+        &=1+\frac{1}{N}\eval{\sum_{\ell,m\ne\ell}\exp[\ii\vb{k}\vdot\vb{r}_{\ell m}]}\,.
+    \end{align}
+    Its inverse Fourier transform is then given by
+    \begin{equation}
+        \frac{1}{(2\pi)^3}\int\dd[3]{\vb{k}}\ee^{\ii\vb{k}\vdot\vb{r}} S(\vb{k})=\delta(\vb{r})+\frac{1}{N}\eval{\sum_{\ell,m\ne\ell}\delta(\vb{r}_{\ell m}-\vb{r})}\,,
+    \end{equation}
+    and now by (\ref{pair_correlation_function}) and setting \(N-1\approx N\), we get
+    \begin{equation}
+        \frac{1}{(2\pi)^3}\int\dd[3]{\vb{k}}\ee^{\ii\vb{k}\vdot\vb{r}} S(\vb{k})=\delta(\vb{r})+\frac{N}{V}\gamma(\vb{r})\,.
+    \end{equation}
+    Alternatively,
+    \begin{equation}
+        \frac{1}{(2\pi)^2}\int\dd[3]{\vb{k}}\ee^{\ii\vb{k}\vdot\vb{r}}[S(\vb{k})-1]=\frac{N}{V}\gamma(\vb{r})\,.
+    \end{equation}
+    The \(g(r)\) can therefore be obtained from experiment by the inverse Fourier transform of the measured structure factor after subtracting the ``self-correlation''.
+
+    \subsection{Static Versus Dynamical Averages}
+    Under the ergodic hypothesis, we can use molecular dynamics to sample from microcanonical ensemble, and by weak-coupling approaches, some other standard statistical mechanical ensembles can be generated as well. All the quantities we introduced above do not incorporate explicit knowledge of the time evolution of the system. They are just static equilibrium averages that can equally well be obtained via the Monte-Carlo route. If we are only interested in these static properties, we don't need to track how the system evolves in time. We just need a good equilibrium sampling.
+
+    However, some quantities are not like that. They are directly dependent on how the system evolves in time, and so we have to use time-dependent simulations instead of Monte-Carlo. They are called \textit{dynamical properties}. Some examples include transport or diffusive properties (e.g. heat conductivity and diffusion coefficient), rheological properties (e.g. shear modulus) and spectroscopic properties.
+
+    However, Green--Kubo relations allow us to directly link those macroscopic transport coefficients to the microscopic fluctuations at equilibrium by relating the transport coefficients to the integral of the autocorrelation functions of certain quantities. For example, the diffusion coefficient is linked to the integral of the velocity autocorrelation function, and the viscosity is linked to the stress tensor. Taking advantage of these, we can extract transport coefficients directly from a equilibrium molecular dynamics simulation instead of observing how a system evolves to equilibrium.
+
+    The time autocorrelation functions capture the rate at which a system decorrelates from an initial state. Consider a signal (e.g. a phase function) \(A(t)\) with domain \(t\in[0,\Delta t]\). Without loss of generality, we can let \(\eval{A}=0\). The autocorrelation function of \(A\) is then defined as
+    \begin{equation}
+        C_{AA}(\tau)\coloneqq\frac{1}{\Delta t-\tau}\int_{0}^{\Delta t-\tau}\dd{t}A(t+\tau)A(t)\,.
+    \end{equation}
+    We have
+    \begin{align}
+        C_{AA}(\tau\to 0)&=\eval{A^2}\\
+        C_{AA}(\tau\to\Delta t)&=\eval{A}^2\,.
+    \end{align}
+
+    \begin{figure}
+        \centering
+        \begin{tikzpicture}
+            \draw[->] (0,0)--(10,0)node[below]{\small\(t\)};
+            \draw[->] (0,0)--(0,3)node[left]{\small\(A(t)\)};
+            \begin{scope}[shift={(-0.25,0.5)}]
+                \draw[scale=0.105,thick] (2.54,10.12) .. controls (2.54,9.31) and (4.08,6.38) .. (4.46,6.02) .. controls (4.7,5.78) and (5.45,6.99) .. (5.83,6.81) .. controls (6.29,6.59) and (6.64,5.39) .. (7.2,4.96) .. controls (7.55,4.68) and (7.53,5.56) .. (7.74,5.35) .. controls (8.69,4.44) and (8.61,1.21) .. (10.48,1.52) .. controls (10.84,1.57) and (12.04,2.98) .. (12.4,3.5) .. controls (12.53,3.68) and (12.85,3.7) .. (12.95,3.9) .. controls (13.51,4.99) and (14.04,6.15) .. (14.32,7.34) .. controls (14.66,8.81) and (14.61,10.54) .. (15.28,11.84) .. controls (16.14,13.52) and (17.89,9.45) .. (18.43,8.93) .. controls (18.69,8.68) and (18.44,8.66) .. (19,9.72) .. controls (19.28,10.25) and (19.29,10.4) .. (19.52,10.52) .. controls (19.71,10.61) and (20.27,10.83) .. (20.55,9.64) .. controls (20.76,8.49) and (21.03,10.32) .. (21.44,10.52) .. controls (21.87,10.72) and (21.87,9.86) .. (22.4,9.99) .. controls (22.46,10) and (22.52,10.06) .. (22.54,10.12) .. controls (22.75,10.93) and (23.11,11.36) .. (23.5,12.11) .. controls (24.05,13.17) and (24.32,14.36) .. (25,15.02) .. controls (25.13,15.14) and (25.37,16.26) .. (25.69,15.95) .. controls (26.1,15.55) and (26.3,14.86) .. (26.65,14.36) .. controls (26.86,14.04) and (27.5,15.32) .. (27.74,14.62) .. controls (27.96,13.98) and (28.13,13.67) .. (28.28,12.94) .. controls (28.56,11.8) and (28.73,11.58) .. (29.11,11.58) .. controls (29.68,11.58) and (29.71,12.44) .. (30.34,12.24) .. controls (30.72,12.12) and (31.02,9.04) .. (31.03,8.93) .. controls (31.06,8.57) and (30.97,8.03) .. (31.3,7.87) .. controls (31.65,7.7) and (31.7,8.34) .. (32.13,8.13) .. controls (32.62,7.89) and (33.3,5.71) .. (33.77,5.49) .. controls (34.17,5.29) and (35.41,6.99) .. (35.96,6.81) .. controls (36.42,6.66) and (36.15,5.13) .. (37.13,3.63) .. controls (37.55,3.02) and (37.98,3.41) .. (38.68,4.34) .. controls (38.96,5.66) and (38.96,6.59) .. (40.07,9.33) .. controls (40.21,9.85) and (41.12,7.83) .. (41.44,8.13) .. controls (41.71,8.39) and (41.55,9.17) .. (41.85,9.46) .. controls (42.57,10.16) and (43.5,11.32) .. (44.18,11.97) .. controls (44.19,11.98) and (44.69,12.14) .. (44.73,12.11) .. controls (44.75,12.08) and (45.06,11.23) .. (45.41,11.58) .. controls (45.94,12.09) and (46.01,14.12) .. (46.78,14.49) .. controls (46.86,14.53) and (46.95,14.88) .. (47.06,14.75) .. controls (47.65,14.09) and (48.15,13.56) .. (48.42,13.03) .. controls (48.45,12.98) and (48.56,12.64) .. (48.56,12.64) .. controls (48.56,12.64) and (48.92,13.36) .. (48.97,13.17) .. controls (49.28,11.97) and (49.36,10.65) .. (49.36,9.46) .. controls (49.78,8.53) and (49.92,9.33) .. (50.48,10.25) .. controls (50.91,10.91) and (50.82,9.76) .. (51.16,9.59) .. controls (51.49,9.43) and (51.96,8.3) .. (52.67,8.53) .. controls (53.19,8.7) and (53.47,9.73) .. (54.31,9.46) .. controls (55.31,9.14) and (56.49,7.68) .. (57.46,7.21) .. controls (57.63,7.13) and (58.91,8.86) .. (59.52,8.66) .. controls (59.76,8.59) and (60,7.8) .. (60.2,7.61) .. controls (61.16,6.68) and (61.86,4.22) .. (62.81,3.77) .. controls (63.2,3.58) and (64.21,5.01) .. (64.45,5.35) .. controls (65.85,7.38) and (66.17,9.93) .. (67.74,11.44) .. controls (67.99,11.69) and (68.43,10.87) .. (68.56,10.78) .. controls (69.2,10.37) and (70.83,7.94) .. (71.44,8.13) .. controls (72.41,8.45) and (73.35,11.31) .. (74.04,11.97) .. controls (74.15,12.08) and (75.6,10.07) .. (75.68,9.99) .. controls (75.75,9.93) and (75.88,9.94) .. (75.96,9.99) .. controls (76.32,10.22) and (76.87,11.46) .. (77.33,11.31) .. controls (77.94,11.11) and (78.26,9.75) .. (78.7,9.33) .. controls (78.86,9.16) and (79.18,10.13) .. (79.24,10.25) .. controls (79.33,10.43) and (80.34,11.84) .. (80.34,11.84) .. controls (80.34,11.84) and (80.45,11.76) .. (80.48,11.71) .. controls (80.77,11.14) and (81.09,10.26) .. (81.3,9.46) .. controls (81.99,6.76) and (81.63,3.61) .. (82.53,0.99) .. controls (82.55,0.93) and (83.01,2.01) .. (83.08,2.18) .. controls (83.14,2.32) and (84.39,4.53) .. (84.45,4.56) .. controls (84.49,4.58) and (85.66,3.08) .. (85.68,3.1) .. controls (86.27,3.67) and (86.1,4.5) .. (86.91,5.09) .. controls (87.02,5.16) and (88.02,3.11) .. (88.28,3.24) .. controls (88.3,3.24) and (89.56,5.1) .. (89.65,4.82) .. controls (89.94,3.98) and (90.57,2.35) .. (91.16,1.78) .. controls (91.28,1.67) and (91.45,1.4) .. (91.57,1.52) .. controls (91.89,1.82) and (92.36,2.57) .. (92.67,2.57) ;
+            \end{scope}
+            \draw[dashed] (0,1.33)node[left]{\small\(\eval{A}\)}--(10,1.33);
+            \draw[dashed] (9.47,0)node[below]{\small\(\Delta t\)}--(9.47,0.77);
+            \draw (2,0)--(2,1.6);
+            \draw (3.5,0)--(3.5,1.2);
+            \draw[<->,blue] (2,-0.3)--node[below]{\(\tau\)}(3.5,-0.3);
+            \draw (5.5,0)--(5.5,1.45);
+            \draw (7,0)--(7,1.55);
+            \draw[<->,blue] (5.5,-0.3)--node[below]{\(\tau\)}(7,-0.3);
+        \end{tikzpicture}
+        \caption{Constructing the autocorrelation function of a quantity.}
+    \end{figure}
+
+    Hence, one can extract the transport coefficients from an MD simulation at equilibrium using Green--Kubo relations from the following scheme:
+    \begin{enumerate}[topsep=0pt]
+        \item Run a simulation at equilibrium.
+        \item Compute relevant microscopic quantity. For example, if we are interested in the diffusion coefficient, then we can calculate the particle's velocity.
+        \item Calculate the autocorrelation function.
+        \item Integrate to get the transport coefficient.
+    \end{enumerate}
+
+    One can generalise the autocorrelation function to define the \textit{cross-correlation function}\footnote{More formally, it can also be defined using a phase-space average as an ergodic integral
+    \begin{equation}
+        C_{AB}(\tau)\coloneqq\int\dd[3N]{\vb{r}^N}\dd[3N]{\vb{p}^N}A(\vb{r}^N,\vb{p}^N)B(\tau\mid\vb{r}^N,\vb{p}^N)\rho(\vb{r}^N,\vb{p}^N)\,.
+    \end{equation}}
+    \begin{equation}
+        C_{\text{AB}}(\tau)\coloneqq\frac{\eval{A(t)B(t+\tau)}}{\eval{A}\eval{B}}\,.
+    \end{equation}
+    Where the normalisation factor may be there or not. This will be useful when studying coupled processes, like energy transfer or reaction rates. The loss of correlation with time is usually an exponential decay, and the decorrelation time can be estimated from a time integral over the correlation function
+    \begin{equation}
+        \tau_{AB}=\frac{1}{C_{AB}(0)}\int_{0}^{\infty}\dd{\tau}C_{AB}(\tau)\,.
+    \end{equation}
+    One may check that the correlation function has the time translation invariance and time inversion symmetry
+    \begin{align}
+        \eval{A(t+\tau)B(t)}&=\eval{A(t'+\tau)B(t')}\\
+        \eval{A(\tau)A(0)}&=\eval{A(0)A(-\tau)}\,.
+    \end{align}
+    \subsubsection{Fluctuation-Dissipation Theorem}
+    In fact, the use of time correlation function at equilibrium in obtaining off-equilibrium properties like transport coefficient is a very deep and profound result related to the fluctuation-dissipation theorem.
+    
+    An informal statement of this theorem is Onsager's \textit{regression hypothesis}: the relaxation of a system after some macroscopic perturbation is governed by the same laws as the regressions of spontaneous microscopic fluctuations in an equilibrium system. A system's fluctuation at equilibrium is indistinguishable from its approach from off-equilibrium to equilibrium, provided that it is not too far away from equilibrium. The fluctuation-dissipation theorem formalises this hypothesis.
+
+    \begin{thm}[Fluctuation-dissipation theorem]
+        Consider a system that has been prepared in a state sampled from some non-equilibrium distribution \(F(\vb{r}^N,\vb{p}^N)\) by the means of a small perturbation \(\Delta H\). Write the average of the observable \(A\) in the perturbed state as
+        \begin{equation}
+            \overline{A}(t)=\int\dd[3N]{\vb{r}^N}\dd[3N]{\vb{p}^N}A(t\mid\vb{r}^N,\vb{p}^N)F(\vb{r}^N,\vb{p}^N)\,.
+        \end{equation}
+        If the initial state is not too far from equilibrium, the time evolution follows
+        \begin{equation}
+            \frac{\overline{A}(t)}{\overline{A}(0)}=\frac{C_{AA}(t)}{C_{AA}(0)}\,.
+        \end{equation}
+    \end{thm}
+
+    Hence, instead of measuring how a system responds to an external force, we can directly measure how it fluctuates at equilibrium.
+
+    \subsection{Force Fields}
+    A force field is the classical parameterisation of the adiabatic potential energy surface \(V(\vb{r}^N)\). It can be separated into bonded and non-bonded potentials to include both bonded and non-bonded interactions.
+
+    Bonded potentials capture covalent, intramolecular interactions. They are usually partitioned onto \(n\)-body terms up to \(n=4\).
+    \begin{figure}[ht!]
+        \centering
+        \begin{tikzpicture}
+            \draw[thick] (0,0)node[below=0.2cm]{\small\(i\)}--(1,0.5)node[below=0.2cm]{\small\(j\)}--(2,0)node[below=0.2cm]{\small\(k\)}--(3,0.5)node[below=0.2cm]{\small\(l\)};
+            \draw[fill=gray] (0,0) circle(0.2);
+            \draw[fill=gray] (1,0.5) circle(0.2);
+            \draw[fill=gray] (2,0) circle(0.2);
+            \draw[fill=gray] (3,0.5) circle(0.2);
+            \begin{scope}[shift={(-3,-1.5)}]
+                \node at (0,0){\textbf{Bonds}};
+                \node at (0,-0.7){\(\displaystyle r_{ij}=\norm{\vb{r}_i-\vb{r}_j}\)};
+                \begin{scope}[scale=0.75,shift={(-1.5,-3)}]
+                    \draw[thick,cyan] (0,0)--node[above]{\small\(r_{ij}\)}(1,0.5);
+                    \draw[thick] (1,0.5)--(2,0)--(3,0.5);
+                    \draw[cyan,fill=cyan!10] (0,0) circle(0.2);
+                    \draw[cyan,fill=cyan!10] (1,0.5) circle(0.2);
+                    \draw[fill=gray] (2,0) circle(0.2);
+                    \draw[fill=gray] (3,0.5) circle(0.2);
+                \end{scope}
+            \end{scope}
+            \begin{scope}[shift={(1.5,-1.5)}]
+                \node at (0,0){\textbf{Angles}};
+                \node at (0,-0.7){\(\displaystyle\cos\theta_{ijk}=\frac{\vb{r}_{ij}\vdot\vb{r}_{jk}}{\norm{\vb{r}_{ij}}\norm{\vb{r}_{jk}}}\)};
+                \begin{scope}[scale=0.75,shift={(-1.5,-3)}]
+                    \draw[thick,cyan] (0,0)--(1,0.5)node[below=0.3cm]{\small\(\theta_{ijk}\)}--(2,0);
+                    \draw[dashed,cyan,thick] (1.4,0.3) arc(-26.56:-153.43:0.447);
+                    \draw[thick] (2,0)--(3,0.5);
+                    \draw[cyan,fill=cyan!10] (0,0) circle(0.2);
+                    \draw[cyan,fill=cyan!10] (1,0.5) circle(0.2);
+                    \draw[cyan,fill=cyan!10] (2,0) circle(0.2);
+                    \draw[fill=gray] (3,0.5) circle(0.2);
+                \end{scope}
+            \end{scope}
+            \begin{scope}[shift={(6,-1.5)}]
+                \node at (0,0){\textbf{Dihedrals}};
+                \node at (0,-0.7){\(\displaystyle\phi_{ijkl}=\frac{\vb{n}_{ijk}\vdot\vb{n}_{jkl}}{\norm{\vb{n}_{ijk}}\norm{\vb{n}_{jkl}}}\)};
+                \begin{scope}[scale=0.75,shift={(-1.5,-3)}]
+                    \draw[thick,dashed,gray,fill=gray!25] (0,0)--(1,0.5)--(2,0)--(0,0);
+                    \draw[thick,dashed,gray,fill=gray!45] (1,0.5)--(2,0)--(3,0.5,0.25)--(1,0.5);
+                    \draw[thick,cyan] (0,0)--(1,0.5)--(2,0)--(3,0.5,0.25);
+                    \draw[dashed, thick, cyan] (1,0.1) to[bend left]node[above=0.2cm]{\small\(\phi_{ijkl}\)} (1.9,0.3);
+                    \draw[cyan,fill=cyan!10] (0,0) circle(0.2);
+                    \draw[cyan,fill=cyan!10] (1,0.5) circle(0.2);
+                    \draw[cyan,fill=cyan!10] (2,0) circle(0.2);
+                    \draw[cyan,fill=cyan!10] (3,0.5,0.25) circle(0.2);
+                \end{scope}
+            \end{scope}
+        \end{tikzpicture}
+    \end{figure}
+
+    Some commonly used bonded potentials are
+    \begin{itemize}[topsep=0pt]
+        \item Harmonic bond.
+        \begin{equation}
+            u(r_{ij})=\frac{1}{2}k_r(r_{ij}-r_0)^2\,.
+        \end{equation}
+        \item Harmonic angle.
+        \begin{equation}
+            u(\theta_{ijk})=\frac{1}{2}k_\theta(\theta_{ijk}-\theta_0)^2\,.
+        \end{equation}
+        \item Proper dihedral. It simulates the conditions where several dihedral angles are likely, and it has many probable forms. The Ryckaert--Bellemans form is
+        \begin{equation}
+            u_{rb}(\phi_{ijkl})=\sum_{n=0}^{5}c_n\cos^n(\phi_{ijkl})\,.
+        \end{equation}
+        It is a \(2\pi\)-periodic function with several minima and maxima.
+        \item Improper dihedral. It is used to capture the rigidity of certain systems like planar \(\mathrm{BF_3}\), where only one specific dihedral angle is probable.
+        \begin{equation}
+            u_{id}(\phi_{ijkl})=\frac{1}{2}k_\phi(\phi_{ijkl}-\phi_0)^2\,.
+        \end{equation}
+    \end{itemize}
+
+    Non-bonded potentials capture van der Waals, electrostatic and polarisation interactions at both intermolecular and intramolecular levels. These interactions are often approximated using only pairwise terms.
+    \begin{figure}[ht!]
+        \centering
+        \begin{tikzpicture}[decoration = {snake,amplitude=1.2pt,segment length=2mm}]
+            \draw[thick] (0,0)--(1,0.5)--(2,0)--(3,0.5);
+            \draw[decorate,thick,red] (0,0)--(3,0.5);
+            \draw[decorate,thick,cyan] (5,0)--(3,0.5);
+            \draw[decorate,thick,cyan] (5,0)--(2,0);
+            \draw[thick,red,fill=red!10] (0,0) circle(0.2);
+            \draw[fill=gray] (1,0.5) circle(0.2);
+            \draw[fill=gray] (2,0) circle(0.2);
+            \draw[thick,red,fill=red!10] (3,0.5) circle(0.2);
+            \draw[thick,dashed] (5,0)--(6,0.5);
+            \draw[->,align=center] (5,0)--node[below]{\small cut-off \\[-2pt] \small sphere}+(194.74:3.353);
+            \draw[thick,cyan,fill=cyan!10] (5,0) circle(0.2);
+            \draw[dashed,cyan] (1.8,1) arc (165.26:194.74:3.353);
+        \end{tikzpicture}
+        \caption{Both intermolecular and intramolecular non-bonded forces should be considered. However, 1-2 and 1-3 interactions are often excluded.}
+    \end{figure}
+
+    Common non-bonded potentials include:
+    \begin{itemize}[topsep=0pt]
+        \item Lennard-Jones potential
+        \begin{equation}
+            u_{\text{LJ}}(r_{ij})=4\epsilon_{ij}f_{\text{LJ}}(r_{ij})\left(\frac{A_{ij}}{r_{ij}^{12}}-\frac{B_{ij}}{r_{ij}^6}\right)\,,
+        \end{equation}
+        where \(f_{ij}(r_{ij})\) is a cut-off function such that \(f_{\text{LJ}}(r_{ij})=0\) for \(r_{ij}\) above the cut-off radius and one otherwise. The most common way obtaining these coefficients is the Lorentz-Berthelot rules
+        \begin{align}
+            \epsilon_{ij}&=\sqrt{\epsilon_i\epsilon_j} & \sigma_{ij}&=\frac{\sigma_i+\sigma_j}{2} \\
+            A_{ij}&=4\epsilon_{ij}\sigma_{ij}^{12} & B_{ij}&=4\epsilon_{ij}\sigma_{ij}^6\,.
+        \end{align}
+        \item Coulomb potential
+        \begin{equation}
+            u_{ij}=f_c(r_{ij})\frac{1}{4\pi\epsilon_0}\frac{q_iq_j}{r_{ij}}\,.
+        \end{equation}
+    \end{itemize}
+
+    \subsection{Errors in Simulations}
+    Broadly speaking, the errors in an MD simulation can be classified into two categories. First, there are systematic errors that are inherent to the system. It is related to the model and method one uses to describe a given system (e.g. force field, quantum mechanical effect), and it is harder to gain control over. There are also \textit{statistical errors} that can arise in either time domain due to finite sampling, or in spatial domain due to finite size effects. We will focus on statistical errors.
+
+    \subsubsection{Block Average Method}
+    If we have a trajectory of length \(\tau\), the average of a dynamical observable \(A\) over this trajectory can be calculated as
+    \begin{equation}
+        A_\tau=\frac{1}{\tau}\int_0^\tau \dd{t}A(t)\,.
+    \end{equation}
+    In the limit of infinite simulation time, the estimated average should converge to the true ensemble average
+    \begin{equation}
+        \lim_{\tau\to\infty}\eval{A_\tau}=\eval{A}\,.
+    \end{equation}
+    But we can only simulate the system for a finite amount of time. Then how do we calculate the error of our estimate \(A_\tau\)?
+
+    \begin{figure}[ht!]
+        \centering
+        \begin{tikzpicture}
+            \draw[->] (0,0)--(10,0)node[below]{\small\(t\)};
+            \draw[->] (0,0)--(0,3)node[left]{\small\(A(t)\)};
+            \begin{scope}[shift={(-0.25,0.5)}]
+                \draw[scale=0.105,thick] (2.54,10.12) .. controls (2.54,9.31) and (4.08,6.38) .. (4.46,6.02) .. controls (4.7,5.78) and (5.45,6.99) .. (5.83,6.81) .. controls (6.29,6.59) and (6.64,5.39) .. (7.2,4.96) .. controls (7.55,4.68) and (7.53,5.56) .. (7.74,5.35) .. controls (8.69,4.44) and (8.61,1.21) .. (10.48,1.52) .. controls (10.84,1.57) and (12.04,2.98) .. (12.4,3.5) .. controls (12.53,3.68) and (12.85,3.7) .. (12.95,3.9) .. controls (13.51,4.99) and (14.04,6.15) .. (14.32,7.34) .. controls (14.66,8.81) and (14.61,10.54) .. (15.28,11.84) .. controls (16.14,13.52) and (17.89,9.45) .. (18.43,8.93) .. controls (18.69,8.68) and (18.44,8.66) .. (19,9.72) .. controls (19.28,10.25) and (19.29,10.4) .. (19.52,10.52) .. controls (19.71,10.61) and (20.27,10.83) .. (20.55,9.64) .. controls (20.76,8.49) and (21.03,10.32) .. (21.44,10.52) .. controls (21.87,10.72) and (21.87,9.86) .. (22.4,9.99) .. controls (22.46,10) and (22.52,10.06) .. (22.54,10.12) .. controls (22.75,10.93) and (23.11,11.36) .. (23.5,12.11) .. controls (24.05,13.17) and (24.32,14.36) .. (25,15.02) .. controls (25.13,15.14) and (25.37,16.26) .. (25.69,15.95) .. controls (26.1,15.55) and (26.3,14.86) .. (26.65,14.36) .. controls (26.86,14.04) and (27.5,15.32) .. (27.74,14.62) .. controls (27.96,13.98) and (28.13,13.67) .. (28.28,12.94) .. controls (28.56,11.8) and (28.73,11.58) .. (29.11,11.58) .. controls (29.68,11.58) and (29.71,12.44) .. (30.34,12.24) .. controls (30.72,12.12) and (31.02,9.04) .. (31.03,8.93) .. controls (31.06,8.57) and (30.97,8.03) .. (31.3,7.87) .. controls (31.65,7.7) and (31.7,8.34) .. (32.13,8.13) .. controls (32.62,7.89) and (33.3,5.71) .. (33.77,5.49) .. controls (34.17,5.29) and (35.41,6.99) .. (35.96,6.81) .. controls (36.42,6.66) and (36.15,5.13) .. (37.13,3.63) .. controls (37.55,3.02) and (37.98,3.41) .. (38.68,4.34) .. controls (38.96,5.66) and (38.96,6.59) .. (40.07,9.33) .. controls (40.21,9.85) and (41.12,7.83) .. (41.44,8.13) .. controls (41.71,8.39) and (41.55,9.17) .. (41.85,9.46) .. controls (42.57,10.16) and (43.5,11.32) .. (44.18,11.97) .. controls (44.19,11.98) and (44.69,12.14) .. (44.73,12.11) .. controls (44.75,12.08) and (45.06,11.23) .. (45.41,11.58) .. controls (45.94,12.09) and (46.01,14.12) .. (46.78,14.49) .. controls (46.86,14.53) and (46.95,14.88) .. (47.06,14.75) .. controls (47.65,14.09) and (48.15,13.56) .. (48.42,13.03) .. controls (48.45,12.98) and (48.56,12.64) .. (48.56,12.64) .. controls (48.56,12.64) and (48.92,13.36) .. (48.97,13.17) .. controls (49.28,11.97) and (49.36,10.65) .. (49.36,9.46) .. controls (49.78,8.53) and (49.92,9.33) .. (50.48,10.25) .. controls (50.91,10.91) and (50.82,9.76) .. (51.16,9.59) .. controls (51.49,9.43) and (51.96,8.3) .. (52.67,8.53) .. controls (53.19,8.7) and (53.47,9.73) .. (54.31,9.46) .. controls (55.31,9.14) and (56.49,7.68) .. (57.46,7.21) .. controls (57.63,7.13) and (58.91,8.86) .. (59.52,8.66) .. controls (59.76,8.59) and (60,7.8) .. (60.2,7.61) .. controls (61.16,6.68) and (61.86,4.22) .. (62.81,3.77) .. controls (63.2,3.58) and (64.21,5.01) .. (64.45,5.35) .. controls (65.85,7.38) and (66.17,9.93) .. (67.74,11.44) .. controls (67.99,11.69) and (68.43,10.87) .. (68.56,10.78) .. controls (69.2,10.37) and (70.83,7.94) .. (71.44,8.13) .. controls (72.41,8.45) and (73.35,11.31) .. (74.04,11.97) .. controls (74.15,12.08) and (75.6,10.07) .. (75.68,9.99) .. controls (75.75,9.93) and (75.88,9.94) .. (75.96,9.99) .. controls (76.32,10.22) and (76.87,11.46) .. (77.33,11.31) .. controls (77.94,11.11) and (78.26,9.75) .. (78.7,9.33) .. controls (78.86,9.16) and (79.18,10.13) .. (79.24,10.25) .. controls (79.33,10.43) and (80.34,11.84) .. (80.34,11.84) .. controls (80.34,11.84) and (80.45,11.76) .. (80.48,11.71) .. controls (80.77,11.14) and (81.09,10.26) .. (81.3,9.46) .. controls (81.99,6.76) and (81.63,3.61) .. (82.53,0.99) .. controls (82.55,0.93) and (83.01,2.01) .. (83.08,2.18) .. controls (83.14,2.32) and (84.39,4.53) .. (84.45,4.56) .. controls (84.49,4.58) and (85.66,3.08) .. (85.68,3.1) .. controls (86.27,3.67) and (86.1,4.5) .. (86.91,5.09) .. controls (87.02,5.16) and (88.02,3.11) .. (88.28,3.24) .. controls (88.3,3.24) and (89.56,5.1) .. (89.65,4.82) .. controls (89.94,3.98) and (90.57,2.35) .. (91.16,1.78) .. controls (91.28,1.67) and (91.45,1.4) .. (91.57,1.52) .. controls (91.89,1.82) and (92.36,2.57) .. (92.67,2.57) ;
+            \end{scope}
+            \draw[thick,red](0,1.45)--(3,1.45);
+            \draw[thick,red](3,1.4)--(6,1.4);
+            \draw[thick,red](6,1.3)--(9,1.3);
+            \draw[dashed,red](3,1.45)--(3,0);
+            \draw[dashed,red](6,1.4)--(6,0);
+            \draw[dashed,red](9,1.3)--(9,0);
+            \draw[<->,red] (0,-0.3)--node[below]{\small\(\tau\)}(3,-0.3);
+            \draw[<->,red] (3,-0.3)--node[below]{\small\(\tau\)}(6,-0.3);
+            \draw[<->,red] (6,-0.3)--node[below]{\small\(\tau\)}(9,-0.3);
+        \end{tikzpicture}
+        \caption{Estimating the statistical error using the block average method.}
+    \end{figure}
+
+    To estimate the error, we can consider finite blocks that partition the trajectory onto smaller chunks, and then evaluate the average of \(A\) over each block. For a given choice of \(\tau\), the variance of \(A_\tau\) is given by
+    \begin{equation}
+        \sigma^2(A_\tau)=\sum_{b=1}^{n_b}\frac{(A_{\tau,b}-A_{\Delta t})^2}{n_b}\,.
+    \end{equation}
+    Clearly, the estimated variance will be strongly dependent on the choice of \(\tau\). If we use \(\tau=\Delta t\), then we get \(\sigma^2(A_\tau)=0\) and this clearly underestimates the error. If we choose too small a \(\tau\), then we would overestimate the error. How do we choose the appropriate block size?
+
+    \begin{figure}
+        \centering
+        \begin{tikzpicture}
+            \draw[->] (0,0)--(10,0)node[below]{\small\(t\)};
+            \draw[->] (0,0)--(0,3)node[left]{\small\(A(t)\)};
+            \begin{scope}[shift={(-0.25,0.5)}]
+                \draw[scale=0.105,thick] (2.54,10.12) .. controls (2.54,9.31) and (4.08,6.38) .. (4.46,6.02) .. controls (4.7,5.78) and (5.45,6.99) .. (5.83,6.81) .. controls (6.29,6.59) and (6.64,5.39) .. (7.2,4.96) .. controls (7.55,4.68) and (7.53,5.56) .. (7.74,5.35) .. controls (8.69,4.44) and (8.61,1.21) .. (10.48,1.52) .. controls (10.84,1.57) and (12.04,2.98) .. (12.4,3.5) .. controls (12.53,3.68) and (12.85,3.7) .. (12.95,3.9) .. controls (13.51,4.99) and (14.04,6.15) .. (14.32,7.34) .. controls (14.66,8.81) and (14.61,10.54) .. (15.28,11.84) .. controls (16.14,13.52) and (17.89,9.45) .. (18.43,8.93) .. controls (18.69,8.68) and (18.44,8.66) .. (19,9.72) .. controls (19.28,10.25) and (19.29,10.4) .. (19.52,10.52) .. controls (19.71,10.61) and (20.27,10.83) .. (20.55,9.64) .. controls (20.76,8.49) and (21.03,10.32) .. (21.44,10.52) .. controls (21.87,10.72) and (21.87,9.86) .. (22.4,9.99) .. controls (22.46,10) and (22.52,10.06) .. (22.54,10.12) .. controls (22.75,10.93) and (23.11,11.36) .. (23.5,12.11) .. controls (24.05,13.17) and (24.32,14.36) .. (25,15.02) .. controls (25.13,15.14) and (25.37,16.26) .. (25.69,15.95) .. controls (26.1,15.55) and (26.3,14.86) .. (26.65,14.36) .. controls (26.86,14.04) and (27.5,15.32) .. (27.74,14.62) .. controls (27.96,13.98) and (28.13,13.67) .. (28.28,12.94) .. controls (28.56,11.8) and (28.73,11.58) .. (29.11,11.58) .. controls (29.68,11.58) and (29.71,12.44) .. (30.34,12.24) .. controls (30.72,12.12) and (31.02,9.04) .. (31.03,8.93) .. controls (31.06,8.57) and (30.97,8.03) .. (31.3,7.87) .. controls (31.65,7.7) and (31.7,8.34) .. (32.13,8.13) .. controls (32.62,7.89) and (33.3,5.71) .. (33.77,5.49) .. controls (34.17,5.29) and (35.41,6.99) .. (35.96,6.81) .. controls (36.42,6.66) and (36.15,5.13) .. (37.13,3.63) .. controls (37.55,3.02) and (37.98,3.41) .. (38.68,4.34) .. controls (38.96,5.66) and (38.96,6.59) .. (40.07,9.33) .. controls (40.21,9.85) and (41.12,7.83) .. (41.44,8.13) .. controls (41.71,8.39) and (41.55,9.17) .. (41.85,9.46) .. controls (42.57,10.16) and (43.5,11.32) .. (44.18,11.97) .. controls (44.19,11.98) and (44.69,12.14) .. (44.73,12.11) .. controls (44.75,12.08) and (45.06,11.23) .. (45.41,11.58) .. controls (45.94,12.09) and (46.01,14.12) .. (46.78,14.49) .. controls (46.86,14.53) and (46.95,14.88) .. (47.06,14.75) .. controls (47.65,14.09) and (48.15,13.56) .. (48.42,13.03) .. controls (48.45,12.98) and (48.56,12.64) .. (48.56,12.64) .. controls (48.56,12.64) and (48.92,13.36) .. (48.97,13.17) .. controls (49.28,11.97) and (49.36,10.65) .. (49.36,9.46) .. controls (49.78,8.53) and (49.92,9.33) .. (50.48,10.25) .. controls (50.91,10.91) and (50.82,9.76) .. (51.16,9.59) .. controls (51.49,9.43) and (51.96,8.3) .. (52.67,8.53) .. controls (53.19,8.7) and (53.47,9.73) .. (54.31,9.46) .. controls (55.31,9.14) and (56.49,7.68) .. (57.46,7.21) .. controls (57.63,7.13) and (58.91,8.86) .. (59.52,8.66) .. controls (59.76,8.59) and (60,7.8) .. (60.2,7.61) .. controls (61.16,6.68) and (61.86,4.22) .. (62.81,3.77) .. controls (63.2,3.58) and (64.21,5.01) .. (64.45,5.35) .. controls (65.85,7.38) and (66.17,9.93) .. (67.74,11.44) .. controls (67.99,11.69) and (68.43,10.87) .. (68.56,10.78) .. controls (69.2,10.37) and (70.83,7.94) .. (71.44,8.13) .. controls (72.41,8.45) and (73.35,11.31) .. (74.04,11.97) .. controls (74.15,12.08) and (75.6,10.07) .. (75.68,9.99) .. controls (75.75,9.93) and (75.88,9.94) .. (75.96,9.99) .. controls (76.32,10.22) and (76.87,11.46) .. (77.33,11.31) .. controls (77.94,11.11) and (78.26,9.75) .. (78.7,9.33) .. controls (78.86,9.16) and (79.18,10.13) .. (79.24,10.25) .. controls (79.33,10.43) and (80.34,11.84) .. (80.34,11.84) .. controls (80.34,11.84) and (80.45,11.76) .. (80.48,11.71) .. controls (80.77,11.14) and (81.09,10.26) .. (81.3,9.46) .. controls (81.99,6.76) and (81.63,3.61) .. (82.53,0.99) .. controls (82.55,0.93) and (83.01,2.01) .. (83.08,2.18) .. controls (83.14,2.32) and (84.39,4.53) .. (84.45,4.56) .. controls (84.49,4.58) and (85.66,3.08) .. (85.68,3.1) .. controls (86.27,3.67) and (86.1,4.5) .. (86.91,5.09) .. controls (87.02,5.16) and (88.02,3.11) .. (88.28,3.24) .. controls (88.3,3.24) and (89.56,5.1) .. (89.65,4.82) .. controls (89.94,3.98) and (90.57,2.35) .. (91.16,1.78) .. controls (91.28,1.67) and (91.45,1.4) .. (91.57,1.52) .. controls (91.89,1.82) and (92.36,2.57) .. (92.67,2.57) ;
+            \end{scope}
+            \draw[red] (0,1.33)--(9.45,1.33);
+            \draw[red,dashed](0,0)--(0,1.33);
+            \draw[red,dashed](9.45,0)--(9.45,1.33);
+            \draw[<->,red](0,-0.3)--node[below]{\small\(\tau=\Delta t\)}(9.45,-0.3);
+            \begin{scope}[shift={(0,-4.5)}]
+                \draw[->] (0,0)--(10,0)node[below]{\small\(t\)};
+                \draw[->] (0,0)--(0,3)node[left]{\small\(A(t)\)};
+                \begin{scope}[shift={(-0.25,0.5)}]
+                    \draw[scale=0.105,thick] (2.54,10.12) .. controls (2.54,9.31) and (4.08,6.38) .. (4.46,6.02) .. controls (4.7,5.78) and (5.45,6.99) .. (5.83,6.81) .. controls (6.29,6.59) and (6.64,5.39) .. (7.2,4.96) .. controls (7.55,4.68) and (7.53,5.56) .. (7.74,5.35) .. controls (8.69,4.44) and (8.61,1.21) .. (10.48,1.52) .. controls (10.84,1.57) and (12.04,2.98) .. (12.4,3.5) .. controls (12.53,3.68) and (12.85,3.7) .. (12.95,3.9) .. controls (13.51,4.99) and (14.04,6.15) .. (14.32,7.34) .. controls (14.66,8.81) and (14.61,10.54) .. (15.28,11.84) .. controls (16.14,13.52) and (17.89,9.45) .. (18.43,8.93) .. controls (18.69,8.68) and (18.44,8.66) .. (19,9.72) .. controls (19.28,10.25) and (19.29,10.4) .. (19.52,10.52) .. controls (19.71,10.61) and (20.27,10.83) .. (20.55,9.64) .. controls (20.76,8.49) and (21.03,10.32) .. (21.44,10.52) .. controls (21.87,10.72) and (21.87,9.86) .. (22.4,9.99) .. controls (22.46,10) and (22.52,10.06) .. (22.54,10.12) .. controls (22.75,10.93) and (23.11,11.36) .. (23.5,12.11) .. controls (24.05,13.17) and (24.32,14.36) .. (25,15.02) .. controls (25.13,15.14) and (25.37,16.26) .. (25.69,15.95) .. controls (26.1,15.55) and (26.3,14.86) .. (26.65,14.36) .. controls (26.86,14.04) and (27.5,15.32) .. (27.74,14.62) .. controls (27.96,13.98) and (28.13,13.67) .. (28.28,12.94) .. controls (28.56,11.8) and (28.73,11.58) .. (29.11,11.58) .. controls (29.68,11.58) and (29.71,12.44) .. (30.34,12.24) .. controls (30.72,12.12) and (31.02,9.04) .. (31.03,8.93) .. controls (31.06,8.57) and (30.97,8.03) .. (31.3,7.87) .. controls (31.65,7.7) and (31.7,8.34) .. (32.13,8.13) .. controls (32.62,7.89) and (33.3,5.71) .. (33.77,5.49) .. controls (34.17,5.29) and (35.41,6.99) .. (35.96,6.81) .. controls (36.42,6.66) and (36.15,5.13) .. (37.13,3.63) .. controls (37.55,3.02) and (37.98,3.41) .. (38.68,4.34) .. controls (38.96,5.66) and (38.96,6.59) .. (40.07,9.33) .. controls (40.21,9.85) and (41.12,7.83) .. (41.44,8.13) .. controls (41.71,8.39) and (41.55,9.17) .. (41.85,9.46) .. controls (42.57,10.16) and (43.5,11.32) .. (44.18,11.97) .. controls (44.19,11.98) and (44.69,12.14) .. (44.73,12.11) .. controls (44.75,12.08) and (45.06,11.23) .. (45.41,11.58) .. controls (45.94,12.09) and (46.01,14.12) .. (46.78,14.49) .. controls (46.86,14.53) and (46.95,14.88) .. (47.06,14.75) .. controls (47.65,14.09) and (48.15,13.56) .. (48.42,13.03) .. controls (48.45,12.98) and (48.56,12.64) .. (48.56,12.64) .. controls (48.56,12.64) and (48.92,13.36) .. (48.97,13.17) .. controls (49.28,11.97) and (49.36,10.65) .. (49.36,9.46) .. controls (49.78,8.53) and (49.92,9.33) .. (50.48,10.25) .. controls (50.91,10.91) and (50.82,9.76) .. (51.16,9.59) .. controls (51.49,9.43) and (51.96,8.3) .. (52.67,8.53) .. controls (53.19,8.7) and (53.47,9.73) .. (54.31,9.46) .. controls (55.31,9.14) and (56.49,7.68) .. (57.46,7.21) .. controls (57.63,7.13) and (58.91,8.86) .. (59.52,8.66) .. controls (59.76,8.59) and (60,7.8) .. (60.2,7.61) .. controls (61.16,6.68) and (61.86,4.22) .. (62.81,3.77) .. controls (63.2,3.58) and (64.21,5.01) .. (64.45,5.35) .. controls (65.85,7.38) and (66.17,9.93) .. (67.74,11.44) .. controls (67.99,11.69) and (68.43,10.87) .. (68.56,10.78) .. controls (69.2,10.37) and (70.83,7.94) .. (71.44,8.13) .. controls (72.41,8.45) and (73.35,11.31) .. (74.04,11.97) .. controls (74.15,12.08) and (75.6,10.07) .. (75.68,9.99) .. controls (75.75,9.93) and (75.88,9.94) .. (75.96,9.99) .. controls (76.32,10.22) and (76.87,11.46) .. (77.33,11.31) .. controls (77.94,11.11) and (78.26,9.75) .. (78.7,9.33) .. controls (78.86,9.16) and (79.18,10.13) .. (79.24,10.25) .. controls (79.33,10.43) and (80.34,11.84) .. (80.34,11.84) .. controls (80.34,11.84) and (80.45,11.76) .. (80.48,11.71) .. controls (80.77,11.14) and (81.09,10.26) .. (81.3,9.46) .. controls (81.99,6.76) and (81.63,3.61) .. (82.53,0.99) .. controls (82.55,0.93) and (83.01,2.01) .. (83.08,2.18) .. controls (83.14,2.32) and (84.39,4.53) .. (84.45,4.56) .. controls (84.49,4.58) and (85.66,3.08) .. (85.68,3.1) .. controls (86.27,3.67) and (86.1,4.5) .. (86.91,5.09) .. controls (87.02,5.16) and (88.02,3.11) .. (88.28,3.24) .. controls (88.3,3.24) and (89.56,5.1) .. (89.65,4.82) .. controls (89.94,3.98) and (90.57,2.35) .. (91.16,1.78) .. controls (91.28,1.67) and (91.45,1.4) .. (91.57,1.52) .. controls (91.89,1.82) and (92.36,2.57) .. (92.67,2.57) ;
+                \end{scope}
+                \draw[red] (0,1.06)--(1,1.06);
+                \draw[red] (1,1.49)--(2,1.49);
+                \draw[red] (2,1.91)--(3,1.91);
+                \draw[red] (3,1.12)--(4,1.12);
+                \draw[red] (4,1.75)--(5,1.75);
+                \draw[red] (5,1.42)--(6,1.42);
+                \draw[red] (6,1.17)--(7,1.17);
+                \draw[red] (7,1.57)--(8,1.57);
+                \draw[red] (8,1.14)--(9,1.14);
+                \draw[dashed,red] (0,0)--(0,1.06);
+                \draw[dashed,red] (1,0)--(1,1.49);
+                \draw[dashed,red] (2,0)--(2,1.91);
+                \draw[dashed,red] (3,0)--(3,1.91);
+                \draw[dashed,red] (4,0)--(4,1.75);
+                \draw[dashed,red] (5,0)--(5,1.75);
+                \draw[dashed,red] (6,0)--(6,1.42);
+                \draw[dashed,red] (7,0)--(7,1.57);
+                \draw[dashed,red] (8,0)--(8,1.57);
+                \draw[dashed,red] (9,0)--(9,1.14);
+                \draw[<->,red] (0,-0.3)--node[below]{\small\(\tau\)}(1,-0.3);
+            \end{scope}
+        \end{tikzpicture}
+        \caption{Using different block sizes to estimate the error. The first case clearly underestimates the error, and the second case overestimates it.}
+    \end{figure}
+
+    Recall that \(\lim_{\tau\to\infty}\eval{A_\tau}=\eval{A}\). We can determine an appropriate block size by relating the variance of our time average to a time autocorrelation function
+    \begin{equation}
+        \sigma^2(A_\tau)=\eval{A_\tau^2}-\eval{A_\tau}^2=\frac{1}{\tau^2}\int_{0}^{\tau}\dd{t}\int_{0}^{\tau}\dd{t'}\underbrace{\eval{[A(t)-\eval{A}][A(t')-\eval{A}]}}_{=C_{AA}(t-t')}\,.
+    \end{equation}
+    The important time scale for this autocorrelation function is the characteristic decay of \(C_{AA}\)
+    \begin{equation}
+        \tau_A=\frac{1}{2}\int_{-\infty}^{\infty}\dd{t}\frac{C_{AA}(t)}{C_{AA}(0)}\,.
+    \end{equation}
+    Therefore, if the block sampling time \(\tau\) is much greater than the characteristic decay time \(\tau_A\), then we can estimate the variance using
+    \begin{align}
+        \sigma^2(A_\tau)&\simeq\frac{1}{\tau}\int_{-\infty}^{\infty}\dd{t}C_{AA}(t)\notag\\
+        &\simeq\frac{2\tau_A}{\tau}C_{AA}(0)\,.
+    \end{align}
+    The relative variance in \(A_\tau\) is therefore
+    \begin{equation}
+        \frac{\sigma^2(\tau_A)}{\eval{A}^2}=\frac{2\tau_A}{\tau}\frac{\eval{A^2}-\eval{A}^2}{\eval{A}^2}\,.
+    \end{equation}
+    This indicates that the variance in a measured quantity is inversely proportional to the number of uncorrelated measurements \(M\sim \tau/\tau_A\). From this, we can derive a recipe for choosing an appropriate block length \(\tau\). We choose it such that the \textit{statistical inefficiency}
+    \begin{equation}
+        s=\frac{\tau\sigma^2(A_\tau)}{\eval{A}^2}\,,
+    \end{equation}
+    which measures how much the variance of our time-averaged observable is ``inflated'' due to time correlation, becomes independent of \(\tau\).
+    \begin{figure}
+        \centering
+        \begin{tikzpicture}
+            \draw[->] (0,0)--(4,0)node[right]{\(\tau\)};
+            \draw[->] (0,0)--(0,3)node[left]{\(s\)};
+            \draw plot[smooth, tension = 1] coordinates {(0,0) (1.1,1.45) (1.9,1.8) (2.5,1.9) (2.85,1.7) (3.3,1.8) (4,1.9)};
+            \draw[red,dashed] (2.2,0)node[below]{\small\(\tau^*\)}--(2.2,1.9);
+        \end{tikzpicture}
+        \caption{When \(\tau\) is small \(s\) increases with \(\tau\), indicating that the block size is too small and contain correlated data. When \(\tau-s\) curve has levelled off, the block size is long enough to ensure independent block average.}
+    \end{figure}
+
+    \subsubsection{System Size Dependence}
+    Let us assume that an observable can be decomposed onto uncorrelated single-particle contributions:
+    \begin{equation}
+        \eval{A}=\sum_{i=1}^{N}\eval{a_i}=N\eval{a}\,,
+    \end{equation}
+    then
+    \begin{equation}
+        \eval{A^2}-\eval{A}^2=\sum_{i=1}^{N}\sum_{j=1}^{N}\eval{[a_i-\eval{a}][a_j-\eval{a}]}\,.
+    \end{equation}
+    As the fluctuations in \(a_i\) and \(a_j\) are uncorrelated for \(i\ne j\), we find that
+    \begin{equation}
+        \frac{\eval{A^2}-\eval{A}^2}{\eval{A}^2}=\frac{1}{N}\frac{\eval{a^2}-\eval{a}^2}{\eval{a}^2}\,.
+    \end{equation}
+    The statistical error in such an additive property decreases as we increase the system size. However, no such scaling can be expected when computing truly collective (not decomposable into uncorrelated single-particle contributions) properties.
+
+    \newpage
+    \section{Monte Carlo}
+    \subsection{Monte Carlo and Inferential Statistics}
+    \textit{Monte Carlo} (MC) is a method of estimating the value of a quantity using the principles of inferential statistics. In contrast to molecular dynamics, which is a deterministic method that aims to follow the actual time evolution of a system as close as possible to evaluate some quantities, Monte Carlo is \textit{stochastic}. It explores the states of the system by doing random sampling, and evaluates the desired quantity from the samples. In an MD simulation, the evolution of the system from one time step to the next has a solid physical meaning, but this does not have to be the case for an MC simulation.
+
+    \begin{figure}
+        \centering
+        \begin{tikzpicture}
+            \draw(0,0) rectangle (4,4);
+            \begin{scope}[scale=0.17,shift={(-0.9,0)}]
+                \draw [<-,thick]  (3.87,22) .. controls (2.75,22) and (2.09,21.21) .. (1.83,20.11) .. controls (1.71,19.6) and (1.6,18.77) .. (2.05,18.28) .. controls (2.99,17.27) and (4.71,18.29) .. (5.8,18.22) .. controls (5.89,18.21) and (6.06,17.94) .. (6.13,17.87) .. controls (6.57,17.39) and (6.87,16.92) .. (6.96,16.21) .. controls (7.05,15.4) and (6.34,15.09) .. (5.8,14.8) .. controls (4.74,14.23) and (3.4,14.17) .. (2.55,13.26) .. controls (2.41,13.11) and (2.43,12.16) .. (2.44,12.14) .. controls (2.54,11.66) and (3.92,10.71) .. (4.37,10.66) .. controls (4.7,10.63) and (5.03,10.63) .. (5.36,10.66) .. controls (5.75,10.7) and (6.49,11.67) .. (6.68,11.84) .. controls (7.25,12.36) and (7.6,12.95) .. (8.17,13.56) .. controls (8.38,13.78) and (8.51,14.16) .. (8.72,14.38) .. controls (9.2,14.9) and (9.79,15.6) .. (9.66,16.39) .. controls (9.62,16.61) and (9.41,16.85) .. (9.33,17.04) .. controls (8.93,17.89) and (8.41,18.64) .. (8.5,19.7) .. controls (8.53,20.07) and (9.23,20.21) .. (9.55,20.17) .. controls (10.02,20.11) and (11.68,19.1) .. (11.86,18.81) .. controls (12.59,17.64) and (10.9,16.44) .. (11.2,15.15) .. controls (11.3,14.71) and (11.45,14.7) .. (11.64,14.44) .. controls (11.95,14.02) and (12.28,13.71) .. (12.69,13.38) .. controls (13.4,12.81) and (13.9,12.91) .. (13.57,11.49) .. controls (13.51,11.22) and (13.39,11) .. (13.24,10.78) .. controls (13.01,10.46) and (12.79,10.12) .. (12.52,9.84) .. controls (12.01,9.29) and (10.52,8.41) .. (9.88,8.18) .. controls (9.47,8.04) and (9.01,7.71) .. (8.55,7.83) .. controls (8.33,7.89) and (8.17,8.1) .. (7.95,8.18) .. controls (7.08,8.49) and (6.59,8.71) .. (5.58,8.66) .. controls (5.36,8.64) and (5.07,8.05) .. (4.92,7.89) .. controls (4.28,7.2) and (3.81,6.01) .. (4.97,5.7) .. controls (6.91,5.18) and (6.5,3.79) .. (8.78,3.91) .. controls (9.05,3.93) and (10.52,5.3) .. (10.76,5.47) .. controls (11.25,5.8) and (11.91,6.26) .. (12.47,6.53) .. controls (13.43,6.99) and (14.41,7.1) .. (15.33,7.59) .. controls (16.55,8.25) and (17.26,10.33) .. (17.1,11.73) .. controls (16.96,12.88) and (16.44,14.38) .. (15.77,15.33) .. controls (15.04,16.37) and (14.03,17.33) .. (14.18,18.69) .. controls (14.18,18.72) and (14.32,18.88) .. (14.34,18.93) .. controls (14.85,20.57) and (16.93,19.45) .. (18.09,18.93) .. controls (18.53,18.73) and (19.07,18.5) .. (19.35,18.04) .. controls (20.06,16.91) and (18.25,16.15) .. (18.47,15.09) .. controls (18.55,14.73) and (18.65,13.35) .. (18.91,13.18) .. controls (19.96,12.45) and (21.34,14.2) .. (21.56,14.07) .. controls (22.89,13.29) and (22.93,13.37) .. (22.83,11.59) .. controls (22.94,10.29) and (20.46,10.03) .. (19.85,8.81) .. controls (19.41,7.38) and (17.54,7.55) .. (17.59,5.92) .. controls (17.65,5.01) and (17.98,5.13) .. (19.41,4.86) .. controls (20.02,4.64) and (21.52,5.37) .. (22.16,5.27) .. controls (23.1,5.13) and (24.53,5.09) .. (23.98,3.79) .. controls (23.6,2.73) and (23.21,2.44) .. (20.84,2.81) .. controls (19.08,3.44) and (17.44,4.35) .. (15.94,4.38) .. controls (15.28,4.4) and (13.22,3.26) .. (12.52,2.51) .. controls (12.28,2.26) and (12.52,1.64) .. (12.52,1.33) ;
+            \end{scope}
+            \node at (2,-1) {(a) Molecular dynamics};
+            \begin{scope}[shift={(7,0)}]
+                \draw (0,0) rectangle (4,4);
+                \foreach \i in {0,...,100}{
+                    \draw[fill=black] (rand*2+2,rand*2+2) circle (0.02);
+                }
+                \node at (2,-1) {(b) Monte Carlo};
+            \end{scope}
+        \end{tikzpicture}
+        \caption{The difference between molecular dynamics and Monte Carlo.}
+    \end{figure}
+
+    \subsubsection{Inferential Statistics}
+    A simple example. If you toss a coin 100 times and they all land heads. What do you think you will get if you flip it next time? We have done a fairly large number of experiments, so based on our sample, we would suspect that this coin is unfair, and we would still get a head next time. Now if you toss another coin for another 100 times, and you get 52 heads and 48 tails. The best estimate of the probability of getting a head for our next toss would be \(52\%\) based on our samples.
+
+    \begin{law}[Strong law of large numbers (Kolmogorov's law)]
+        Given a collection of independent and identically distributed (iid) samples from a random variable with finite mean, the sample average converges almost surely to the expected value.
+        \begin{equation}
+            \Prob\left(\lim_{n\to\infty}\overline{X}_n=\mu\right)=1\,.
+        \end{equation}
+    \end{law}
+    What this means is that, as the number of trials \(n\) goes to infinity, the probability that the average of the observations converges to the expected value, is equal to one.\footnote{There is also a weak law of large numbers.
+    \begin{law}[Weak law of large numbers (Khinchin's law)]
+        The sample mean converges in probability to the expected value. That is, for any \(\epsilon>0\),
+        \begin{equation}
+            \lim_{n\to\infty}\Prob(\abs{\overline{X}_n-\mu}<\epsilon)=1\,.
+        \end{equation}
+    \end{law}
+    This is not a maths course so we don't care about the difference here.}
+
+    You might be worrying about some extreme events, like you are tossing a fair coin, but you get all heads for the first 100 tosses. But as you do more tosses, say 10,000 more tosses, you are likely to get around 5,000 heads with 5,000 tosses, and the extreme result of the first 100 tosses will be washed away. This is the \textit{regression to the mean}. Following an extreme event, the next random event will likely be less extreme.
+
+    \subsubsection{Monte Carlo}
+    Let's see an example of Monte Carlo in its simplest form. Consider a square of side length 2, and its inscribed circle. The area of the square is \(4\) and the area of the circle is \(\pi\). This means that if I randomly choose a point in the square, it has a chance
+    \begin{equation}
+        p=\frac{A_{\text{circle}}}{A_{\text{square}}}=\frac{\pi}{4}
+    \end{equation}
+    to fall inside the circle. Now if I am asking my computer to generate a random set of \(N\) points for some large enough \(N\), then the  fraction of points that will fall inside the circle will be
+    \begin{equation}
+        \lim_{N\to\infty}\frac{N_{\text{in}}}{N}=p=\frac{\pi}{4}\,.
+    \end{equation}
+    This means that by counting how many points are inside a circle, we can estimate the value of \(\pi\) by\footnote{I tried for \(N=1,000,000,000\) and it gives me an estimate of \(\pi\approx 3.141633\) in 7 minutes. Apparently this is not the most efficient way of calculating \(\pi\)}
+    \begin{equation}
+        \pi\simeq 4p=\frac{4N_{\text{in}}}{N}\,.
+    \end{equation}
+    We are essentially evaluating a 2D integral by the stochastic method.
+
+    \begin{figure}
+        \centering
+        \begin{tikzpicture}
+            \draw[fill=gray!30] (0,0) rectangle (4,4);
+            \draw[fill=white] (2,2) circle (2);
+            \foreach \i in {0,...,100}{
+                \draw[fill=black] (rand*2+2,rand*2+2) circle (0.02);
+            }
+        \end{tikzpicture}
+        \caption{Randomly generating \(N=100\) points in a square.}
+    \end{figure}
+
+    \subsection{Importance Sampling}
+    As you can see in the above example, randomly sampling points from a uniform distribution may not be the most efficient way to perform an MC calculation.
+
+    Suppose we are evaluating some integral
+    \begin{equation}
+        \int_{a}^{b}\dd{x}f(x)\,.
+    \end{equation}
+    If we want to do this using standard Monte Carlo, then we would sample points from \(a\) to \(b\) uniformly. However, if we are doing something like
+    \begin{equation}
+        \int_{-5}^{5}\dd{x}\ee^{-x^2}\,,
+    \end{equation}
+    which we know that most of the weight of the integral actually comes from a small range of \(x\) where \(f(x)\) is large. Sampling more often in that region should greatly increase the accuracy of the MC integration. However, this implies that we know something about \(f(x)\) already.
+
+    \begin{figure}[ht!]
+        \begin{subfigure}[h]{0.48\linewidth}
+            \begin{adjustbox}{width=\linewidth}
+            \input{Python_plots/Uniform.tex}
+            \end{adjustbox}
+            \caption{Sampling with uniform distribution.}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[h]{0.48\linewidth}
+            \begin{adjustbox}{width=\linewidth}
+            \input{Python_plots/Biased.tex}
+            \end{adjustbox}
+            \caption{Sampling with biased distribution}
+        \end{subfigure}%
+        \caption{Monte Carlo method to evaluate the integral \(\int_{-5}^{5}\dd{x}\ee^{-x^2}\) using uniform and biased sampling.}
+    \end{figure}
+    \begin{figure}[ht!]
+        \centering
+        \input{Python_plots/Integral_Hist.tex}
+        \caption{The histogram of 50 attempts to evaluate the integral \(\int_{-5}^{5}\dd{x}\ee^{-x^2}=\sqrt{\pi}\erf(5)\approx 1.77245\) using uniform (blue), biased (green) and an even more biased (red) sampling. The uniform sampling gives \(1.73\pm 0.64\), the biased sampling gives \(1.75\pm 0.39\) and the more biased sampling gives \(1.78\pm 0.19\). All three sampling methods give correct results on average due to a fairly large number of attempts (law of large numbers), but a more biased sampling gives a more consistent result.}
+    \end{figure}
+
+    To do this, we sample from a biased probability distribution \(w(x)\), which is derived from the best guess of what the function \(f(x)\) will look like. An estimate of the integral can then be written as
+    \begin{equation}
+        I=\frac{1}{N}\sum_{i=1}^{N}\frac{f(x_{i\mid w})}{w(x_{i\mid w})}\,,
+    \end{equation}
+    where \(x_{i\mid w}\) means that \(x_i\) is drawn from the probability distribution \(w(x)\), \(x_{i}\sim w(x)\). Here the division by \(w(x_{i\mid w})\) is to compensate for biasing the distribution. When \(w(x_{i\mid w})\) is a uniform distribution, we recover the uniform sampling.
+
+    The variance of our integral estimation is
+    \begin{equation}
+        \sigma_{I\mid w}^2=\frac{1}{N}\eval{\frac{1}{N}\sum_{i=1}^{N}\left(\frac{f(x_{i\mid w})}{w(x_{i\mid w})}-\eval{\frac{f(x_{i\mid w})}{w(x_{i\mid w})}}\right)^2}=\frac{1}{N}\eval{\sigma_{f\mid w}^2}\,.
+    \end{equation}
+    The error still scales as \(N^{-1/2}\) but the prefactor is different for different sampling. The best prefactor would result from using
+    \begin{equation}
+        w(x)=\frac{1}{\mathcal{I}}f(x)\,,
+    \end{equation}
+    where \(\mathcal{I}=\int_{a}^{b}\dd{x}f(x)\) is for normalisation, for which \(\sigma_{f\mid w}=0\). In this case our estimation would always be exact, but this requires us to know the integral \textit{a priori}. Hence, in practice, we can only have a good estimate of what a suitable \(w(x)\) might be. Choosing a distribution that gives a good estimate for \(w(x)\) is known as \textit{importance sampling}. This is a crucial step in MC calculation. When sampling highly non-uniform functions, brute force MC with uniform sampling can result in a very large pre-factor for \(\sigma_{I\mid w}\).
+
+    \subsubsection{Importance Sampling in Statistical Mechanics}
+    Importance sampling is extremely crucial in statistical mechanical systems since it involves high dimensional integrals with significant contributions from only a very small fraction of the total possible sampling spaces.
+
+    For example, suppose we want to evaluate the ensemble average of a physical quantity \(A\)
+    \begin{equation}
+        \eval{A}=\sum_{\ket{n}} A_n p_n=\frac{1}{Q}\sum_{\ket{n}} A_n \ee^{-\beta E_n}\,,
+    \end{equation}
+    where \(A_n\) is the value of the quantity \(A\) for the microstate \(\ket{n}\), and the sum is taken over all possible microstates. To evaluate this using Monte Carlo, the simplest way is to choose \(M\) states completely randomly and take the average with the Boltzmann factor
+    \begin{equation}
+        A_M=\frac{\sum_{\ket{n}}^{M}A_n \ee^{-\beta E_n}}{\sum_{\ket{n}}^{M}\ee^{-\beta E_n}}\,,
+    \end{equation}
+    which is analogous to the random uniform sampling we discussed in the context of integrals. In theory, as \(M\to\infty\) (or to the number of all possible microstates if this is finite), then \(A_M\to \eval{A}\). But in practice there are two major problems.
+    \begin{enumerate}[topsep=0pt]
+        \item The number of states in a statistical mechanical system usually grows exponentially with system size.
+        
+        For example, consider an \(N\times N\) 2D Ising lattice, where each lattice point can sit in \(S_i=\pm 1\). The total number of states is \(2^{N^2}\). Even a \(5\times 5\) lattice will have \(2^{25}=33,554,432\) distinct states. Doubling each side to a \(10\times 10\) lattice, this number will grow to \(10^{30}\). The number will soon get astronomically large, and it will get extremely difficult to sample a proper fraction of it.
+        \item Averages are typically dominated by a very small fraction of the states, which random uniform sampling is very unlikely to find.
+        
+        Consider a hard-sphere liquid. If you locate the particles randomly, then you will easily get particles overlapping with each other, even at moderate particle density. Such situation gives infinite energy and so contribute nothing to the average \(\eval{A}\). For example, if we simulate 100 hard-spheres near the freezing transition, then only one in about \(10^{260}\) random configurations would count towards the average.
+
+        \begin{figure}[ht!]
+            \centering
+            \begin{tikzpicture}
+                \draw (-0.2,-0.2) rectangle (4.2,4.2);
+                \foreach \i in {0,...,20}{
+                    \draw (rand*2+2,rand*2+2) circle (0.2);
+                }
+            \end{tikzpicture}
+            \caption{Randomly generating particles in a cell. Even at moderate density, there is an extremely high chance of resulting in some overlap.}
+        \end{figure}
+    \end{enumerate}
+
+    Overcoming these challenges clearly would involve some form of importance sampling. Since Boltzmann distribution determines the weight of each state in the ensemble average, it is a natural choice of function from which we sample our points. Applying the Boltzmann weighting function, we get
+    \begin{equation}
+        A_m=\frac{\sum_{\ket{n}}^{M}A_{n\mid p}\ee^{-\beta E_n}(\frac{1}{\ee^{-\beta E_n}})}{\sum_{\ket{n}}^{M}\ee^{-\beta E_n}(\frac{1}{\ee^{-\beta E_n}})}=\frac{\sum_{\ket{n}}^{M}A_{n\mid p}}{M}\,,
+    \end{equation}
+    where the subscript \(n\mid p\) means that we are sampling microstates \(\ket{n}\) with probability given by the Boltzmann distribution \(p_n=\ee^{-\beta E_n}/Q\).
+
+    However, this method also has two clear difficulties.
+    \begin{enumerate}[topsep=0pt]
+        \item Computing the partition function is almost always impossible.
+        \item It is hard to know how to find the most probable states.
+    \end{enumerate}
+    The Metropolis algorithm provides a clever way around these problems.
+
+    \subsection{Metropolis Sampling and Detailed Balance}
+    The Metropolis algorithm performs a biased random walk through the configuration space as follows
+    \begin{enumerate}
+        \item Start with a given configuration \(S_i\).
+        \item In the next step, the system will have a probability \(W_{ij}=W(S_i\to S_j)\) to transfer into a new configuration \(S_j\). The transition probability will be derived later.
+        \item Repeat to create a trajectory through the phase space.
+        \item Evaluate the physical quantity of interest via
+        \begin{equation}
+            A_m=\frac{\sum_i^M A_{i\mid p}}{M}\,.
+        \end{equation}
+    \end{enumerate}
+
+    \subsubsection{Markov Chain}
+    Mathematically, the above random walk process is described by a \textit{Markov process}.
+
+    \begin{defn}
+        A \textit{Markov process} is a stochastic process that satisfies the \textit{Markov property}: the future of the system is independent of the past, and is only dependent on the current state of the system.
+
+        A \textit{Markov chain} is a type of Markov process that has discrete time.
+    \end{defn}
+
+    \begin{figure}
+        \centering
+        \begin{tikzpicture}
+            \node[circle,draw] (A) at (0,0){A};
+            \node[circle,draw] (B) at (3,0){B};
+            \draw[->] (A.north east)to[bend left=20]node[above]{\(W_{AB}=0.5\)}(B.north west);
+            \draw[->] (B.south west)to[bend left=20]node[below]{\(W_{BA}=1\)}(A.south east);
+            \draw[->] plot[smooth, tension = 1] coordinates {(A.north west) (-0.8,0.6) (-1,0.1) (A.west) };
+            \node at (-0.8,0.6)[above]{\(W_{AA}=0.5\)};
+        \end{tikzpicture}
+        \caption{An example of a Markov chain. At each time step, the system moves from one state to another with the given transition probability.}
+    \end{figure}
+
+    Suppose we have a stochastic process with a set of possible states \(S_1,S_2,S_3,\dots\) (finite, countably infinite or continuum) and discrete time \(t_1,t_2,\dots\). We denote the state of the system at time \(t_n\) as \(X_{t_n}\). Then for the process to be Markov, the conditional probability that the system will be in state \(X_{t_{n+1}}=S_j\) is only dependent on the current state of the system \(X_{t_n}=S_i\). It is independent of \(X_{t_{n-1}},X_{t_{n-2}},\dots\) or the value of \(n\). Hence, we can write the transition probability from state \(S_i\) to \(S_j\)
+    \begin{equation}
+        W_{ij}=W(S_i\to S_j)=\Prob(X_{t_{n+1}}=S_j\mid X_{t_n}=S_i)\,.
+    \end{equation}
+    As with usual probabilities, we require \(W_{ij}\ge 0\) and \(\sum_j W_{ij}=1\). Since \(\mathsf{W}\) can be considered as a matrix, it is also known as the \textit{transition matrix}.
+
+    The total probability that at time \(t_n\) the system is in state \(S_j\) is
+    \begin{equation}
+        \Prob(X_{t_n}=S_j)=\sum_i W_{ij}\Prob(X_{t_{n-1}}=S_i)\,.
+    \end{equation}
+    If we treat time as continuous, \(\Prob(X_{t}=S_j)=P(S_j,t)\) and consider that the probability is conserved at all times: \(\sum_j P(S_j,t)=1\), then we get
+    \begin{equation}
+        \dv{P(S_j,t)}{t}=\sum_i[W_{ij}P(S_i,t)-W_{ji}P(S_j,t)]\,.
+    \end{equation}
+    The change in the probability of the system being in state \(S_j\) is the probability of moving into state \(S_j\) minus the probability of moving away from state \(j\).
+
+    \subsubsection{Equilibrium and Detailed Balance}
+    We say a system is in \textit{equilibrium} if the average macroscopic properties of the system have stopped changing, except for small fluctuations away from equilibrium that soon dissipate back towards equilibrium. The properties of a equilibrium system are independent of its history. Thus we can ignore how a system has reached equilibrium and focus on the distribution of microstates at equilibrium.
+
+    Suppose the system is at equilibrium such that
+    \begin{equation}
+        \dv{P(S_j,t)}{t}=0\,,
+    \end{equation}
+    this means that
+    \begin{equation}
+        \sum_i[W_{ij}P_i^{\text{eq}}-W_{ji}P_j^{\text{eq}}]=0\,.
+    \end{equation}
+    The probability of moving out from \(S_j\) is equal to the probability of moving into \(S_j\). A sufficient but not necessary condition for this to happen is
+    \begin{equation}
+        W_{ij}P_i^{\text{eq}}=W_{ji}P_j^{\text{eq}}
+    \end{equation}
+    for all \(i,j\). This is known as the \textit{detailed balance}. In such case, the average number of moves from any state \(i\) to state \(j\) is equal to the number of moves from \(j\) to \(i\).
+
+    In Metropolis Monte Carlo, we want the probability that the system sits in the microstate \(S_j\) is equal to its Boltzmann factor: \(P_j\propto \ee^{-\beta E_j}\). Then once the equilibrium has established, an ensemble of random walkers will populate the states \(S_j\) with the Boltzmann distribution that we desired. To achieve this, all we need to do is to choose the correct transition probabilities such that
+    \begin{equation}
+        \frac{W_{ij}}{W_{ji}}=\frac{P_j^{\text{eq}}}{P_i^{\text{eq}}}=\ee^{-\beta (E_j-E_i)}\,.
+    \end{equation}
+
+    The trick to determine the transition probability \(W_{ij}\) is to split it into two steps.
+    \begin{enumerate}
+        \item Choose a new configuration \(S_j\) with a selection probability \(\alpha_{ij}\).
+        \item Accept or reject this new configuration with an acceptance probability \(P_{\text{acc}, ij}\). If accepted, move to \(S_j\), and if not, stay in \(S_i\).
+    \end{enumerate}
+    Then the transition probability can be written as
+    \begin{equation}
+        W_{ij}=\alpha_{ij}P_{\text{acc}, ij}\,.
+    \end{equation}
+    If we take \(\alpha\) to be symmetric, \(\alpha_{ij}=\alpha_{ji}\), then the condition of detailed balance becomes
+    \begin{equation}
+        \frac{P_{\text{acc}, ij}}{P_{\text{acc}, ji}}=\ee^{-\beta\Delta E}\,,
+    \end{equation}
+    where \(\Delta E=E_j-E_i\). There are many choices of \(P_{\text{acc}, ij}\) that satisfies this condition. The most popular choice is the \textit{algorithm of Metropolis}
+    \begin{equation}
+        P_{\text{acc}, ij}=\begin{cases}
+            \ee^{-\beta \Delta E} & \text{if }\Delta E>0\\
+            1 & \text{otherwise}
+        \end{cases}\,.
+    \end{equation}
+    This means that if the energy decreases, you always accept the trial move, whereas if the energy increases, you accept it with a probability proportional to the Boltzmann factor of the energy difference. The clear advantage is now you don't need to evaluate the partition function.
+
+    Note that for a Monte Carlo simulation to sample points in configurational space according to the correct Boltzmann weight, the detailed balance condition is sufficient but not necessary. There might exist correct sampling schemes that violate the detailed balance. However, unless we can prove that a non-detailed-balanced scheme yields the correct distribution, there is no point of doing so in practice.
+
+    \begin{ex}
+        \textit{Metropolis Monte Carlo for Interacting Fluid.}
+        
+        Consider an interacting fluid of \(N\) particles with positions \(\vb{r}^N=(\vb{r}_1,\vb{r}_2,\dots,\vb{r}_N)\) and momenta \(\vb{p}^N=(\vb{p}_1,\vb{p}_2,\dots,\vb{p}_N)\) interacting through the potential \(V(\vb{r}^N)\). When considering the energy \(E_i\) of a state \(i\), it includes both the kinetic energy and the potential energy, but as seen before, we can always integrate over the trivial momenta parts in the partition function to obtain
+        \begin{equation}
+            Q=\frac{1}{N!\Lambda^{3N}}Z_N\,.
+        \end{equation}
+        We can always ignore the momenta and do our MC averages over the states determined by \(\vb{r}^N\) alone, with the probability distribution
+        \begin{equation}
+            P(\vb{r}^N)=\frac{1}{Z_N}\exp[-\beta V(\vb{r}^N)]\,.
+        \end{equation}
+
+        To move from step \(k\) to step \(k+1\) in the Monte Carlo trajectory:
+        \begin{enumerate}
+            \item Select a fluid particle \(j\) at random from the configuration of step \(\vb{k}\):
+            \begin{equation}
+                \vb{r}_k^N=(\vb{r}_1,\vb{r}_2,\dots,\vb{r}_j,\dots,\vb{r}_N)\,.
+            \end{equation}
+            \item Move it to a new position with a random displacement \(\vb{r}_j'=\vb{r}_j+\vb{\Delta}\), with \(\Delta_i\in[-\delta,+\delta]\) for some \(\delta\).
+            \item Calculate the potential energy \(V(\vb{r}_{\text{trial}}^{N})\) for the new state \(\vb{r}_{\text{trial}}^N=(\vb{r}_1,\dots,\vb{r}_j',\dots,\vb{r}_N)\).
+            \item Accept the move \(\vb{r}_k^N\to\vb{r}_{\text{trial}}^N\) with a probability
+            \begin{equation}
+                P_{\text{acc}}(\vb{r}_k^N\to\vb{r}_{\text{trial}}^N)=\min\{1,\exp[-\beta(V(\vb{r}_{\text{trial}}^N)-V(\vb{r}_k^N))]\}\,.
+            \end{equation}
+            If the move is accepted, \(\vb{r}_{k+1}^N=\vb{r}_{\text{trial}}^N\). If not, \(\vb{r}_{k+1}^N=\vb{r}_k^N\).
+        \end{enumerate}
+
+        We need to have a suitable choice of our move step \(\vb{\Delta}\). If it is too large, most trial moves will be rejected, and if \(\vb{\Delta}\) is too small, you will move very slowly in the phase space, and it will take a large number of steps to reach equilibrium. For most systems, an average acceptance rate of \(20\%-30\%\) is suitable.
+
+        In each MC step, we only attempt to move one particle, and so \(N\) separate MC steps are roughly equal to a single MD step, where all particles are moved together. Why don't we attempt to move \(N\) particles in a single MC step? There is no significant difference in computational cost between \(N\) single moves and one move of \(N\) particles in terms of evaluating \(V(\vb{r}_{\text{trial}}^N)\), but the rejection probability will be larger if we move all particles together. If the average probability of rejection for moving one atom is \(p_{\text{rej}}\), then the probability of an accepted move of \(N\) particles at once is \((1-p_{\text{rej}})^N\), which tends to zero as \(N\) increases. To get any acceptance at all in a collective move, we would require really small values of \(\vb{\Delta}\). Hence, for the same computational cost, single particle moves advance particles much faster than collective moves.
+    \end{ex}
+
+    \begin{ex}
+        \textit{The Ising model}
+        The Ising model has Hamiltonian
+        \begin{equation}
+            \mathcal{H}=-J\sum_{\eval{i,j}}S_iS_j-B\sum_i S_i\,,
+        \end{equation}
+        where \(S_i=\pm 1\) and \(\eval{i,j}\) denotes sum over all neighbouring pairs of particles. As you have investigated in Part II B7: \textit{Statistical Mechanics}, there are three competing effects. The neighbouring interactions want to keep everything aligned, the external field wants to keep everything to a specific direction, and the entropy wants to screw everything up as there are more disordered microstates than aligned microstates. At low temperatures, the ground state keeps (almost) all spins aligned with the external field, since then both the neighbouring alignment and the external field terms in the Hamiltonian will be simultaneously minimised. Defining the magnetisation
+        \begin{equation}
+            M=\frac{1}{N^2}\sum_i S_i\,,
+        \end{equation}
+        we can see that at low temperatures, \(M\to 1\) for \(B>0\) and \(M\to -1\) for \(B<0\).
+
+        To do this in Monte Carlo, we can use the following scheme:
+        \begin{enumerate}
+            \item Start From an arbitrary initial configuration of spins.
+            \item At step \(k\), select a random spin \(S_j(k)\) and flip it to \(-S_j(k)\).
+            \item Evaluate the energy change
+            \begin{equation}
+                \Delta E=2S_j(k)\left[J\sum_{\text{neighbouring }n}S_n(k)+B\right]\,.
+            \end{equation}
+            \item Accept the move \(S_j(k)\to -S_j(k)\) with probability
+            \begin{equation}
+                P_{\text{acc}}(S_j(k)\to -S_j(k))=\min\{1,\exp(-\beta \Delta E)\}\,.
+            \end{equation}
+            If accepted, \(S_j(k+1)=-S_j(k)\), and if not, \(S_j(k+1)=S_j(k)\).
+        \end{enumerate}
+
+        \begin{figure}
+            \centering
+            \include{Python_plots/Ising.tex}
+            \caption{Metropolis Monte Carlo of a \(30\times 30\) 2D square lattice Ising Model with \(J=1\), \(\beta=0.6\) and \(B=0.4\). Five runs are taken from random initial configurations, and five runs are taken from completely flipped configurations. It takes much longer for a flipped-spin system to get to equilibrium.}
+        \end{figure}
+    \end{ex}
+
+    \subsection{Hard-to-Simulate Systems}
+    Our above discussions are based on the assumption that our system is ergodic, so that it can visit all its states (or sufficiently close to all of its states if it is a continuum) in a finite number of steps. Due to the finite time scale and length scale nature of simulations, it is usually impossible to fully sample the available microstates --- sometimes not even close to sampling a large proportion of its microstates. There are \textit{quasi-ergodic systems} with frustrated or rugged energy landscapes (many deep minima separated by high energy barriers) such that if you are stuck in one of the minima, it is impossible to get out and sample other places. Examples of this type of system include
+    \begin{itemize}[topsep=0pt]
+        \item Systems with strong electrostatic interactions.
+        \item Fluids with strongly orientation-dependent interactions (e.g. dipole, hydrogen bonds).
+        \item Self-organising systems.
+        \item Supercooled liquids.
+    \end{itemize}
+
+    \begin{figure}
+        \centering
+        \begin{tikzpicture}
+            \draw[thick,domain=-1.85:1.7, smooth, variable=\x,samples=30] plot ({\x}, {0.5*\x-3*\x*\x+\x*\x*\x*\x});
+            \draw[violet,fill=violet] (0.168,0.1)node[black,above=0.2 cm]{\scriptsize start} circle (0.05);
+            \foreach \i in {0,...,10}{
+                \tikzmath{\x = rand*0.35+1.15;}
+                \draw[fill=blue] (\x,0.1+0.5*\x-3*\x*\x+\x*\x*\x*\x) circle (0.05);
+            }
+            \foreach \i in {0,...,10}{
+                \tikzmath{\x = rand*0.55+1.05;}
+                \draw[fill=blue] (\x,0.1+0.5*\x-3*\x*\x+\x*\x*\x*\x) circle (0.05);
+            }
+            \draw[->] (0,-3.3)node[right]{\scriptsize global minimum}to[bend left=20](-1.26,-2.95);
+        \end{tikzpicture}
+        \caption{The system might appear to equilibrate inside the local well, even though our simulation is not sampling the phase space correctly. This is the \textit{ergodicity problem}: we cannot get everywhere in the phase space within the finite amount of simulation time.}
+    \end{figure}
+
+    One apparent solution to this ergodicity problem is to use brute force. If we run a large enough number of simulations from many different random initial conformations, then we would ultimately sample all over the phase space. However, we will introduce two other clever solutions that help us solve the ergodicity problem.
+    \begin{enumerate}[topsep=0pt]
+        \item Add a biasing potential and sample from a non-Boltzmann distribution so that the unfavorable states are sampled adequately.
+        \item Enhance sampling by changing the kinetic energy of particles.
+    \end{enumerate}
+    Both methods help us climb over the potential barriers between minima.
+
+    \subsubsection{Biased Sampling Methods}
+    The standard (unbiased) canonical distribution is
+    \begin{equation}
+        P(i)\propto \exp[-\beta V(\vb{r}_i^N)]\,.
+    \end{equation}
+    In the biased ensemble, we introduce an additional weighting potential \(U\) for the microstates in the exponential
+    \begin{equation}
+        P_{\text{biased}}(i)\propto\exp[-\beta (V(\vb{r}_i^N)+U(\vb{r}_i^N))]\,.
+    \end{equation}
+    It modifies the canonical distribution so that some configurations can have higher or lower probabilities of being visited than they would normally do. If we compare the weighted and the unweighted probabilities, we get
+    \begin{equation}
+        \frac{P(i)}{P_{\text{biased}}(i)}=\exp[\beta U(\vb{r}_i^N)]\,.
+    \end{equation}
+
+    Using the biased property, we can follow our standard procedure in a Metropolis Monte Carlo simulation. We split the total transition probability into
+    \begin{equation}
+        W_{ij}=\alpha_{ij}P_{\text{acc}, ij}\,,
+    \end{equation}
+    and make the selection probability symmetric
+    \begin{equation}
+        \alpha_{ij}=\alpha_{ji}\,.
+    \end{equation}
+    Then by the detailed balance, we have
+    \begin{equation}
+        P_{\text{acc}, ij}=\min\{1,P_{\text{biased}}(j)/P_{\text{biased}}(i)\}=\min\{1,\exp[-\beta(\Delta V+\Delta U)]\}\,.
+    \end{equation}
+    Then to recover the ensemble average of a physical quantity in the standard canonical ensemble, we reweight the sampled microstates and get
+    \begin{equation}
+        \eval{A}=\frac{\sum_i A_i P(i)/P_{\text{biased}}(i)}{\sum_i P(i)/P_{\text{biased}}(i)}=\frac{\sum_i A_i\exp[\beta U(\vb{r}_i^N)]}{\sum_i\exp[\beta U(\vb{r}_i^N)]}\,.
+    \end{equation}
+
+    Since the introduction of biasing is to avoid ergodicity issues, we often choose \(U(\vb{r}_i^N)\) such that the simulation explores a wide range of microstates to accumulate a good statistics. We can think of them as artificially reshaping the free-energy landscape to improve sampling in specific regions. We will briefly introduce two common biasing methods: metadynamics and umbrella sampling.
+
+    \subsubsection*{Metadynamics}
+    Metadynamics tackles difficult-to-simulate systems by applying a history-dependent biasing potential that discourages the system from revisiting previously  explored states.
+    \begin{enumerate}[topsep=0pt]
+        \item A few low-dimensional reaction coordinates are chosen as \textit{collective variables} (CVs), \(\xi\) to describe the slow degrees of freedom which we plot our energy landscapes against.
+        \item During the simulation, a small Gaussian potential is added to the potential energy of the system at the current position of the system in the CV space. This discourages the system from returning to the same region, pushing it into new unexplored states.
+        \item Over time, the biased potential will ``fill in'' the local minima, flattening the energy landscape. The system is then driven over the energy barrier and is dropped into another minimum.
+        \item The accumulated bias potential is related to the negative of the free energy landscape, allowing one to reconstruct the free-energy profile of the system.
+    \end{enumerate}
+
+    The biased potential at time \(t\) is given by
+    \begin{equation}
+        U(\xi,t)=\sum_{t'<t}w\ee^{-\frac{(\xi-\xi(t'))^2}{2\sigma^2}}\,,
+    \end{equation}
+    where \(w\) and \(\sigma\) are the height and width of the Gaussian bias potential added at each time step.
+    
+    \begin{figure}
+        \centering
+        \include{Python_plots/matadynamics.tex}
+        \vskip -20 pt
+        \caption{Energy landscapes of the system against Monte Carlo steps (1,000 steps between consecutive plots) in a metadynamics simulation.}
+    \end{figure}
+
+    The free energy of a state is related to its probability by
+    \begin{equation}
+        A(\xi)=-k_B T\ln P(\xi)\,.
+    \end{equation}
+    In metadynamics,
+    \begin{equation}
+        A_{\text{biased}}(\xi,t)=A_{\text{unbiased}}(\xi)+U(\xi,t)\,.
+    \end{equation}
+    In the limit of long simulation time, the landscape is completely filled, making all states equiprobable, and so
+    \begin{equation}
+        \lim_{t\to\infty}\ln P_{\text{biased}}(\xi,t)=-\beta\left[A_{\text{unbiased}}(\xi)+\lim_{t\to\infty} U(\xi,t)\right]=\text{const.}
+    \end{equation}
+    The constant shift in the free energy is unimportant. Therefore we can take
+    \begin{equation}
+        A_{\text{unbiased}}(\xi)=-\lim_{t\to\infty}U(\xi,t)\,.
+    \end{equation}
+    Various other quantities can then be derived, for example
+    \begin{align}
+        S(\xi)&=-\pdv{A(\xi)}{T}\\
+        E(\xi)&=A(\xi)+TS(\xi)\\
+        K&=\exp\left(-\frac{\Delta A}{k_B T}\right)\\
+        k&=A\exp\left(-\frac{\Delta A^\ddagger}{k_B T}\right)\,.
+    \end{align}
+    Since the unbiased probability distribution is
+    \begin{equation}
+        P_{\text{unbiased}}=P_{\text{biased}}(\xi)\ee^{\beta U(\xi)}\,,
+    \end{equation}
+    for any physical quantity \(A\), the unbiased ensemble average can be computed as
+    \begin{equation}
+        \eval{A}=\frac{\sum_i A(\vb{r}_i)\ee^{\beta U(\xi_i)}}{\sum_i \ee^{\beta U(\xi_i)}}\,.
+    \end{equation}
+
+    \subsubsection*{Umbrella Sampling}
+    In contrast to metadynamics, in umbrella sampling, we need to know the states \(A\) and \(B\) we want to connect, and then we define a \textit{reaction coordinate} \(\xi\) to connect these two states. We proceed as follows:
+    \begin{enumerate}[topsep=0pt]
+        \item We perform \(J\) simulations of the same system.
+        \item In each simulation, we restrain the system to sample a small range of the reaction coordinate \(\xi\) centred around \(\xi_j\). This is done by adding a bias potential \(U_j(\xi)\), which can for example be a harmonic potential \(U_j(\xi)=\frac{1}{2}k(\xi-\xi_j)^2\).
+        \item Use different target value \(\xi_j\) for each simulation such that it spans the entire range of interest.
+        \item Measure the weighted ensemble distribution \(P_{\text{biased}}(\xi)\) for each simulation. Unweight and stitch together all \(P_{\text{biased}}(\xi)\) to produce an unweighted underlying free function.
+    \end{enumerate}
+
+    \begin{figure}
+        \centering
+        \begin{tikzpicture}
+            \draw[thick,domain=-2:5, smooth, variable=\x,samples=50] plot ({\x}, {-2.72^(-\x*\x)-2*2.72^(-(\x-3)*(\x-3))});
+            \foreach \i in {-1.7,-1.1,...,4.7}{
+                \draw[red,domain=\i-0.35:\i+0.35, smooth, variable=\x,samples=20] plot ({\x}, {-2.72^(-\x*\x)-2*2.72^(-(\x-3)*(\x-3))+3*(\x-\i)*(\x-\i)});
+            }
+        \end{tikzpicture}
+        \caption{Umbrella sampling adds a local harmonic biasing potential in each run.}
+    \end{figure}
+
+    Each simulation is connected to the unweighted distribution by
+    \begin{equation}
+        P(\vb{r}^N)\propto P_{\text{biased}, j}(\vb{r}^N)\exp[\beta U_j(\xi)]\,.
+    \end{equation}
+    By integrating all other coordinates except the reaction coordinate of interest, one can write
+    \begin{equation}
+        P(\xi)\propto P_{\text{biased}, j}(\xi)\exp[\beta U_j(\xi)]\,.
+    \end{equation}
+    Taking the logarithm gives
+    \begin{equation}
+        A(\xi)=-k_B T\ln[P_{\text{biased}, j}(\xi)]-U_j(\xi)+\text{const.}
+    \end{equation}
+    We can adjust the constant to glue different segments of \(A(\xi)\) together.
+
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.8\textwidth]{Umbrella.jpg}
+        \caption{Using umbrella sampling to construct the free energy landscape.}
+    \end{figure}
+
+    \subsubsection{Temperature Replica Exchange Molecular Dynamics}
+    The next method uses high temperature to avoid being trapped in a local minimum. It is known as \textit{temperature replica exchange molecular dynamics} (T-REMD) (or the corresponding Monte Carlo). Suppose we want to investigate the system at temperature \(T_1\).
+    \begin{enumerate}[topsep=0pt]
+        \item We create \(J\) replicas of the same system, and perform them simultaneously at different temperature \(T_j\) with \(T_1<T_2<\dots<T_J\).
+        \item Each simulation is evolved independently, either through MD or MC.
+        \item At set intervals, \textit{replica swap MC moves} are performed between adjacent replicas. In a swap move, the instantaneous configurations are exchanged between the two temperatures.
+    \end{enumerate}
+    
+    \begin{figure}
+        \centering
+        \begin{tikzpicture}
+            \draw[cyan,thick] (0,0)node[left]{Temperature 1}--node[above]{(1)}(1.5,0);
+            \draw[green,thick] (0,1.5)node[left]{Temperature 2}--node[above]{(2)}(1.5,1.5);
+            \draw[orange,thick] (0,3)node[left]{Temperature 3}--node[above]{(3)}(1.5,3);
+            \draw[red,thick] (0,4.5)node[left]{Temperature 4}--node[above]{(4)}(1.5,4.5);
+            \draw[->] (1.6,4.5)--(2.9,3);
+            \draw[->] (1.6,3)--(2.9,4.5);
+            \node at (2.25,3)[below]{\footnotesize successful swap};
+            \draw[->,gray!50] (1.6,1.5)--(2.9,0);
+            \draw[->,gray!50] (1.6,0)--(2.9,1.5);
+            \node at (2.25,0)[below]{\footnotesize unsuccessful swap};
+            \draw[cyan,thick] (3,0)--node[above]{(1)}(4.5,0);
+            \draw[green,thick] (3,1.5)--node[above]{(2)}(4.5,1.5);
+            \draw[orange,thick] (3,3)--node[above]{(4)}(4.5,3);
+            \draw[red,thick] (3,4.5)--node[above]{(3)}(4.5,4.5);
+            \draw[->] (4.6,1.5)--(5.9,3);
+            \draw[->] (4.6,3)--(5.9,1.5);
+            \node at (5.25,1.5)[below]{\footnotesize successful swap};
+            \draw[cyan,thick] (6,0)--node[above]{(1)}(7.5,0);
+            \draw[green,thick] (6,1.5)--node[above]{(4)}(7.5,1.5);
+            \draw[orange,thick] (6,3)--node[above]{(2)}(7.5,3);
+            \draw[red,thick] (6,4.5)--node[above]{(3)}(7.5,4.5);
+        \end{tikzpicture}
+        \caption{Temperature replica exchange molecular dynamics.}
+    \end{figure}
+
+    The replica exchanging process can also be modelled by a Markov chain in the entire \(J\)-system ensemble. Now a microstate of this ensemble is a list of all positions in all of the replicas
+    \begin{equation}
+        \vb{R}=(\vb{r}_1^N,\vb{r}_2^N,\dots,\vb{r}_J^N)\,.
+    \end{equation}
+    Since the replicas do not interact, we have
+    \begin{equation}
+        P(\vb{R})=\prod_j P_j(\vb{r}_j^N)\,.
+    \end{equation}
+    Using canonical probabilities in each replica,
+    \begin{equation}
+        P(\vb{R})=\prod_j \frac{\exp[-\beta_j V(\vb{r}_j^N)]}{Z_j}\,.
+    \end{equation}
+    Consider a swap move between configurations at two adjacent temperatures \(1\) and \(2\). This would exchange the coordinates in replica 1 \(\vb{r}_1^N\) with the coordinate of replica 2 \(\vb{r}_2^N\), so that the coordinates after exchange are
+    \begin{equation}
+        \vb{R}'=(\vb{r}_2^N,\vb{r}_1^N,\dots,\vb{r}_J^N)\,.
+    \end{equation}
+    We can again use Metropolis algorithm to decide whether or not to accept this swap, by
+    \begin{equation}
+        P_{\text{acc}}(\vb{R}\to\vb{R}')=\min\{1,P(\vb{R}')/P(\vb{R})\}\,,
+    \end{equation}
+    where
+    \begin{align}
+        P(\vb{R})&=\frac{\exp[-\beta_1V(\vb{r}_1^N)]}{Z_1}\times\frac{\exp[-\beta_2 V(\vb{r}_2^N)]}{Z_2}\prod_{j=3}^{J}\frac{\exp[-\beta_jV(\vb{r}_j^N)]}{Z_j}\\
+        P(\vb{R}')&=\frac{\exp[-\beta_1V(\vb{r}_2^N)]}{Z_1}\times\frac{\exp[-\beta_2 V(\vb{r}_1^N)]}{Z_2}\prod_{j=3}^{J}\frac{\exp[-\beta_jV(\vb{r}_j^N)]}{Z_j}\,.
+    \end{align}
+    Writing \(\Delta\beta=\beta_2-\beta_1\) and \(\Delta V=V(\vb{r}_2^N)-V(\vb{r}_1^N)\), we have
+    \begin{equation}
+        P_{\text{acc}, ij}(\vb{R}\to\vb{R}')=\min\{1,\exp[\Delta\beta\Delta V]\}\,.
+    \end{equation}
+
+    For \(T_2>T_1\), we would expect \(V(\vb{r}_2^N)>V(\vb{r}_1^N)\), so the acceptance probability is usually small. Hence, we need to set the temperatures of the replica close enough with each other in order to achieve a good rate of accepted swaps.
+
+    \subsection{Thermodynamic Integration}
+    Suppose we want to compute the difference in binding free energy between two ligands \(L_1\) and \(L_2\) with the same protein
+    \begin{equation}
+        \Delta\Delta A=\Delta A_1-\Delta A_2\,.
+    \end{equation}
+    To compute this, we consider an \textit{alchemical (unphysical) path} that describes the transformation of ligands \(L_1\) into \(L_2\), connected through intermediate states. We define this path by introducing a coupling parameter \(\lambda\), such that \(\lambda=0\) corresponds to ligand \(L_1\) (initial state) and \(\lambda=1\) corresponds to ligand \(L_2\) (final state). The energy of the system can then be defined as
+    \begin{equation}
+        V(\lambda,\vb{r}^N)=(1-\lambda)V_1(\vb{r}^N)+\lambda V_2(\vb{r}^N)\,.
+    \end{equation}
+    The partition function for an arbitrary \(\lambda\) is given by
+    \begin{equation}
+        Q(N,V,T;\lambda)=\frac{1}{\Lambda^{3N}N!}\int\dd[3N]{\vb{r}^N}\exp[-\beta V(\lambda,\vb{r}^N)]\,.
+    \end{equation}
+    Taking the derivative of the free energy with respect to \(\lambda\) gives
+    \begin{align}
+        \left(\pdv{A}{\lambda}\right)_{N,V,T}&=-\beta^{-1}\pdv{\ln Q}{\lambda}\notag\\
+        &=\frac{\int\dd[3N]{\vb{r}^N}\left(\pdv{V(\lambda,\vb{r}^N)}{\lambda}\right)\exp[-\beta V(\lambda,\vb{r}^N)]}{\int\dd[3N]{\vb{r}^N}\exp[-\beta V(\lambda,\vb{r}^N)]}\notag\\
+        &=\eval{\pdv{V(\lambda,\vb{r}^N)}{\lambda}}_\lambda\,.
+    \end{align}
+    The average \(\eval{\dots}_\lambda\) can be viewed as an ensemble average over a system interacting with the potential \(V(\lambda,\vb{r}^N)\). The free energy difference of the two states follows from a simple integration
+    \begin{equation}
+        \Delta A=A(\lambda=1)-A(\lambda=0)=\int_{0}^{1}\dd{\lambda}\eval{\pdv{A}{\lambda}}_\lambda=\int_0^1\dd{\lambda}\eval{\pdv{V(\lambda,\vb{r}^N)}{\lambda}}\,.
+    \end{equation}
+
+    We can construct a thermodynamics cycle as shown in \cref{Fig:thermodynamic_cycle}. We want to figure out
+    \begin{equation}
+        \Delta\Delta A=\Delta A_1-\Delta A_2\,,
+    \end{equation}
+    but from the above alchemical paths, we can evaluate \(\Delta A_3\) and \(\Delta A_4\). It is easy to see that
+    \begin{equation}
+        \Delta A_1-\Delta A_2-\Delta A_3+\Delta A_4=0\,,
+    \end{equation}
+    and so we can instead calculate
+    \begin{equation}
+        \Delta\Delta A=\Delta A_3-\Delta A_4\,.
+    \end{equation}
+    \begin{figure}
+        \centering
+        \begin{tikzpicture}[scale=0.9]
+            \node at (1,2)[above]{Unbound};
+            \node at (7,2)[above]{Bound};
+            \draw[fill=cyan,fill opacity=0.5] (0,0)--(1,0) arc (0:-270:1) -- cycle;
+            \draw[fill=red,fill opacity=0.5] (2,-0.5) rectangle (3,0.5);
+            \draw[->] (3.5,0)--node[above]{\(\Delta A_1\)}(5.5,0);
+            \begin{scope}[shift={(7,0)}]
+                \draw[fill=cyan,fill opacity=0.5] (0,0)--(1,0) arc (0:-270:1) -- cycle;
+                \draw[fill=red,fill opacity=0.5] (0,0) rectangle (1,1);
+            \end{scope}
+            \draw[->] (3.5,-4.5)--node[above]{\(\Delta A_2\)}(5.5,-4.5);
+            \draw[->] (7,-1.5)--node[right]{\(\Delta A_4\)}(7,-3);
+            \draw[->] (2.5,-1.5)--node[right]{\(\Delta A_3\)}(2.5,-3);
+            \begin{scope}[shift={(0,-4.5)}]
+                \draw[fill=cyan,fill opacity=0.5] (0,0)--(1,0) arc (0:-270:1) -- cycle;
+                \draw[fill=violet,fill opacity=0.5] (2,-0.5) -- (3,-0.5) -- (2,0.5);
+            \end{scope}
+            \begin{scope}[shift={(7,-4.5)}]
+                \draw[fill=cyan,fill opacity=0.5] (0,0)--(1,0) arc (0:-270:1) -- cycle;
+                \draw[fill=violet,fill opacity=0.5] (0,0) -- (1,0) -- (0,1);
+            \end{scope}
+        \end{tikzpicture}
+        \caption{Thermodynamic cycle calculating the relative binding affinities of two ligands with the same protein substrate.}
+        \label{Fig:thermodynamic_cycle}
+    \end{figure}
+
+
+
+
+
+
+
+
+    \newpage
+    \part*{Appendices}
+    \addcontentsline{toc}{part}{\protect\numberline{}Appendices}
+    \appendix
+
+    \section{Noether's Theorem}\label{Appendix:Noether}
+    The simplest way of deriving Noether's theorem is to use the Lagrangian mechanics, which is another way of formulating classical mechanics. First let's be clear of our notations. For a system of \(N\) particles in \(d\) dimensions, we will rewrite the coordinates \(\vb{r}_i\) as \(x^A\), where \(A=1,\dots,dN\). The Newton's equations are
+    \begin{equation}\label{Newtons_eqn}
+        \dot{p}_A=-\pdv{V}{x^A}\,,
+    \end{equation}
+    where \(p_A=m_A\dot{x}^A\). To reduce the clutter in notations, when we write \(x^A\) in the argument of a function, we mean that it is a function of all \(x^A\).
+    
+    Lagrangian mechanics starts from defining the Lagrangian of a system.
+    \begin{defn}
+        The \textit{Lagrangian} for a system is defined by
+        \begin{equation}
+            L(x^A,\dot{x}^A)=T(\dot{x}^A)-V(x^A)\,,
+        \end{equation}
+        where \(T=\frac{1}{2}\sum_{A}m_A(\dot{x}^A)^2\) is the kinetic energy and \(V(x^A)\) is the potential energy.
+    \end{defn}
+    Note the weird minus sign between the kinetic and the potential energy. Despite this strange definition of the Lagrangian, it works really elegantly.
+
+    If we know that at \(t=t_0\), the particles are at \(x^A(t_0)=x^A_0\), and at \(t=t_1\), the particles are at \(x^A(t_1)=x^A_1\), there are infinite ways the systems can evolve with times between these two end points. How do we find the true paths \(x^A(t)\) taken by the particles?
+    \begin{thm}[Principle of Least Action]
+        The actual path taken by the system is an extremum of the \textit{action}, defined by
+        \begin{equation}
+            S[x^A(t)]=\int_{t_0}^{t_1}\dd{t}L(x^A(t),\dot{x}^A(t))\,.
+        \end{equation}
+    \end{thm}
+    The \(S\) is an example of a \textit{functional}. It maps functions to a number.
+    \begin{proof}
+        Consider varying a given path slightly, so
+        \begin{equation}
+            x^A(t)\longrightarrow x^A(t)+\delta x^A(t)\,,
+        \end{equation}
+        where we fix the end points of the path by demanding \(\delta x^A(t_0)=\delta x^A(t_1)=0\). Then this results in a change in the action
+        \begin{align}
+            \delta S&=\delta\left[\int_{t_0}^{t_1}\dd{t}L\right]\notag\\
+            &=\int_{t_0}^{t_1}\dd{t}\delta L\notag\\
+            &=\int_{t_0}^{t_1}\dd{t}\sum_{A}\pdv{L}{x^A}\delta x^A+\pdv{L}{\dot{x}^A}\delta\dot{x}^A\,.
+        \end{align}
+        We integrate the second term by parts to get
+        \begin{equation}
+            \delta S=\int_{t_0}^{t_1}\dd{t}\sum_A\left[\pdv{L}{x^A}-\dv{}{t}\left(\pdv{L}{\dot{x}^A}\right)\right]\delta x^A + \left[\pdv{L}{\dot{x}^A}\delta x^A\right]_{t_0}^{t_1}\,.
+        \end{equation}
+        The boundary term vanishes since we required \(\delta x^A(t_0)=\delta x^A(t_1)=0\). At an extremum of the action \(S\), \(\delta S=0\) for all changes in the path \(\delta x^A(t)\). This holds if and only if
+        \begin{equation}\label{Euler_Lagrange}
+            \pdv{L}{x^A}-\dv{}{t}\left(\pdv{L}{\dot{x}^A}\right)=0\,.
+        \end{equation}
+        for all \(A\). These are known as the Euler--Lagrange equations. To finish the proof, we only need to show that Euler--Lagrange equations are equivalent to Newton's equations. From the definition of the Lagrangian, we have
+        \begin{equation}
+            \pdv{L}{x^A}=-\pdv{V}{x^A}\,,
+        \end{equation}
+        while
+        \begin{equation}
+            \pdv{L}{\dot{x}^A}=p_A\,.
+        \end{equation}
+        Then it's easy to see that Newton's equations (\ref{Newtons_eqn}) are indeed equivalent to Euler--Lagrange equations (\ref{Euler_Lagrange}).\qed
+    \end{proof}
+
+    In fact Lagrangian mechanics is much more powerful than that. It turns out we can use any generalised coordinate we want (e.g. spherical, hyperbolic, or just some arbitrary parameters that uniquely define the configuration of the system), and we may add constraints to the coordinates, making it much more powerful than Newton's formulation of classical mechanics. Unfortunately, we can't go into too much detail here. If you are interested, see e.g. Prof. David Tong's notes on \href{https://www.damtp.cam.ac.uk/user/tong/dynamics.html}{Classical Dynamics}. But the important conclusion is that for any Lagrangian written in generalised coordinates \(L(q_i,\dot{q}_i,t)\), the Euler--Lagrange equations still hold:
+    \begin{equation}
+        \pdv{L}{q_i}-\dv{}{t}\left(\pdv{L}{\dot{q}_i}\right)=0\,.
+    \end{equation}
+
+    \begin{defn}
+        Consider a one-parameter transformation of maps
+        \begin{equation}
+            q_i(t)\longrightarrow Q_i(s,t)
+        \end{equation}
+        for \(s\in\RR\) such that \(Q_i(0,t)=q_i(t)\). Then this transformation is said to be a \textit{continuous symmetry} of the Lagrangian \(L\) if
+        \begin{equation}
+            \pdv{}{s}L(Q_i(s,t),\dot{Q}_i(s,t),t)=0\,.
+        \end{equation}
+    \end{defn}
+    \begin{thm}[Noether's theorem]
+        For each continuous symmetry, there is a conserved quantity.
+    \end{thm}
+    \begin{proof}
+        \begin{equation}
+            \pdv{L}{s}=\sum_i \pdv{L}{Q_i}\pdv{Q_i}{s}+\pdv{L}{\dot{Q}_i}\pdv{\dot{Q}_i}{s}\,,
+        \end{equation}
+        so we have
+        \begin{align}
+            0=\pdv{L}{s}\bigg|_{s=0}&=\sum_i\pdv{L}{q_i}\pdv{Q_i}{s}\bigg|_{s=0}+\pdv{L}{\dot{q}_i}\pdv{\dot{Q}_i}{s}\bigg|_{s=0}\notag\\
+            &=\sum_i\dv{}{t}\left(\pdv{L}{\dot{q}_i}\right)\pdv{Q_i}{s}\bigg|_{s=0}+\pdv{L}{\dot{q}_i}\pdv{\dot{Q}_i}{s}\bigg|_{s=0}\notag \\
+            &=\dv{}{t}\left(\sum_i\pdv{L}{\dot{q}_i}\pdv{Q_i}{s}\bigg|_{s=0}\right)\,.
+        \end{align}
+        The quantity
+        \begin{equation}
+            \sum_i\pdv{L}{\dot{q}_i}\pdv{Q_i}{s}\bigg|_{s=0}
+        \end{equation}
+        is constant for all time.\qed
+    \end{proof}
+
+    Let's find some examples.
+    \begin{ex}
+        \textit{Homogeneity of space}.
+
+        Consider a system of \(N\) particles with Lagrangian
+        \begin{equation}
+            L=\frac{1}{2}\sum_i m_i\dot{\vb{r}_i}^2-V(r_{ij})\,,
+        \end{equation}
+        where \(V(r_{ij})\) means that the potential is only dependent on the relative distances \(r_{ij}=\norm{\vb{r}_i-\vb{r}_j}\) between particles, not on their absolute positions. Then this Lagrangian has symmetry of translation: \(\vb{r}_i\to\vb{r}_i+s\vb{n}\) for any vector \(\vb{n}\) and real number \(s\).
+        \begin{equation}
+            L(\vb{r}_i,\dot{\vb{r}}_i,t)=L(\vb{r}_i+s\vb{n},\dot{\vb{r}}_i,t)\,.
+        \end{equation}
+        Then by Noether's theorem, the conserved quantity is
+        \begin{equation}
+            \sum_i\pdv{L}{\dot{\vb{r}}_i}\vdot\vb{n}=\sum_i\vb{p}_i\vdot\vb{n}\,.
+        \end{equation}
+        The component of linear momentum in any direction is conserved, and hence
+        \begin{equation}
+            \sum_i\vb{p}_i
+        \end{equation}
+        is also conserved.
+
+        Homogeneity in space \(\implies\) translational invariance of \(L\) \(\implies\) conservation of total linear momentum.
+    \end{ex}
+    \begin{ex}
+        \textit{Isotropy of Space}.
+
+        The isotropy of space means that a closed system is invariant under rotations around an axis \(\vu{n}\), so all \(\vb{r}_i\) are rotated to \(\vb{r}_i'\) by the same amount. To work out the corresponding conserved quantity it suffices to work with the infinitesimal form of the rotations
+        \begin{equation}
+            \vb{r}_i\longrightarrow \vb{r}_i+\delta\vb{r}_i=\vb{r}_i+\alpha\vu{n}\cross\vb{r}_i\,,
+        \end{equation}
+        where \(\alpha\) is infinitesimal. To see that this is indeed a rotation, you can calculate the length of the vector and notice it is preserved to linear order in \(\alpha\). Then we have
+        \begin{equation}
+            L(\vb{r}_i,\dot{\vb{r}}_i)=L(\vb{r}_i+\alpha\vu{n}\cross\vb{r}_i,\dot{r}_i+\alpha\vu{n}\cross\dot{\vb{r}}_i)\,,
+        \end{equation}
+        giving us the conserved quantity
+        \begin{equation}
+            \sum_i\pdv{L}{\dot{\vb{r}}_i}\vdot(\vu{n}\cross\vb{r}_i)=\sum_i\vu{n}\vdot(\vb{r}_i\cross\vb{p}_i)=\vu{n}\vdot\vb{L}\,.
+        \end{equation}
+        This is the component of the total angular momentum in the direction \(\vu{n}\). Since \(\vu{n}\) is arbitrary, \(\vb{L}\) is conserved.
+
+        Isotropy of space \(\implies\) rotational invariance of \(L\) \(\implies\) conservation of total angular momentum.
+    \end{ex}
+    
+
+
+\end{document}
