@@ -130,10 +130,10 @@
 	\begin{defn}
 		Given two sets \(A\) and \(B\), we define the following:
 		\begin{itemize}[topsep=0pt]
-			\item \textit{Intersection.} \(A\cap B\coloneqq\{x\,|\,x\in A\text{ and }x\in B\}\).
-			\item \textit{Union.} \(A\cup B\coloneqq\{x\,|\,x\in A\text{ or }x\in B\}\).
-			\item \textit{Set difference.} \(A\setminus B\coloneqq\{x\,|\, x\in A,x\notin B\}\).
-			\item \textit{Power set.} \(\mathcal{P}(A)=\{X\,|\,X\subseteq A\}\).
+			\item \textit{Intersection.} \(A\cap B\coloneqq\{x\mid x\in A\text{ and }x\in B\}\).
+			\item \textit{Union.} \(A\cup B\coloneqq\{x\mid x\in A\text{ or }x\in B\}\).
+			\item \textit{Set difference.} \(A\setminus B\coloneqq\{x\mid x\in A,x\notin B\}\).
+			\item \textit{Power set.} \(\mathcal{P}(A)=\{X\mid X\subseteq A\}\).
 		\end{itemize}
 	\end{defn}
 	\begin{defn}
@@ -614,7 +614,7 @@
 	\end{proofskip}
 	\begin{thm}[Poincar\'{e} lemma]\label{poincare}
 		For vector fields defined everywhere on \(\mathbb{R}^3\), conservative is the same as irrotational.
-		\[\curl\vb{F}=\vb{0}\iff\vb{F}=\grad\varphi\,.\]
+		\[\curl\vb{F}=\vb{0}\iff\vb{F}=\grad\varphi\text{ for some }\varphi\,.\]
 	\end{thm}
 	\begin{proofskip}
 		\begin{itemize}
@@ -630,7 +630,7 @@
 	\end{defn}
 	\begin{thm}
 		Any solenoidal field defined everywhere in \(\mathbb{R}^3\) is the curl of some vector field.
-		\[\div\vb{F}=0\iff\vb{F}=\curl\vb{A}\,.\]
+		\[\div\vb{F}=0\iff\vb{F}=\curl\vb{A}\text{ for some }\vb{A}\,.\]
 	\end{thm}
 	\begin{proofskip}
 		\begin{itemize}
@@ -663,7 +663,7 @@
 	\end{defn}
 	
 	\begin{rem}
-		Although defined for scalar fields, the Laplacian can also act on a vector field using the identity
+		Although defined for scalar fields, the Laplacian can also act on a vector field component-wise. Its action on a vector field can also be defined via the identity
 		\[\laplacian{\vb{F}}=\grad(\div\vb{F})-\curl(\curl{\vb{F}})\,.\]
 	\end{rem}
 	
@@ -713,7 +713,7 @@
 	\begin{altp}
 		Choose \(\vb{a}=\vb{e}_i\) to obtain the component form
 		\[\iiint_\mathcal{V}\pdv{\psi}{x_i}\dd{V}=\oiint_\mathcal{S}\psi n_i\dd{S}\,.\]
-		Then corollary follows.\qed
+		Then the corollary follows.\qed
 	\end{altp}
 	\begin{cor}
 		Generalisation for a vector field: let \(\vb{u}=\vb{a}\cross\vb{A}\), where \(\vb{a}\) is an arbitrary constant vector,
@@ -794,15 +794,15 @@
 	\begin{proof}
 		Follows directly from the divergence theorem and Stokes' theorem.\qed
 	\end{proof}
-	Under such interpretations, the names of divergence and curl should be obvious.
+	Under such interpretations, the names `divergence' and `curl' should be obvious.
 
 	\subsection{Coordinate Systems}
 	From now on, we will move away from our good old Cartesian coordinate system and consider some more general coordinate systems, such as the spherical polar coordinates or the cylindrical coordinates.
 
-	In general, we can describe a point \(\vb{x}\) in \(\mathbb{R}^n\) using some coordinates \(\{q_i\}_{i=1}^{n}\), so \(\vb{x}=\vb{x}(q_1,\dots,q_n)\). Changing either of these coordinates, leaving the others fixed, results in a change in \(\vb{x}\). We write
+	In general, to describe a point in a \(n\)-dimensional space \(\mathbb{R}^n\), we need \(n\) real numbers \(\{q_i\}_{i=1}^{n}\) known as the \textit{coordinates} of the point. So \(\vb{x}=\vb{x}(q_1,\dots,q_n)\). As long as our coordinate system is defined in a good way, changing any one of these coordinates slightly, leaving the others fixed, will result in a small change in \(\vb{x}\). We write
 	\[\dd{\vb{x}}=\pdv{\vb{x}}{q_i}\dd{q_i}\eqqcolon \vb{h_i}\dd{q_i}\,.\]
 	\begin{rem}
-		\(\pdv{\vb{x}}{q_i}\) is the tangent vector to the lines formed when holding other coordinates constant.
+		\(\pdv{\vb{x}}{q_i}\) is the tangent vector to the lines formed when changing \(q_i\) while holding other coordinates constant.
 	\end{rem}
 	\begin{defn}
 		The \textit{metric coefficient} or \textit{scale factor} of coordinate, \(h_i\), is defined by
@@ -824,8 +824,8 @@
 		\end{pNiceMatrix}\,.\]
 	\end{defn}
 	\begin{defn}
-		The \textit{Jacobian} is defined as the determinant of the Jacobian matrix:
-		\[J\coloneqq\pdv{(x_1,x_2,\dots,x_n)}{(q_1,q_2,\dots,q_n)}=\abs{\mathsf{J}}\,.\]
+		The \textit{Jacobian} is the determinant of the Jacobian matrix:
+		\[J\coloneqq\pdv{(x_1,x_2,\dots,x_n)}{(q_1,q_2,\dots,q_n)}=\det\mathsf{J}\,.\]
 	\end{defn}
 	The columns of the Jacobian matrix are the vectors \(\vb{h}_i\), so in three dimensional coordinates.
 	\[J=\qty[\vb{h}_1,\vb{h}_2,\vb{h}_3]=\vb{h}_1\vdot(\vb{h}_2\cross\vb{h}_3)\,.\]
@@ -861,7 +861,7 @@
 	
 	
 	\subsection{Orthogonal Curvilinear Coordinates}
-	It is very common that the three sets of basis vectors for the coordinates are orthonormal. They are then called \textit{orthogonal curvilinear coordinates}. Both spherical and cylindrical polar coordinates are examples of these.
+	It is very common that the three sets of basis vectors for the coordinates are always orthonormal. They are then called \textit{orthogonal curvilinear coordinates}. Both spherical and cylindrical polar coordinates are examples of these.
 	
 	\subsubsection{Orthogonality}
 	For orthogonal curvilinear coordinates, the \(\vb{e}_i\) are required to be mutually orthogonal at all points in space:
@@ -953,7 +953,7 @@
 		For orthogonal curvilinear coordinate systems, the volume element is given by
 		\[\dd{V}=(h_1\dd{q_1}\vb{e}_1)\vdot(h_2\dd{q_2}\vb{e}_2)\cross(h_3\dd{q_3}\vb{e}_3)=h_1h_2h_3\dd{q_1}\dd{q_2}\dd{q_3}\,.\]
 	\end{prop}
-	\begin{itemize}[topsep=0pt,leftmargin=50pt]
+	\begin{itemize}
 		\item Spherical polar coordinates: \(\dd{V}=r^2\sin\theta\dd{r}\dd{\theta}\dd{\phi}\)
 		\item Cylindrical polar coordinates: \(\dd{V}=\rho\dd{\rho}\dd{\phi}\dd{z}\)
 	\end{itemize}
@@ -972,7 +972,7 @@
 		with differential operator
 		\[\grad=\sum_{i}\vb{e}_i\frac{1}{h_i}\pdv{q_i}\,.\]
 	\end{thm}
-	\begin{itemize}[leftmargin=50pt]
+	\begin{itemize}
 		\item Spherical polar coordinates:
 		\[\grad=\vb{e}_r\pdv{r}+\vb{e}_\theta\frac{1}{r}\pdv{\theta}+\vb{e}_\phi\frac{1}{r\sin\theta}\pdv{\phi}\]
 		\item Cylindrical polar coordinates:
@@ -981,9 +981,13 @@
 	\begin{proof}
 		The gradient of a scalar field, \(\grad{\psi}\), is defined to be the vector such that for all \(\dd{\vb{x}}\),
 		\[\dd{\psi}=\grad{\psi}\vdot\dd{\vb{x}}\,.\]
-		Find coefficients \(\alpha_i\) such that
-		\[\grad{\psi}=\sum_{i}\vb{e}_i\alpha_i=\sum_{i}\alpha_i(h_i\dd{q_i})\,.\]
-		\[\grad{\psi}=\sum_{i}\pdv{\psi}{q_i}\dd{q_i}\,,\]
+		We write
+		\[\grad\psi=\sum_i \vb{e}_i\alpha_i\,,\]
+		where the coefficients \(\alpha_i\) for the gradient operator in this coordinate system is to be determined. Then
+		\[\dd{\psi}=\grad{\psi}\vdot\dd{\vb{x}}=\qty(\sum_{i}\vb{e}_i\alpha_i)\vdot\qty(\sum_{j}h_j\vb{e}_j\dd{q_j})=\sum_i\alpha_i h_i\dd{q_i}\,.\]
+		We must also have
+		\[\dd{\psi}=\sum_{i}\pdv{\psi}{q_i}\dd{q_i}\,,\]
+		so the coefficients \(\alpha_i\) are
 		\[\alpha_i=\frac{1}{h_i}\pdv{\psi}{q_i}\,.\]\qed
 	\end{proof}
 	\begin{cor}
@@ -993,7 +997,7 @@
 	\end{cor}
 	\subsubsection{Divergence and Curl in Orthogonal Curvilinear Coordinates}
 	\begin{thm}
-		The divergence in an orthogonal curvilinear coordinate system is given by
+		The divergence of a vector field \(\vb{F}\) in an orthogonal curvilinear coordinate system is given by
 		\[\div\vb{F}=\frac{1}{h_1h_2h_3}\qty(\pdv{q_1}(h_2h_3F_1)+\pdv{q_2}(h_3h_1F_2)+\pdv{q_3}(h_1h_2F_3))\,.\]
 	\end{thm}
 	\begin{itemize}[leftmargin=50pt]
@@ -1012,7 +1016,7 @@
 		for which the latter terms vanish.\qed
 	\end{proof}
 	
-	\begin{figure}
+	\begin{figure}[ht!]
 		\centering
 		\begin{tikzpicture}[>=latex,scale=1.3]
 			\draw[fill = gray!25] (0,0) rectangle (1.5,1.5);
@@ -1037,22 +1041,22 @@
 	\end{align*}
 	Dividing through the volume and taking the limit \(V\to 0\) gives the formula of divergence as claimed.
 	\begin{thm}
-		The curl in an orthogonal curvilinear coordinate system is given by
+		The curl of a vector field \(\vb{F}\) in an orthogonal curvilinear coordinate system is given by
 		\[\curl\vb{F}=\frac{1}{h_1h_2h_3}\begin{vmatrix}
 			h_1\vb{e}_1 & h_2\vb{e}_2 & h_3\vb{e}_3 \\
 			\pdv{q_1} & \pdv{q_2} & \pdv{q_3} \\
 			h_1F_1 & h_2F_2 & h_3F_3
 		\end{vmatrix}\,.\]
 	\end{thm}
-	\begin{itemize}[leftmargin=50pt]
+	\begin{itemize}
 		\item Spherical polar coordinates:
-		\[\frac{1}{r^2\sin\theta}\begin{vmatrix}
+		\[\curl\vb{F}=\frac{1}{r^2\sin\theta}\begin{vmatrix}
 			\vb{e}_r & r\vb{e}_\theta & r\sin\theta\vb{e}_\phi \\
 			\pdv{r} & \pdv{\theta} & \pdv{\phi} \\
 			F_r & rF_\theta & r\sin\theta F_\phi
 		\end{vmatrix}\]
 		\item Cylindrical polar coordinates:
-		\[\frac{1}{\rho}\begin{vmatrix}
+		\[\curl\vb{F}=\frac{1}{\rho}\begin{vmatrix}
 			\vb{e}_\rho & \rho\vb{e}_\phi & \vb{e}_z \\
 			\pdv{\rho} & \pdv{\phi} & \pdv{z} \\
 			F_\rho & \rho F_\phi & F_z
@@ -1068,7 +1072,7 @@
 		\end{align*}
 	\end{proof}
 
-	\begin{figure}
+	\begin{figure}[ht!]
 		\centering
 		\begin{tikzpicture}[scale=0.6,>=latex]
 			\coordinate (A1) at (0,0);
@@ -1146,7 +1150,7 @@
 	
 	\subsubsection{Laplacian in Orthogonal Curvilinear Coordinates}
 	\begin{thm}
-		The Laplacian in an orthogonal curvilinear coordinate system is given by
+		The Laplacian operator in an orthogonal curvilinear coordinate system is given by
 		\[\laplacian=\frac{1}{h_1h_2h_3}\qty(\pdv{q_1}\qty(\frac{h_2h_3}{h_1}\pdv{q_1})+\pdv{q_2}\qty(\frac{h_3h_1}{h_2}\pdv{q_2})+\pdv{q_3}\qty(\frac{h_1h_2}{h_3}\pdv{q_3}))\,.\]
 	\end{thm}
 	\begin{itemize}[leftmargin=50pt]
@@ -1159,6 +1163,7 @@
 		\[\laplacian{\psi}=\frac{1}{\rho}\pdv{\rho} \qty(\rho\pdv{\psi}{\rho})+\frac{1}{\rho^2}\pdv[2]{\psi}{\phi}+\pdv[2]{\psi}{z}\]
 	\end{itemize}
 	\begin{proof}
+		We already have the divergence and gradient, so it is easy to work out.
 		\begin{align*}
 			\laplacian\psi&=\div\grad{\psi}\\
 			&=\frac{1}{h_1h_2h_3}\qty(\pdv{q_1}\qty(\frac{h_2h_3}{h_1}\pdv{\psi}{q_1})+\pdv{q_2}\qty(\frac{h_3h_1}{h_2}\pdv{\psi}{q_2})+\pdv{q_3}\qty(\frac{h_1h_2}{h_3}\pdv{\psi}{q_3}))\,.
@@ -1195,10 +1200,10 @@
 	\end{defn}
 	Although it is clear to see that putting \(\epsilon=0\) in the above sequence does not make any sense.
 	
-	Of course, we can use other series to make the same effect. We define \(\delta_\epsilon(x)\) as
+	Of course, we can use other sequence of functions to make the same effect. We define \(\delta_\epsilon(x)\) as
 	\[\delta_\epsilon(x)\coloneqq\frac{\epsilon}{\pi(x^2+\epsilon^2)}\,,\]
 	which also gives
-	\[\int_{-\infty}^{\infty}\delta_\epsilon(x)=1\]
+	\[\int_{-\infty}^{\infty}\delta_\epsilon(x)\dd{x}=1\]
 	and
 	\begin{align*}
 		\int_{-\infty}^{\infty}\delta(x-\xi)f(x)\dd{x}&=\lim_{\epsilon\to 0^+}\int_{-\infty}^{\infty}\delta_\epsilon(x-\xi)f(x)\dd{x}\\
@@ -1207,7 +1212,7 @@
 	This sequence of functions even has the nice property that for any \(\epsilon>0\), \(\delta_\epsilon\) is smooth.
 	
 	This definition of the delta function gives us an expression which turns out to be extremely useful later.
-	\begin{prop}
+	\begin{prop}\label[prop]{Fourier_one}
 		\[\delta(x)=\frac{1}{2\pi}\int_{-\infty}^{\infty}e^{ikx}\dd{k}\,.\]
 	\end{prop}
 	\begin{proof}
@@ -1258,10 +1263,10 @@
 	\subsubsection{Derivative of the Delta Function}
 	\begin{defn}
 		We can define the derivative of \(\delta(x)\) as the generalised function such that for all differentiable functions \(f(x)\),
-		\[\int_{-\infty}^{\infty}\delta'(x-\xi)f(x)=\qty[\delta(x-\xi)f(x)]^{\infty}_{-\infty}-\int_{-\infty}^{\infty}\delta(x-\xi)f'(x)\dd{x}=-f'(\xi)\,.\]
+		\[\int_{-\infty}^{\infty}\delta'(x-\xi)f(x)\dd{x}=\qty[\delta(x-\xi)f(x)]^{\infty}_{-\infty}-\int_{-\infty}^{\infty}\delta(x-\xi)f'(x)\dd{x}=-f'(\xi)\,.\]
 	\end{defn}
 	
-	Alternatively, the derivative of the delta function may again be defined as the limits of sequences of continuous functions.
+	Alternatively, the derivative of the delta function may again be defined as the limit of some sequence of functions, similar to what we have done at the beginning of this section.
 	\subsection{The Heaviside Step Function}
 	\begin{defn}
 		The \textit{Heaviside step function}, \(H(x)\) is defined for \(x\ne 0\) as
@@ -1424,7 +1429,7 @@
 		The \textit{Wronskian}, \(W(x)\), of the two solutions is defined to be
 		\[W[y_1,y_2]\coloneqq y_1y_2'-y_2y_1'\,.\]
 	\end{defn}
-	Since \(\mathsf{A}\vb{x}=\vb{0}\) only has a zero solution iff \(\det(\mathsf{A})\ne 0\), we conclude that \(y_1\) and \(y_2\) are linearly independent iff
+	Since \(\mathsf{A}\vb{x}=\vb{0}\) has only the trivial solution iff \(\det(\mathsf{A})\ne 0\), we conclude that \(y_1\) and \(y_2\) are linearly independent iff
 	\[\begin{vmatrix}
 		y_1 & y_2\\
 		y_1' & y_2'
@@ -1644,7 +1649,7 @@
 			& \qquad\qquad\,\,\,\,\;0 && \text{for }a\le x<\xi\\
 			&\frac{y_1(\xi)y_2(x)-y_1(x)y_2(\xi)}{W(\xi)} && \text{for }x\ge\xi\,.
 		\end{aligned}\right.\]
-		where \(y_1\) and \(y_2\) satisfies the boundary conditions \(y(a)=0\) and \(y'(a)=0\) respectively.
+		where \(y_1\) and \(y_2\) satisfy the boundary conditions \(y(a)=0\) and \(y'(a)=0\) respectively.
 	\end{thm}
 	
 	\subsubsection{Inhomogeneous Boundary Conditions}
@@ -1654,7 +1659,7 @@
 	
 	Then solve the inhomogeneous equation \(Ly=f\) for the homogeneous boundary conditions (perhaps using Green's functions) to give a solution \(y_{\text{hbc}}\).
 	
-	By linearity, \(y=y_{\text{ibc}}+y_{\text{hbc}}\) satisfy the inhomogeneous equation with inhomogeneous boundary conditions.
+	By linearity, \(y=y_{\text{ibc}}+y_{\text{hbc}}\) satisfies the inhomogeneous equation with inhomogeneous boundary conditions.
 
 	\newpage
 
@@ -1731,27 +1736,45 @@
 			&=e^{-ika}			
 		\end{align*}
 		Hence the Fourier transform of \(\delta(x)\) is \(1\). Recall that the Dirac delta function can be considered as the limit of a Gaussian as \(\epsilon\to 0^+\).
+
+		\item[(vi)] Constant function.
+		\[\mathcal{F}[a]=a\int_{-\infty}^{\infty}e^{-ikx}\,.\]
+		This clearly violates our previous claim that in order to have a Fourier transform in the sense of a normal function, we must have \(f(x)\to 0\) as \(x\to\pm\infty\). Therefore, this Fourier transform only exists in the sense of a distribution. Recall the expression of the delta function in \cref{Fourier_one} --- this is exactly what we have here. We can identify
+		\[\int_{-\infty}^{\infty}e^{-ikx}=2\pi\delta(k)\,,\]
+		so
+		\[\mathcal{F}[a]=2\pi a\delta(k)\,.\]
 		
-		\item[(vi)] Heaviside step function. A direct Fourier transform is problematic:
+		\item[(vii)] Heaviside step function. A direct Fourier transform is problematic:
 		\begin{align*}
 			\mathcal{F}\qty[H(x-a)]&=\int_{-\infty}^{\infty}H(x-a)e^{-ikx}\dd{x}\\
 			&=\int_{a}^{\infty}e^{-ikx}\\
 			&=\qty[\frac{e^{-ikx}}{-ik}]_{a}^{\infty}\,,
 		\end{align*}
-		but the limit \(\lim\limits_{x\to\infty}e^{-ikx}\) does not exist. This is a case that the function is not absolutely integrable, so need to find a convergent variation of it.
+		but the limit \(\lim\limits_{x\to\infty}e^{-ikx}\) does not exist. This is another case that the function is not absolutely integrable, so need to find a convergent variation of it.
 		
-		We may first find the Fourier transform of \(H(x-a)e^{-\epsilon(x-a)}\), then take the limit \(\epsilon\to 0^+\).
+		We may first find the Fourier transform of \(H(x-a)e^{-\epsilon(x-a)}\), then take the limit \(\epsilon\to 0^+\). Doing so, we have
 		\begin{align*}
 			\mathcal{F}[H(x-a)e^{-\epsilon(x-a)}]&=\int_{-\infty}^{\infty}H(x-a)e^{-\epsilon(x-a)-ikx}\dd{x}\\
 			&=\qty[\frac{e^{-\epsilon(x-a)-ikx}}{-\epsilon-ik}]_a^\infty\\
 			&=\frac{e^{-ika}}{\epsilon+ik}
 		\end{align*}
-		\[\mathcal{F}[H(x-a)]=\lim_{\epsilon\to 0^+}\mathcal{F}[H(x-a)e^{-\epsilon(x-a)}]=\frac{e^{-ika}}{ik}\]
+		For any \(k\ne 0\), we are safe to ignore the \(\epsilon\) in the denominator as we take the \(\epsilon\to 0^+\) limit, and therefore we have
+		\[\mathcal{F}[H(x-a)]=\lim_{\epsilon\to 0^+}\mathcal{F}[H(x-a)e^{-\epsilon(x-a)}]=\frac{e^{-ika}}{ik}\,.\]
+		However, when \(k=0\), we are not allowed to do so. We have to work out the Fourier transform at this point separately. We have
+		\[\mathcal{F}[H(x-a)](0)=\int_{a}^{\infty}1\dd{x}=\frac{1}{2}\int_{-\infty}^{\infty}\dd{x}\,.\]
+		This integral does not converge, but it is again exactly the expression of delta function we met in \cref{Fourier_one} with \(x=0\), so
+		\[\mathcal{F}[H(x-a)](0)=\pi\delta(0)\,.\]
+		Combining the above results, we have
+		\[\mathcal{F}[H(x-a)]=\frac{e^{-ika}}{ik}+\pi\delta(k)\,,\]
+		where we used the property that \(\delta(k)=0\) for \(k\ne 0\).
+
+		If you think the proof above makes no sense, you absolutely are right. This result must be interpreted in the sense of a distribution, and is better proven using something called the Sokhotski--Plemelj identity in distribution theory. We are of course not doing this here.
+
 		\begin{rem}
 			\(ik\mathcal{F}[H(x-a)]=\mathcal{F}[\delta(x-a)]\).
 		\end{rem}
 
-		\item[(vii)] Top-hat function, \(g(x)\), defined by
+		\item[(viii)] Top-hat function, \(g(x)\), defined by
 		\[g(x)=\begin{cases}
 			c & a<x<b\\
 			0 & \text{otherwise}\,.
@@ -1805,7 +1828,7 @@
 			\[\mathcal{F}[e^{i\alpha x}f(x)](k)=\mathcal{F}[f(x)](k-\alpha)\,.\]
 			\item[(v)] \textit{Duality.} If \(g(x)=\tilde{f}(x)\), then
 			\[\tilde{g}(k)=2\pi f(-k)\,.\]
-			\item[(vi)] \textit{Complex conjugation and parity inversion.} For real \(k\in\mathbb{R}\),
+			\item[(vi)] \textit{Complex conjugation and parity inversion.} For \(k\in\mathbb{R}\),
 			\[\mathcal{F}[f^*](k)=\mathcal{F}[f](-k)^*\,.\]
 			\item[(vii)] \textit{Symmetry.} If \(f(-x)=\pm f(x)\) i.e. \(f\) is even or odd, then
 			\[\tilde{f}(-k)=\pm\tilde{f}(k)\,.\]
@@ -1823,7 +1846,7 @@
 			\item[(i)] Trivial by the linearity of multiplication and integration.
 			\item[(ii)] Let \(g(x)=f(\alpha x)\),
 			\begin{align*}
-				\tilde{g}(x)&=\int_{-\infty}^{\infty}e^{-ikx}f(\alpha x)\dd{x}\\
+				\tilde{g}(k)&=\int_{-\infty}^{\infty}e^{-ikx}f(\alpha x)\dd{x}\\
 				&=\frac{\text{sgn }\alpha}{\alpha}\int_{-\infty}^{\infty}e^{-i\frac{k}{\alpha}y}f(y)\dd{y}\\
 				&=\frac{1}{\abs{\alpha}}\tilde{f}\qty(\frac{k}{\alpha})\,.
 			\end{align*}
@@ -1923,7 +1946,7 @@
 	
 	\subsubsection{Interpretation}
 	\begin{prop}
-		If \(x\) and \(y\) are two random variables with probability density functions \(f(x)\) and \(g(y)\), then let the distribution of their sum, \(z=x+y\), be \(h(z)\). The probability density function of \(z\) is given by
+		If \(x\) and \(y\) are two random variables with probability densities \(f(x)\) and \(g(y)\). Let the distribution of their sum, \(z=x+y\), be \(h(z)\). The probability density function of \(z\) is given by
 		\[h=f*g\,.\]
 	\end{prop}
 	
@@ -1951,7 +1974,7 @@
 	
 	\begin{proof}
 		\begin{align*}
-			\mathcal{F}[f*g]&=\int_{-\infty}^{\infty}e^{ikx}\qty(\int_{-\infty}^{\infty}f(y)g(x-y)\dd{y})\dd{x}\\
+			\mathcal{F}[f*g]&=\int_{-\infty}^{\infty}e^{-ikx}\qty(\int_{-\infty}^{\infty}f(y)g(x-y)\dd{y})\dd{x}\\
 			&=\int_{-\infty}^{\infty}\qty(\int_{-\infty}^{\infty}e^{-ikx}g(x-y)\dd{x}) f(y)\dd{y} & \text{swap integration order}&\\
 			&=\int_{-\infty}^{\infty}\qty(\int_{-\infty}^{\infty}e^{-ik(z+y)}g(z)\dd{z}) f(y)\dd{y} & \text{substitution \(z=x-y\)}&\\
 			&=\int_{-\infty}^{\infty}f(y)e^{-iky}\qty(\int_{-\infty}^{\infty}e^{-ikz}g(z)\dd{z})\dd{y}\\
@@ -2106,7 +2129,7 @@
 	Taking the inverse Fourier transform, we obtain the solution
 	\[\psi=\frac{1}{2\pi}\int_{-\infty}^{\infty}e^{ikx}\frac{\mathcal{F}[f]}{k^2+a^2}\dd{k}\,.\]
 
-	We will explore this technique in much greater details in \cref{Chap:Transform_methods}.
+	We will explore this technique in much greater detail in \cref{Chap:Transform_methods}.
 	
 	\newpage
 	
@@ -2266,7 +2289,7 @@
 	\end{rem}
 	\begin{defn}
 		Suppose that \(V\) is a vector space over \(\mathbb{F}\) and \(U, W\) are subspaces of \(V\). The \textit{sum} of \(U\) and \(W\) is defined to be the set
-		\[U+W\coloneqq\{\vb{u}+\vb{w} \,|\, \vb{u}\in U, \vb{w}\in W\}.\]
+		\[U+W\coloneqq\{\vb{u}+\vb{w} \mid \vb{u}\in U, \vb{w}\in W\}.\]
 	\end{defn}
 	\begin{defn}
 		We say that \(V\) is the \textit{(internal) direct sum} of \(U\) and \(W\), written as \(V=U\oplus W\), if
@@ -2277,7 +2300,7 @@
 	\end{rem}
 	\begin{defn}
 		Given any two vector spaces \(U\) and \(W\) over \(\mathbb{F}\), the \textit{(external) direct sum}, \(U \oplus W\) of \(U\) and \(W\) is defined to be the set of pairs
-		\[\{(u, w) \,|\, \vb{u}\in U, w \in \vb{W}\}\]
+		\[\{(u, w) \mid \vb{u}\in U, w \in \vb{W}\}\]
 		with addition given by
 		\[(\vb{u}_1, \vb{w}_1) + (\vb{u}_2, \vb{w}_2) = (\vb{u}_1 + \vb{u}_2, \vb{w}_1 + \vb{w}_2)\]
 		and scalar multiplication given by
@@ -2295,7 +2318,7 @@
 	\end{defn}
 	\begin{defn}
 		If \(U_1,\dots,U_n\) are vector spaces over \(\vb{F}\), their \textit{(external) direct sum} is the vector space
-		\[\bigoplus_{i=1}^{n}U_i\coloneqq\{(\vb{u}_1,\dots,\vb{u}_n)\,|\,\vb{u}_i\in U_i\}\]
+		\[\bigoplus_{i=1}^{n}U_i\coloneqq\{(\vb{u}_1,\dots,\vb{u}_n)\mid \vb{u}_i\in U_i\}\]
 		with coordinate-wise operations.
 	\end{defn}
 
@@ -2315,9 +2338,9 @@
 		For a linear map \(\mathcal{A}:U\to V\),
 		\begin{itemize}[topsep=0pt]
 			\item The \textit{image} of \(\mathcal{A}\),
-			\[\Im\mathcal{A}\coloneqq\{\mathcal{A}(\vb{u})\,|\,\vb{u}\in U\}\,.\]
+			\[\Im\mathcal{A}\coloneqq\{\mathcal{A}(\vb{u})\mid \vb{u}\in U\}\,.\]
 			\item The \textit{kernel} of \(\mathcal{A}\),
-			\[\ker\mathcal{A}\coloneqq\{\vb{u}\in U\,|\,\mathcal{A}(\vb{u})=\vb{0}\}\,.\]
+			\[\ker\mathcal{A}\coloneqq\{\vb{u}\in U\mid \mathcal{A}(\vb{u})=\vb{0}\}\,.\]
 		\end{itemize}
 	\end{defn}
 	
@@ -2607,7 +2630,7 @@
 	\textit{Alternative notations.}
 	\[\braket{\vb{u}}{\vb{v}}\equiv\vb{u}\vdot\vb{v}\,,\;\norm{\vb{v}}\equiv\abs{\vb{v}}=(\vb{v}\vdot\vb{v})^{\frac{1}{2}}\,.\]
 	\subsubsection{Some Inequalities}
-	\begin{thm}[Cauchy--Schwarz's inequality]
+	\begin{thm}[Cauchy--Schwarz inequality]
 		\[\abs{\braket{\vb{u}}{\vb{v}}}\le\norm{\vb{u}}\norm{\vb{v}}\,,\]
 		with equality only when \(\vb{u}\) is a scalar multiple of \(\vb{v}\)\,.
 	\end{thm}
@@ -2621,11 +2644,11 @@
 		
 		First, suppose that \(\vb{v}=\vb{0}\). The RHS of the equation simplifies to an expression linear in \(\lambda\). If \(\braket{\vb{u}}{\vb{v}}\ne 0\) we then have a contradiction since for a certain choice of \(\lambda\) this expression can be negative. Hence we conclude that
 		\[\braket{\vb{u}}{\vb{v}}=0 \text{ if }\vb{v}=\vb{0}\,,\]
-		which satisfies the Cauchy--Schwarz's inequality as an equality.
+		which satisfies the Cauchy--Schwarz inequality as an equality.
 		
 		Next suppose \(\vb{v}\ne\vb{0}\) and choose \(\lambda=re^{-i\alpha}\) so that
 		\[0\le\norm{\vb{u}+\lambda\vb{v}}^2=\norm{\vb{u}}^2+2r\abs{\braket{\vb{u}}{\vb{v}}}+r^2\norm{\vb{v}}^2\,.\]
-		The RHS is a quadratic in \(r\) that has a minimum when \(r\norm{\vb{v}}^2=-\abs{\braket{\vb{u}}{\vb{v}}}\). Cauchy--Schwarz's inequality follows by substituting this value of \(r\), with equality if \(\vb{u}=-\lambda\vb{v}\).\qed
+		The RHS is a quadratic in \(r\) that has a minimum when \(r\norm{\vb{v}}^2=-\abs{\braket{\vb{u}}{\vb{v}}}\). Cauchy--Schwarz inequality follows by substituting this value of \(r\), with equality if \(\vb{u}=-\lambda\vb{v}\).\qed
 	\end{proof}
 
 	\begin{thm}[The triangle inequality]
@@ -2858,7 +2881,7 @@
 		If any eigenvalue of the matrix has a non-zero defect, then it is not diagonalisable. 
 	\end{rem}
 	\subsubsection{Eigenvalues and Eigenvectors of a Hermitian Matrix}
-	Let \(\mathsf{H}\) be an Hermitian matrix, and consider two eigenvectors \(\mathsf{x}\) and \(\mathsf{y}\) corresponding eigenvalues \(\lambda\) and \(\mu\):
+	Let \(\mathsf{H}\) be a Hermitian matrix, and consider two eigenvectors \(\mathsf{x}\) and \(\mathsf{y}\) corresponding eigenvalues \(\lambda\) and \(\mu\):
 	\[\mathsf{Hx}=\lambda\mathsf{x}\,,\]
 	\[\mathsf{Hy}=\mu\mathsf{y}\,.\]
 	Since \(\mathsf{H}\) is Hermitian,
@@ -3778,10 +3801,10 @@
 		
 		For example, consider \(\tanh(z)\) as \(\abs{z}\to\infty\) for real \(z\):
 		\[\lim_{z\to +\infty}\tanh z=1\,,\quad\lim_{z\to -\infty}\tanh z=-1\,.\]
-		However, if \(z\) approaches infinity along the imaginary axes (\(z\to\pm i\infty\)), the limit of \(\tanh z\) is not defined.
+		However, if \(z\) approaches infinity along the imaginary axis (\(z\to\pm i\infty\)), the limit of \(\tanh z\) is not defined.
 	\end{itemize}
 	\begin{rem}
-		In the context of real variables, \(x\to\infty\) usually means specifically \(x\to+\infty\). One-side limits of a function \(f(z)\) at \(z=z_0\) is denoted by
+		In the context of real variables, \(x\to\infty\) usually means specifically \(x\to+\infty\). One-side limits of a function \(f(z)\) at \(z=z_0\) are denoted by
 		\[\lim_{z\to z_0^+}f(z)\text{ and }\lim_{z\to z_0^-}f(z)\,.\]
 	\end{rem}
 	\subsubsection{The \(O\) Notation}
@@ -3810,7 +3833,7 @@
 	The derivative of \(f\) as a function of \(x\) is denoted
 		\[f'(x)\quad\text{or}\quad\dv{f}{x}\,.\]
 	Alternatively, we can write
-	\[\frac{f(x+h)-f(x)}{h}=f'(x)+h\epsilon(h)\,,\]
+	\[\frac{f(x+h)-f(x)}{h}=f'(x)+\epsilon(h)\,,\]
 	where \(\epsilon(h)\to 0\) as \(h\to 0\).
 	\begin{prop}
 		\[f(x+h)=f(x)+hf'(x)+o(h)\,.\]
@@ -3824,7 +3847,7 @@
 	\begin{defn}
 		The \textit{multiple derivatives} are defined recursively. \(f\) is \(n+1\)-times differentiable if it is \(n\)-times differentiable and its \(n\)-th derivative, denoted
 		\[f^{(n)}(x)\quad\text{or}\quad\dv[n]{f}{x}\,,\]
-		is differentiable. The \(n+1\)-th derivative of \(f\) is the derivative of its \(n\)-th derivative.
+		is differentiable. The \((n+1)\)-th derivative of \(f\) is the derivative of its \(n\)-th derivative.
 	\end{defn}
 	\begin{defn}
 		A function \(f\) is of \(C^n\) class if \(f',\dots,f^{(n)}\) exist and are continuous. 
@@ -3833,7 +3856,7 @@
 	We can extend this to higher dimensions (multiple variables).
 
 	\begin{defn}
-		Let \(U\subset\mathbb{R}^m\) and \(f:U\to\mathbb{R}^n\). We say \(f\) is \textit{differentiable} at \(\vb{x}_0\in U\) if there is a linear map \(T:U\to\mathbb{R}^n\) and a function \(\epsilon:\{\vb{h}\in\mathbb{R}^m\,|\,\vb{x}_0+\vb{h}\in U\}\to\mathbb{R}^n\) such that
+		Let \(U\subset\mathbb{R}^m\) and \(f:U\to\mathbb{R}^n\). We say \(f\) is \textit{differentiable} at \(\vb{x}_0\in U\) if there is a linear map \(T:\mathbb{R}^m\to\mathbb{R}^n\) and a function \(\epsilon:\{\vb{h}\in\mathbb{R}^m\mid \vb{x}_0+\vb{h}\in U\}\to\mathbb{R}^n\) such that
 		\[f(\vb{x}_0+\vb{h})=f(\vb{x}_0)+T(\vb{h})+\epsilon(\vb{h})\norm{\vb{h}}\,,\]
 		where \(\epsilon\to 0\) as \(\vb{h}\to\vb{0}\). \(T\) is the derivative of \(f\).
 	\end{defn}
@@ -4070,7 +4093,7 @@
 		which is not continuous. The continuity of functions is not preserved.
 	\end{ex}
 	\begin{ex}
-		Consider a sequence of function \(f_n:[0,1]\to\mathbb{R}\) be the piecewise linear function formed by joining the points \((0,0),\,(\frac{1}{n},n),\,(\frac{2}{n},0),\,(1,0)\). The pointwise limit of this function is \(f_n(x)\to f(x)=0\). However, we have
+		Consider a sequence of functions \(f_n:[0,1]\to\mathbb{R}\) be the piecewise linear function formed by joining the points \((0,0),\,(\frac{1}{n},n),\,(\frac{2}{n},0),\,(1,0)\). The pointwise limit of this function is \(f_n(x)\to f(x)=0\). However, we have
 		\[\int_{0}^{1}f_n(x)\dd{x}=1\text{ for all }n\text{, but}\int_0^1 f(x)\dd{x}=0\,.\]
 		The limit of the integral is not the integral of the limit.
 	\end{ex}
@@ -4130,7 +4153,7 @@
 		\begin{align*}
 			\abs{\int_{a}^{b}f_n(x)\dd{x}-\int_{a}^{b}f(x)\dd{x}}&=\abs{\int_{a}^{b}f_n(x)-f(x)\dd{x}}\\
 			&\le\int_{a}^{b}\abs{f_n(x)-f(x)}\dd{x}\\
-			&=\sup_{x\in[a,b]}\abs{f_n(x)-f(x)}(b-a)\\
+			&\le\sup_{x\in[a,b]}\abs{f_n(x)-f(x)}(b-a)\\
 			&\to 0 \text{ as }n\to\infty\,.
 		\end{align*}\qed
 	\end{proof}
@@ -4168,7 +4191,7 @@
 	Let us first make a few definitions.
 	\begin{defn}
 		An \textit{open ball} of radius \(r>0\) centred at \(a\in\mathbb{C}\) is
-		\[D(a,r)\coloneqq\{z\in\mathbb{C}\,|\,\abs{z-a}<r\}\,.\]
+		\[D(a,r)\coloneqq\{z\in\mathbb{C}\mid \abs{z-a}<r\}\,.\]
 	\end{defn}
 	\begin{defn}
 		A subset \(U\subset\mathbb{C}\) is \textit{open} if for every \(a\in U\), there exists \(\epsilon>0\) such that \(D(a,\epsilon)\subset U\).
@@ -4192,7 +4215,7 @@
 		\end{tikzpicture}
 	\end{figure}
 
-	For example, the subset \(U\) on the left, excluding its boundary, is open. For any \(a\in U\), we can find small enough \(r>0\) such that \(D(a,r)\) is completely contained within \(U\). While the subset \(\bar{U}\) on the left, which includes its boundary, is not open because if we take \(b\) to be on the boundary, \(b\in\partial\bar{U}\), then \(D(b,\epsilon)\not\subset\bar{U}\) for any \(\epsilon>0\), no matter how small \(\epsilon\) is. By the same logic, any \(V\subset\mathbb{C}\) that contains its boundary (even a section of it) is not open.
+	For example, the subset \(U\) on the left, excluding its boundary, is open. For any \(a\in U\), we can find small enough \(r>0\) such that \(D(a,r)\) is completely contained within \(U\). While the subset \(\bar{U}\) on the right, which includes its boundary, is not open because if we take \(b\) to be on the boundary, \(b\in\partial\bar{U}\), then \(D(b,\epsilon)\not\subset\bar{U}\) for any \(\epsilon>0\), no matter how small \(\epsilon\) is. By the same logic, any \(V\subset\mathbb{C}\) that contains its boundary (even a section of it) is not open.
 
 	\begin{defn}
 		A \textit{curve} is a continuous map from a closed interval to the complex plane \(\gamma:[a,b]\to\mathbb{C}\). A curve is \textit{continuously differentiable} (\(C^1\)) if \(\gamma'\) exists and is continuous on \([a,b]\) (at endpoints \(a,b\) this means one-sided derivative).
@@ -4739,21 +4762,21 @@
 	\begin{proof}
 		Let \(g_1,g_2:U\to\mathbb{C}\) be analytic continuations of \(f:U'\to\mathbb{C}\) to \(U\). Then \(h=g_1-g_2:U\to\mathbb{C}\) is analytic and \(h(z)=0\) on \(U'\). It suffices to show that \(h\) is identically zero on \(U\). Define
 		\begin{align*}
-			U_0&=\{w\in U\,|\,h\text{ is identically 0 on some open disk }D(w,r)\}\\
-			U_1&=\{w\in U\,|\,h^{(n)}(w)\ne 0\text{ for some }n>0\}\,.
+			U_0&=\{w\in U\mid h\text{ is identically 0 on some open disk }D(w,r)\}\\
+			U_1&=\{w\in U\mid h^{(n)}(w)\ne 0\text{ for some }n>0\}\,.
 		\end{align*}
 		Then since \(h\) has a convergent power series expansion about each point \(w\in U\), we see that \(U=U_0\cup U_1\) and \(U_0\cap U_1=\varnothing\). Moreover, both \(U_0\) and \(U_1\) are open subsets of \(\mathbb{C}\). So as \(U\) is connected, one of \(U_i\) is empty, and as \(U_0\supset U'\ne\varnothing\) we must have \(U_1=\varnothing\), so \(U=U_0\) and \(h=0\) on all of \(U\).\qed
 	\end{proof}
 
 	\subsection{Singularities and the Laurent Expansion}
 	\begin{thm}
-		Let \(f\) be holomorphic on an annulus \(A=\{z\in\mathbb{C}\,|\,r<\abs{z-z_0}<R\}\), where \(0\le r<R\le\infty\). Then
+		Let \(f\) be holomorphic on an annulus \(A=\{z\in\mathbb{C}\mid r<\abs{z-z_0}<R\}\), where \(0\le r<R\le\infty\). Then
 		\begin{enumerate}[topsep=0pt]
 			\item[(i)] There is a unique convergent \textit{Laurent series expansion} on \(A\)
 			\[f(z)=\sum_{n=-\infty}^{\infty}c_n(z-z_0)^n\,.\]
 			\item[(ii)] For any \(\rho\in(r,R)\), the coefficient \(c_n\) of the Laurent series is given by
 			\[c_n=\frac{1}{2\pi i}\int_{\abs{z-z_0}=\rho}\frac{f(z)}{(z-z_0)^{n+1}}\dd{z}\,.\]
-			\item[(iii)] If \(r<\rho'\le\rho<R\), then the Laurent series converges uniformly on \(\{z\in\mathbb{C}\,|\,\rho'\le\abs{z-z_0}\le\rho\}\), and hence on any compact subdomain of \(A\).
+			\item[(iii)] If \(r<\rho'\le\rho<R\), then the Laurent series converges uniformly on \(\{z\in\mathbb{C}\mid \rho'\le\abs{z-z_0}\le\rho\}\), and hence on any compact subdomain of \(A\).
 		\end{enumerate}
 	\end{thm}
 	\begin{proof}[Non-examinable]
@@ -5323,10 +5346,10 @@
 	with the property \(\Gamma(n)=(n-1)!\) for positive integers \(n\).
 
 	\subsubsection{Irregular Singular Points}
-	If either \((z-z_0)p(z)\) or \({z-z_0}^2q(z)\) is not analytic at the point \(z=z_0\), it is an irregular singular point of the equation. The solution can have worse kinds of singular behaviours there.
+	If either \((z-z_0)p(z)\) or \((z-z_0)^2q(z)\) is not analytic at the point \(z=z_0\), it is an irregular singular point of the equation. The solution can have worse kinds of singular behaviours there.
 
 	\begin{ex}
-		The equation \(z^4y''+2z^2y'-y=0\) has an irregular singular point at \(z=0\). Its solutions are \(\exp(\pm z^{-1})\), both of which have an essential singularity at \(z=0\).
+		The equation \(z^4y''+2z^3 y'-y=0\) has an irregular singular point at \(z=0\). Its solutions are \(\exp(\pm z^{-1})\), both of which have an essential singularity at \(z=0\).
 	\end{ex}
 	\subsection{The Method of Variation of Parameters (Non-examinable)}
 	To solve an inhomogeneous ODE
@@ -5335,7 +5358,7 @@
 	\[y_0(x)=u(x)y_1(x)+v(x)y_2(x)\,.\]
 	If \(u\) and \(v\) are constants, \(y_0\) would solve the homogeneous equation. However, we allow these parameters to vary, i.e. to be functions of \(x\), in such a way that \(y_0\) solves the inhomogeneous equation.
 	\begin{rem}
-		We have gone from one unknown function (\(y_0\)) and one equation to two unknown functions (\(u\), \(v\)) and one equations. We will need to choose another equation.
+		We have gone from one unknown function (\(y_0\)) and one equation to two unknown functions (\(u\), \(v\)) and one equation. We will need to choose another equation.
 	\end{rem}
 
 	We now differentiate our expression of \(y_0\) to find that
@@ -5507,7 +5530,7 @@
 
 	At a non-singular endpoint \(c\in\{\alpha,\beta\}\), we will impose boundary condition of the form
 	\[a_cy(c)+b_cy'(c)=0\,,\]
-	where \(a_c,b_c\in\mathbb{R}\), \(a_c,b_c\ne 0\).
+	where \(a_c,b_c\in\mathbb{R}\), and \(a_c\) and \(b_c\) are not both zero.
 
 	We call these real, homogeneous boundary conditions --- latter because if \(y_1\), \(y_2\) satisfy the boundary conditions, then so does \(c_1y_1+c_2y_2\).
 
@@ -5681,8 +5704,8 @@
 		\[y_n=\frac{1}{\sqrt{2\pi}}e^{inx}\,,\;n\in\mathbb{Z}\,.\]
 
 		Hence, a \(2\pi\)-periodic function \(f\) has an eigenfunction expansion
-		\[f(x)=\frac{1}{\sqrt{2\pi}}\sum_{n=-\infty}^{n=\infty}a_ne^{inx}\]
-		for some complex coefficients \(a_k\), which is the Fourier series expansion of \(f\). To the extent that any such function has a Fourier series expansion, the set \(\{ y_k\,|\,k\in\mathbb{Z}\}\) is complete, with completeness relation
+		\[f(x)=\frac{1}{\sqrt{2\pi}}\sum_{n=-\infty}^{\infty}a_ne^{inx}\]
+		for some complex coefficients \(a_k\), which is the Fourier series expansion of \(f\). To the extent that any such function has a Fourier series expansion, the set \(\{ y_k\mid k\in\mathbb{Z}\}\) is complete, with completeness relation
 		\[\sum_{k\in\mathbb{Z}}e^{ik(x-\xi)}=2\pi\delta(x-\xi)\,.\]
 	\end{ex}
 	\begin{rem}
@@ -5715,7 +5738,7 @@
 		\frac{y_1(x)y_2(\xi)}{W(\xi)} & \quad\text{for }x\in[a,\xi)\\
 		\frac{y_1(\xi)y_2(x)}{W(\xi)} & \quad\text{for }x\in[\xi,b]\,,
 	\end{aligned}\right.\]
-	where \(y_1\) and \(y_2\) satisfies the boundary conditions at \(a\) and \(b\) respectively (\cref{bcgreens}).
+	where \(y_1\) and \(y_2\) satisfy the boundary conditions at \(a\) and \(b\) respectively (\cref{bcgreens}).
 
 	However, if \(\mathcal{L}\) is a Sturm--Liouville operator, the Green's function would have a much better form.
 
@@ -5899,10 +5922,10 @@
 	\section{Calculus of Variations}
 	\subsection{Functionals}
 	\begin{defn}
-		A real \textit{function} of many variables \(\{x_k\,|\,k=1,2,\dots,n\}\) maps the ordered pair \((x_1,\dots,x_n)\) to a real number \(f:\mathbb{R}^n\to\mathbb{R}\),
+		A real \textit{function} of many variables \(\{x_k\mid k=1,2,\dots,n\}\) maps the ordered pair \((x_1,\dots,x_n)\) to a real number \(f:\mathbb{R}^n\to\mathbb{R}\),
 		\[f:(x_1,\dots,x_n)\mapsto f(x_1,\dots,x_n)\in\mathbb{R}\,.\]
 	\end{defn}
-	We may take the number of variables to uncountable infinity: \(y=\{y(x)\,|\,x\in\mathbb{R}\}\).
+	We may take the number of variables to uncountably many: \(y=\{y(x)\mid x\in\mathbb{R}\}\).
 	\begin{defn}
 		A real \textit{functional} maps multiple functions of multiple variables to a real number.
 		\[G:(y_1(\vb{x}_1),\dots,y_n(\vb{x}_n))\mapsto G[(y_1(\vb{x}_1),\dots,y_n(\vb{x}_n))]\in\mathbb{R}\,.\]
@@ -5950,7 +5973,7 @@
 		\[\dv{x}\qty(\pdv{f}{y'})=\pdv{f}{y}\,.\]
 	\end{thm}
 	\begin{proof}
-		The functional is stationary when \(\delta G=0\) for any change in \(\delta y\), so \(\frac{\delta G}{\delta y(x)}=0\).\qed
+		The functional is stationary when \(\delta G=0\) for any change \(\delta y\), so \(\frac{\delta G}{\delta y(x)}=0\).\qed
 	\end{proof}
 	\begin{rem}
 		\(\pdv{f}{y'}\) may look strange since it seems impossible to change \(y'\) while not changing \(y\). Here \(\pdv{y}\) and \(\pdv{y'}\) are just formal derivatives and we can pretend that \(y\) and \(y'\) are not connected.
@@ -6171,7 +6194,7 @@
 		
 		The speed of sound, \(v\), depends on the absolute air temperature, \(T\),
 		\[v\propto\sqrt{T}\,.\]
-		After sunset, the ground cools faster than the air, setting up a temperature gradient. Assume such variance is linear
+		After sunset, the ground cools faster than the air, setting up a temperature gradient. Assume such variation is linear
 		\[T=T_0+\alpha z\,,\]
 		where \(z\) is the height above the ground. This leads to a variational problem for
 		\[P[z]=\int_{A}^{B}\frac{\dd{l}}{v}\propto\int_{A}^{B}\frac{\sqrt{1+z'^2}}{\sqrt{\alpha z+T_0}}\dd{x}=\int_{A}^{B}f(z,z')\dd{x}\,,\]
@@ -6200,7 +6223,7 @@
 		\[\dv{t}\qty(\pdv{L}{\dot{q_i}})-\pdv{L}{q_i}=0\,,\;i=1,\dots,N\,.\]
 	\end{thm}
 	\begin{proof}
-		First proof that Lagrange's equations are equivalent to Newtonian mechanics when then generalised coordinates \(\{q_i\}\) are set to be the Cartesian coordinates \(\{x_i\}\).
+		First proof that Lagrange's equations are equivalent to Newtonian mechanics when the generalised coordinates \(\{q_i\}\) are set to be the Cartesian coordinates \(\{x_i\}\).
 
 		From the definition of the Lagrangian, we have
 		\[\pdv{L}{x_i}=-\pdv{V}{x_i}\,,\]
@@ -6216,16 +6239,16 @@
 		\[q_i=q_i(\dots,x_i,\dots,x_n,t)\,,\]
 		then by chain rule, we can write
 		\[\dot{q}_i=\dv{q_i}{t}=\pdv{q_i}{x_j}\dot{x}_j+\pdv{q_i}{t}\,.\]
-		To be a proper coordinate system, we should be able to invert the relationship so that \(x_j=x_j(\dots,a_i,\dots,a_n,t)\), which we can do as long as we have a non-zero Jacobian. Then we have
+		To be a proper coordinate system, we should be able to invert the relationship so that \(x_j=x_j(\dots,q_i,\dots,q_n,t)\), which we can do as long as we have a non-zero Jacobian. Then we have
 		\[\dot{x}_j=\pdv{x_j}{q_i}\dot{q}_i+\pdv{x_j}{t}\,.\]
 		Therefore,
-		\[\pdv{L}{q_i}=\pdv{L}{x_j}\pdv{x_j}{q_i}+\pdv{L}{\dot{x}_j}\qty(\pdv[2]{x_i}{q_j}{q_k}\dot{q}_k+\pdv[2]{x_j}{t}{q_i})\,,\]
+		\[\pdv{L}{q_i}=\pdv{L}{x_j}\pdv{x_j}{q_i}+\pdv{L}{\dot{x}_j}\qty(\pdv[2]{x_j}{q_i}{q_k}\dot{q}_k+\pdv[2]{x_j}{t}{q_i})\,,\]
 		while
 		\[\pdv{L}{\dot{q}_i}=\pdv{L}{\dot{x}_j}\pdv{\dot{x}_j}{\dot{q}_i}\,.\]
 		Now use the fact that
 		\[\pdv{\dot{x}_j}{\dot{q}_i}=\pdv{x_j}{q_i}\,,\]
 		we have
-		\[\dv{t}\qty(\pdv{L}{\dot{q}_i})=\dv{t}\qty(\pdv{L}{\dot{x}_j})\pdv{x_j}{q_i}+\pdv{L}{\dot{x}_j}\qty(\pdv[2]{x_j}{q_i}{q_k}\dot{q}_k+\pdv{2}{q_i}{t})\,,\]
+		\[\dv{t}\qty(\pdv{L}{\dot{q}_i})=\dv{t}\qty(\pdv{L}{\dot{x}_j})\pdv{x_j}{q_i}+\pdv{L}{\dot{x}_j}\qty(\pdv[2]{x_j}{q_i}{q_k}\dot{q}_k+\pdv{x_j}{q_i}{t})\,,\]
 		so we have that
 		\[\dv{t}\qty(\pdv{L}{\dot{q}_i})-\pdv{L}{q_i}=\qty[\dv{t}\qty(\pdv{L}{\dot{x}_j})-\pdv{L}{x_j}]\pdv{x_j}{q_i}\,.\]
 
@@ -6298,7 +6321,7 @@
 	\begin{ex}
 		Suppose that the central force field depends only on \(r=\abs{\vb{x}}\). For a planar motion, work in polar coordinate, we have
 		\begin{align*}
-			L&=\frac{1}{2}(v_r^2+v_\varphi^2)-V(r)\\
+			L&=\frac{1}{2}m(v_r^2+v_\varphi^2)-V(r)\\
 			&=\frac{1}{2}m\dot{r}^2+\frac{1}{2}mr^2\dot{\varphi}^2-V(r)\,.
 		\end{align*}
 		The Euler--Lagrange equations are
@@ -6629,7 +6652,7 @@
 		The \textit{order} of the PDE is the order of the highest derivative in the equation.
 	\end{defn}
 	
-	If the system of differential equations is of the first degree in the dependent variables, then the system is said to be \textit{linear}.
+	If the system of differential equations is of the first degree in the dependent variables and all its derivatives, then the system is said to be \textit{linear}.
 	
 	\subsubsection{Linear Second-order Partial Differential Equations}
 	The most general linear second-order PDE in two variables is
@@ -7012,7 +7035,7 @@
 	Similarly,
 	\[\mathcal{B}_m=\frac{2}{m\pi c}\int_{0}^{L}g(x)\sin\frac{m\pi x}{L}\dd{x}\,.\]
 	\subsubsection{Waves on a Drum}
-	Consider the wave propagating on the surface of a drum, on a region \(\Omega=\{(r,\theta)\,|\,r\in[0,1],\theta\in[0,2\pi)\}\), where \((r,\theta)\) are the plane polar coordinates. This is an initial-boundary value problem
+	Consider the wave propagating on the surface of a drum, on a region \(\Omega=\{(r,\theta)\mid r\in[0,1],\theta\in[0,2\pi)\}\), where \((r,\theta)\) are the plane polar coordinates. This is an initial-boundary value problem
 	\begin{equation}\tag{\(\dagger\dagger\)}
 		\left\{\begin{aligned}
 			& \;\pdv[2]{\psi}{t}=c^2\laplacian \psi && (\vb{x},t)\in\Omega\times(0,\infty)\\
@@ -7053,7 +7076,7 @@
 	\[E(t)=\frac{1}{2}\int_{0}^{L}\qty[\qty(\pdv{y}{t})^2+c^2\qty(\pdv{y}{x})^2]\dd{x}\,.\]
 	This can be generalised to higher dimensions
 	\[E(t)=\frac{1}{2}\int_\Omega \qty[\qty(\pdv{\psi}{t})^2+c^2\abs{\grad \psi}^2]\dd{V}\,,\]
-	where \(y\) satisfies the wave equation for higher dimensions
+	where \(\psi\) satisfies the wave equation for higher dimensions
 	\begin{equation}\tag{\(\dagger\dagger\)}
 		\left\{\begin{aligned}
 			& \;\pdv[2]{\psi}{t}=c^2\laplacian \psi && (\vb{x},t)\in\Omega\times(0,\infty)\\
@@ -7202,7 +7225,7 @@
 	\end{rems}
 	
 	\subsubsection{Heating along a Square Sheet}
-	Consider the heat distributed over a square \(\Omega=\{(x,y)\,|\,x\in(0,L),y\in(0,L)\}\) with heat loss on its boundary. This is an initial-boundary value problem
+	Consider the heat distributed over a square \(\Omega=\{(x,y)\mid x\in(0,L),y\in(0,L)\}\) with heat loss on its boundary. This is an initial-boundary value problem
 	\begin{equation}\tag{\(\dagger\dagger\)}
 		\left\{\begin{aligned}
 			& \;\pdv{\varphi}{t}(\vb{x},t)=\kappa\laplacian\varphi && (\vb{x},t)\in\Omega\times(0,\infty)\\
@@ -7222,7 +7245,7 @@
 	\[T(t)=Ae^{-\mu\kappa t}\,.\]
 	The boundary conditions are \(X(0)=X(L)=Y(0)=Y(L)=0\), so
 	\[X_n(x)=\sin(\frac{n\pi x}{L})\,,\;\lambda_n=\qty(\frac{n\pi}{L})^2\,,\;n=1,2,\dots\]
-	\[Y_m(x)=\sin(\frac{m\pi y}{L})\,,\;\mu_{mn}-\lambda_n=\qty(\frac{m\pi}{L})^2\,,\;m=1,2,\dots\]
+	\[Y_m(y)=\sin(\frac{m\pi y}{L})\,,\;\mu_{mn}-\lambda_n=\qty(\frac{m\pi}{L})^2\,,\;m=1,2,\dots\]
 	We therefore have the general solution that satisfies the homogeneous boundary conditions
 	\[\varphi(x,y,t)=\sum_{n,m=1}^{\infty}A_{mn}e^{-\kappa\mu_{mn}t}\sin(\frac{n\pi x}{L})\sin(\frac{m\pi y}{L})\,,\]
 	where
@@ -7340,7 +7363,7 @@
 	
 	The boundary conditions \(\varphi(x,0)=0\) and \(\varphi(x,1)=0\) implies that only solutions proportional to \(\sin n\pi y\) are appropriate. Hence we try \(\lambda=n^2\pi^2\) where \(n\) is an integer. The eigenfunctions are thus
 	\[\varphi_n=(\mathcal{A}_n e^{n\pi x}+\mathcal{B}_n e^{-n\pi x})\sin(n\pi y)\,,\]
-	where \(\mathcal{A}_n\) and \(\mathcal{B}_n\) are constants. However, if boundary conditions as \(x\to 0\) are to be satisfied then \(\mathcal{A}_n=0\). Hence the solution has the form
+	where \(\mathcal{A}_n\) and \(\mathcal{B}_n\) are constants. However, if boundary conditions as \(x\to \infty\) are to be satisfied then \(\mathcal{A}_n=0\). Hence the solution has the form
 	\[\varphi=\sum_{n=1}^{\infty}\mathcal{B}_n e^{-n\pi x}\sin(n\pi y)\,.\]
 	
 	\(\mathcal{B}_n\) are fixed by the first boundary condition
@@ -7523,7 +7546,7 @@
 	\begin{itemize}[topsep=0pt,leftmargin=50pt]
 		\item In the case of an inhomogeneous equation, use the principle of superposition to seek a particular solution to reduce the equation to one that is homogeneous.
 		\item Seek separable solutions to the homogeneous equation.
-		\item In the case of inhomogeneous boundary conditions consider seeking a [separable] solution to reduce the boundary conditions to ones that are homogeneous.
+		\item In the case of inhomogeneous boundary conditions consider seeking a separable solution to reduce the boundary conditions to ones that are homogeneous.
 		\item Use the boundary conditions to rule out certain separable solutions and to identify eigenvalues.
 		\item Using the principle of superposition, seek a solution that is a sum of eigenfunctions.
 		\item Determine unknown constants using the boundary conditions.
@@ -7544,9 +7567,9 @@
 	In particular, we shall consider only Cartesian coordinate systems: orthonormal coordinate systems where \(\{\vb{e}_i\}\) are independent of position.
 
 	\subsubsection{Transformation of Basis}
-	In a Cartesian coordinate,
+	In a Cartesian coordinate system,
 	\[\vb{v}=v_i\vb{e}_i\,,\]
-	and in a different set of Cartesian coordinates with basis vectors \(\{\vb{e}_i'\}\),
+	and in a different set of Cartesian coordinate system with basis vectors \(\{\vb{e}_i'\}\),
 	\[\vb{v}=v_i'\vb{e}_i'\,,\;\text{with }v_i'=\vb{e}_i'\vdot\vb{v}\,.\] 
 	We also have
 	\[v_i'=\vb{e}_i'\vdot\vb{v}=\vb{e}_i'\vdot\vb{e}_j v_j=R_{ij}v_j\,,\]
@@ -7590,7 +7613,7 @@
 	\[\implies v_i''=R^{(2)}_{ij}R^{(1)}_{jk}v_k=R_{ik}v_k\,,\]
 	where \(\mathsf{R}=\mathsf{R}^{(2)}\mathsf{R}^{(1)}\) and \(\det\mathsf{R}=\det\mathsf{R}^{(2)}\det\mathsf{R}^{(1)}\).
 	\begin{rem}
-		If both \(\mathsf{R}^{(1)}\) and \(\mathsf{R}^{(2)}\) are proper rotations, then so is the composite transformation \(\mathsf{R}=\mathsf{R}^{(1)}\mathsf{R}^{(2)}\). We could then consistently restrict our attention to proper rotations. They form a \textit{subgroup} \(SO(3)\) in the rotation groups \(O(3)\).
+		If both \(\mathsf{R}^{(1)}\) and \(\mathsf{R}^{(2)}\) are proper rotations, then so is the composite transformation \(\mathsf{R}=\mathsf{R}^{(1)}\mathsf{R}^{(2)}\). We could then consistently restrict our attention to proper rotations. They form a \textit{subgroup} \(SO(3)\) of the orthogonal group \(O(3)\).
 		
 		This is not true for improper rotations.
 	\end{rem}
@@ -7652,14 +7675,14 @@
 	\end{ex}
 
 	\begin{defn}\label[defn]{defnten}
-		A Cartesian \textit{tensor} \(\mathsf{T}\) of \textit{rank} (\textit{order}) \(n\) is a set of coefficients \(T_{i_1\dots i_n}\) labelled by \(n\) indices defined with respect to a set of normal basis vectors \(\{\vb{e}_i\}\), and such that the coefficients with respect to another orthonormal basis \(\{\vb{e}_i': \vb{e}'_i=R_{ij}\vb{e}_i\}\) are given by the transformation law
+		A Cartesian \textit{tensor} \(\mathsf{T}\) of \textit{rank} (\textit{order}) \(n\) is a set of coefficients \(T_{i_1\dots i_n}\) labelled by \(n\) indices defined with respect to a set of orthonormal basis vectors \(\{\vb{e}_i\}\), and such that the coefficients with respect to another orthonormal basis \(\{\vb{e}_i': \vb{e}'_i=R_{ij}\vb{e}_i\}\) are given by the transformation law
 		\[T'_{i_1\dots i_n}=R_{i_1j_1}\dots R_{i_nj_n}T_{j_1\dots j_n}\,.\]
 	\end{defn}
 	\begin{rem}
 		A tensor of rank zero is a scalar. A tensor of rank one is a vector.
 	\end{rem}
 	\begin{defn}
-		A Cartesian \textit{pseudo-tensor} \(\mathsf{E}\) of \textit{rank} \(n\) is a set of coefficients \(E_{i_1\dotsi_n}\) labelled by \(n\) indices defined with respect to a set of normal basis vectors \(\{\vb{e}_i\}\), and such that the coefficients with respect to another orthonormal basis \(\{\vb{e}_i': \vb{e}'_i=R_{ij}\vb{e}_i\}\) are given by the transformation law
+		A Cartesian \textit{pseudo-tensor} \(\mathsf{E}\) of \textit{rank} \(n\) is a set of coefficients \(E_{i_1\dotsi_n}\) labelled by \(n\) indices defined with respect to a set of orthonormal basis vectors \(\{\vb{e}_i\}\), and such that the coefficients with respect to another orthonormal basis \(\{\vb{e}_i': \vb{e}'_i=R_{ij}\vb{e}_i\}\) are given by the transformation law
 		\[E'_{i_1\dots i_n}=\det\mathsf{R}\,R_{i_1j_1}\dots R_{i_nj_n}E_{j_1\dots j_n}\,.\]
 	\end{defn}
 	When \(\det\mathsf{R}=1\), i.e. we don't change the handedness of the coordinate system, this is the same for a tensor. However, it differs in sign when \(\det\mathsf{R}=-1\).
@@ -7821,7 +7844,7 @@
 		\end{align*}\qed
 	\end{proof}
 	\begin{prop}
-		If \(S_{ijk..}\) is symmetric in, say, \(i\) and \(j\), and \(A_{pqr\dots}\) is symmetric in, say, \(p\) and \(q\), then
+		If \(S_{ijk..}\) is symmetric in, say, \(i\) and \(j\), and \(A_{pqr\dots}\) is anti-symmetric in, say, \(p\) and \(q\), then
 		\[S_{ijk\dots}A_{ijr\dots}=0\,.\]
 	\end{prop}
 	\begin{proof}
@@ -7886,7 +7909,7 @@
 		\[T_{ij}=\tilde{S}_{ij}+\varepsilon_{ijk}\bm{\omega}_k+\frac{1}{3}\delta_{ij}Q\,.\]
 	\end{cor}
 	\begin{ex}
-		An elastic body is subjected to a simple shear so that the displacement \(\vb{u}(\vb{x})\) at position \(\vb{x}=(x,y,z)\) is given by \(\vb{u}=(\gamma,0,0)\) for some constant \(\gamma\).
+		An elastic body is subjected to a simple shear so that the displacement \(\vb{u}(\vb{x})\) at position \(\vb{x}=(x,y,z)\) is given by \(\vb{u}=(\gamma y,0,0)\) for some constant \(\gamma\).
 
 		We can decompose \(\pdv{u_i}{x_j}\) into symmetric and anti-symmetric parts,
 		\[\pdv{u_i}{x_j}=\begin{pmatrix}
@@ -7902,7 +7925,7 @@
 			-\frac{1}{2}\gamma & 0 & 0\\
 			0 & 0 & 0
 		\end{pmatrix}\,,\]
-		where the symmetric part is the strain tensor \(e_{ij}\), and the anti-symmetric part can be written as \(-\varepsilon_{ijk}\omega_k\), where \(\bm{\omega}=(0,0,-\frac{1}{2}\gamma)\).
+		where the symmetric part is the strain tensor \(e_{ij}\), and the anti-symmetric part can be written as \(\varepsilon_{ijk}\omega_k\), where \(\bm{\omega}=(0,0,\frac{1}{2}\gamma)\).
 
 		This also corresponds to writing
 		\[\vb{u}=\qty(\frac{1}{2}\gamma y,\frac{1}{2}\gamma x,0)+\qty(\frac{1}{2}\gamma y,-\frac{1}{2}\gamma x,0)\,.\]
@@ -7965,7 +7988,7 @@
 		Consider the non-zero isotropic tensors in \(\mathbb{R}^3\).
 		\begin{enumerate}[topsep=0pt]
 			\item[(i)] All tensors of rank zero (scalars) are isotropic.
-			\item[(ii)] There is no rank one isotropic tensors.
+			\item[(ii)] There are no rank one isotropic tensors.
 			\item[(iii)] The only second order isotropic tensors are scalar multiples of \(\delta_{ij}\).
 			\item[(iv)] The only third order isotropic tensors are the scalar multiples of \(\varepsilon_{ijk}\). 
 		\end{enumerate}
@@ -8117,7 +8140,7 @@
 	This unified framework will give us integral theorems in any dimension \(\mathbb{R}^n\). Note that the divergence theorem already holds in any \(\mathbb{R}^n\). However, Stokes' theorem is restricted to surfaces in \(\mathbb{R}^3\) since the cross product is only defined in \(\mathbb{R}^3\). Therefore, we must first extend the cross product into higher dimensions.
 
 	\begin{defn}
-		The \textit{Levi--Civita symbol} in \(n\) dimension is defined as
+		The \textit{Levi--Civita symbol} in \(n\) dimensions is defined as
 		\[\varepsilon_{a_1a_2\dots a_n}\coloneqq\begin{cases}
 			1 & \text{if }(a_1,a_2,\dots,a_n)\text{ is an even permutation of }(1,2,\dots,n)\\
 			-1 & \text{if }(a_1,a_2,\dots,a_n)\text{ is an odd permutation of }(1,2,\dots,n)\\
@@ -8142,7 +8165,7 @@
 		\begin{equation}\tag{\(\dagger\)}
 			\int_{\mathcal{C}}\vb{F}\vdot\dd{\vb{x}}\,.
 		\end{equation}
-		This captures the component of the vector field tangent to the line. We can preform this procedure in any dimension \(\vb{R}^n\).
+		This captures the component of the vector field tangent to the line. We can perform this procedure in any dimension \(\vb{R}^n\).
 		\item \textit{Surface integral.}
 		\begin{equation}\tag{\(\dagger\dagger\)}
 			\int_{\mathcal{S}}\vb{F}\vdot\dd{\vb{S}}\,,
@@ -8166,7 +8189,7 @@
 	\begin{itemize}
 		\item \textit{Generalisation of line integral} (\(\dagger\)). Let \(\Omega\subset\mathbb{R}^n\) be a \(p\)-dimensional subspace. We can then integrate an anti-symmetric \(p\)-tensor over \(\Omega\)
 		\[\int_\Omega T_{i_1\dots i_p}\dd{S_{i_1\dots i_p}}\,.\]
-		\item \textit{Generalisation of the surface integral} (\(\dagger\dagger\)). First map the anti-symmetric \(p\)-tensor to an anti-symmetric \((n-p)\)-tensor using the Hodge dual, then this can be integrated oven an \((n-p)\)-dimensional subspace \(\tilde{\Omega}\subset\mathbb{R}^n\):
+		\item \textit{Generalisation of the surface integral} (\(\dagger\dagger\)). First map the anti-symmetric \(p\)-tensor to an anti-symmetric \((n-p)\)-tensor using the Hodge dual, then this can be integrated over an \((n-p)\)-dimensional subspace \(\tilde{\Omega}\subset\mathbb{R}^n\):
 		\[\int_{\tilde{\Omega}}T_{i_1\dots i_p}\varepsilon_{i_1\dots i_p j_1\dots j_p}\dd{\tilde{S}_{j_1\dots j_{n-p}}}\,.\]
 	\end{itemize}
 	\subsubsection{Differentiating Anti-symmetric Tensors}
@@ -8187,7 +8210,7 @@
 	\[(\mathcal{D}\mathsf{T})_{i_1\dots i_{p+1}}=\frac{1}{p+1}\qty(\pdv{T_{i_1\dots i_p}}{x_{i_{p+1}}}+p\text{ further terms})\,,\]
 	where the further terms involve replacing the derivative \(\pdv{x_{i_{p+1}}}\) with one of the other coordinates \(\pdv{x_j}\) so that the whole derivative is fully anti-symmetric.
 
-	Note that with this definition of \(\mathcal{D}\), a second derivative of a \(p\)-tensor is a \((p+2)\)-tensor, but this tensor always vanish
+	Note that with this definition of \(\mathcal{D}\), a second derivative of a \(p\)-tensor is a \((p+2)\)-tensor, but this tensor always vanishes
 	\[(\mathcal{DD}\mathsf{T})_{i_1\dots i_{p+2}}=0\]
 	for any tensor \(\mathsf{T}\). This is because we will have two derivatives contracted with an epsilon and is the higher dimensional generalisation of the statements that \(\curl\grad\phi=0\) and \(\div\curl\vb{F}=0\).
 	\begin{rem}
@@ -8294,7 +8317,7 @@
 	\subsection{The Point at Infinity}
 	Some functions tend to a definite limit as \(z\to\infty\) irrespective of the direction from which the infinity is approached. e.g. \(f(z)=1/z\) goes to 0 as \(\abs{z}\to\infty\). Therefore, it sometimes makes sense to think of \(\infty\) as a single point, as illustrated by the \textit{stereographic projection} of the complex plane onto \textit{Riemann sphere}.
 	\begin{defn}
-		\textit{Stereographic projection} may be applied to a unit \(n\)-sphere \(S^n\) in a (\(n+1\))-dimensional Euclidean space \(\mathbb{E}^{n+1}\). If \(Q\) is a point of \(S^n\) and \(E\) is a hyperplane in \(\mathbb{E}^{n+1}\), then the stereographic projection of a point \(P\in S^n-\{Q\}\) is the point \(P'\), intersection of the line \(QP\) with \(E\). The hypersphere of projection is the \textit{Riemann sphere}.
+		\textit{Stereographic projection} may be applied to a unit \(n\)-sphere \(S^n\) in an (\(n+1\))-dimensional Euclidean space \(\mathbb{E}^{n+1}\). If \(Q\) is a point of \(S^n\) and \(E\) is a hyperplane in \(\mathbb{E}^{n+1}\), then the stereographic projection of a point \(P\in S^n-\{Q\}\) is the point \(P'\), intersection of the line \(QP\) with \(E\). The hypersphere of projection is the \textit{Riemann sphere}.
 	\end{defn}
 	\begin{rem}
 		The point \(Q\) in stereographic projection is projected to all points on a circle of infinite radius. We can think of this as a single \textit{point at infinity}.
@@ -8391,7 +8414,7 @@
 			\item \(\log z\) has an infinite number of branches.
 			\item The complex logarithm is holomorphic everywhere on each branch except on the branch cut.
 			\item The function is single-valued and continuous on any curve that does not cross the cut.
-			\item Branch cut need not be straight lines. Any continuous non-intersecting curve from the branch point to infinity can be a branch cut.
+			\item Branch cuts need not be straight lines. Any continuous non-intersecting curve from the branch point to infinity can be a branch cut.
 		\end{itemize}
 	\end{rems}
 	
@@ -8528,7 +8551,7 @@
 		\[\abs{e^{i\lambda z}}=\abs{e^{-\lambda R\sin\theta}}\,,\]
 		we have
 		\begin{align*}
-			\int_{\gamma}g(z)e^{i\lambda z}\dd{z}&\le\int_{\gamma}\abs{e^{i\lambda z}g(z)}\abs{\dd{z}}\\
+			\abs{\int_{\gamma}g(z)e^{i\lambda z}\dd{z}}&\le\int_{\gamma}\abs{e^{i\lambda z}g(z)}\abs{\dd{z}}\\
 			&=M_RR\int_{0}^{\pi}e^{-\lambda R\sin\theta}\dd{\theta}\\
 			&=2M_RR\int_{0}^{\frac{\pi}{2}}e^{-\lambda R\sin\theta}\dd{\theta}\,.
 		\end{align*}
@@ -8549,14 +8572,14 @@
 	\end{rem}
 	\begin{lem}[Jordan's Lemma]\label[lem]{jdlem}
 		If \(g(z)\to 0\) uniformly on \(\gamma\) as \(R\to\infty\), i.e. if
-		\[\lim_{R\to\infty}M_R=0\,.\]
+		\[\lim_{R\to\infty}M_R=0\,,\]
 		then
 		\[\lim_{R\to\infty}\int_{\gamma}g(z)e^{i\lambda z}\dd{z}=0\,.\]
 	\end{lem}
 	\begin{proof}
 		It follows trivially from \cref{upperjordan}.\qed
 	\end{proof}
-	\subsection{Example of applying Jordan's Lemma}
+	\subsubsection{Example of Jordan's Lemma}
 	Consider
 	\[I=\int_{-\infty}^{\infty}\frac{\sin x}{x}\dd{x}\,.\]
 
@@ -8572,16 +8595,16 @@
 	Define the contour \(\Gamma=\gamma_R+\gamma_-+\gamma_\epsilon+\gamma_+\), where
 	\[\begin{cases}
 		\gamma_R:\theta\mapsto Re^{i\theta} &,\;\theta\in[0,\pi]\\
-		\gamma_-:t\mapsto x &,\;t\in[-R,-\epsilon]\\
+		\gamma_-:t\mapsto t &,\;t\in[-R,-\epsilon]\\
 		\gamma_\epsilon:\theta\mapsto\epsilon e^{i(\pi-\theta)} &,\;\theta\in[0,\pi]\\
-		\gamma_+:t\mapsto x &,\;t\in[\epsilon,R]\,.
+		\gamma_+:t\mapsto t &,\;t\in[\epsilon,R]\,.
 	\end{cases}\]
 	Then since \(\Gamma\) does not enclose any pole, from Cauchy's theorem (\cref{cauthm}),
 	\begin{align*}
 		\oint_\Gamma\frac{e^{iz}}{z}\dd{z}&=\int_{\gamma_R}\frac{e^{iz}}{z}\dd{z}+\int_{\gamma_-}\frac{e^{iz}}{z}\dd{z}+\int_{\gamma_\epsilon}\frac{e^{iz}}{z}\dd{z}+\int_{\gamma_+}\frac{e^{iz}}{z}\dd{z}\\
 		&=0\,.
 	\end{align*}
-	On \(\gamma_\epsilon\), \(z=\epsilon e^{i\theta}\), so
+	On \(\gamma_\epsilon\), \(z=\epsilon e^{i(\pi-\theta)}\), so
 	\begin{align*}
 		\int_{\gamma_\epsilon}\frac{e^{iz}}{z}\dd{z}&=\int_{\pi}^{0}\frac{\exp(i\epsilon e^{i\theta})}{\epsilon e^{i\theta}}i\epsilon e^{i\theta}\dd{\theta}\\
 		&=-i\int_{0}^{\pi}\sum_{r=0}^{\infty}\frac{i^r\epsilon^r e^{ir\theta}}{r !}\dd{\theta}\\
@@ -8615,7 +8638,7 @@
 		does not converge.
 	\end{rem}
 	\begin{defn}\label[defn]{ft}
-		Let \(f:\mathbb{R}\to\mathbb{C}\) be absolutely integrable, i.e. \(\int_{-\infty}^{\infty}\abs{f(x)}\dd{x}\) exists, have bounded variation and a finite number of discontinuities. The \textit{Fourier transform} of a function \(f(x)\) is
+		Let \(f:\mathbb{R}\to\mathbb{C}\) be absolutely integrable, i.e. \(\int_{-\infty}^{\infty}\abs{f(x)}\dd{x}\) exists, has bounded variation and a finite number of discontinuities. The \textit{Fourier transform} of a function \(f(x)\) is
 		\[\tilde{f}(k)\equiv\mathcal{F}[f(x)]\coloneqq\fint_{-\infty}^{\infty}f(x)e^{-ikx}\dd{x}\,.\]
 	\end{defn}
 	\begin{rem}
@@ -8756,21 +8779,19 @@
 	For \(\tau>0\), there are two simple poles within \(\gamma\). As we assume that \(\gamma\ne\omega_0\), the residue at \(\omega=\omega_\pm\) are given by
 	\[\res_{\omega=\omega_\pm}\qty(\frac{1}{2\pi}\tilde{g}e^{i\omega\tau})=\frac{-e^{i\omega_\pm\tau}}{2\pi(\omega_\pm-\omega_\mp)}=\mp\frac{e^{-\gamma\tau}e^{\pm i\tau\sqrt{\omega_0^2-\gamma^2}}}{4\pi\sqrt{\omega_0^2-\gamma^2}}\,.\]
 
-	\begin{itemize}[topsep=0pt,leftmargin=30pt,itemindent=82pt]
-		\item[\textit{Underdamped Oscillator.}] For \(\gamma<\omega_0\), the oscillator is said to be \textit{underdamped}. We can deduce that
+	\begin{itemize}
+		\item \textit{Underdamped Oscillator.} For \(\gamma<\omega_0\), the oscillator is said to be \textit{underdamped}. We can deduce that
 		\[g(\tau)=\frac{e^{-\gamma\tau}}{\sqrt{\omega_0^2-\gamma^2}}\sin(\tau\sqrt{\omega_0^2-\gamma^2})\quad\text{for }\tau>0\,.\]
-	\end{itemize}
-	\begin{rem}
-		Suppose that there is a unit impulse at \(t=0\), i.e. \(f(t)=\delta(t)\). It follows that \(x(t)=g(t)\), and hence the response to an impulsive force is oscillatory with an amplitude that dies away exponentially over a time of order \(1/\gamma\).
+		\begin{rem}
+			Suppose that there is a unit impulse at \(t=0\), i.e. \(f(t)=\delta(t)\). It follows that \(x(t)=g(t)\), and hence the response to an impulsive force is oscillatory with an amplitude that dies away exponentially over a time of order \(1/\gamma\).
 
-		For \(\gamma\ll \omega_0\), the main effect of the damping term is to cause the oscillation to slowly reduce in amplitude rather than change phase.
-	\end{rem}
-	\begin{itemize}[topsep=0pt,leftmargin=30pt,itemindent=77pt]
-		\item[\textit{Overdamped Oscillator.}] For \(\gamma>\omega_0\), the oscillator is said to be \textit{overdamped}. We can deduce that
+			For \(\gamma\ll \omega_0\), the main effect of the damping term is to cause the oscillation to slowly reduce in amplitude rather than change phase.
+		\end{rem}
+
+		\item \textit{Overdamped Oscillator.} For \(\gamma>\omega_0\), the oscillator is said to be \textit{overdamped}. We can deduce that
 		\[g(\tau)=\frac{e^{-\gamma\tau}}{\sqrt{\gamma^2-\omega_0^2}}\sinh(\tau\sqrt{\gamma^2-\omega_0^2})\quad\text{for }\tau>0\,.\]
-	\end{itemize}
-	\begin{itemize}[topsep=0pt,leftmargin=30pt,itemindent=103pt]
-		\item[\textit{Critically Damped Oscillator.}] When \(\gamma=\omega_0\), the oscillator is critically damped. For \(\tau>0\), there is a double pole at \(\omega=i\gamma\) inside the contour \(\gamma\). From \cref{resfor}, we have
+
+		\item \textit{Critically Damped Oscillator.} When \(\gamma=\omega_0\), the oscillator is critically damped. For \(\tau>0\), there is a double pole at \(\omega=i\gamma\) inside the contour \(\gamma\). From \cref{resfor}, we have
 		\begin{align*}
 			\res_{\omega=i\gamma}\qty(\frac{1}{2\pi}\tilde{g}e^{i\omega\tau})&=\res_{\omega=i\gamma}\qty(-\frac{e^{i\omega\tau}}{2\pi(\omega-i\gamma)^2})\\
 			&=\lim_{\omega\to i\gamma}\qty(\dv{\omega}\qty(-\frac{e^{i\omega\tau}}{2\pi}))\\
@@ -8863,7 +8884,7 @@
 
 	Let us consider a very important example. By direct integration, we can find
 	\[\lt{1}(s)=\int_{0}^{\infty}e^{-st}\dd{t}=\frac{1}{s}\,,\]
-	which may look completely trivial. However, notice that this integral only converges for \(\Re(s)>0\). Despite this, we may still extend the domain of the Laplace transform function \(F(s)\) to the entire range where it is defined analytically. This process is the analytic continuation. In this case, we extended the domain of the Laplace transform from \(U'=\{z\in\mathbb{C}\,|\,\Re(z)>0\}\) to \(U=\mathbb{C}\setminus\{0\}\), where the uniqueness of the extended function is guaranteed by the analyticity of the transformed function.
+	which may look completely trivial. However, notice that this integral only converges for \(\Re(s)>0\). Despite this, we may still extend the domain of the Laplace transform function \(F(s)\) to the entire range where it is defined analytically. This process is the analytic continuation. In this case, we extended the domain of the Laplace transform from \(U'=\{z\in\mathbb{C}\mid \Re(z)>0\}\) to \(U=\mathbb{C}\setminus\{0\}\), where the uniqueness of the extended function is guaranteed by the analyticity of the transformed function.
 
 	Here are some further examples.
 	\begin{itemize}[topsep=0pt]
@@ -8951,7 +8972,7 @@
 	\begin{thm}[Inverse Laplace transform]
 		For a given function \(F(s)\), its inverse Laplace transform that recovers \(f(t)\) is given by the \textit{Bromwich inversion formula}
 		\[f(t)=\frac{1}{2\pi i}\int_{\alpha-i\infty}^{\alpha+i\infty}F(s)e^{st}\dd{s}\,,\]
-		where \(\alpha\) is a real constant chosen such that the \textit{Bromwich inversion contour} \(\gamma=\{s\in\mathbb{C}\,|\,\Re(s)=\alpha\}\) lies to the right of all singularities of \(F(s)\).
+		where \(\alpha\) is a real constant chosen such that the \textit{Bromwich inversion contour} \(\gamma=\{s\in\mathbb{C}\mid \Re(s)=\alpha\}\) lies to the right of all singularities of \(F(s)\).
 	\end{thm}
 	\begin{proof}
 		Since \(f(t)\) has a Laplace transform, we have \(f(t)=0\) for \(t<0\) and \(f\) does not grow faster than exponential. We can therefore choose an \(\alpha\in\mathbb{R}\) such that
@@ -9108,7 +9129,7 @@
 	\end{ex}
 	\begin{ex}
 		Consider the ODE
-		\[4\ddot{f}(t)+f(t)=h(t)\,,\;f(0)=2\,,\;\dot{f}(0)=-7\,.\]
+		\[4\ddot{f}(t)+f(t)=h(t)\,,\;f(0)=3\,,\;\dot{f}(0)=-7\,.\]
 		We can transform this equation to
 		\[4\qty[s^2F(s)-sf(0)-\dot{f}(0)]+F(s)=H(s)\,,\]
 		which simplifies to
@@ -9150,7 +9171,7 @@
 		So if two solutions start close, then they will always remain “close”. The problem is well-posed.
 	\end{ex}
 	\begin{ex}
-		Consider the initial-boundary value problem for the backward heat equation of \(\Omega=(0,\pi)\).
+		Consider the initial-boundary value problem for the backward heat equation on \(\Omega=(0,\pi)\).
 		\[\left\{\begin{aligned}
 			& \;\pdv{\varphi}{t}+\kappa\laplacian\varphi=0 && (\vb{x},t)\in\Omega\times(0,\infty)\\
 			& \;\varphi=f && (\vb{x},t)\in\Omega\cross\{t=0\}\\
@@ -9177,7 +9198,7 @@
 	\[a(x,y)\pdv{u}{x}+b(x,y)\pdv{u}{y}=\vb{v}\vdot\grad u\,,\]
 	the directional derivative of \(u\) along the vector field \(\vb{v}\) at the point.
 	\begin{defn}
-		The \textit{integral curves} of a vector field \(\vb{v}\) is defined as
+		The \textit{integral curves} of a vector field \(\vb{v}\) are defined as
 		\[\dv{\vb{x}}{t}=\vb{v}\,.\]
 	\end{defn}
 	\begin{rem}
@@ -9291,7 +9312,7 @@
 		\end{equation}
 	\end{itemize}
 	\begin{defn}
-		The \textit{heat kernel} in \(n\) dimension is defined as
+		The \textit{heat kernel} in \(n\) dimensions is defined as
 		\[K(\vb{x};t)\coloneqq\frac{1}{(4\pi\kappa t)^\frac{n}{2}}\exp[-\frac{\abs{x}^2}{4\kappa t}]\,.\]
 	\end{defn}
 	\begin{prop}
@@ -9396,7 +9417,7 @@
 
 	To see this, let us return to the problem (\(\dagger_a\)) but now suppose we impose the initial condition
 	\[u(\vb{x},s)=f(\vb{x})\]
-	at time \(t=s\) rather than \(t=0\). A simple translation shows that for times \(t>\tau\), the problem is solved by
+	at time \(t=s\) rather than \(t=0\). A simple translation shows that for times \(t>s\), the problem is solved by
 	\begin{equation}\tag{\(*_a\)}
 		u(\vb{x},t)=\int K(\vb{x}-\vb{y},t-s)f(\vb{y})\dd[n]{\vb{y}}\,.
 	\end{equation}
@@ -9438,9 +9459,9 @@
 	\end{itemize}
 
 	We will use the function \(\Phi(\vb{x},t)\) defined implicitly by
-	\[\tilde{\Phi}(\bl,t)\coloneqq\frac{\sin\abs{\bl}t}{c\abs{\bl}}\,,\]
+	\[\tilde{\Phi}(\bl,t)\coloneqq\frac{\sin c\abs{\bl}t}{c\abs{\bl}}\,,\]
 	and so by Fourier inversion theorem,
-	\[\Phi(\vb{x},t)=\mathcal{I}_{\bl\to\vb{x}}\qty[\frac{\sin\abs{\bl}t}{c\abs{\bl}}]=\frac{1}{(2\pi)^n}\int e^{i\bl\vdot\vb{x}}\frac{\sin\abs{\bl}t}{c\abs{\bl}}\dd[n]{\bl}\,.\]
+	\[\Phi(\vb{x},t)=\mathcal{I}_{\bl\to\vb{x}}\qty[\frac{\sin c\abs{\bl}t}{c\abs{\bl}}]=\frac{1}{(2\pi)^n}\int e^{i\bl\vdot\vb{x}}\frac{\sin c\abs{\bl}t}{c\abs{\bl}}\dd[n]{\bl}\,.\]
 	The computation of this function is difficult in arbitrary dimensions. It depends on whether \(n\) is even or odd. We will consider two important cases.
 	\begin{prop}
 		In \(\mathbb{R}\),
@@ -9469,7 +9490,7 @@
 			&=\frac{4\pi}{c\abs{\vb{x}}}\int_{0}^{R}\dd{r}\sin(rct)\sin(r\abs{\vb{x}})\,.
 		\end{align*}
 		The integrand is even, so we can replace \(\int_{0}^{R}\) with \(\frac{1}{2}\int_{-R}^{R}\). Using
-		\[\sin A+\sin B=\frac{1}{2}\qty[\cos(A-B)-\cos(A+B)]=\frac{1}{2}\Re\qty[e^{i(A-B)}-e^{i(A+B)}]\]
+		\[\sin A\sin B=\frac{1}{2}\qty[\cos(A-B)-\cos(A+B)]=\frac{1}{2}\Re\qty[e^{i(A-B)}-e^{i(A+B)}]\]
 		gives
 		\begin{align*}
 			\Phi(\vb{x},t)&=\lim_{R\to\infty}\frac{1}{(2\pi)^3}\int_{\abs{\bl}}e^{i\bl\vdot\vb{x}}\tilde{\Phi}(\bl,t)\dd[n]{\lambda}\\
@@ -9512,7 +9533,7 @@
 	\[(\Phi^+*g)(\vb{x})=\frac{1}{4\pi c}\int\frac{\delta(\abs{y}-ct)}{\vb{y}}g(\vb{x}-\vb{y})\dd[n]{\vb{y}}=\frac{1}{4\pi c^2t}g(\vb{x}-\vb{y})\dd{S}\,.\]
 	The integral is equivalent to
 	\[\frac{t}{4\pi(ct)^2}\int_{\abs{\vb{x}-\vb{y}}=ct}g(\vb{y})\dd{S}=t\times\bar{g}\,,\]
-	where \(\bar{g}\) is the average of \(g\) over the sphere of radius of \(ct\) centered at \(\vb{x}\).
+	where \(\bar{g}\) is the average of \(g\) over the sphere of radius of \(ct\) centred at \(\vb{x}\).
 
 	It turns out, in odd dimensions, this part of the solution always looks a bit like this. It always involves the spherical mean of \(g\) over a sphere of radius \(ct\) centred at \(\vb{x}\). This can be interpreted as a spherical wavefront emanating from the point \(\vb{x}\) and travelling at speed \(c\).
 
@@ -9551,7 +9572,7 @@
 
 	Like the heat equation, if we define \(F(\vb{x},t)=0\) for \(t<0\) and introduce the function
 	\[G(\vb{x},t;\vb{y},s)=H(t-s)\Phi(\vb{x}-\vb{y},t-s)\,,\]
-	then the solution to (\(\dagger_b\))can be written as
+	then the solution to (\(\dagger_b\)) can be written as
 	\[u(\vb{x},t)=\iint G(\vb{x},t;\vb{y},s)F(\vb{y},s)\dd[n]{\vb{y}}\dd{s}\,.\]
 
 	We call \(G\) the Green's function for the Wave equation on \(\mathbb{R}^n\) with vanishing initial data. It satisfies
@@ -9623,7 +9644,7 @@
 	\begin{thm}
 		The free space Green's function for the Laplacian on \(\mathbb{R}^n\) with \(n>2\) is
 		\[G(\vb{x};\vb{y})=-\frac{1}{(n-2)\norm{S^{n-1}}}\times\frac{1}{\abs{\vb{x}-\vb{y}}^{n-2}}\,,\]
-		where \(\norm{S^{n-1}}\) is the surface area of a \(n-1\) sphere, given by
+		where \(\norm{S^{n-1}}\) is the surface area of an \(n-1\) sphere, given by
 		\[\norm{S_{n-1}}=\frac{2\pi^{\frac{n}{2}}}{\Gamma(\frac{n}{2})}\,.\]
 		In particular, for \(n=3\),
 		\[G(\vb{x};\vb{y})=-\frac{1}{4\pi}\frac{1}{\abs{\vb{x}-\vb{y}}}\,.\]
@@ -9738,7 +9759,7 @@
 	\subsection{The Integral Solution of Poisson's Equation}
 	To find the solution of Poisson's equation with an arbitrary source distribution, we will need Green's identity.
 
-	\begin{thm}[Green's first indentity]
+	\begin{thm}[Green's first identity]
 		Suppose \(\Omega\subset\mathbb{R}^n\) is a compact set with boundary \(\partial\Omega\), and let \(\phi,\psi:\Omega\to\mathbb{R}\) be a pair of functions on \(\Omega\) that are regular throughout \(\Omega\).
 		\[\int_\Omega\phi\laplacian\psi+(\grad\phi)\vdot(\grad\psi)\dd{V}=\int_{\partial\Omega}\phi\grad\psi\vdot\vb{n}\dd{S}\,,\]
 		where \(\vb{n}\) is the outward pointing normal to \(\partial\Omega\).
@@ -9751,7 +9772,7 @@
 		\end{align*}\qed
 	\end{proof}
 
-	\begin{thm}[Green's second indentity]		
+	\begin{thm}[Green's second identity]		
 		Suppose \(\Omega\subset\mathbb{R}^n\) is a compact set with boundary \(\partial\Omega\), and let \(\phi,\psi:\Omega\to\mathbb{R}\) be a pair of functions on \(\Omega\) that are regular throughout \(\Omega\).
 		\[\int_\Omega\phi\laplacian\psi-\psi\laplacian\phi\dd{V}=\oint_{\partial\Omega}(\phi\grad\psi-\psi\grad\phi)\vdot\vb{n}\dd{S}\eqqcolon\oint_{\partial\Omega}\phi\pdv{\psi}{n}-\psi\pdv{\phi}{n}\dd{S}\,.\]
 	\end{thm}
@@ -9788,7 +9809,7 @@
 		\[\phi(\vb{y})=\int_\Omega\rho(\vb{x})G(\vb{x};\vb{y})\dd{V}+\oint_{\partial\Omega}f(\vb{x})\pdv{G(\vb{x};\vb{y})}{n}\dd{S}\,.\]
 	\end{thm}
 	\begin{proof}[Non-examinable]
-		Here is the formal proof. To remove the singularity issues of the Green's function, consider a ball \(B_\epsilon\) of radius \(\epsilon\ll 1\) centered at the singular point \(\vb{x}=\vb{y}\). Let \(\Omega'\) be the region
+		Here is the formal proof. To remove the singularity issues of the Green's function, consider a ball \(B_\epsilon\) of radius \(\epsilon\ll 1\) centred at the singular point \(\vb{x}=\vb{y}\). Let \(\Omega'\) be the region
 		\[\Omega'=\Omega-B_\epsilon\,.\]
 		Now the Green's function is perfectly regular everywhere in \(\Omega'\), so we can apply Green's second identity with \(\psi=G\) to get
 		\begin{align*}
@@ -10065,7 +10086,7 @@
 	\end{proof}
 	\begin{cor}
 		We also have that, \(\forall g\in G\),
-		\[Gg=\{g_ig\,|\,g_i\in G\}=G\,.\]
+		\[Gg=\{g_ig\mid g_i\in G\}=G\,.\]
 	\end{cor}
 	
 	\subsubsection{Subgroups}
@@ -10112,9 +10133,9 @@
 		If \(\phi : H\to G\) is a homomorphism, then
 		\begin{itemize}[topsep=0pt]
 			\item the \textit{image} of \(\phi\) is
-			\[\Im(\phi)\coloneqq \{ g\in G\,|\, g=\phi(h)\text{ for some }h\in H\}\,.\]
+			\[\Im(\phi)\coloneqq \{ g\in G\mid g=\phi(h)\text{ for some }h\in H\}\,.\]
 			\item the \textit{kernel} of \(\phi\) is
-			\[\ker(\phi)\coloneqq \{ h\in H\,|\,\phi(h)=I_G\}\,.\]
+			\[\ker(\phi)\coloneqq \{ h\in H\mid \phi(h)=I_G\}\,.\]
 		\end{itemize}
 	\end{defn}
 	\begin{lem}\label[lem]{homidinv}
@@ -10141,7 +10162,7 @@
 		\[\phi(x)=e^{ix}\,.\]
 		This is a homomorphism because
 		\[\phi(x+y)=e^{i(x+y)}=e^{ix}e^{iy}=\phi(x)\phi(y)\,.\]
-		The kernel of \(\phi\) is \(\ker(\phi)=\{2N\pi\,|\,N\in\mathbb{Z}\}=\{\dots,\, -2\pi,\, 0,\, 2\pi,\dots\}\)
+		The kernel of \(\phi\) is \(\ker(\phi)=\{2N\pi\mid N\in\mathbb{Z}\}=\{\dots,\, -2\pi,\, 0,\, 2\pi,\dots\}\)
 	\end{ex}
 	\begin{prop}\label[prop]{kersubgroup}
 		If \(\phi: H\to G\) is a homomorphism, then \(\Im(\phi)\le G\) and \(\ker(\phi)\le H\).
@@ -10183,9 +10204,9 @@
 	\end{exs}
 	\begin{defn}
 		Let \(G\) act on \(X\). The \textit{orbit} of \(x\in X\) is the set
-		\[G*x\coloneqq \{y\in X\,|\,y=g*x\text{ for some }g\in G\}\,.\]
+		\[G*x\coloneqq \{y\in X\mid y=g*x\text{ for some }g\in G\}\,.\]
 		The \textit{stabiliser} of \(x\in X\) is
-		\[G_x\coloneqq\{g\in G\,|\,g*x=x\}\,.\]
+		\[G_x\coloneqq\{g\in G\mid g*x=x\}\,.\]
 	\end{defn}
 	\begin{thm}[Orbit-stabiliser theorem]
 		Let a finite group \(G\) act on a set \(X\).
@@ -10218,7 +10239,7 @@
 	\subsubsection{Cosets}
 	\begin{defn}
 		A \textit{left coset} of a subgroup \(H\le G\) is an orbit of the right regular action of \(H\) on \(G\). We write \(G/ H\) for the set of orbits of this action, and call it \textit{the set of left cosets}. If \(g\in G\) then its left coset is
-		\[gH\coloneqq\{g'\in G\,|\,g'=gh\text{ for some }h\in H\}\,.\]
+		\[gH\coloneqq\{g'\in G\mid g'=gh\text{ for some }h\in H\}\,.\]
 
 		A \textit{right coset} of \(H\le G\) is an orbit of the left regular action of \(H\) on \(G\), and we write \(H\backslash G\) for \textit{the set of right cosets}.
 	\end{defn}
@@ -10239,7 +10260,7 @@
 			Suppose \(g_1 H\) and \(g_2 H\) have one element in common: \(g_1 h_1=g_2 h_2\). Then
 			\[g_1 H=g_2 h_2 h_1^{-1} H = g_2H\]
 			since \(h_2 h_1^{-1}\in H\). So if there is one element in common, the cosets are identical.
-			\item[(ii)] Two cosets \(g_1 H\) and \(g_2 H\) are identical if and only if \(g_1g_{2}^{-1}\in H\).
+			\item[(ii)] Two cosets \(g_1 H\) and \(g_2 H\) are identical if and only if \(g_1^{-1}g_2\in H\).
 			
 			If \(g_1^{-1} g_2=h\in H\), then
 			\[g_1 H=g_1 h H = g_1 g_1^{-1} g_2 H = g_2 H\,.\]
@@ -10617,7 +10638,7 @@
 	\subsection{Group of Matrices}
 	\begin{defn}
 		The \textit{\(n^\text{th}\) general linear group} over \(\mathbb{F}\) is
-		\[GL(n,\mathbb{F})\coloneqq(\{X\in\mathrm{Mat}_{n\times n}(\mathbb{F})\,|\,\det(X)\ne 0\},\,\vdot\,,\mathsf{I}_{n\times n})\,,\]
+		\[GL(n,\mathbb{F})\coloneqq(\{X\in\mathrm{Mat}_{n\times n}(\mathbb{F})\mid \det(X)\ne 0\},\,\vdot\,,\mathsf{I}_{n\times n})\,,\]
 		where \(\mathrm{Mat}_{n\times n}(\mathbb{F})\coloneqq\{n\times n \text{ matrices with entries in }\mathbb{F}\}\) and \(\mathbb{F}\) is usually \(\mathbb{R}\) or \(\mathbb{C}\).
 	\end{defn}
 	It can be easily confirmed that \(GL(n,\mathbb{F})\) satisfies the axioms of groups.
@@ -10632,7 +10653,7 @@
 	\end{proof}
 	\begin{defn}
 		The \textit{\(n^\text{th}\) special linear group} over \(\mathbb{F}\) is
-		\[SL(n,\mathbb{F})\coloneqq(\{X\in\mathrm{Mat}_{n\times n}(\mathbb{F})\,|\,\det(X)=1\},\,\vdot\,,\mathsf{I}_{n\times n})\,.\]
+		\[SL(n,\mathbb{F})\coloneqq(\{X\in\mathrm{Mat}_{n\times n}(\mathbb{F})\mid \det(X)=1\},\,\vdot\,,\mathsf{I}_{n\times n})\,.\]
 	\end{defn}
 	\begin{prop}
 		\(SL(n,\mathbb{F})\) is a normal subgroup of \(GL(n,\mathbb{F})\).
@@ -10657,15 +10678,15 @@
 	\end{rem}
 	\begin{defn}
 		The \textit{\(n^\text{th}\) orthogonal group} is
-		\[O(n)\coloneqq\{X\in GL(n,\mathbb{R})\,|\,X\tp X=\mathsf{I}_{n\times n}\}\,,\]
+		\[O(n)\coloneqq\{X\in GL(n,\mathbb{R})\mid X\tp X=\mathsf{I}_{n\times n}\}\,,\]
 		and the \textit{\(n^\text{th}\) special orthogonal group} is
-		\[SO(n)\coloneqq\{X\in SL(n,\mathbb{R})\,|\,X\tp X=\mathsf{I}_{n\times n}\}\,.\]
+		\[SO(n)\coloneqq\{X\in SL(n,\mathbb{R})\mid X\tp X=\mathsf{I}_{n\times n}\}\,.\]
 	\end{defn}
 	\begin{defn}
 		The \textit{\(n^\text{th}\) unitary group} is
-		\[U(n)\coloneqq\{X\in GL(n,\mathbb{C})\,|\,X^\dagger X=\mathsf{I}_{n\times n}\}\,,\]
+		\[U(n)\coloneqq\{X\in GL(n,\mathbb{C})\mid X^\dagger X=\mathsf{I}_{n\times n}\}\,,\]
 		and the \textit{\(n^\text{th}\) special unitary group} is
-		\[SU(n)\coloneqq\{X\in SL(n,\mathbb{C})\,|\,X^\dagger X=\mathsf{I}_{n\times n}\}\,.\]
+		\[SU(n)\coloneqq\{X\in SL(n,\mathbb{C})\mid X^\dagger X=\mathsf{I}_{n\times n}\}\,.\]
 	\end{defn}
 	
 	\subsection{Representation}
@@ -10803,7 +10824,7 @@
 		The row of \(g\) in the group table is obtained by multiplying the row vector \((I, R, R^2,\) \(m_1, m_2, m_3)\) on the left of \(\rho(g)\). For example,
 		\[(I,R,R^2,m_1,m_2,m_3)\rho(R)=(R,R^2,I,m_3,m_1,m_2)\,.\]
 
-		If we multiply the column vector \((I, R, R^2,\) \(m_1, m_2, m_3)\tp\) by \(\rho(g)\) on the left, then we get the row corresponding to \(g^{-1}\). For example,
+		If we multiply the column vector \((I, R, R^2,\) \(m_1, m_2, m_3)\tp\) by \(\rho(g)\) on the right, then we get the row corresponding to \(g^{-1}\). For example,
 		\[\rho(R)\begin{pmatrix}
 			I \\ R \\ R^2 \\ m_1 \\ m_2 \\ m_3
 		\end{pmatrix}=\begin{pmatrix}
@@ -11280,7 +11301,7 @@
 	Finally, combining all the statements we made before in this chapter, we can prove the Maschke's theorem.
 	\begin{thm}[Maschke's theorem]
 		Let \((\rho,V)\) be a representation of a finite group \(G\) in \(V\) equipped with an inner product \((-,-)\). For any \(G\)-invariant subspace \(W<V\), its \textit{orthogonal complement}, defined as
-		\[W^\perp \coloneqq\{\vb{v}\in V\,|\,(\vb{v},\vb{w})=0\text{ for all }\vb{w}\in W\}\,,\]
+		\[W^\perp \coloneqq\{\vb{v}\in V\mid (\vb{v},\vb{w})=0\text{ for all }\vb{w}\in W\}\,,\]
 		is also an invariant subspace.
 	\end{thm}
 	\begin{proof}
@@ -11311,7 +11332,7 @@
 		Suppose \((\rho_V,V)\) and \((\rho_W,W)\) are irreducible representations of \(G\), where both \(V\) and \(W\) are vector spaces over an algebraically closed field \(\mathbb{F}\) (e.g. \(\mathbb{C}\)). Then
 		\begin{enumerate}[topsep=0pt]
 			\item[(i)] every element of \(\Hom_G(V, W)\) is either \(0\) or an isomorphism;
-			\item[(ii)] the only nontrivial \(G\)linear maps are the scalar multiples of the identity.
+			\item[(ii)] the only nontrivial \(G\)-linear maps are the scalar multiples of the identity.
 		\end{enumerate}
 	\end{lem}
 	\begin{proofskip}[Non-examinable]
@@ -11405,7 +11426,7 @@
 		\[\{I,R,R^2,R^3,m_1,m_2,m_3,m_4\}\mapsto\{(1),(-1),(1),(-1),(1),(1),(-1),(-1)\}\]
 		\[\{I,R,R^2,R^3,m_1,m_2,m_3,m_4\}\mapsto\{(1),(-1),(1),(-1),(-1),(-1),(1),(1)\}\,.\]
 
-		The kernels of the three representations are the normal subgroups of \(D_4\): \(C_4\) and two Vierergruppes respectively.
+		The kernels of the three representations are the normal subgroups of \(D_4\): \(C_4\) and two Vierergruppen respectively.
 	\end{ex}
 	
 	\begin{rem}
@@ -11448,11 +11469,11 @@
 	We can make \(\mathcal{C}_G\), the space of class functions into a Hermitian inner product space.
 	\begin{defn}
 		Define the \textit{Hermitian inner product in \(\mathcal{C}_G\)} to be
-		\[\braket{f_1}{f_2}_G\coloneqq\frac{1}{\abs{G}}\sum_{g\in G}f_1(g)f_2(g^{-1})\,.\]
+		\[\braket{f_1}{f_2}_G\coloneqq\frac{1}{\abs{G}}\sum_{g\in G}f_1(g)f_2(g)^*\,.\]
 	\end{defn}
 	\begin{rem}
 		Let \(\abs{c_g}\) be the number of elements in the same conjugacy class of \(g\in G\). Select one element from each conjugacy class to form the set \(\{g_1,g_2,\dots,g_r\}\), then the inner product simplifies to
-		\[\braket{f_1}{f_2}_G\coloneqq\sum_{i=1}^r\frac{\abs{c_g}}{\abs{G}}f_1(g_i)f_2(g_i^{-1})\,.\]
+		\[\braket{f_1}{f_2}_G\coloneqq\sum_{i=1}^r\frac{\abs{c_g}}{\abs{G}}f_1(g_i)f_2(g_i)^*\,.\]
 	\end{rem}
 	\begin{thm}[Character orthogonality]\label{charortho}
 		If \(\chi_\alpha,\chi_\beta\) are the characters of the irreducible representations \((\rho_\alpha,V_\alpha),(\rho_\beta,V_\beta)\) of \(G\), then
@@ -11465,11 +11486,8 @@
 		Set \(i=j\) and \(k=l\) and sum over repeated indices in the great orthogonality theorem (\cref{orthothm}) using
 		\[\delta_{jl}\delta_{jl}=\delta_{jj}=n_\alpha\,,\]
 		we find
-		\[\sum_{g\in G}\chi_\alpha(g)\chi_\beta(g^{-1})=\abs{G}\delta_{\alpha\beta}\,.\]
-		By \cref{weyltrick}, \(\rho_\beta(g^{-1})\) is unitary so
-		\[\chi_\beta(g^{-1})={\chi_\beta}^*(g)\,,\]
-		and therefore
-		\[\sum_{g\in G}\chi_\alpha(g){\chi_\beta}^*(g)=\abs{G}\delta_{\alpha\beta}\,.\]\qed
+		\[\sum_{g\in G}\chi_\alpha(g)\chi_\beta(g)^*=\abs{G}\delta_{\alpha\beta}\,.\]
+		\qed
 	\end{proof}
 	
 	Finally, we can state the following properties of the character table.
@@ -11517,7 +11535,7 @@
 			Since \(\mathsf{X}\) is square (by (iv)), we can write the above equation as
 			\[\mathsf{D}^{-1}\mathsf{X}^\dagger=\mathsf{X}^{-1}\implies\mathsf{X}^\dagger\mathsf{X}=\mathsf{D}\,.\]
 			This is equivalent to
-			\[\sum_k\chi_k(g_i)\chi_k(g_j)=\delta_{ij}\frac{\abs{G}}{\abs{c_{g_i}}}\,.\]
+			\[\sum_k\chi_k(g_i)^*\chi_k(g_j)=\delta_{ij}\frac{\abs{G}}{\abs{c_{g_i}}}\,.\]
 			\item[(vi)] Let \(n_i\) be the dimension of the irreducible representation \((\rho_i,V_i)\). Let \(\rho_\text{reg}\) be the regular representation of \(G\) with character \(\chi_\text{reg}\). Then \(\chi_\text{reg}(g)=\abs{G}\) when \(g=I\) and \(\chi_\text{reg}(g)=0\) otherwise. Therefore we have
 			\[\braket{\chi_\text{reg}}{\chi_i}=n_i\]
 			for all \(i\). Since
@@ -11607,7 +11625,7 @@
 			A_{ij}B_{m1} & A_{ij}B_{m2} & \cdots & A_{ij}B_{mn}
 		\end{pNiceMatrix}\,.\]
 	\end{defn}
-	Denote the irreducible representations of \(G\) by \(\rho_1,\dots,\rho_k\). Let \(P\) be a reducible representation of \(G\), then \(G\) can be decomposed into irreducible representations as the direct sum
+	Denote the irreducible representations of \(G\) by \(\rho_1,\dots,\rho_k\). Let \(P\) be a reducible representation of \(G\), then \(P\) can be decomposed into irreducible representations as the direct sum
 	\[P=m_1\rho_1\oplus m_2\rho_2 \oplus\dots\oplus m_k\rho_k =\bigoplus_{i=1}^{k}m_i\rho_i\,,\]
 	where \(m_i\in \mathbb{Z}_{>0}\) are the \textit{multiplicities}. Therefore, the matrix \(P(g)\) can be written, after a similarity transformation by a \(g\)-independent matrix \(\mathsf{S}\), as
 	\begin{align*}
@@ -11622,7 +11640,7 @@
 
 	\begin{thm}
 		The multiplicity \(m_i\) of the decomposition of \(P\) into irreducible representations \(\rho_i\) with characters \(\chi_i\) is given by
-		\[m_i=\frac{1}{G}\sum_{c_{g_j}}\abs{c_{g_j}}\chi_P(g_j)\chi_i(g_j)^*\,.\] 
+		\[m_i=\frac{1}{\abs{G}}\sum_{c_{g_j}}\abs{c_{g_j}}\chi_P(g_j)\chi_i(g_j)^*\,.\] 
 	\end{thm}
 	\begin{proof}
 		Sum over all the \(g\) for equation (\(\dagger\)), multiply by \(\chi_j(g^{-1})\), then use the orthogonality of the characters (\cref{charortho}).
@@ -11639,13 +11657,13 @@
 	\section{Small Oscillations}
 	\subsection{Pendulum}
 	\subsubsection{Simple Pendulum}
-	Consider a simple pendulum of a string of length \(a\) with a mass \(m\) hanging at the end. The string makes an angle \(\theta\) with the vertical. The equation of motion, obtained from Newton's second law or conservation of energy, is
+	Consider a simple pendulum of a string of length \(l\) with a mass \(m\) hanging at the end. The string makes an angle \(\theta\) with the vertical. The equation of motion, obtained from Newton's second law or conservation of energy, is
 	\[ml\ddot{\theta}=-mg\sin\theta\,.\]
 	For small \(\theta\), by the approximation \(\sin\theta\approx\theta\), we have
 	\[\ddot{\theta}=-\frac{g}{l}\theta\,,\]
-	a simple harmonic oscillator equation. Define \(\omega=g/l\), we have the solution
+	a simple harmonic oscillator equation. Defining \(\omega^2=g/l\), we have the solution
 	\[\theta=C\sin\omega t+D\cos\omega t\,,\]
-	or alternately
+	or alternatively
 	\[\theta=A\sin\omega(t-t_0)\,,\]
 	where \(A\) is the amplitude and \(\theta_0=\omega t_0\) is the phase.
 	\subsubsection{Coupled Pendula}
@@ -11723,7 +11741,7 @@
 	\subsubsection{Lagrangian Dynamics and Coupled Pendula}
 	Modify the double pendula problem slightly so that \(m_1\ne m_2\). We will use Lagrange's equations to work out the general theory. We take our generalised coordinates to be \(\theta_1\) and \(\theta_2\). The Lagrangian of the system is
 	\[L=T-V\,,\]
-	which satisfies the Lagrange's equations (\cref{lageq})
+	which satisfies Lagrange's equations (\cref{lageq})
 	\[\dv{t}\qty(\pdv{L}{\dot{\theta}_i})-\pdv{L}{\theta_i}=0\]
 	for \(i\in\{1,2\}\).
 
@@ -11897,7 +11915,7 @@
 	\begin{equation}\tag{\(*\)}
 		\vb{q}(t)=\sum_{m=1}^{N}A^{(m)}\vb{Q}^{(m)}\sin\omega_m(t-t_0^{(m)})\,,
 	\end{equation}
-	where the constants \(A^{(m)}\) is the amplitude of the \(m^{\text{th}}\) normal mode and the constants \(\omega_mt_0^{(m)}\) is its phase.
+	where the constant \(A^{(m)}\) is the amplitude of the \(m^{\text{th}}\) normal mode and \(\omega_mt_0^{(m)}\) is the phase.
 
 	In the case where \(\omega_m=0\), the normal mode is called a \textit{zero mode}. The corresponding term in the solution is obtained by taking the limit
 	\[\lim_{\omega_m\to 0}A^{(m)}\vb{Q}^{(m)}\sin\omega_m(t-t_0^{(m)})=B^{(m)}\vb{Q^{(m)}}(t-t_0^{(m)})\,,\]
@@ -11934,7 +11952,7 @@
 	\end{proof}
 	\subsubsection{Normal Coordinates}
 	\begin{defn}
-		\textit{Normal coordintes} \(\alpha^{(m)}(t)\) are linear combinations of the original generalised coordinates \(q_j(t)\) which oscillates at a single, pure frequency \(\omega_m\) and satisfy the simple harmonic equation.
+		\textit{Normal coordinates} \(\alpha^{(m)}(t)\) are linear combinations of the original generalised coordinates \(q_j(t)\) which oscillats at a single, pure frequency \(\omega_m\) and satisfy the simple harmonic equation.
 	\end{defn}
 	\begin{prop}\label[prop]{normco}
 		The normal coordinates are given by
@@ -12062,7 +12080,7 @@
 	\[\vb{x}_3=l\qty(-\frac{1}{2},-\frac{1}{2\sqrt{3}})+(q_5,q_6)\,.\]
 
 	The kinetic energy is
-	\[T=\frac{1}{2}m(\ddot{\vb{x}}_1^2+\ddot{\vb{x}}_2^2+\ddot{\vb{x}}_3^2=\frac{1}{2}m(\dot{q}_1^2+\dot{q}_2^2+\dot{q}_3^2+\dot{q}_4^2+\dot{q}_5^2+\dot{q}_6^2))\,,\]
+	\[T=\frac{1}{2}m(\dot{\vb{x}}_1^2+\dot{\vb{x}}_2^2+\dot{\vb{x}}_3^2)=\frac{1}{2}m(\dot{q}_1^2+\dot{q}_2^2+\dot{q}_3^2+\dot{q}_4^2+\dot{q}_5^2+\dot{q}_6^2)\,,\]
 	so the matrix \(\mathsf{T}\) is diagonal:
 	\[T_{ij}=m\delta_{ij}\,.\]
 
@@ -12237,7 +12255,7 @@
 			x_1 \\ x_2 \\x_3
 		\end{pmatrix}=\begin{pmatrix}
 			-x_3 \\ -x_2 \\ -x_1
-		\end{pmatrix}\quad & &\implies \quad \phi(I)=\begin{pmatrix}
+		\end{pmatrix}\quad & &\implies \quad \phi(m)=\begin{pmatrix}
 			0 & 0 & -1\\
 			0 & -1 & 0\\
 			-1 & 0 & 0
