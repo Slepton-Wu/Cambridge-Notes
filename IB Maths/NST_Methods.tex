@@ -11671,7 +11671,7 @@
 
 	For small oscillations, the extension or compression of the spring away from its equilibrium length \(b\) is approximated to be
 	\[x=l(\theta_2-\theta_1)\]
-	for sufficient accuracy. This can be shown by setting the origin \(O\) to be where the string of the first pendulum is connected to its rotation point. Then the positions of the two pendula are
+	for sufficient accuracy. This can be shown by setting the origin \(O\) at the pivot of the first pendulum. Then the positions of the two pendula are
 	\[\vb{x}_1=\begin{pmatrix}
 		l\sin\theta_1\\
 		-l\cos\theta_1
@@ -11759,7 +11759,7 @@
 	and
 	\[L=\frac{1}{2}m_1l^2\dot{\theta}_1^2+\frac{1}{2}m_2l^2\dot{\theta}_2^2-\frac{1}{2}m_1gl\theta_1^2-\frac{1}{2}m_2gl\theta_2^2-\frac{1}{2}kl^2(\theta_2-\theta_1)^2\,.\]
 
-	Substitute the Lagrangian into the Lagrange's equation, we have
+	Substitute the Lagrangian into Lagrange's equations, we have
 	\[\begin{cases}
 		m_1l\ddot{\theta}_1=-m_1g\theta_1-kl(\theta_1-\theta_2)\\
 		m_2l\ddot{\theta}_2=-m_2g\theta_2+kl(\theta_1-\theta_2)\,,
@@ -11952,7 +11952,7 @@
 	\end{proof}
 	\subsubsection{Normal Coordinates}
 	\begin{defn}
-		\textit{Normal coordinates} \(\alpha^{(m)}(t)\) are linear combinations of the original generalised coordinates \(q_j(t)\) which oscillats at a single, pure frequency \(\omega_m\) and satisfy the simple harmonic equation.
+		\textit{Normal coordinates} \(\alpha^{(m)}(t)\) are linear combinations of the original generalised coordinates \(q_j(t)\) which oscillates at a single, pure frequency \(\omega_m\) and satisfy the simple harmonic equation.
 	\end{defn}
 	\begin{prop}\label[prop]{normco}
 		The normal coordinates are given by
@@ -11997,7 +11997,7 @@
 	The potential energy is
 	\[V=\frac{1}{2}k(x_2-x_1)^2+\frac{1}{2}k(x_3-x_2)^2\,,\]
 	so
-	\[\mathsf{V}=\begin{pmatrix}
+	\[\mathsf{V}=k\begin{pmatrix}
 		1 & -1 & 0\\
 		-1 & 2 & -1\\
 		0 & -1 & 1
@@ -12147,7 +12147,7 @@
 		\rho(g)\tp\mathsf{T}\rho(g)=\mathsf{T}\\
 		\rho(g)\tp\mathsf{V}\rho(g)=\mathsf{V}\,.
 	\end{cases}\]
-	By Weyl's unitary trick (\cref{weyltrick}), we can always find a basis such that all the representations \(\rho(g)\) are unitary. Since the coordinates are real, we can choose such basis so that \(\rho(g)\) are orthogonal, and
+	By Weyl's unitary trick (\cref{weyltrick}), we can always find a basis such that all the representations \(\rho(g)\) are unitary. Since the coordinates are real, we can choose such a basis so that \(\rho(g)\) are orthogonal, and
 	\begin{equation}\tag{\(\dagger\)}
 		\begin{cases}
 			\rho(g)^{-1}\mathsf{T}\rho(g)=\mathsf{T}\\
@@ -12233,11 +12233,11 @@
 		\mathsf{0} & \mathsf{0} & \cdots & v_k\mathsf{I}_k
 	\end{pmatrix}\,.\]
 
-	Once the kinetic and potential energy matrices are diagonalised in this way, finding the normal modes are straightforward. The normal frequencies are
+	Once the kinetic and potential energy matrices are diagonalised in this way, finding the normal modes is straightforward. The normal frequencies are
 	\[\omega_\alpha^2=\frac{v_\alpha}{t_\alpha}\]
 	with degeneracy \(n_\alpha\). The generalised eigenvectors of normal modes span the invariant subspace of the underlying vector space acted on by the corresponding irreducible representation of the symmetry group.
 
-	If an irreducible representation \(\phi^{(\alpha)}(g)\) occurs with multiplicity \(m_\alpha >1\), then the corresponding diagonal block of \(t_\alpha\) and \(v_\alpha\) are replaced by a \(m_\alpha\times m_\alpha\) block of matrix. \(\mathsf{T}\) and \(\mathsf{V}\) are not completely diagonal, but finding the normal modes reduces to solving separate generalised eigenvalue problems for each \(\alpha\).
+	If an irreducible representation \(\phi^{(\alpha)}(g)\) occurs with multiplicity \(m_\alpha >1\), then the corresponding diagonal block of \(t_\alpha\) and \(v_\alpha\) are replaced by an \(m_\alpha\times m_\alpha\) block matrix. \(\mathsf{T}\) and \(\mathsf{V}\) are not completely diagonal, but finding the normal modes reduces to solving separate generalised eigenvalue problems for each \(\alpha\).
 
 	\subsubsection{Example: CO\(_2\) Molecule Revisited}
 	We will, again, only consider the 1D motions of the atoms in a CO\(_2\) molecule. Its symmetry group is therefore \(G=\{I,m\}\). The action of the group on the coordinates \(\vb{q}=(x_1,x_2,x_3)\) is given by the representation \(\phi\), where
