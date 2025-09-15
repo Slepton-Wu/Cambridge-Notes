@@ -106,16 +106,16 @@
     we are often interested in the partition function
     \begin{align}
         Z&=\sum_{\ket{n}}\ee^{-\beta E_n}\notag \\
-        &=\sum_{\ket{n}} \ee^{-\beta\mel{n}{\hat{H}}{n}}\,.
+        &=\sum_{\ket{n}} \ee^{-\beta\mel{n}{\hat{H}}{n}}\,,
     \end{align}
-    Defining the exponential of an operator via power series, one can write
+    where \(\{\ket{n}\}\) are the energy eigenstates. Defining the exponential of an operator via power series, one can write
     \begin{equation}
         Z=\sum_{\ket{n}}\expval{\ee^{-\beta\hat{H}}}{n}=\tr\ee^{-\beta\hat{H}}\,,
     \end{equation}
     assuming convergence.
 
     Next, we want to show the following result:
-    \begin{clm}[Totter split]
+    \begin{clm}[Trotter split]
         \begin{equation}
             \ee^{-\beta\hat{H}}=\lim_{N\to\infty}\left[\ee^{-\frac{\beta}{N}\hat{H}}\right]^N\,.
         \end{equation}
@@ -134,7 +134,7 @@
         \end{equation}
         in which \([-,-]\) is the commutator.
     \end{lem}
-    This simply states that once \(X\) and \(Y\) are non-commutative, we no longer have \(\ee^{X}\ee^{Y}=\ee^{X+Y}\) --- otherwise this will be same as \(\ee^{Y}\ee^{X}\) and the non-commutativity will be broken. Instead, we will have some terms related to the commutators of \(X\) and \(Y\) introduced into the exponent.
+    This simply states that once \(X\) and \(Y\) are non-commuting, we no longer have \(\ee^{X}\ee^{Y}=\ee^{X+Y}\) --- otherwise this would be the same as \(\ee^{Y}\ee^{X}\) and the non-commutativity will be broken. Instead, we will have some terms related to the commutators of \(X\) and \(Y\) introduced into the exponent.
     
     From this, one can show that
     \begin{equation}
@@ -148,9 +148,9 @@
 
     This allows us to write
     \begin{equation}
-        Z=\sum_{\ket{n}}\lim_{N\to\infty}\expval{\left[\ee^{-\frac{\beta}{N}\hat{H}}\right]^N}{n}\,.
+        Z=\tr\left[\lim_{N\to\infty}\left(\ee^{-\frac{\beta}{N}\hat{H}}\right)^N\right]\,.
     \end{equation}
-    We let the complete orthonormal set \(\{\ket{n}\}\) be the position basis \(\{\ket{q_1}\}\), and correspondingly replace the sum by the integral. This gives
+    The trace has the nice property that it is independent of the basis that we evaluate it in. We now expand the trace in the position basis \(\{\ket{q_1}\}\), giving
     \begin{equation}
         Z=\lim_{N\to\infty}\int\dd{q_1}\expval{\left[\ee^{-\frac{\beta}{N}\hat{H}}\right]^N}{q_1}\,.
     \end{equation}
@@ -167,42 +167,29 @@
     \begin{equation}
         M_i=\mel{q_i}{\ee^{-\frac{\beta}{N}\hat{H}}}{q_{i+1}}\,,
     \end{equation}
-    where we have identified \(q_{1}\equiv q_{N+1}\). This equals to
+    where we have identified \(q_{1}\equiv q_{N+1}\). This equals
     \begin{equation}
         M_i=\mel{q_i}{\ee^{-\frac{\beta}{N}\hat{T}}\ee^{-\frac{\beta}{N}\hat{V}}}{q_{i+1}}\,,
     \end{equation}
-    because breaking the exponential only introduces error terms \(O(\frac{1}{N^2})\) in the exponent, which is a higher order infinitesimal in \(N\to\infty\). To evaluate this, we again use the trick of inserting an identity operator between the exponentials, giving
+    because breaking the exponential only introduces error \(O(\frac{1}{N^2})\) in the exponent in each term, which is a higher order infinitesimal in \(N\to\infty\). To evaluate this, we again use the trick of inserting an identity operator between the exponentials, but this time is the momentum basis, giving
     \begin{equation}
-        M_i=\int\dd{q_m}\mel{q_i}{\ee^{-\frac{\beta}{N}\hat{T}}}{q_m}\mel{q_m}{\ee^{-\frac{\beta}{N}\hat{V}}}{q_{i+1}}\,.
+        M_i=\int\dd{p}\mel{q_i}{\ee^{-\frac{\beta}{N}\hat{T}}}{p}\mel{p}{\ee^{-\frac{\beta}{N}\hat{V}}}{q_{i+1}}\,.
     \end{equation}
-    The second term is trivial --- \(\hat{V}\) is a scalar function of coordinates, so it is diagonal in the coordinate basis, giving
+    Both terms are then trivial to evaluate --- \(\ket{p}\) is an eigenstate of \(\hat{T}\), and since \(\hat{V}\) is a scalar function of coordinates, \(q_{i+1}\) is also an eigenstate of \(\hat{V}\). Therefore we have
     \begin{align}
-        M_i&=\int\dd{q_m}\mel{q_i}{\ee^{-\frac{\beta}{N}}\hat{T}}{q_m}\ee^{-\frac{\beta}{N}\hat{V}(q_{i+1})}\delta(q_m-q_{i+1})\notag\\
-        &=\mel{q_i}{\ee^{-\frac{\beta}{N}\hat{T}}}{q_{i+1}}\ee^{-\frac{\beta}{N}\hat{V}(q_{i+1})}
+        M_i&=\int\dd{p}\ee^{-\frac{\beta}{N}\frac{p^2}{2m}}\ee^{-\frac{\beta}{N}V(q_{i+1})}\braket{q_i}{p}\braket{p}{q_{i+1}}\,.
     \end{align}
-    The first term is a bit more tricky. Since \(\hat{T}=\frac{1}{2m}\hat{p}^2\), it might be a good idea to evaluate it in the momentum basis. We insert the identity operator in the momentum basis, giving
+    This is easy to evaluate. The bra-ket is just the position representation of momentum eigenstates
     \begin{equation}
-        \mel{q_i}{\ee^{-\frac{\beta}{N}\hat{T}}}{q_{i+1}}=\int\dd{p}\braket{q_i}{p}\mel{p}{\ee^{-\frac{\beta}{N}\hat{T}}}{q_{i+1}}
-    \end{equation}
-    Both terms are now easy to evaluate: the first one is just the position representation of momentum eigenstates
-    \begin{equation}
-        \braket{q_i}{p}=\frac{1}{\sqrt{2\pi\hbar}}\ee^{\ii p q_i/\hbar}\,,
-    \end{equation}
-    while
-    \begin{equation}
-        \ee^{-\frac{\beta}{N}\hat{T}}\ket{p}=\ee^{-\frac{\beta}{N}\frac{p^2}{2m}}\ket{p}\,,
-    \end{equation}
-    so the second term is
-    \begin{equation}
-        \mel{p}{\ee^{-\frac{\beta}{N}\hat{T}}}{q_{i+1}}=\ee^{-\frac{\beta p^2}{2mN}}\braket{p}{q_{i+1}}=\frac{1}{\sqrt{2\pi\hbar}}\ee^{-\frac{\beta p^2}{2mN}}\ee^{-\ii p q_{i+1}/\hbar}\,.
+        \braket{q_i}{p}=\frac{1}{\sqrt{2\pi\hbar}}\ee^{\ii p q_i/\hbar}\,.
     \end{equation}
     Therefore,
     \begin{equation}
-        \mel{q_i}{\ee^{-\frac{\beta}{N}\hat{T}}}{q_{i+1}}=\frac{1}{2\pi\hbar}\int\dd{p} \ee^{\ii p (q_i-q_{i+1})/\hbar}\ee^{-\frac{\beta p^2}{2mN}}\,.
+       M_i=\frac{1}{2\pi\hbar}\ee^{-\frac{\beta}{N}V(q_{i+1})}\int\dd{p} \ee^{\ii p (q_i-q_{i+1})/\hbar}\ee^{-\frac{\beta p^2}{2mN}}\,.
     \end{equation}
-    This is a Gaussian integral (after completing the square), giving
+    We are only left with a simple Gaussian integral (after completing the square), which evaluates to
     \begin{equation}
-        \mel{q_i}{\ee^{-\frac{\beta}{N}\hat{T}}}{q_{i+1}}=\sqrt{\frac{mN}{2\pi\beta\hbar^2}}\exp\left(-\frac{mN}{2\beta\hbar^2}(q_i - q_{i+1})^2\right)\,,
+        \int\dd{p} \ee^{\ii p (q_i-q_{i+1})/\hbar}\ee^{-\frac{\beta p^2}{2mN}}=\sqrt{\frac{2\pi mN}{\beta}}\exp\left(-\frac{mN}{2\beta\hbar^2}(q_i - q_{i+1})^2\right)\,,
     \end{equation}
     and so the matrix elements are
     \begin{equation}
@@ -214,18 +201,19 @@
     \end{equation}
     This form of the partition function starts to reveal its name `ring polymer'. We just need a few extra steps to get there. In particular, notice the prefactor --- it is exactly what is known as the thermal wavelength, which can be obtained by integrating the momentum degrees of freedom when evaluating the classical partition function. It is just instead of \(\beta\), we have \(\beta/N\) here. Hence, we define \(\beta_N=\beta/N\), the effective (inverse) temperature, and observe that
     \begin{equation}
-        \left(\frac{m}{2\pi\beta_N\hbar^2}\right)^{1/2}=\frac{1}{2\pi\hbar}\int\dd{p_i}\exp\left(-\frac{\beta_np_i^2}{2m}\right)\,.
+        \left(\frac{m}{2\pi\beta_N\hbar^2}\right)^{1/2}=\frac{1}{2\pi\hbar}\int\dd{p_i}\exp\left(-\frac{\beta_N p_i^2}{2m}\right)\,.
     \end{equation}
     This allows us to finally write
     \begin{align}
-        Z&=\lim_{N\to\infty}\frac{1}{(2\pi\hbar)^N}\int\dd{p_1}\dd{q_1}\dots\dd{p_N}\dd{q_N}\exp\left[-\beta_n\sum_{i=1}^{N}\left(\frac{p_i^2}{2m}+\frac{m}{2\beta_N^2\hbar^2}(q_i-q_{i+1})^2+V(q_i)\right)\right]\notag\\
-        &=\lim_{N\to\infty}\frac{1}{(2\pi\hbar)^N}\int\dd[N]{\vb{p}}\dd[N]{\vb{q}}\exp\left(-\beta_N H_N\right)\,,
+        Z&=\lim_{N\to\infty}\frac{1}{(2\pi\hbar)^N}\int\dd{p_1}\dd{q_1}\dots\dd{p_N}\dd{q_N}\exp\left[-\beta_N\sum_{i=1}^{N}\left(\frac{p_i^2}{2m}+\frac{m}{2\beta_N^2\hbar^2}(q_i-q_{i+1})^2+V(q_i)\right)\right]\notag\\
+        &=\lim_{N\to\infty}\frac{1}{(2\pi\hbar)^N}\int\dd[N]{\vb{p}}\dd[N]{\vb{q}}\exp\left(-\beta_N H_N\right)\notag\\
+        &\eqqcolon\lim_{N\to\infty} Z_N\,,
     \end{align}
     where
     \begin{equation}
-        H_N=\sum_{i=1}^{N}\left(\frac{p_i^2}{2m}+\frac{m}{2\beta_N^2\hbar}(q_i-q_{i+1})^2+V(q_i)\right)
+        H_N=\sum_{i=1}^{N}\left(\frac{p_i^2}{2m}+\frac{m}{2\beta_N^2\hbar^2}(q_i-q_{i+1})^2+V(q_i)\right)\,.
     \end{equation}
-    We see something magical here. This is exactly the classical partition function of a \(N\)-particle polymer ring system connected by springs of angular frequency \(\omega_i=\frac{1}{\beta_N\hbar}\), placed on a potential \(V\) at temperature \(\beta_N\).
+    We see something magical here. This is exactly the classical partition function of a \(N\)-particle polymer ring system connected by springs of angular frequency \(\omega_N=\frac{1}{\beta_N\hbar}\), placed on a potential \(V\) at inverse temperature \(\beta_N\). If we take the \(N\to\infty\) limit, the partition function this polymer ring with \(N\) particles becomes that of a single quantum particle!
 
     \newpage
 
@@ -241,7 +229,7 @@
     so
     \begin{align}
         \eval{A}&=\frac{1}{Z}\sum_{\ket{n}}\expval{\ee^{-\beta \hat{H}}\hat{A}}{n}\notag \\
-        &=\frac{1}{Z_N}\tr[\ee^{-\beta\hat{H}}\hat{A}]\,.
+        &=\frac{1}{Z}\tr[\ee^{-\beta\hat{H}}\hat{A}]\,.
     \end{align}
     Using the same trick as for the partition function, we can write
     \begin{equation}
@@ -293,7 +281,7 @@
 
     The \(N\to \infty\) limit of \(\eval{A_N B_N}\) actually corresponds to something else.
     \begin{defn}
-        The \textit{corelation function} of two observables \(A\) and \(B\) is
+        The \textit{correlation function} of two observables \(A\) and \(B\) is
         \begin{equation}
             C_{AB}(t)\coloneqq\frac{1}{Z}\tr[\ee^{-\beta\hat{H}}\hat{A}\ee^{\ii\hat{H}t/\hbar}\hat{B}\ee^{-\ii\hat{H}t/\hbar}]\,.
         \end{equation}
@@ -311,7 +299,7 @@
     \end{align}
     This is often ill-defined. What arises more frequently in PIMD (and linear response theory) is a slightly modified version of this:
     \begin{defn}
-        The \textit{Kubo-transformed corelation function} of two observables \(A\) and \(B\) is
+        The \textit{Kubo-transformed correlation function} of two observables \(A\) and \(B\) is
         \begin{equation}
             K_{AB}(t)\coloneqq\frac{1}{\beta Z}\int_{0}^{\beta}\dd{\lambda}\tr[\ee^{-(\beta-\lambda)\hat{H}}\hat{A}\ee^{-\lambda\hat{H}}\ee^{\ii\hat{H}t/\hbar}\hat{B}\ee^{-\ii\hat{H}t/\hbar}]\,.
         \end{equation}
@@ -324,31 +312,31 @@
     \begin{equation}
         \hat{A}(-\ii\hbar\lambda)=\ee^{\lambda\hat{H}}\hat{A}\ee^{-\lambda\hat{H}}\,.
     \end{equation}
-    Hence in the Kubo-transformed correlation function, we are also averaging over the imaginary time of \(\hat{A}\) from \(\tau =0\) to \(\tau=-\ii\hbar\beta\). This allows us to compactly denote the Kubo-transformed correlation function as
+    Hence in the Kubo-transformed correlation function, we are also averaging over the imaginary time of \(\hat{A}\) from \(t=0\) to \(t=-\ii\hbar\beta\). This allows us to compactly denote the Kubo-transformed correlation function as
     \begin{equation}
         K_{AB}(t)=\frac{1}{\beta}\int_{0}^{\beta}\dd{\lambda}\eval{\hat{A}(-i\hbar\lambda)\hat{B}(t)}\,.
     \end{equation}
 
-    The ordinary correlation function and the Kubo transformed one are more closely related in the Fourier domain. This is easily seen if we work in the basis of energy eigenstates. Inserting the resolution of identity operators in the energy basis,
+    The ordinary correlation function and the Kubo-transformed one are more closely related in the Fourier domain. This is easily seen if we work in the basis of energy eigenstates. Inserting the resolution of identity operators in the energy basis,
     \begin{align}
         C_{AB}(t)&=\frac{1}{Z}\sum_{\ket{n}}\sum_{\ket{m}}\sum_{\ket{\ell}}\mel{n}{\ee^{-\beta\hat{H}}\hat{A}}{m}\mel{m}{\ee^{\ii\hat{H}t/\hbar}}{\ell}\mel{\ell}{\hat{B}\ee^{-\ii\hat{H}t/\hbar}}{n}\notag \\
         &=\frac{1}{Z}\sum_{\ket{n}}\sum_{\ket{m}}\sum_{\ket{\ell}}\ee^{-\beta E_n}\ee^{-\ii E_n t/\hbar}\ee^{\ii E_\ell t/\hbar}\delta_{m\ell}A_{nm}B_{\ell n}\notag \\
         &=\frac{1}{Z}\sum_{\ket{n}}\sum_{\ket{m}}\ee^{-\beta E_n}\ee^{-\ii(E_n-E_m)t/\hbar}A_{nm}B_{mn}\,.
     \end{align}
-    Doing the same for the Kubo transformed correlation function, we get
+    Doing the same for the Kubo-transformed correlation function, we get
     \begin{align}
-        K_{AB}(t)&=\frac{1}{\beta Z}\int_{0}^{\beta}\dd{\lambda}\sum_{\ket{n}}\sum_{\ket{m}}\sum_{\ket{\ell}}\mel{n}{\ee^{-\beta\hat{H}\ee^{\lambda H}}\hat{A}}{m}\mel{m}{\ee^{-\lambda\hat{H}}\ee^{\ii\hat{H}t/\hbar}}{\ell}\mel{\ell}{\hat{B}\ee^{-\ii\hat{H}t/\hbar}}{n}\notag \\
+        K_{AB}(t)&=\frac{1}{\beta Z}\int_{0}^{\beta}\dd{\lambda}\sum_{\ket{n}}\sum_{\ket{m}}\sum_{\ket{\ell}}\mel{n}{\ee^{-\beta\hat{H}\ee^{\lambda \hat{H}}}\hat{A}}{m}\mel{m}{\ee^{-\lambda\hat{H}}\ee^{\ii\hat{H}t/\hbar}}{\ell}\mel{\ell}{\hat{B}\ee^{-\ii\hat{H}t/\hbar}}{n}\notag \\
         &=\frac{1}{Z}\sum_{\ket{n}}\sum_{\ket{m}}\ee^{-\beta E_n}\ee^{-\ii(E_n-E_m)t/\hbar}A_{nm}B_{mn}\frac{1}{\beta}\int_{0}^{\beta}\dd{\lambda}\ee^{\lambda(E_n-E_m)}\notag\\
         &=\frac{1}{Z}\sum_{\ket{n}}\sum_{\ket{m}}\ee^{-\beta E_n}\ee^{-\ii(E_n-E_m)t/\hbar}A_{nm}B_{mn}\frac{\ee^{\beta(E_n-E_m)}-1}{\beta(E_n-E_m)}\,.
     \end{align}
     It has got some extra bit comparing with the normal correlation function --- but it is dependent on \(E_n-E_m\), so we can't easily pull it out from the sum. Nice things happen if we move to the Fourier domain. We get
     \begin{align}
-        \tilde{K}_{AB}(\omega)&=\int_{-\infty}^{\infty}\dd{\omega} \ee^{-\ii\omega t}K_{AB}(t)\notag \\
-        &=\frac{1}{Z}\sum_{\ket{n}}\sum_{\ket{m}}\ee^{-\beta E_n}A_{nm}B_{mn}\frac{\ee^{\beta(E_n-E_m)}-1}{\beta(E_n-E_m)}\int_{-\infty}^{\infty}\dd{\omega}\ee^{-\ii\omega t}\ee^{-\ii(E_n-E_m)t/\hbar}\,.
+        \tilde{K}_{AB}(\omega)&=\int_{-\infty}^{\infty}\dd{t} \ee^{-\ii\omega t}K_{AB}(t)\notag \\
+        &=\frac{1}{Z}\sum_{\ket{n}}\sum_{\ket{m}}\ee^{-\beta E_n}A_{nm}B_{mn}\frac{\ee^{\beta(E_n-E_m)}-1}{\beta(E_n-E_m)}\int_{-\infty}^{\infty}\dd{t}\ee^{-\ii\omega t}\ee^{-\ii(E_n-E_m)t/\hbar}\,.
     \end{align}
     If you're familiar with Fourier transform, you should identify that this is exactly the delta function,
     \begin{equation}
-        \int_{-\infty}^{\infty}\dd{\omega}\ee^{-\ii\omega t}\ee^{-\ii(E_n-E_m)t/\hbar}=2\pi\delta\left(\frac{E_m-E_n}{\hbar}-\omega\right)\,,
+        \int_{-\infty}^{\infty}\dd{t}\ee^{-\ii\omega t}\ee^{-\ii(E_n-E_m)t/\hbar}=2\pi\delta\left(\frac{E_m-E_n}{\hbar}-\omega\right)\,,
     \end{equation}
     and so
     \begin{equation}
@@ -393,7 +381,7 @@
         \begin{equation}
             K_{AB}(0)=\frac{1}{\beta Z}\int_{0}^{\beta}\dd{\lambda}\tr[\ee^{-(\beta-\lambda)\hat{H}}\hat{A}\ee^{-\lambda\hat{H}}\hat{B}]\,.
         \end{equation}
-        Consider again Totter-splitting the exponential of the Hamiltonians, but this time
+        Consider again Trotter-splitting the exponential of the Hamiltonians, but this time
         \begin{equation}
             \ee^{-(\beta-\lambda)\hat{H}}=\left(\ee^{-\beta\hat{H}}\right)^{\frac{\beta-\lambda}{\beta}}=\lim_{N\to\infty}\left(\ee^{-\frac{\beta}{N}\hat{H}}\right)^{N(1-\frac{\lambda}{\beta})}\,,
         \end{equation}
@@ -422,7 +410,7 @@
             K_{AB}(0)=\int\dd[N]{\vb{q}}\dots\mel{q_k}{\ee^{-\beta_N \hat{H}}\hat{A}}{q_{k+1}}&\dots\mel{q_N}{\ee^{-\beta_N\hat{H}}\hat{B}}{q_1}\notag\\
             &=\int\dd[N]{\vb{q}}\dots\mel{q_i}{\ee^{-\beta_N \hat{H}}\hat{A}}{q_{i+1}}\dots\mel{q_{j}}{\ee^{-\beta_N\hat{H}}\hat{B}}{q_{j+1}}\dots\,,
         \end{align}
-        as long as \(\abs{j-i}=k\). We average over all possible cyclic permutations of the trace --- there are \(N\) of them for each interval \(k\). This is effectively putting \(\hat{A}\) and \(\hat{B}\) into all possible slices of brakets. Therefore we can write
+        as long as \(\abs{j-i}=k\). We average over all possible cyclic permutations of the trace --- there are \(N\) of them for each interval \(k\). This is effectively putting \(\hat{A}\) and \(\hat{B}\) into all possible slices of bra-kets. Therefore we can write
         \begin{align}
             K_{AB}(0)&=\lim_{N\to\infty}\frac{1}{Z_N}\frac{1}{N^2}\sum_{i,j=1}^{N}\int\dd[N]{\vb{q}}\dots\mel{q_i}{\ee^{-\beta_N \hat{H}}\hat{A}}{q_{i+1}}\dots\mel{q_j}{\ee^{-\beta_N\hat{H}}\hat{B}}{q_{j+1}}\dots\notag\\
             &=\lim_{N\to\infty}\frac{1}{Z_N}\int\dd[N]{\vb{p}}\dd[N]{\vb{q}}A_N B_N \ee^{-\beta_N H_N}\notag\\

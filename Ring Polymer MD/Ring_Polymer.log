@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.21)  9 SEP 2025 22:15
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.21)  15 SEP 2025 22:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -771,17 +771,17 @@ Package hyperref Info: bookmark level for unknown lem defaults to 0 on input lin
 [3]
 
 [4]
-Package hyperref Info: bookmark level for unknown defn defaults to 0 on input line 296.
+Package hyperref Info: bookmark level for unknown defn defaults to 0 on input line 284.
 
 
 [5]
 
 [6]
-Package hyperref Info: bookmark level for unknown proof defaults to 0 on input line 392.
+Package hyperref Info: bookmark level for unknown proof defaults to 0 on input line 380.
 
 
 [7]
-Overfull \hbox (1.40225pt too wide) detected at line 424
+Overfull \hbox (1.40225pt too wide) detected at line 412
 []
  []
 
