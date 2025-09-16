@@ -1000,7 +1000,7 @@
 		The divergence of a vector field \(\vb{F}\) in an orthogonal curvilinear coordinate system is given by
 		\[\div\vb{F}=\frac{1}{h_1h_2h_3}\qty(\pdv{q_1}(h_2h_3F_1)+\pdv{q_2}(h_3h_1F_2)+\pdv{q_3}(h_1h_2F_3))\,.\]
 	\end{thm}
-	\begin{itemize}[leftmargin=50pt]
+	\begin{itemize}
 		\item Spherical polar coordinates:
 		\[\div\vb{F}=\frac{1}{r^2}\pdv{r}(r^2F_r)+\frac{1}{r\sin\theta}\pdv{\theta}(\sin\theta F_\theta)+\frac{1}{r\sin\theta}\pdv{F_\phi}{\phi}\]
 		\item Cylindrical polar coordinates:
@@ -1153,7 +1153,7 @@
 		The Laplacian operator in an orthogonal curvilinear coordinate system is given by
 		\[\laplacian=\frac{1}{h_1h_2h_3}\qty(\pdv{q_1}\qty(\frac{h_2h_3}{h_1}\pdv{q_1})+\pdv{q_2}\qty(\frac{h_3h_1}{h_2}\pdv{q_2})+\pdv{q_3}\qty(\frac{h_1h_2}{h_3}\pdv{q_3}))\,.\]
 	\end{thm}
-	\begin{itemize}[leftmargin=50pt]
+	\begin{itemize}
 		\item Spherical polar coordinates:
 		\begin{align*}
 			\laplacian{\psi}&=\frac{1}{r^2}\pdv{r}(r^2\pdv{\psi}{r})+\frac{1}{r^2\sin\theta}\pdv{\theta}\qty(\sin\theta\pdv{\psi}{\theta})+\frac{1}{r^2\sin^2\theta}\pdv[2]{\psi}{\phi}\\
@@ -3442,75 +3442,71 @@
 	\[\mathsf{x'^{\mathrm{T}}\Lambda x'}=k\,,\]
 	where \(k\) is a constant.
 	
-	\begin{itemize}[leftmargin=30pt,itemindent=40pt]
-		\item[\textit{Conic sections.}] First suppose that \(n=2\) and that \(\mathsf{\Lambda}\) does not have a zero eigenvalue, then with
-		\[\mathsf{x'}=\begin{pmatrix}
-			x' \\ y'
-		\end{pmatrix}\quad\text{and}\quad\mathsf{\Lambda}=\begin{pmatrix}
-			\lambda_1 & 0 \\ 0 & \lambda_2
-		\end{pmatrix}\,,\]
-		the simplified quadric formula becomes
-		\[\lambda_1x'^2+\lambda_2y'^2=k\,,\]
-		which is the normalised equation for a conic section.
+	\paragraph{Conic sections.} First suppose that \(n=2\) and that \(\mathsf{\Lambda}\) does not have a zero eigenvalue, then with
+	\[\mathsf{x'}=\begin{pmatrix}
+		x' \\ y'
+	\end{pmatrix}\quad\text{and}\quad\mathsf{\Lambda}=\begin{pmatrix}
+		\lambda_1 & 0 \\ 0 & \lambda_2
+	\end{pmatrix}\,,\]
+	the simplified quadric formula becomes
+	\[\lambda_1x'^2+\lambda_2y'^2=k\,,\]
+	which is the normalised equation for a conic section.
 
-		\begin{itemize}[topsep=0pt,parsep=1em,leftmargin=50pt,itemindent=20pt]
-			\item[(i) \(\lambda_1\lambda_2>0\).] If \(\lambda_1\lambda_2>0\), then \(k\) must have the same sign as \(\lambda_1\), and this is an equation of an ellipse with principal axes coinciding with the \(x'\) and \(y'\) axes.
-			
-			\textit{Scale.} The scale of the ellipse is determined by \(k\).
-			
-			\textit{Shape.} The shape of the ellipse is determined by the ratio of the eigenvalues.
-			
-			\textit{Orientation.} The orientation of the ellipse in the original basis is determined by the eigenvectors of \(\mathsf{S}\).
-			
-			In the degenerate case, \(\lambda_1=\lambda_2\), the ellipse becomes a circle with no preferred principal axes. Any two orthogonal (or just linearly independent) vectors may be chosen as the principal axes. 
-			\item[(ii) \(\lambda_1\lambda_2<0\).] If \(\lambda_1\lambda_2<0\) then this is an equation for a hyperbola with principal axes coinciding with the \(x'\) and \(y'\) axes.
-			\item[(iii) \(\lambda_1\lambda_2=0\).] If \(\lambda_1=\lambda_2=0\) then there is no quadratic term.
-			
-			We assume that only one eigenvalue is zero; wlog \(\lambda_2=0\). Then we alternatively translate the origin according to
-			\[x'\to x'-\frac{b_1'}{2\lambda_1}\,,\;y'-\frac{c}{b'_2}+\frac{{b'}_1^2}{4\lambda_1 b'_2}\,,\]
-			assuming \(b'_2\ne 0\), to obtain
-			\[\lambda_1 x'^2+b'_2y'=0\,.\]
-			This is the equation of a parabola with principal axes coinciding with the \(x'\) and \(y'\) axes.
-			
-			If \(b'_2=0\), the equation for the conic section can be reduces to \(\lambda_1 x'^2=k\), with possible solutions of zero (\(\lambda_1 k<0\)), one (\(k=0\)) or two (\(\lambda_1k>0\)) lines. 
-		\end{itemize}
+	\begin{itemize}[topsep=0pt,parsep=1em]
+		\item[(i)] \(\lambda_1\lambda_2>0\). If \(\lambda_1\lambda_2>0\), then \(k\) must have the same sign as \(\lambda_1\), and this is an equation of an ellipse with principal axes coinciding with the \(x'\) and \(y'\) axes.
+		
+		\textit{Scale.} The scale of the ellipse is determined by \(k\).
+		
+		\textit{Shape.} The shape of the ellipse is determined by the ratio of the eigenvalues.
+		
+		\textit{Orientation.} The orientation of the ellipse in the original basis is determined by the eigenvectors of \(\mathsf{S}\).
+		
+		In the degenerate case, \(\lambda_1=\lambda_2\), the ellipse becomes a circle with no preferred principal axes. Any two orthogonal (or just linearly independent) vectors may be chosen as the principal axes. 
+		\item[(ii)] \(\lambda_1\lambda_2<0\). If \(\lambda_1\lambda_2<0\) then this is an equation for a hyperbola with principal axes coinciding with the \(x'\) and \(y'\) axes.
+		\item[(iii)] \(\lambda_1\lambda_2=0\). If \(\lambda_1=\lambda_2=0\) then there is no quadratic term.
+		
+		We assume that only one eigenvalue is zero; wlog \(\lambda_2=0\). Then we alternatively translate the origin according to
+		\[x'\to x'-\frac{b_1'}{2\lambda_1}\,,\;y'-\frac{c}{b'_2}+\frac{{b'}_1^2}{4\lambda_1 b'_2}\,,\]
+		assuming \(b'_2\ne 0\), to obtain
+		\[\lambda_1 x'^2+b'_2y'=0\,.\]
+		This is the equation of a parabola with principal axes coinciding with the \(x'\) and \(y'\) axes.
+		
+		If \(b'_2=0\), the equation for the conic section can be reduces to \(\lambda_1 x'^2=k\), with possible solutions of zero (\(\lambda_1 k<0\)), one (\(k=0\)) or two (\(\lambda_1k>0\)) lines. 
 	\end{itemize}
 	
-	\begin{itemize}[leftmargin=30pt,itemindent=55pt]
-		\item[\textit{Three Dimensions.}] If \(n=3\) and \(\mathsf{\Lambda}\) does not have a zero eigenvalue, then with
-		\[\mathsf{x}'=\begin{pmatrix}
-			x' \\ y' \\ z'
-		\end{pmatrix}\quad\text{and}\quad\mathsf{\Lambda}=\begin{pmatrix}
-			\lambda_1 & 0 & 0\\
-			0 & \lambda_2 & 0\\
-			0 & 0 & \lambda_3
-		\end{pmatrix}\,.\]
-		The simplified quadric equation becomes
-		\[\lambda_1 x'^2+\lambda_2 y'^2+\lambda_3 z'^2=k\,.\]
-		When \(\lambda_i k>0\), the distance to the surface along the \(i^\text{th}\) principal axes \(=\sqrt{\frac{k}{\lambda_i}}\).
-		
-		This equation describes a number of characteristic surfaces.
-		
-		\begin{table}[ht!]
-			\centering
-			\begin{tabular}{ll}
-				\multicolumn{1}{c}{\textbf{Coefficients}} & \multicolumn{1}{c}{\textbf{Quadric Surface}}\\
-				 & \\
-				\(\lambda_1>0,\lambda_2>0,\lambda_3>0,k>0\) & Ellipsoid. This include the case of metric matrices, since\\
-				 & \(\mathsf{S}\) is then positive definite and the \(\lambda_i\) are all positive.\\[5pt]
-				\(\lambda_1=\lambda_2\) & Surface of revolution about the \(z'\) axis.\\[5pt]
-				\(\lambda_1=\lambda_2>0,\lambda_3>0,k>0\) & Spheroid: A prolate spheroid if \(\lambda_1=\lambda_2>\lambda_3\) and an\\
-				 & oblate spheroid if \(\lambda_1=\lambda_2<\lambda_3\).\\[5pt]
-				\(\lambda_1=\lambda_2=\lambda_3>0,k>0\) & Sphere.\\[5pt]
-				\(\lambda_1=\lambda_2>0,\lambda_3=0,k>0\) & Cylinder. \\[5pt]
-				\(\lambda_1>0,\lambda_2>0,\lambda_3=0,k>0\) & Elliptic cylinder. \\[5pt]
-				\(\lambda_1>0,\lambda_2>0,\lambda_3<0,k>0\) & Hyperboloid of one sheet. \\[5pt]
-				\(\lambda_1>0,\lambda_2>0,\lambda_3<0,k=0\) & Elliptical conical surface. \\[5pt]
-				\(\lambda_1>0,\lambda_2<0,\lambda_3<0,k>0\) & Hyperboloid of two sheet. \\[5pt]
-				\(\lambda_1>0,\lambda_2=\lambda_3=0,\lambda_1k\ge0\) & Planes \(x=\pm\sqrt{\frac{k}{\lambda_1}}\). \\[5pt]
-			\end{tabular}
-		\end{table}
-	\end{itemize}
+	\paragraph{Three Dimensions.} If \(n=3\) and \(\mathsf{\Lambda}\) does not have a zero eigenvalue, then with
+	\[\mathsf{x}'=\begin{pmatrix}
+		x' \\ y' \\ z'
+	\end{pmatrix}\quad\text{and}\quad\mathsf{\Lambda}=\begin{pmatrix}
+		\lambda_1 & 0 & 0\\
+		0 & \lambda_2 & 0\\
+		0 & 0 & \lambda_3
+	\end{pmatrix}\,.\]
+	The simplified quadric equation becomes
+	\[\lambda_1 x'^2+\lambda_2 y'^2+\lambda_3 z'^2=k\,.\]
+	When \(\lambda_i k>0\), the distance to the surface along the \(i^\text{th}\) principal axes \(=\sqrt{\frac{k}{\lambda_i}}\).
+	
+	This equation describes a number of characteristic surfaces.
+	
+	\begin{table}[ht!]
+		\centering
+		\begin{tabular}{ll}
+			\multicolumn{1}{c}{\textbf{Coefficients}} & \multicolumn{1}{c}{\textbf{Quadric Surface}}\\
+				& \\
+			\(\lambda_1>0,\lambda_2>0,\lambda_3>0,k>0\) & Ellipsoid. This include the case of metric matrices, since\\
+				& \(\mathsf{S}\) is then positive definite and the \(\lambda_i\) are all positive.\\[5pt]
+			\(\lambda_1=\lambda_2\) & Surface of revolution about the \(z'\) axis.\\[5pt]
+			\(\lambda_1=\lambda_2>0,\lambda_3>0,k>0\) & Spheroid: A prolate spheroid if \(\lambda_1=\lambda_2>\lambda_3\) and an\\
+				& oblate spheroid if \(\lambda_1=\lambda_2<\lambda_3\).\\[5pt]
+			\(\lambda_1=\lambda_2=\lambda_3>0,k>0\) & Sphere.\\[5pt]
+			\(\lambda_1=\lambda_2>0,\lambda_3=0,k>0\) & Cylinder. \\[5pt]
+			\(\lambda_1>0,\lambda_2>0,\lambda_3=0,k>0\) & Elliptic cylinder. \\[5pt]
+			\(\lambda_1>0,\lambda_2>0,\lambda_3<0,k>0\) & Hyperboloid of one sheet. \\[5pt]
+			\(\lambda_1>0,\lambda_2>0,\lambda_3<0,k=0\) & Elliptical conical surface. \\[5pt]
+			\(\lambda_1>0,\lambda_2<0,\lambda_3<0,k>0\) & Hyperboloid of two sheet. \\[5pt]
+			\(\lambda_1>0,\lambda_2=\lambda_3=0,\lambda_1k\ge0\) & Planes \(x=\pm\sqrt{\frac{k}{\lambda_1}}\). \\[5pt]
+		\end{tabular}
+	\end{table}
 	
 	\subsubsection{The Stationary Properties of the Eigenvalues}
 	Suppose that we have an orthonormal basis, and let \(\mathsf{x}\) be a point on \(\mathsf{x\tp Sx}=k\) where \(k\) is a constant. Then the distance squared from the origin to the quadric surface is \(\mathsf{x\tp x}\). This distance naturally depends on the value of \(k\). This dependence on \(k\) can be removed by considering the square of the relative distance to the surface:
@@ -3722,9 +3718,9 @@
 		\[\lim_{r\to\infty}\frac{u_{r+1}}{u_r}=\varrho\,.\]
 		Then \(\sum u_r\) converges if \(\varrho<1\) and diverges if \(\varrho>1\).
 	\end{thm}
-	\begin{proof}
-		\begin{itemize}[topsep=0pt,leftmargin=30pt]
-			\item[\textit{\(\varrho<1\).}] For the case \(\varrho<1\), choose \(\sigma\) with \(\varrho<\sigma<1\). Then there exists \(N\equiv N(\sigma)\) such that
+	\begin{proofskip}
+		\begin{itemize}[topsep=0pt]
+			\item \(\varrho<1\). For the case \(\varrho<1\), choose \(\sigma\) with \(\varrho<\sigma<1\). Then there exists \(N\equiv N(\sigma)\) such that
 			\[\frac{u_{r+1}}{u_r}<\sigma\text{ for all }r>N\,.\]
 			It follows that
 			\begin{align*}
@@ -3733,15 +3729,13 @@
 				&<\sum_{r=1}^{N}u_r+\frac{u_{N+1}}{1-\sigma}\,.
 			\end{align*}
 			We conclude that \(\sum_{r=1}^{\infty}u_r\) is bounded. Then, since \(s_n=\sum_{r=1}^{n}u_r\) is an increasing sequence, it follows that \(\sum u_r\) converges.
-		\end{itemize}
-		\begin{itemize}[topsep=0pt,leftmargin=30pt]
-			\item[\textit{\(\varrho>1\).}] For the case \(\varrho>1\), choose \(\tau\) with \(\varrho>\tau>1\). Then there exists \(M\equiv M(\tau)\) such that
+			\item \(\varrho>1\). For the case \(\varrho>1\), choose \(\tau\) with \(\varrho>\tau>1\). Then there exists \(M\equiv M(\tau)\) such that
 			\[\frac{u_{r+1}}{u_r}>\tau>1\text{ for all }r>M\,,\]
 			and hence
 			\[\frac{u_r}{u_M}>\tau^{r-M}>1\text{ for all }r>M\,.\]
 			Thus, since \(u_r\not\to 0\) as \(r\to\infty\), we conclude that \(\sum u_r\) diverges.\qed
 		\end{itemize}
-	\end{proof}
+	\end{proofskip}
 	\begin{cor}
 		A series \(\sum u_r\) of complex terms converges if the limit of the absolute ratio of successive terms is less than one:
 		\[\lim_{r\to\infty}\abs{\frac{u_{r+1}}{u_r}}=\rho<1\,.\]
@@ -3796,13 +3790,12 @@
 	\begin{defn}
 		The function \(f(z)\) is \textit{bounded} as \(z\to\infty\) (or \textit{eventually bounded}) if there exist positive numbers \(K\) and \(R\) such that \(\abs{f(z)}<K\) for all \(z\) with \(\abs{z}>R\).
 	\end{defn}
-	\begin{itemize}[topsep=0pt,leftmargin=30pt,itemindent=115pt,parsep=1em]
-		\item[\textit{Warning: approaches to a point.}] There are different ways in which \(z\) can approach \(z_0\) or \(\infty\), especially in the complex plane. Sometimes the limit or bound applies only if the point is approached in a particular way.
+	\textit{Warning: approaches to a point.} There are different ways in which \(z\) can approach \(z_0\) or \(\infty\), especially in the complex plane. Sometimes the limit or bound applies only if the point is approached in a particular way.
 		
-		For example, consider \(\tanh(z)\) as \(\abs{z}\to\infty\) for real \(z\):
-		\[\lim_{z\to +\infty}\tanh z=1\,,\quad\lim_{z\to -\infty}\tanh z=-1\,.\]
-		However, if \(z\) approaches infinity along the imaginary axis (\(z\to\pm i\infty\)), the limit of \(\tanh z\) is not defined.
-	\end{itemize}
+	For example, consider \(\tanh(z)\) as \(\abs{z}\to\infty\) for real \(z\):
+	\[\lim_{z\to +\infty}\tanh z=1\,,\quad\lim_{z\to -\infty}\tanh z=-1\,.\]
+	However, if \(z\) approaches infinity along the imaginary axis (\(z\to\pm i\infty\)), the limit of \(\tanh z\) is not defined.
+
 	\begin{rem}
 		In the context of real variables, \(x\to\infty\) usually means specifically \(x\to+\infty\). One-side limits of a function \(f(z)\) at \(z=z_0\) are denoted by
 		\[\lim_{z\to z_0^+}f(z)\text{ and }\lim_{z\to z_0^-}f(z)\,.\]
@@ -4392,12 +4385,12 @@
 		This can be proven by contradiction. If the series converges for the sum \(z_2\) such that \(\abs{z_2-z_0}>\abs{z_1-z_0}\), then the series would converge for \(z=z_1\); this is a contradiction.\qed
 	\end{proof}
 	\begin{defn}
-		Let \(c_n\) be a sequence of complex numbers. There must exist a unique real number \(R\in[0,\infty]\) such that
-		\begin{align*}
-			&\sum c_n(z-z_0)^n\text{ converges absolutely if }0<\abs{z-z_0}<R\,,\\
-			&\sum c_n(z-z_0)^n\text{ diverges if }\abs{z-z_0}>R\,.
-		\end{align*}
-		\(R\) is called the \textit{radius of convergence}.
+		Let \(c_n\) be a sequence of complex numbers. There must exist a unique real number \(R\in[0,\infty]\) such that the power series \(\sum c_n(z-z_0)^n\)
+		\begin{itemize}[topsep=0pt]
+			\item converges absolutely if \(0<\abs{z-z_0}<R\),
+			\item diverges if \(\abs{z-z_0}>R\).
+		\end{itemize}
+		This \(R\) is called the \textit{radius of convergence}.
 	\end{defn}
 	\begin{proof}
 		Trivial by \cref{roclem} and its corollary.\qed
@@ -4554,7 +4547,10 @@
 	\begin{cor}
 		We can deform a closed contour if we are not passing it through any singularity.
 	\end{cor}
-	This is possible even if the contour before and after deformation have (the same) singular points inside. Consider two closed contours \(\gamma_1\) and \(\gamma_2\) shown below. Let \(f(z)\) be holomorphic within the region bounded between \(\gamma_1\) and \(\gamma_2\), but has singularities enclosed by \(\gamma_2\). Consider cutting off a small piece of each contour and joining them together by two bridges \(\gamma_\epsilon\) and \(\gamma_\epsilon'\) to form a closed contour \(\Gamma\).
+	\begin{rem}
+		This concept of continuously deforming a contour is formally known as a \textit{homotopy} in algebraic topology.
+	\end{rem}
+	This is possible even if the contour have (the same) singular points enclosed before and after deformation. Consider two closed contours \(\gamma_1\) and \(\gamma_2\) shown below. Let \(f(z)\) be holomorphic within the region bounded between \(\gamma_1\) and \(\gamma_2\), but has singularities enclosed by \(\gamma_2\). Consider cutting off a small piece of each contour and joining them together by two bridges \(\gamma_\epsilon\) and \(\gamma_\epsilon'\) to form a closed contour \(\Gamma\).
 
 	We have \(\Gamma=\gamma_1'-\gamma_2'+\gamma_\epsilon+\gamma_\epsilon'\). Since \(f(z)\) is holomorphic in the region bounded by \(\Gamma\) by assumption, we have
 	\[\int_\Gamma f(z)\dd{z}=0\,.\]
@@ -4750,7 +4746,7 @@
 
 	From now on, we shall use the terms `holomorphic' and `analytic' interchangeably.
 
-	\subsection{Analytic Continuation}
+	\subsection{Analytic Continuation (Non-examinable)}
 	The fact that holomorphic functions are analytic has an interesting and important consequence: a holomorphic function on a domain \(U\) is determined by its restriction to a subdomain in \(U\).
 	\begin{defn}
 		Let \(U'\subset U\) be domains and \(f:U'\to\mathbb{C}\) be analytic. A function \(g(z):U\to\mathbb{C}\) is called the \textit{analytic continuation} of \(f\) if it is analytic and \(f(z)=g(z)\) for all \(z\in U'\)
@@ -5752,7 +5748,7 @@
 		\begin{align*}
 			\mathcal{L}G(x;\xi)&=\sum_{n=1}^{\infty}\frac{\mathcal{L}y_n}{\lambda_n}y_n^*(\xi)=\sum_{n=1}^{\infty}\frac{\lambda_n w(x)y_n}{\lambda_n}y_n^*(\xi)\\
 			&=w(x)\sum_{n=1}^{\infty}y_n(x)y_n^*(\xi)\\
-			&=w(x)\frac{1}{w(x)}\delta(x-\xi) &\text{by the completeness relation}&\\
+			&=w(x)\frac{1}{w(x)}\delta(x-\xi) \qquad\qquad\qquad\text{by the completeness relation}\\
 			&=\delta(x-\xi)\,.
 		\end{align*}\qed
 	\end{proof}
@@ -6966,17 +6962,16 @@
 	\end{cases}\]
 	
 	There are three cases to consider based on the sign of \(\lambda\).
-	\begin{itemize}[leftmargin=32pt]
-		\item[\(\lambda=0\).] In this case,
+	\begin{itemize}[topsep=0pt]
+		\item \(\lambda=0\). In this case,
 		\[\ddot{T}(t)=X''(x)=0 \implies \begin{cases}
 			T=A_0+B_0 t\\
 			X=C_0+D_0 x\,,
 		\end{cases}\]
 		where \(A_0,B_0,C_0,D_0\) are constants.
 		\[y=(A_0+B_0t)(C_0+D_0x)\]
-	\end{itemize}
-	\begin{itemize}[leftmargin=32pt,itemindent=24pt]
-		\item[\(\lambda=\sigma^2>0\).] In this case,
+
+		\item \(\lambda=\sigma^2>0\). In this case,
 		\[\begin{cases}
 			\ddot{T}-\sigma^2c^2T=0\\
 			X''-\sigma^2X=0
@@ -6988,9 +6983,8 @@
 		\[y=(A_\sigma e^{\sigma ct}+B_\sigma e^{-\sigma ct})(C_\sigma e^{\sigma x}+D_\sigma e^{-\sigma x})\]
 		or alternatively
 		\[y=(\tilde{A}_\sigma\cosh\sigma ct+\tilde{B}_\sigma\sinh\sigma ct)(\tilde{C}_\sigma\cosh\sigma x+\tilde{D}_\sigma\sinh\sigma x)\]
-	\end{itemize}
-	\begin{itemize}[leftmargin=32pt,itemindent=31pt]
-		\item[\(\lambda=-k^2<0\).] In this case,
+
+		\item \(\lambda=-k^2<0\). In this case,
 		\[\begin{cases}
 			\ddot{T}+k^2c^2T=0\\
 			X''+k^2X=0
@@ -7003,10 +6997,10 @@
 	\end{itemize}
 
 	Now substitute the boundary conditions in.
-	\begin{itemize}[leftmargin=32pt]
-		\item[\(\lambda=0\).] If the homogeneous boundary conditions are to be satisfied for all time, then we must have \(C_0=D_0=0\). This gives a trivial solution of \(y=0\).
-		\item[\(\lambda>0\).] Again, for the homogeneous boundary conditions to be satisfied, \(C_\sigma=D_\sigma=0\).
-		\item[\(\lambda<0\).] Applying the boundary conditions yields
+	\begin{itemize}[topsep=0pt]
+		\item \(\lambda=0\). If the homogeneous boundary conditions are to be satisfied for all time, then we must have \(C_0=D_0=0\). This gives a trivial solution of \(y=0\).
+		\item \(\lambda>0\). Again, for the homogeneous boundary conditions to be satisfied, \(C_\sigma=D_\sigma=0\).
+		\item \(\lambda<0\). Applying the boundary conditions yields
 		\[C_k=0\text{ and }D_k\sin kL=0\]
 		If \(D_k=0\) then this solution is trivial (as for \(\lambda\ge 0\)), so the only non-trivial solution has
 		\[\sin kL=0\implies k=\frac{n\pi}{L}\,,\]
@@ -7070,7 +7064,7 @@
 	\[A_k=\frac{2}{J'_0(j_{0k})^2}\int_{0}^{1}J_0(j_{0k}r)f(r)r\dd{r}\,,\]
 	\[B_k=\frac{2}{cj_{0k}J'_0(j_{0k})^2}\int_{0}^{1}J_0(j_{0k}r)g(r)r\dd{r}\,.\]
 	\subsubsection{Energy Conservation and Uniqueness of Solution}
-	For the wave equation on the string, define the energy
+	For the wave equation on the string, define the \textit{energy}
 	\[E(t)=\frac{1}{2}\mu\int_{0}^{L}\qty(\pdv{y}{t})^2\dd{x}+\frac{1}{2}T\int_{0}^{L}\qty(\pdv{y}{x})^2\dd{x}\,,\]
 	where the former part is the kinetic energy and the latter part is the potential energy. For simplicity, take \(\mu=1\), then \(T=c^2\), and the energy simplifies to
 	\[E(t)=\frac{1}{2}\int_{0}^{L}\qty[\qty(\pdv{y}{t})^2+c^2\qty(\pdv{y}{x})^2]\dd{x}\,.\]
@@ -7144,9 +7138,8 @@
 		X''-\lambda X=0\,,
 	\end{cases}\]
 	with again three cases to consider.
-	
-	\begin{itemize}[leftmargin=32pt]
-		\item[\(\lambda=0\).] In this case
+	\begin{itemize}[topsep=0pt]
+		\item \(\lambda=0\). In this case
 		\[\begin{cases}
 			\dot{T}(t)=0\\
 			X''(x)=0
@@ -7156,21 +7149,19 @@
 		\end{cases}\]
 		where \(\alpha_0,\beta_0\) and \(\gamma_0\) are constants. Combining these results we obtain (with \(\alpha_0=1\) wlog)
 		\[C=\beta_0+\gamma_0 x\,.\]
-	\end{itemize}
-	\begin{itemize}[leftmargin=32pt,itemindent=24pt]
-		\item[\(\lambda=\sigma^2>0\).]
+
+		\item \(\lambda=\sigma^2>0\).
 		\[\begin{cases}
 			\dot{T}-D\sigma^2T=0\\
 			X''-\sigma^2X=0
 		\end{cases}\implies\begin{cases}
 			T=\alpha_\sigma\exp(D\sigma^2 t)\\
 			X=\beta_\sigma\cosh\sigma x+\gamma_\sigma\sinh\sigma x\,,
-	\end{cases}\]
+		\end{cases}\]
 		where \(\alpha_\sigma,\beta_\sigma\) and \(\gamma_\sigma\) are all constants. We therefore obtain
 		\[C=\exp(D\sigma^2 t)(\beta_\sigma\cosh\sigma x+\gamma_\sigma\sinh\sigma x)\,.\]
-	\end{itemize}
-	\begin{itemize}[leftmargin=32pt,itemindent=31pt]
-		\item[\(\lambda=-k^2<0\).]
+
+		\item \(\lambda=-k^2<0\).
 		\[\begin{cases}
 			\dot{T}+Dk^2T=0\\
 			X''+k^2X=0
@@ -7543,7 +7534,7 @@
 		\[\Phi(r,\theta)=\sum_{\ell=0}^{\infty}\frac{2\ell+1}{2a^{-(\ell+1)}}V_0\int_{0}^{1}P_\ell(u)\dd{u} r^{-(\ell+1)}P_\ell(\cos\theta)\,.\]
 	\end{ex}
 	\subsection{General Method}
-	\begin{itemize}[topsep=0pt,leftmargin=50pt]
+	\begin{itemize}
 		\item In the case of an inhomogeneous equation, use the principle of superposition to seek a particular solution to reduce the equation to one that is homogeneous.
 		\item Seek separable solutions to the homogeneous equation.
 		\item In the case of inhomogeneous boundary conditions consider seeking a separable solution to reduce the boundary conditions to ones that are homogeneous.

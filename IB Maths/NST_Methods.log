@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.21)  14 SEP 2025 01:53
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.21)  16 SEP 2025 22:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1250,10 +1250,10 @@ Package hyperref Info: bookmark level for unknown propskip defaults to 0 on inpu
 [109]
 
 [110]
+Package hyperref Info: bookmark level for unknown clm defaults to 0 on input line 5057.
+
 
 [111]
-Package hyperref Info: bookmark level for unknown clm defaults to 0 on input line 5061.
-
 
 [112]
 
@@ -1416,11 +1416,11 @@ Package hyperref Info: bookmark level for unknown clm defaults to 0 on input lin
 [191]
 
 [192]
-
-[193]
 File: Residue.png Graphic file (type bmp)
 <Residue.png>
 
+
+[193]
 
 [194]
 
@@ -1503,10 +1503,10 @@ File: Residue.png Graphic file (type bmp)
 [233]
 
 [234]
-
-[235]
 Easytable[row:8,col:8]
 
+
+[235]
 
 [236]
 
@@ -1515,18 +1515,18 @@ Easytable[row:8,col:8]
 [238]
 
 [239]
-
-[240]
 Easytable[row:8,col:8]
 
+
+[240]
 
 [241]
 
 [242]
+Package hyperref Info: bookmark level for unknown lemskip defaults to 0 on input line 10520.
+
 
 [243]
-Package hyperref Info: bookmark level for unknown lemskip defaults to 0 on input line 10529.
-
 
 [244]
 
@@ -1535,10 +1535,10 @@ Package hyperref Info: bookmark level for unknown lemskip defaults to 0 on input
 [246]
 
 [247]
-
-[248]
 Easytable[row:6,col:6]
 
+
+[248]
 
 [249]
 
@@ -1559,19 +1559,19 @@ Easytable[row:6,col:6]
 [257]
 
 [258]
-
-[259]
 Easytable[row:6,col:7]
 
+
+[259]
 
 [260]
 
 [261]
-
-[262]
 Easytable[row:6,col:9]
 Easytable[row:7,col:5]
 
+
+[262]
 
 [263]
 
@@ -1598,33 +1598,31 @@ Easytable[row:7,col:5]
 [274]
 
 [275]
-
-[276]
 Easytable[row:3,col:3]
 
 
-[277]
+[276]
 Easytable[row:4,col:7]
 \tf@thm=\write6
 \openout6 = `NST_Methods.thm'.
 
 
 
-[278] (./NST_Methods.aux)
+[277] (./NST_Methods.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `NST_Methods.out' has not changed.
-(rerunfilecheck)             Checksum: 86E85B5015ED2A18990CDC6D4DAD68C7;26222.
+(rerunfilecheck)             Checksum: 36F6E1ED8FEEB3B16EB8E79ADD8A62DC;26316.
  ) 
 Here is how much of TeX's memory you used:
- 43711 strings out of 473832
- 1005386 string characters out of 5733158
- 1478502 words of memory out of 5000000
- 66166 multiletter control sequences out of 15000+600000
+ 43710 strings out of 473832
+ 1005353 string characters out of 5733158
+ 1479501 words of memory out of 5000000
+ 66165 multiletter control sequences out of 15000+600000
  578269 words of font info for 132 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  83i,22n,93p,792b,1238s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on NST_Methods.pdf (285 pages).
+Output written on NST_Methods.pdf (284 pages).
