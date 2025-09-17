@@ -292,15 +292,19 @@
 	\end{thm}
 	\subsection{Fourier Series}
 	\begin{lem}
-		\[\int_{0}^{L}\sin\frac{2\pi nx}{L}\sin\frac{2\pi mx}{L}\dd{x}=\begin{cases}
-			\frac{L}{2} & \text{if }n=m\\
-			0 & \text{otherwise}
-		\end{cases}\]
-		\[\int_{0}^{L}\cos\frac{2\pi nx}{L}\cos\frac{2\pi mx}{L}\dd{x}=\begin{cases}
-			\frac{L}{2} & \text{if }n=m\\
-			0 & \text{otherwise}
-		\end{cases}\]
-		\[\int_{0}^{L}\sin\frac{2\pi nx}{L}\cos\frac{2\pi mx}{L}\dd{x}=0\,.\]
+		For \(n,m\in\mathbb{N}_0\),
+		\begin{align*}
+			\int_{0}^{L}\sin\frac{2\pi nx}{L}\sin\frac{2\pi mx}{L}\dd{x}&=\begin{cases}
+				\frac{L}{2} & \text{if }n=m\ne 0\\
+				0 & \text{otherwise}
+			\end{cases} \\
+			\int_{0}^{L}\cos\frac{2\pi nx}{L}\cos\frac{2\pi mx}{L}\dd{x}&=\begin{cases}
+				\frac{L}{2} & \text{if }n=m\ne 0\\
+				L & \text{if }n=m=0 \\
+				0 & \text{otherwise}
+			\end{cases} \\
+			\int_{0}^{L}\sin\frac{2\pi nx}{L}\cos\frac{2\pi mx}{L}\dd{x}&=0\,.
+		\end{align*}
 	\end{lem}
 	\begin{thm}[Fourier series]
 		Let \(f(x)\) be a function with period \(L\), then the
@@ -312,7 +316,7 @@
 	\end{thm}
 	\newpage
 	\section{Vector Calculus}
-	In this chapter, we will consider the prototype \(\mathbb{E}^3\) vector space without reference to general vector spaces and linear algebra. We first quickly review some basic concepts that should be familiar at this stage.
+	In this chapter, we will consider the prototype \(\mathbb{E}^3\) vector space without reference to general vector spaces and linear algebra in an abstract sense --- this will be done in \cref{Chap:Lin_Alg}. We will first quickly review some basic concepts that should be familiar at this stage.
 	\subsection{Vectors and Basis}
 	\begin{defn}
 		A \textit{vector} is a quantity specified by a magnitude and a direction in space.
@@ -321,7 +325,7 @@
 	\begin{itemize}[topsep=0pt]
 		\item points are the elements of the space;
 		\item vectors are translatable, directed line segments;
-		\item \textit{Euclidean} means lengths and angles obey the classical results of geometry.
+		\item being \textit{Euclidean} means lengths and angles obey the classical results of geometry.
 	\end{itemize}
 	\begin{defn}
 		Two vectors \(\vb{u}\) and \(\vb{v}\) are \textit{linearly independent} if
@@ -330,7 +334,7 @@
 	\begin{defn}
 		A \textit{basis} is a set of linearly independent non-zero vectors, \(\vb{e}_1\), \(\vb{e}_2\) and \(\vb{e}_3\), such that any vector \(\vb{v}\) can be expressed uniquely as
 		\[\vb{v}=v_1\vb{e}_1+v_2\vb{e}_2+v_3\vb{e}_3\,.\]
-		where the numbers (scalars) \(v_1\), \(v_2\) and \(v_3\) are the \textit{components} of the vector in this basis.
+		The numbers (scalars) \(v_1\), \(v_2\) and \(v_3\) are the \textit{components} of the vector in this basis.
 	\end{defn}
 
 	\begin{rem}
@@ -343,10 +347,10 @@
 	\end{defn}
 	We can choose the basis of an \(\mathbb{E}^3\) space to be any three linearly independent vectors. But an orthonormal basis will make the calculations much simpler.
 	\begin{defn}
-		A set of orthonormal basis is \textit{right-handed} if
+		An orthonormal basis is \textit{right-handed} if
 		\[\vb{e}_1\cross\vb{e}_2=\vb{e}_3\,,\]
 		and therefore
-		\[[\vb{e}_1,\vb{e}_2,\vb{e}_3]\coloneqq\vb{e}_1\vdot\vb{e}_2\cross\vb{e}_3=1\,.\]
+		\[[\vb{e}_1,\vb{e}_2,\vb{e}_3]\coloneqq\vb{e}_1\vdot(\vb{e}_2\cross\vb{e}_3)=1\,.\]
 	\end{defn}
 	
 	\begin{defn}
@@ -361,9 +365,7 @@
 		\[\vb{v}=(v_1,v_2,v_3)=:\{ v_i\}\quad\text{for}\quad i=1,2,3\,.\]
 		Such notation is called the \textit{suffix notation}.
 	\end{defn}
-	\begin{rem}
-		We also denote the \(i^\text{th}\) component of \(\vb{v}\) as \((\vb{v})_i\). \((\vb{v})_i\equiv v_i\).
-	\end{rem}
+	We also denote the \(i^\text{th}\) component of \(\vb{v}\) as \((\vb{v})_i\). \((\vb{v})_i\equiv v_i\).
 
 	Under suffix notation, we express position vectors as
 	\[\vb{x}=(x,y,z)=(x_1,x_2,x_3)=\{x_i\}\,.\]
@@ -408,7 +410,7 @@
 	\end{exs}
 	
 	\subsubsection{Kronecker Delta and Levi--Civita Symbol}
-	We introduce two extra symbols, motivated by dot product and cross product (as will be clear later), that will make our life even simpler.
+	We introduce two extra symbols, motivated by dot product and cross product (which will be clear later), that will make our life even simpler.
 	\begin{defn}
 		The \textit{Kronecker delta}, \(\delta_{ij}\), is defined as
 		\[\delta_{ij}\coloneqq\begin{cases}
@@ -519,8 +521,8 @@
 		\[\grad\coloneqq\vb{e}_i\pdv{x_i}\,.\]
 	\end{defn}
 	\begin{defn}
-		The \textit{directional derivative} of \(\psi\) in a direction \(\vu{l}\) is the rate of change of \(\psi\) in the direction of \(\vu{l}\). This is given by
-		\[\left. \dv{s} \psi(\vb{x}+s\vu{l}) \right|_{s=0}=\vu{l}\vdot\grad{\psi}\]
+		The \textit{directional derivative} of \(\psi\) in a direction \(\vu{l}\) is the rate of change of \(\psi\) in the direction of \(\vu{l}\). By doing a Taylor expansion of \(\psi(\vb{x}+s\vu{l})\) for small \(s\), it's easy to see that this is
+		\[\left. \dv{s} \psi(\vb{x}+s\vu{l}) \right|_{s=0}=\vu{l}\vdot\grad{\psi}\,.\]
 	\end{defn}
 	
 	\begin{prop}
@@ -716,11 +718,11 @@
 		Then the corollary follows.\qed
 	\end{altp}
 	\begin{cor}
-		Generalisation for a vector field: let \(\vb{u}=\vb{a}\cross\vb{A}\), where \(\vb{a}\) is an arbitrary constant vector,
+		Generalisation for a vector field. Let \(\vb{A}\) be a smooth vector field,
 		\[\iiint_{\mathcal{V}}\curl{\vb{A}}\dd{V}=\oiint_{\mathcal{S}}\vu{n}\cross\vb{A}\dd{S}\,.\]
 	\end{cor}
 	\begin{proof}
-		Either set \(\vb{F}=\vb{a}\cross\vb{A}\) in the divergence theorem (\cref{divthm}), where \(\vb{a}\) is an arbitrary constant vector, and then proceed as above, or let \(\psi=\varepsilon_{ijk}A_j\) to recover the corollary in component form.\qed
+		Either set \(\vb{F}=\vb{a}\cross\vb{A}\) in the divergence theorem (\cref{divthm}), where \(\vb{a}\) is an arbitrary constant vector, and then proceed as above, or let \(\psi=\varepsilon_{ijk}A_j\) to recover this corollary in component form.\qed
 	\end{proof}
 	
 	\subsubsection{Stokes' Theorem}	
@@ -732,7 +734,7 @@
 		Green's theorem is equivalent to the 2D version of the Stokes' theorem, which we will see immediately after.
 	\end{rem}
 	\begin{proof}
-		Let \(\vb{F}=(Q,-P)\) to be a vector field. We then have
+		Let \(\vb{F}=(Q,-P)\) be a vector field. We then have
 		\[\iint_\mathcal{A}\qty(\pdv{Q}{x}-\pdv{P}{y})\dd{A}=\iint_\mathcal{A}\div\vb{F}\dd{A}\,.\]
 		Parameterise curve \(\mathcal{C}\) by \(\vb{x}(s)=(x(s),y(s))\), then the tangent vector is \(\vb{t}(s)=(x'(s),y'(s))\) and the normal vector is \(\vu{n}=(y'(s),-x'(s))\). We then have
 		\[\vb{F}\vdot\vu{n}=Q\dv{y}{s}+P\dv{x}{s}\,,\]
@@ -958,7 +960,7 @@
 		\item Cylindrical polar coordinates: \(\dd{V}=\rho\dd{\rho}\dd{\phi}\dd{z}\)
 	\end{itemize}
 	\begin{prop}
-		For orthogonal curvilinear coordinate with normal to the surface parallel to a basis vector (e.g. \(\dd{\vb{S}}\parallel\vb{e}_3)\),
+		For an orthogonal curvilinear coordinate system, with a surface normal parallel to a basis vector (e.g. \(\dd{\vb{S}}\parallel\vb{e}_3)\),
 		\begin{align*}
 			\dd{\vb{S}}&=(h_1\dd{q_1}\vb{e}_1)\cross(h_2\dd{q_2}\vb{e}_2)\\
 			&=h_1h_2\dd{q_1}\dd{q_2}\vb{e}_3\,.
@@ -983,7 +985,7 @@
 		\[\dd{\psi}=\grad{\psi}\vdot\dd{\vb{x}}\,.\]
 		We write
 		\[\grad\psi=\sum_i \vb{e}_i\alpha_i\,,\]
-		where the coefficients \(\alpha_i\) for the gradient operator in this coordinate system is to be determined. Then
+		where the coefficients \(\alpha_i\) for the gradient operator in this coordinate system are to be determined. Then
 		\[\dd{\psi}=\grad{\psi}\vdot\dd{\vb{x}}=\qty(\sum_{i}\vb{e}_i\alpha_i)\vdot\qty(\sum_{j}h_j\vb{e}_j\dd{q_j})=\sum_i\alpha_i h_i\dd{q_i}\,.\]
 		We must also have
 		\[\dd{\psi}=\sum_{i}\pdv{\psi}{q_i}\dd{q_i}\,,\]
@@ -1019,10 +1021,10 @@
 	\begin{figure}[ht!]
 		\centering
 		\begin{tikzpicture}[>=latex,scale=1.3]
-			\draw[fill = gray!25] (0,0) rectangle (1.5,1.5);
-			\draw[fill = gray!25] (-0.7,-0.6) -- (0.8,-0.6) -- (1.5,0) -- (0,0) -- (-0.7,-0.6);
-			\draw[fill = gray!25] (-0.7,-0.6) -- (0.8,-0.6) -- (0.8,0.9) -- (-0.7,0.9) -- (-0.7,-0.6);
-			\draw[fill = gray!25] (0,1.5) -- (-0.7,0.9) -- (0.8,0.9) -- (1.5,1.5) -- (0,1.5);
+			\draw[fill = gray!20] (0,0) rectangle (1.5,1.5);
+			\draw[fill = gray!20] (-0.7,-0.6) -- (0.8,-0.6) -- (1.5,0) -- (0,0) -- (-0.7,-0.6);
+			\draw[fill = gray!20] (-0.7,-0.6) -- (0.8,-0.6) -- (0.8,0.9) -- (-0.7,0.9) -- (-0.7,-0.6);
+			\draw[fill = gray!20] (0,1.5) -- (-0.7,0.9) -- (0.8,0.9) -- (1.5,1.5) -- (0,1.5);
 			\draw[thick,->] (0,0) -- (-1.12,-0.96)node[below]{\large \(\vb{e}_1\)};
 			\draw[thick,->] (0,0) -- (2,0)node[right]{\large \(\vb{e}_2\)};
 			\draw[thick,->] (0,0) -- (0,2)node[right]{\large \(\vb{e}_3\)};
@@ -1118,7 +1120,7 @@
 
 			\coordinate (L) at (3.595,1.87);
 	
-			\draw[white,fill = gray!25, thin] (A1) to [bend left=12] (F1) to [bend left=10] (G1) to [bend left=2] (A2)--(H1)--(I1) to [bend left=2] (J1) to [bend left=5] (K1) to [bend left=5] (A3) to [bend left=5] (D3)--(B1)--(E3)--(B2)--(K3)--(J3)--(I3)--(B3)--(H3)--(G3)--(F3)--(C1)--(E1)--(C2)--(D1) to [bend right=10] (A1);
+			\draw[white,fill = gray!20, thin] (A1) to [bend left=12] (F1) to [bend left=10] (G1) to [bend left=2] (A2)--(H1)--(I1) to [bend left=2] (J1) to [bend left=5] (K1) to [bend left=5] (A3) to [bend left=5] (D3)--(B1)--(E3)--(B2)--(K3)--(J3)--(I3)--(B3)--(H3)--(G3)--(F3)--(C1)--(E1)--(C2)--(D1) to [bend right=10] (A1);
 			\draw[line width=0.35mm] plot [smooth, tension=1.2] coordinates { (A1) (A2) (A3)};
 			\draw[line width=0.35mm] plot [smooth, tension=1] coordinates { (B2) (B1) (A3)};
 			\draw[line width=0.35mm] plot [smooth, tension=1] coordinates { (C1) (B3) (B2)};
@@ -1186,7 +1188,7 @@
 	
 	For any integrable function \(f(x)\) and constant \(\xi\),
 	\[\int_{-\infty}^{\infty}\delta_\epsilon(x-\xi)f(x)\dd{x}=\frac{1}{2\epsilon}\qty(F(\xi+\epsilon)-F(\xi-\epsilon))\,,\]
-	then in the limit of \(\epsilon\to 0^+\), we can recover
+	where \(F\) is the antiderivative of \(f\). Then in the limit of \(\epsilon\to 0^+\), we can recover
 	\begin{align*}
 		\lim_{\epsilon\to 0^+}\int_{-\infty}^{\infty}\delta_\epsilon(x-\xi)f(x)\dd{x}&=\lim_{\epsilon\to 0^+}\frac{1}{2\epsilon}\Big(\,\,\quad F(\xi)+\epsilon f(\xi)+\frac{1}{2}\epsilon^2 f'(\xi)+\dots\;&\\
 		&\qquad\quad\qquad\,\,\,-F(\xi)+\epsilon f(\xi)-\frac{1}{2}\epsilon^2f'(\xi)+\dots\quad\Big)\\
@@ -1198,13 +1200,13 @@
 		We can view the \textit{Dirac delta function}, \(\delta(x)\), as the limit as \(\epsilon\to 0\) of \(\delta_\epsilon(x)\):
 		\[\delta(x)\coloneqq\lim_{\epsilon\to 0^+}\delta_{\epsilon}(x)\,.\]
 	\end{defn}
-	Although it is clear to see that putting \(\epsilon=0\) in the above sequence does not make any sense.
+	What are we doing here? When \(\epsilon\) gets smaller, the function \(\delta_\epsilon\) has a higher and higher peak over a narrower and narrower range around \(x=0\). Although it is absolutely clear that neither putting \(\epsilon=0\) directly in the above sequence makes any sense, nor does the \(\epsilon\to 0\) limit really converges to some well-defined function, what we are trying to do here is to create some object that has an infinitely high peak over an infinitely narrow range, and somehow carries a unit weight.
 	
-	Of course, we can use other sequence of functions to make the same effect. We define \(\delta_\epsilon(x)\) as
+	Of course, we can use another sequence of functions to make the same effect. For example, if we alternatively define \(\delta_\epsilon(x)\) as
 	\[\delta_\epsilon(x)\coloneqq\frac{\epsilon}{\pi(x^2+\epsilon^2)}\,,\]
-	which also gives
-	\[\int_{-\infty}^{\infty}\delta_\epsilon(x)\dd{x}=1\]
-	and
+	which gives
+	\[\int_{-\infty}^{\infty}\delta_\epsilon(x)\dd{x}=1\,.\]
+	Now \(\delta_\epsilon\) also has a peak of unit area centred at \(x=0\), which gets sharper as \(\epsilon\to 0_+\). We can identify the Dirac delta function as the \(\epsilon\to 0_+\) limit of this function as well, which also gives
 	\begin{align*}
 		\int_{-\infty}^{\infty}\delta(x-\xi)f(x)\dd{x}&=\lim_{\epsilon\to 0^+}\int_{-\infty}^{\infty}\delta_\epsilon(x-\xi)f(x)\dd{x}\\
 		&=f(\xi)\,.
@@ -1234,7 +1236,7 @@
 		0 & x\ne 0
 	\end{cases}\,,\]
 	\[\int_{a}^{b}\delta(x)\dd{x}=1 \quad \forall a<0, b>0\,.\]
-	This is obviously not what we would normally call as a function, but we can get a sense of what it is doing. It provides a surgical strike on the integrand to pick out its value at one particular point:
+	This is obviously not what we would normally call a function, but we can get a sense of what it is doing. It provides a surgical strike on the integrand to pick out its value at one particular point:
 	\[\int_{-\infty}^{\infty}\delta(x-\xi)f(x)\dd{x}=f(\xi)\,.\]
 	This is the continuum analogue of the Kronecker delta.
 	
@@ -1252,21 +1254,26 @@
 	\begin{proof}
 		\[\delta^*(x)=\frac{1}{2\pi}\int_{-\infty}^{\infty}e^{-ikx}\dd{k}=\delta(-x)=\delta(x)\,.\]\qed
 	\end{proof}
+
 	\subsubsection{Alternative Definition of the Dirac Delta Function}
+	We have done a lot of whimsical things above that would certainly drive a mathematician crazy. The major issue of what we have done above is that we have encountered a lot of infinities --- but there is one nice property of Dirac delta that stands out as it involves no infinity. This might help us to define the Dirac delta a bit more sensibly.
 	\begin{defn}
-		In an alternative and better view, \(\delta(x)\) is defined as the generalised function (distribution) such that for all smooth functions \(f(x)\),
+		In an alternative (and better) view, \(\delta(x)\) is defined as the \textit{generalised function} (\textit{distribution}) such that for all smooth functions \(f(x)\),
 		\[\int_{-\infty}^{\infty}\delta(x-\xi)f(x)\dd{x}=f(\xi)\,.\]
 	\end{defn}
 	\begin{rem}
 		The upshot is that, in this way, \(\delta(x)\) is defined within an integrand as a linear operator, and therefore should always be employed in an integrand. We should never consider taking it out of the integral.
 	\end{rem}
+
 	\subsubsection{Derivative of the Delta Function}
+	We can be more brave and try to differentiate the Dirac delta. But to do this more legally, we will put it in an integral and see how it does to a well-behaved function. Using integration by parts, we see that
+	\[\int_{-\infty}^{\infty}\delta'(x-\xi)f(x)\dd{x}=\qty[\delta(x-\xi)f(x)]^{\infty}_{-\infty}-\int_{-\infty}^{\infty}\delta(x-\xi)f'(x)\dd{x}=-f'(\xi)\,.\]
 	\begin{defn}
-		We can define the derivative of \(\delta(x)\) as the generalised function such that for all differentiable functions \(f(x)\),
-		\[\int_{-\infty}^{\infty}\delta'(x-\xi)f(x)\dd{x}=\qty[\delta(x-\xi)f(x)]^{\infty}_{-\infty}-\int_{-\infty}^{\infty}\delta(x-\xi)f'(x)\dd{x}=-f'(\xi)\,.\]
+		The derivative of \(\delta(x)\) is defined as the generalised function such that for all differentiable functions \(f(x)\),
+		\[\int_{-\infty}^{\infty}\delta'(x-\xi)f(x)\dd{x}=-f'(\xi)\,.\]
 	\end{defn}
 	
-	Alternatively, the derivative of the delta function may again be defined as the limit of some sequence of functions, similar to what we have done at the beginning of this section.
+	Alternatively, the derivative of the delta function may again be defined as the limit of the derivatives of some sequence of functions, \(\delta_\epsilon'\), similar to what we have done at the beginning of this section.
 	\subsection{The Heaviside Step Function}
 	\begin{defn}
 		The \textit{Heaviside step function}, \(H(x)\) is defined for \(x\ne 0\) as
@@ -1280,7 +1287,7 @@
 	\subsubsection{Properties}
 	It is clear to see that this function is discontinuous at \(x=0\):
 	\[\lim_{x\to 0^-}H(x)=0\ne1=\lim_{x\to 0^+}H(x)\,.\]
-	
+	Therefore, it seems that \(H(x)\) is not differentiable at \(x=0\) --- at least in a normal sense. However, we have just seen that \(\delta(x)\) has a unit area within an infinitely narrow area near \(x=0\). This allows us to make the following identification.
 	\begin{prop}
 		\[H(x)=\int_{-\infty}^{x}\delta(\xi)\dd{\xi}\,,\]
 		and so we may identify
@@ -1295,10 +1302,14 @@
 		\end{align*}\qed
 	\end{proof}
 
-	\subsection{Formal Theory of 
-	Distributions (Non-examinable)}
+	\subsection{Formal Theory of Distributions (Non-examinable)}
+	After invented by physicist Dirac, the Dirac delta function quickly becomes ubiquitous in almost all fields in physics, especially in quantum mechanics and quantum field theory. Although we played around with infinities in very dangerous ways when defining this object, it just worked surprisingly well.
+
+	But mathematicians at that time were not satisfied with that. They were trying to find a rigorous mathematical theory to deal with objects like Dirac delta, and it was only achieved until mid-\(20^{\text{th}}\) century when they invented the theory of distributions.
+
+	Of course we are not introducing distribution theory in this course --- this is a very deep subject. Here, we will have a very brief look at some basic principles of it to get a sense of what a distribution really is.
 	\subsubsection{Distributions}
-	To define a distribution, we must first choose a class of \textit{test functions}, which is the functions that our distribution will act on. For \(\Omega\subseteq\mathbb{R}^n\), the simplest class of test functions are infinitely smooth functions \(\phi\in C^\infty(\Omega)\) that have \textit{compact support}, meaning that there exists a compact set \(K\subset\Omega\) such that \(\phi(\vb{x})=0\) whenever \(x\notin K\). Let us denote the space of all test functions \(\mathcal{D}(\Omega)\).
+	To define a distribution, we must first choose a class of \textit{test functions}, which is the functions that our distribution will act on. For \(\Omega\subseteq\mathbb{R}^n\), the simplest class of test functions are infinitely smooth functions \(\phi\in C^\infty(\Omega)\) that have \textit{compact support}, meaning that there exists a compact set \(K\subset\Omega\) such that \(\phi(\vb{x})=0\) whenever \(x\notin K\). For our purposes, it is fine to just think of such functions to be the ones that take non-zero values only for a finite region in space. Let us denote the space of all test functions \(\mathcal{D}(\Omega)\).
 	\begin{defn}
 		For a space of test functions \(\mathcal{D}(\Omega)\), a \textit{distribution} \(T\) is defined to be a linear map \(T:\mathcal{D}(\Omega)\to\mathbb{R}\), given by
 		\[T:\phi\mapsto T[\phi]\,.\]
@@ -1337,7 +1348,7 @@
 	\[T[\phi]=(T,\phi)=\int_\Omega T(\vb{x})\phi(\vb{x})\dd{V}\]
 	even for general distributions that are not functions. However, for a general distribution the object \(T(\vb{x})\) is not a function. There is no sense in which \(T:\Omega\to\mathbb{R}\). For example, it is common to write
 	\[\delta[\phi]=\int_\Omega\delta(\vb{x})\phi(\vb{x})\dd{V}\]
-	for some object \(\delta(\vb{x})\). However, \(\delta(\vb{x})\) cannot possibly be a genuine function. For the integral value to be equal to \(\phi(\vb{0})\), the value of \(\delta(\vb{x})\) must vanish whenever \(x\ne 0\). On the other hand, if \(\delta(\vb{0})\) does indeed vanish everywhere except at one point, the integral cannot give the finite answer \(\phi(\vb{0})\) if \(\delta(\vb{x})\) takes any finite value at \(\vb{x}=\vb{0}\). So it is not a genuine function in the sense of being a map from \(\Omega\to\mathbb{R}\). One reason this abusive notation is convenient is that distributions can arise as the limit of a sequence of integrals of usual functions, just as what we have seen before.
+	for some object \(\delta(\vb{x})\). However, \(\delta(\vb{x})\) cannot possibly be a genuine function. For the integral to be equal to \(\phi(\vb{0})\), the value of \(\delta(\vb{x})\) must vanish whenever \(x\ne 0\). On the other hand, if \(\delta(\vb{0})\) does indeed vanish everywhere except at one point, the integral cannot give the finite answer \(\phi(\vb{0})\) if \(\delta(\vb{x})\) takes any finite value at \(\vb{x}=\vb{0}\). So it is not a genuine function in the sense of being a map from \(\Omega\to\mathbb{R}\). One reason this abusive notation is convenient is that distributions can arise as the limit of a sequence of integrals of usual functions, just as what we have seen before.
 	\subsubsection{Differentiation of Distributions}
 	In the case that the distribution is just an ordinary function \(f\), we have
 	\begin{align*}
@@ -1374,6 +1385,8 @@
 	\end{proof}
 	
 	\subsection{Second-order Linear Ordinary Differential Equations}
+	One of the most important applications of the Dirac delta is in solving the differential equations. 
+
 	A general second-order linear ODE for \(y(x)\) can be written as
 	\[y''+p(x)y'+q(x)y=f(x)\quad \text{or}\quad Ly(x)=f(x)\,,\]
 	where \(L\) is the differential operator
@@ -1385,15 +1398,15 @@
 	\begin{thm}[The principle of superposition]
 		If \(y_1\) and \(y_2\) are solutions to a homogeneous linear differential equation
 		\[Ly=0\,,\]
-		where \(L\) is a linear differential operator, then they can be superposed to give a third. For \(\alpha,\beta\in\mathbb{R}\),
+		where \(L\) is a linear differential operator, then they can be superposed to give a third. For any \(\alpha,\beta\in\mathbb{R}\),
 		\[y=\alpha y_1+\beta y_2\]
 		is also a solution.
 	\end{thm}
 	
 	\begin{cor}
-		If \(y_1\) and \(y_2\) are two linearly independent solutions, which means that
-		\[\alpha y_1(x)+\beta y_2(x)\equiv 0\implies\alpha=\beta=0\,\]
-		since the equation is second-order, the general solution will be of the form
+		Suppose \(y_1\) and \(y_2\) are two linearly independent solutions, which means that
+		\[\alpha y_1(x)+\beta y_2(x)\equiv 0\implies\alpha=\beta=0\,.\]
+		Since the equation is second-order, the general solution will be of the form
 		\[y=\alpha y_1+\beta y_2\,.\]
 		\(y_1\) and \(y_2\) are commonly referred to as \textit{complementary functions}.
 	\end{cor}
@@ -1435,17 +1448,17 @@
 		y_1' & y_2'
 	\end{vmatrix}=y_1y_2'-y_2y_1'=W\ne0\,.\]
 	
-	\subsubsection{Initial-value and Boundary-value Problems}
+	\subsubsection{Initial-Value and Boundary-Value Problems}
 	Two boundary conditions must be specified to fully determine the solution of a second-order ODE. The general form of a linear boundary condition at a point \(x=a\) is
 	\[Ay(a)+By'(a)=E\,,\]
 	where \(A, B\) are not both zero. If \(E=0\) the boundary condition is said to be \textit{homogeneous}.
 
 	If two boundary conditions are specified at the same point, then the problem is referred to as an \textit{initial value problem}. If two conditions are specified at different points, then this is a \textit{boundary value problem}.
 	
-	\subsection{Differential Equations Containing Delta Functions}
+	\subsection{Differential Equations containing Delta Functions}
 	Consider the linear second-order ODE
 	\[\dv[2]{y}{x}+y=\delta(x)\,.\]
-	Let \(x\) represent time, then this equation could represent the behaviour of a simple harmonic oscillator in response to an impulsive force.
+	If \(x\) represent time, then this equation could represent the behaviour of a simple harmonic oscillator in response to an instantaneous force at \(x=0\) with unit impulse.
 	
 	In regions \(x<0\) and \(x>0\) respectively, the right-hand side vanishes, so the general solution is given by a linear combination of \(\cos x\) and \(\sin x\)
 	\[y=\begin{cases}
@@ -1606,7 +1619,7 @@
 		\end{align*}
 	\end{ex}
 	
-	\subsubsection{The Green's Function for Homogeneous Initial-value Problems}
+	\subsubsection{The Green's Function for Homogeneous Initial-Value Problems}
 	Suppose the boundary conditions are instead
 	\[y(a)=y'(a)=0\,.\]
 	For \(x\in[a,\xi)\), choose the complementary functions such that \(y_1(a)=0\) and \(y_2'(a)=0\), and the Green's function is given by
@@ -1695,7 +1708,7 @@
 	\begin{rem}
 		A necessary condition for \(\tilde{f}(k)\) to exist (as a normal function, not as a distribution) for all real values of \(k\) is that \(f(x)\to 0\) as \(x\to\pm\infty\). Otherwise, the Fourier integral does not converge (e.g. for \(k=0\)).
 	
-		A set of sufficient conditions for \(\tilde{f}(k)\) to exist is that \(f(x)\) have a bounded variation, a finite number of discontinuities and be absolutely integrable, i.e.
+		A set of sufficient conditions for \(\tilde{f}(k)\) to exist is that \(f(x)\) have bounded variation, a finite number of discontinuities and be absolutely integrable, i.e.
 		\[\int_{-\infty}^{\infty}\abs{f(x)}\dd{x}<\infty\,.\]
 	\end{rem}
 	
@@ -1738,7 +1751,7 @@
 		Hence the Fourier transform of \(\delta(x)\) is \(1\). Recall that the Dirac delta function can be considered as the limit of a Gaussian as \(\epsilon\to 0^+\).
 
 		\item[(vi)] Constant function.
-		\[\mathcal{F}[a]=a\int_{-\infty}^{\infty}e^{-ikx}\,.\]
+		\[\mathcal{F}[a]=a\int_{-\infty}^{\infty}e^{-ikx}\dd{x}\,.\]
 		This clearly violates our previous claim that in order to have a Fourier transform in the sense of a normal function, we must have \(f(x)\to 0\) as \(x\to\pm\infty\). Therefore, this Fourier transform only exists in the sense of a distribution. Recall the expression of the delta function in \cref{Fourier_one} --- this is exactly what we have here. We can identify
 		\[\int_{-\infty}^{\infty}e^{-ikx}=2\pi\delta(k)\,,\]
 		so
@@ -1750,7 +1763,7 @@
 			&=\int_{a}^{\infty}e^{-ikx}\\
 			&=\qty[\frac{e^{-ikx}}{-ik}]_{a}^{\infty}\,,
 		\end{align*}
-		but the limit \(\lim\limits_{x\to\infty}e^{-ikx}\) does not exist. This is another case that the function is not absolutely integrable, so need to find a convergent variation of it.
+		but the limit \(\lim\limits_{x\to\infty}e^{-ikx}\) does not exist. This is another case that the function is not absolutely integrable, so we need a convergent regularisation of it.
 		
 		We may first find the Fourier transform of \(H(x-a)e^{-\epsilon(x-a)}\), then take the limit \(\epsilon\to 0^+\). Doing so, we have
 		\begin{align*}
@@ -2023,7 +2036,7 @@
 		\[h(x)=f(x)\otimes g(x)\coloneqq\int_{-\infty}^{\infty}f(y)^* g(x+y)\dd{y}\,.\]
 	\end{defn}
 	
-	This is a way of quantifying the relationship between two oscillatory functions. If two signals oscillating about an average value of zero are in phase, their correlation will be positive. If they are out of phase, the correlation will be negative. If they are completely unrelated, their correlation will be zero.
+	This is a way of quantifying the relationship between two oscillatory functions. If two signals oscillating about an average value of zero are in phase, their correlation will be positive. If they are in opposite phases, the correlation will be negative. If they are completely unrelated, their correlation will be zero.
 	
 	\begin{lem}\label[lem]{corft}
 		The Fourier transform of a correlation is given by
@@ -2059,7 +2072,7 @@
 	
 	\subsection{Parseval's Theorem}
 	\begin{thm}[Parseval's theorem]		
-		Fourier transform is a unitary transform that preserves the inner product between two functions up to a multiplicative constant.
+		Fourier transform is a \textit{unitary transform} that preserves the inner product between two functions up to a multiplicative constant.
 		\[\int_{-\infty}^{\infty}[f(x)]^*g(x)\dd{x}=\frac{1}{2\pi}\int_{-\infty}^{\infty}[\tilde{f}(k)]^*\tilde{g}(k)\dd{k}\,.\]
 	\end{thm}
 	
@@ -2133,7 +2146,7 @@
 	
 	\newpage
 	
-	\section{Linear Algebra}
+	\section{Linear Algebra}\label{Chap:Lin_Alg}
 	\subsection{Vector Spaces}
 	\begin{defn}
 		A \textit{vector space} over a field \(\mathbb{F}\) is a non-empty set \(V\) together with
@@ -3202,6 +3215,7 @@
 
 
 	\subsection{Duality (Non-examinable)}
+	This concept will be especially important if your are doing quantum mechanics.
 	\subsubsection{Dual Spaces}
 	To specify a subspace of \(\mathbb{F}^n\), we can write down a set of linear equations that every vector in the subspace satisfies. For example, let
 	\[U=\left\langle \begin{pmatrix}

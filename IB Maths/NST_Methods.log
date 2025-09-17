@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.21)  16 SEP 2025 22:21
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.21)  18 SEP 2025 00:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1008,21 +1008,21 @@ Package hyperref Info: bookmark level for unknown lem defaults to 0 on input lin
 [5]
 
 [6]
-Package hyperref Info: bookmark level for unknown exs defaults to 0 on input line 396.
+Package hyperref Info: bookmark level for unknown exs defaults to 0 on input line 398.
 
 
 [7]
-Package hyperref Info: bookmark level for unknown proof defaults to 0 on input line 459.
+Package hyperref Info: bookmark level for unknown proof defaults to 0 on input line 461.
 
 
 [8]
 
 [9]
-Package hyperref Info: bookmark level for unknown prop defaults to 0 on input line 527.
+Package hyperref Info: bookmark level for unknown prop defaults to 0 on input line 529.
 
 
 [10]
-Package hyperref Info: bookmark level for unknown proofskip defaults to 0 on input line 596.
+Package hyperref Info: bookmark level for unknown proofskip defaults to 0 on input line 598.
 
 
 [11]
@@ -1030,7 +1030,7 @@ Package hyperref Info: bookmark level for unknown proofskip defaults to 0 on inp
 [12]
 
 [13]
-Package hyperref Info: bookmark level for unknown altp defaults to 0 on input line 714.
+Package hyperref Info: bookmark level for unknown altp defaults to 0 on input line 716.
 
 
 [14]
@@ -1080,10 +1080,10 @@ Package hyperref Info: bookmark level for unknown altp defaults to 0 on input li
 [27]
 
 [28]
-Package hyperref Info: bookmark level for unknown ex defaults to 0 on input line 1358.
-
 
 [29]
+Package hyperref Info: bookmark level for unknown ex defaults to 0 on input line 1369.
+
 
 [30]
 
@@ -1114,10 +1114,10 @@ Package hyperref Info: bookmark level for unknown ex defaults to 0 on input line
 [43]
 
 [44]
-Package hyperref Info: bookmark level for unknown rems defaults to 0 on input line 2001.
-
 
 [45]
+Package hyperref Info: bookmark level for unknown rems defaults to 0 on input line 2014.
+
 
 [46]
 
@@ -1140,10 +1140,10 @@ Package hyperref Info: bookmark level for unknown rems defaults to 0 on input li
 [55]
 
 [56]
-Package hyperref Info: bookmark level for unknown propskip defaults to 0 on input line 2544.
-
 
 [57]
+Package hyperref Info: bookmark level for unknown propskip defaults to 0 on input line 2557.
+
 
 [58]
 
@@ -1250,10 +1250,10 @@ Package hyperref Info: bookmark level for unknown propskip defaults to 0 on inpu
 [109]
 
 [110]
-Package hyperref Info: bookmark level for unknown clm defaults to 0 on input line 5057.
-
 
 [111]
+Package hyperref Info: bookmark level for unknown clm defaults to 0 on input line 5071.
+
 
 [112]
 
@@ -1416,11 +1416,11 @@ Package hyperref Info: bookmark level for unknown clm defaults to 0 on input lin
 [191]
 
 [192]
+
+[193]
 File: Residue.png Graphic file (type bmp)
 <Residue.png>
 
-
-[193]
 
 [194]
 
@@ -1503,10 +1503,10 @@ File: Residue.png Graphic file (type bmp)
 [233]
 
 [234]
-Easytable[row:8,col:8]
-
 
 [235]
+Easytable[row:8,col:8]
+
 
 [236]
 
@@ -1515,18 +1515,18 @@ Easytable[row:8,col:8]
 [238]
 
 [239]
-Easytable[row:8,col:8]
-
 
 [240]
+Easytable[row:8,col:8]
+
 
 [241]
 
 [242]
-Package hyperref Info: bookmark level for unknown lemskip defaults to 0 on input line 10520.
-
 
 [243]
+Package hyperref Info: bookmark level for unknown lemskip defaults to 0 on input line 10534.
+
 
 [244]
 
@@ -1535,10 +1535,10 @@ Package hyperref Info: bookmark level for unknown lemskip defaults to 0 on input
 [246]
 
 [247]
-Easytable[row:6,col:6]
-
 
 [248]
+Easytable[row:6,col:6]
+
 
 [249]
 
@@ -1559,19 +1559,19 @@ Easytable[row:6,col:6]
 [257]
 
 [258]
-Easytable[row:6,col:7]
-
 
 [259]
+Easytable[row:6,col:7]
+
 
 [260]
 
 [261]
+
+[262]
 Easytable[row:6,col:9]
 Easytable[row:7,col:5]
 
-
-[262]
 
 [263]
 
@@ -1598,31 +1598,33 @@ Easytable[row:7,col:5]
 [274]
 
 [275]
+
+[276]
 Easytable[row:3,col:3]
 
 
-[276]
+[277]
 Easytable[row:4,col:7]
 \tf@thm=\write6
 \openout6 = `NST_Methods.thm'.
 
 
 
-[277] (./NST_Methods.aux)
+[278] (./NST_Methods.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `NST_Methods.out' has not changed.
-(rerunfilecheck)             Checksum: 36F6E1ED8FEEB3B16EB8E79ADD8A62DC;26316.
+(rerunfilecheck)             Checksum: 477AFCC7F5A189D7466C20CCCC40CE4E;26316.
  ) 
 Here is how much of TeX's memory you used:
- 43710 strings out of 473832
- 1005353 string characters out of 5733158
- 1479501 words of memory out of 5000000
- 66165 multiletter control sequences out of 15000+600000
+ 43712 strings out of 473832
+ 1005386 string characters out of 5733158
+ 1478577 words of memory out of 5000000
+ 66167 multiletter control sequences out of 15000+600000
  578269 words of font info for 132 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  83i,22n,93p,792b,1238s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on NST_Methods.pdf (284 pages).
+Output written on NST_Methods.pdf (285 pages).
