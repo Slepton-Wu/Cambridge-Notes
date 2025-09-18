@@ -51,6 +51,7 @@
 \newcommand{\lt}[1]{\mathcal{L}\qty{ #1 }}
 
 \NiceMatrixOptions{cell-space-limits = 2pt}
+\renewcommand{\labelenumi}{(\roman{*})}
 
 \begin{document}
 	\setlength{\parindent}{0pt}
@@ -395,7 +396,7 @@
 		\end{itemize}
 	\end{defn}
 	\begin{exs}
-		\begin{enumerate}[topsep=0pt,label=(\roman*)]
+		\begin{enumerate}[topsep=0pt]
 			\item Scalar product:
 			\[\vb{a}\vdot\vb{b}=a_ib_i\]
 			\item Transpose of a matrix:
@@ -429,13 +430,13 @@
 		=\mathsf{I}\]
 	\end{defn}
 	The Kronecker delta has the following properties.
-	\begin{enumerate}[topsep=0pt,label=(\roman*)]
-		\item[(i)] \(\delta_{ij}\) is symmetric. \(\delta_{ij}=\delta_{ji}\).
-		\item[(ii)] \(a_{i}\delta_{ij}=a_{j}\)
-		\item[(iii)] \(\delta_{ij}\delta_{jk}=\delta_{ik}\)
-		\item[(iv)] \(a_i\delta_{ij}b_j=a_ib_i=\vb{a}\vdot\vb{b}\)
-		\item[(v)] \(\delta_{ii}=3\)
-		\item[(vi)] For an orthonormal basis, \(\vb{e}_i\vdot\vb{e}_j=\delta_{ij}\).
+	\begin{enumerate}[topsep=0pt]
+		\item \(\delta_{ij}\) is symmetric. \(\delta_{ij}=\delta_{ji}\).
+		\item \(a_{i}\delta_{ij}=a_{j}\)
+		\item \(\delta_{ij}\delta_{jk}=\delta_{ik}\)
+		\item \(a_i\delta_{ij}b_j=a_ib_i=\vb{a}\vdot\vb{b}\)
+		\item \(\delta_{ii}=3\)
+		\item For an orthonormal basis, \(\vb{e}_i\vdot\vb{e}_j=\delta_{ij}\).
 	\end{enumerate}
 
 	\begin{defn}
@@ -459,7 +460,7 @@
 	\end{lem}
 	\begin{proof}
 		We can observe that the value of both the LHS and the RHS:
-		\begin{enumerate}[topsep=0pt,label=(\roman*)]
+		\begin{enumerate}[topsep=0pt]
 			\item are 0 when any of \((i,j,k)\) are equal (two rows equal in a determinant), or when any of \((l,m,n)\) are equal (two columns equal in a determinant);
 			\item are 1 when \((i,j,k) = (l,m,n) = (1,2,3)\);
 			\item change sign when any of \((i,j,k)\) are interchanged (row interchange in a determinant), or when any of \((l,m,n)\) are interchanged (column interchange in a determinant).\qed
@@ -1713,26 +1714,26 @@
 	\end{rem}
 	
 	\subsubsection{Examples of Fourier Transforms}
-	\begin{itemize}
-		\item[(i)] \(e^{-b\abs{x}}\), \(b>0\).
+	\begin{enumerate}[topsep=0pt]
+		\item \(e^{-b\abs{x}}\), \(b>0\).
 		\begin{align*}
 			\mathcal{F}\qty[e^{-b\abs{x}}]&=\int_{-\infty}^{\infty}e^{-ikx-b\abs{x}}\dd{x}\\
 			&=\frac{2b}{k^2+b^2}
 		\end{align*}
 		
-		\item[(ii)] \(\cos(ax)e^{-b\abs{x}}\).
+		\item \(\cos(ax)e^{-b\abs{x}}\).
 		\begin{align*}
 			\mathcal{F}\qty[\cos(ax)e^{-b\abs{x}}]&=\frac{1}{2}\int_{-\infty}^{\infty}(e^{iax}+e^{-iax})e^{-ikx-b\abs{x}}\dd{x}\\
 			&=b\qty(\frac{1}{(a-k)^2+b^2}+\frac{1}{(a+k)^2+b^2})
 		\end{align*}
 		
-		\item[(iii)] \(\sin(ax)e^{-b\abs{x}}\).
+		\item \(\sin(ax)e^{-b\abs{x}}\).
 		\begin{align*}
 			\mathcal{F}\qty[\sin(ax)e^{-b\abs{x}}]&=\frac{1}{2i}\int_{-\infty}^{\infty}(e^{iax}-e^{-iax})e^{-ikx-b\abs{x}}\dd{x}\\
 			&=-ib\qty(\frac{1}{(a-k)^2+b^2}-\frac{1}{(a+k)^2+b^2})
 		\end{align*}
 		
-		\item[(iv)] Gaussian.
+		\item Gaussian.
 		\begin{align*}
 			\mathcal{F}\qty[\frac{1}{\sqrt{2\pi}\epsilon}e^{-\frac{x^2}{2\epsilon^2}}]&=\frac{1}{\sqrt{2\pi}\epsilon}\int_{-\infty}^{\infty}\exp(-\frac{x^2}{2\epsilon^2}-ikx)\dd{x}\\
 			&=\frac{1}{\sqrt{2\pi}\epsilon}\int_{-\infty}^{\infty}\exp(-\frac{1}{2}\qty(\frac{x}{\epsilon}+i\epsilon k)^2-\frac{1}{2}\epsilon^2k^2)\dd{x}\\
@@ -1743,21 +1744,21 @@
 			The Fourier transform of a Gaussian of width \(\epsilon\) is a Gaussian of width \(\epsilon^{-1}\).
 		\end{rem}
 
-		\item[(v)] Dirac delta function.
+		\item Dirac delta function.
 		\begin{align*}
 			\mathcal{F}\qty[\delta(x-a)]&=\int_{-\infty}^{\infty}\delta(x-a)e^{-ikx}\dd{x}\\
 			&=e^{-ika}			
 		\end{align*}
 		Hence the Fourier transform of \(\delta(x)\) is \(1\). Recall that the Dirac delta function can be considered as the limit of a Gaussian as \(\epsilon\to 0^+\).
 
-		\item[(vi)] Constant function.
+		\item Constant function.
 		\[\mathcal{F}[a]=a\int_{-\infty}^{\infty}e^{-ikx}\dd{x}\,.\]
 		This clearly violates our previous claim that in order to have a Fourier transform in the sense of a normal function, we must have \(f(x)\to 0\) as \(x\to\pm\infty\). Therefore, this Fourier transform only exists in the sense of a distribution. Recall the expression of the delta function in \cref{Fourier_one} --- this is exactly what we have here. We can identify
 		\[\int_{-\infty}^{\infty}e^{-ikx}=2\pi\delta(k)\,,\]
 		so
 		\[\mathcal{F}[a]=2\pi a\delta(k)\,.\]
 		
-		\item[(vii)] Heaviside step function. A direct Fourier transform is problematic:
+		\item Heaviside step function. A direct Fourier transform is problematic:
 		\begin{align*}
 			\mathcal{F}\qty[H(x-a)]&=\int_{-\infty}^{\infty}H(x-a)e^{-ikx}\dd{x}\\
 			&=\int_{a}^{\infty}e^{-ikx}\\
@@ -1787,7 +1788,7 @@
 			\(ik\mathcal{F}[H(x-a)]=\mathcal{F}[\delta(x-a)]\).
 		\end{rem}
 
-		\item[(viii)] Top-hat function, \(g(x)\), defined by
+		\item Top-hat function, \(g(x)\), defined by
 		\[g(x)=\begin{cases}
 			c & a<x<b\\
 			0 & \text{otherwise}\,.
@@ -1796,7 +1797,7 @@
 		
 		For instance, if \(a=-1\), \(b=1\), \(c=1\),
 		\[\tilde{g}(k)=\frac{2\sin k}{k}\,.\]
-	\end{itemize}
+	\end{enumerate}
 	
 	\subsection{Fourier Inversion Theorem}
 	The nice thing about the Fourier transform is that you can transform it back easily.
@@ -1831,23 +1832,23 @@
 	\begin{prop}\label[prop]{ftdif}
 		The Fourier transform has the following properties.
 		\begin{enumerate}[topsep=0pt]
-			\item[(i)] \textit{Linearity.} For constants \(\alpha,\beta\in\mathbb{C}\),
+			\item \textit{Linearity.} For constants \(\alpha,\beta\in\mathbb{C}\),
 			\[\mathcal{F}[\alpha f(x)+\beta g(x)]=\alpha\mathcal{F}[f(x)]+\beta\mathcal{F}[g(x)]\,.\]
-			\item[(ii)] \textit{Rescaling.} For real constant \(\alpha\in\mathbb{R}\),
+			\item \textit{Rescaling.} For real constant \(\alpha\in\mathbb{R}\),
 			\[\mathcal{F}[f(\alpha x)]=\frac{1}{\abs{\alpha}}\tilde{f}\qty(\frac{k}{\alpha})\,.\]
-			\item [(iii)]\textit{Translation.} For real constant \(\alpha\in\mathbb{R}\),
+			\item \textit{Translation.} For real constant \(\alpha\in\mathbb{R}\),
 			\[\mathcal{F}[f(x-\alpha)]=e^{-ik\alpha}\mathcal{F}[f(x)]\]
-			\item[(iv)] \textit{Exponential.} For constant \(\alpha\in\mathbb{C}\),
+			\item \textit{Exponential.} For constant \(\alpha\in\mathbb{C}\),
 			\[\mathcal{F}[e^{i\alpha x}f(x)](k)=\mathcal{F}[f(x)](k-\alpha)\,.\]
-			\item[(v)] \textit{Duality.} If \(g(x)=\tilde{f}(x)\), then
+			\item \textit{Duality.} If \(g(x)=\tilde{f}(x)\), then
 			\[\tilde{g}(k)=2\pi f(-k)\,.\]
-			\item[(vi)] \textit{Complex conjugation and parity inversion.} For \(k\in\mathbb{R}\),
+			\item \textit{Complex conjugation and parity inversion.} For \(k\in\mathbb{R}\),
 			\[\mathcal{F}[f^*](k)=\mathcal{F}[f](-k)^*\,.\]
-			\item[(vii)] \textit{Symmetry.} If \(f(-x)=\pm f(x)\) i.e. \(f\) is even or odd, then
+			\item \textit{Symmetry.} If \(f(-x)=\pm f(x)\) i.e. \(f\) is even or odd, then
 			\[\tilde{f}(-k)=\pm\tilde{f}(k)\,.\]
-			\item[(viii)] \textit{Differentiation.}
+			\item \textit{Differentiation.}
 			\[\mathcal{F}\qty[\dv[n]{f}{x}]=(ik)^n\tilde{f}\,.\]
-			\item[(ix)] \textit{Multiplication by \(x\).}
+			\item \textit{Multiplication by \(x\).}
 			\[\mathcal{F}[x f(x)]=i\dv{\tilde{f}}{k}\,.\]
 		\end{enumerate}
 	\end{prop}
@@ -1855,44 +1856,44 @@
 		Fourier transforms allow a simple representation of derivatives of \(f(x)\) in Fourier space. This has important consequences for solving differential equations.
 	\end{rem}
 	\begin{proofskip}
-		\begin{enumerate}[leftmargin=30pt,parsep=1em]
-			\item[(i)] Trivial by the linearity of multiplication and integration.
-			\item[(ii)] Let \(g(x)=f(\alpha x)\),
+		\begin{enumerate}[parsep=1em]
+			\item Trivial by the linearity of multiplication and integration.
+			\item Let \(g(x)=f(\alpha x)\),
 			\begin{align*}
 				\tilde{g}(k)&=\int_{-\infty}^{\infty}e^{-ikx}f(\alpha x)\dd{x}\\
 				&=\frac{\text{sgn }\alpha}{\alpha}\int_{-\infty}^{\infty}e^{-i\frac{k}{\alpha}y}f(y)\dd{y}\\
 				&=\frac{1}{\abs{\alpha}}\tilde{f}\qty(\frac{k}{\alpha})\,.
 			\end{align*}
-			\item [(iii)]
+			\item
 			\begin{align*}
 				\mathcal{F}[f(x-\alpha)]&=\int_{-\infty}^{\infty}e^{-ikx}f(x-\alpha)\dd{x}\\
 				&=\int_{-\infty}^{\infty}e^{-ik(y+\alpha)}f(y)\dd{y}\\
 				&=e^{-ik\alpha}\mathcal{F}[f(x)]\,.
 			\end{align*}
-			\item[(iv)]
+			\item
 			\begin{align*}
 				\mathcal{F}[e^{i\alpha x}f(x)](k)&=\int_{-\infty}^{\infty}e^{-i(k-\alpha)x}f(x)\dd{x}\\
 				&=\mathcal{F}[f(x)](k-\alpha)\,.
 			\end{align*}
-			\item[(v)]
+			\item
 			\begin{align*}
 				\tilde{g}(k)&=\int_{-\infty}^{\infty}e^{-ikx}\tilde{f}(x)\dd{x}\\
 				&=2\pi f(-k)\,.
 			\end{align*}
-			\item[(vi)]
+			\item
 			\begin{align*}
 				\mathcal{F}[f^*](k)&=\int_{-\infty}^{\infty}e^{-ikx}f^*(x)\dd{x}\\
 				&=\qty(\int_{-\infty}^{\infty}e^{ikx}f(x)\dd{x})^*\\
 				&=\mathcal{F}[f](-k)^*\,.
 			\end{align*}
-			\item[(vii)]
+			\item
 			\begin{align*}
 				\tilde{f}(-k)&=\int_{-\infty}^{\infty}f(x)e^{ikx}\\
 				&=\int_{-\infty}^{\infty}\pm f(-x)e^{ikx}\dd{x}\\
 				&=\pm\int_{-\infty}^{\infty}f(y)e^{-iky}\dd{y}\\
 				&=\pm\tilde{f}(k)\,.
 			\end{align*}
-			\item[(viii)] By differentiating the inverse Fourier theorem, we obtain
+			\item By differentiating the inverse Fourier theorem, we obtain
 			\[\dv{x} f(x)=\frac{1}{2\pi}\int_{-\infty}^{\infty}e^{ikx}\qty(ik\tilde{f}(k))\dd{k}=\mathcal{I}\qty[ik\tilde{f}]\,.\]
 			Fourier transform this equation, and we obtain
 			\[\mathcal{F}\qty[\dv{f}{x}]=\mathcal{F}\qty[\mathcal{I}\qty[ik\tilde{f}]]=ik\tilde{f}\,,\]
@@ -1906,7 +1907,7 @@
 				&=ik\tilde{f}(k)\,,
 			\end{align*}
 			where the former part vanishes because \(f(x)\to 0\) as \(x\to\pm\infty\) for the Fourier transform to converge.		
-			\item[(ix)]	Differentiate the Fourier transform with respect to \(k\), we obtain
+			\item Differentiate the Fourier transform with respect to \(k\), we obtain
 			\[\dv{k} \tilde{f}(k)=\int_{-\infty}^{\infty}e^{-ikx}(-ixf(x))\dd{x}\,.\]
 			After multiplying by \(i\), we can deduce that
 			\[\mathcal{F}[x f(x)]=i\dv{\tilde{f}}{k}\,.\]
@@ -2184,7 +2185,7 @@
 			\item The additive inverse of a vector \(\vb{v}\) is unique.
 			\item The existence of a negative vector allows us to define the subtraction of vectors
 			\[\vb{u}-\vb{v}\equiv\vb{u}+(-\vb{v})\,.\]
-			\item Vector multiplication is not defined in general.
+			\item Multiplication between vectors is not defined in general.
 		\end{itemize}
 	\end{rems}
 	
@@ -2194,6 +2195,7 @@
 			(x_1,\dots,x_n)+(y_1,\dots,y_n)&=(x_1+y_1,\dots,x_n+y_n)\\
 			\alpha(x_1,\dots,x_n)&=(\alpha x_1,\dots,\alpha x_n)
 		\end{align*}
+		Nothing else is defined (no distance, dot product \textit{etc.}).
 	\end{ex}
 	
 	\subsubsection{Span and Linear Independence}
@@ -2240,8 +2242,8 @@
 	\begin{lem}[Steinitz Exchange Lemma]\label[lem]{stlem}
 		Let \(V\) be a finite-dimensional vector space. Take \(\vb{u}_1,\dots,\vb{u}_m\) to be linearly independent, \(\vb{v}_1,\dots,\vb{v}_n\) to span \(V\), then
 		\begin{enumerate}[topsep=0pt]
-			\item[(i)] \(m\le n\)
-			\item[(ii)] reordering the \(\vb{v}_i\) if needed, \(\{\vb{u}_1,\dots,\vb{u}_m,\vb{v}_{m+1},\dots,\vb{v}_n\}\) spans \(V\).
+			\item \(m\le n\)
+			\item reordering the \(\vb{v}_i\) if needed, \(\{\vb{u}_1,\dots,\vb{u}_m,\vb{v}_{m+1},\dots,\vb{v}_n\}\) spans \(V\).
 		\end{enumerate}
 	\end{lem}
 
@@ -2257,14 +2259,14 @@
 		\item If \(m<n\) then there exists a vector that cannot be expressed as a linear combination of \(\vb{u}_i\).
 		\item If \(m>n\) then there exists some vector that, when expressed as a linear combination of \(\vb{u}_i\), has a non-unique scalar coefficient, whether or not the \(\vb{u}_i\) span \(V\).
 		\item Vector spaces can have infinite dimensions, e.g. the function defined on \(0\le x<2\pi\) with a Fourier series
-		\[f(x)=\sum_{-\infty}^{\infty}f_n e^{inx}\\,.\]
-		Here \(f(x)\) is the vector and \(f_n\) are its components with respect to its basis of functions \(e^{inx}\).
+		\[f(x)=\sum_{n=-\infty}^{\infty}f_n e^{inx}\\,.\]
+		Here \(f(x)\) is the vector and \(f_n\) are its components with respect to its basis of functions \(\{e^{inx}\}\).
 	\end{itemize}
 	
 	\begin{exs}
-		\begin{enumerate}[topsep=0pt,label=(\roman*),itemsep=0pt,parsep=1em]
+		\begin{enumerate}[topsep=0pt,itemsep=0pt,parsep=1em]
 			\item \textit{3D Euclidean space \(\mathbb{E}^3\).} In this case the scalars are real and \(V\) is three dimensional.
-			\item \textit{The complex numbers.} Here we have two possibilities.
+			\item \textit{The complex numbers.} We can view this in two different ways.
 			
 			Suppose we are considering a complex linear vector space (linear vector space over \(\mathbb{C}\)). Then every complex number \(z\) can be written uniquely as
 			\[z=\alpha\cdot 1\text{ where }\alpha\in\mathbb{C}\,.\]
@@ -2284,22 +2286,24 @@
 	
 	\begin{rems}
 		\begin{itemize}[topsep=0pt]
-			\item \(\mathbb{R}^3\) is not the same as the physical space because the physical space has a rule for the distance between two points (metric).
+			\item \(\mathbb{R}^3\) is not the same as the physical space because the physical space has a rule for the distance between two points. We can add more algebraic structures to \(\mathbb{R}^3\) to make them the same.
 			\item \(\mathbb{R}^2\) is not the same as \(\mathbb{C}\) because \(\mathbb{C}\) has a rule for multiplication.
 		\end{itemize}
 	\end{rems}
 	\subsection{Vector Subspace and Direct Sum (Non-examinable)}
+	We can find smaller vector spaces in larger ones. For example, if you pick two linearly independent vectors in \(\mathbb{R}^3\), then they span a \(\mathbb{R}^2\) space within the \(\mathbb{R}^3\) space. This is an example of a \textit{subspace}.
 	\begin{defn}
 		Suppose \(V\) is a vector space over \(\mathbb{F}\). A subset \(U\subseteq V\) is a \textit{subspace} over \(\mathbb{F}\) if
 		\begin{enumerate}[topsep=0pt]
-			\item[(i)] for all \(\vb{u}_1,\vb{u}_2\in U\), \(\vb{u}_1+\vb{u}_2\in U\).
-			\item[(ii)] for all \(\lambda\in\mathbb{F}\) and \(\vb{u}\in U\), \(\lambda u\in U\).
-			\item[(iii)] \(\vb{0}\in U\).
+			\item for all \(\vb{u}_1,\vb{u}_2\in U\), \(\vb{u}_1+\vb{u}_2\in U\).
+			\item for all \(\lambda\in\mathbb{F}\) and \(\vb{u}\in U\), \(\lambda u\in U\).
+			\item \(\vb{0}\in U\).
 		\end{enumerate}
 	\end{defn}
 	\begin{rem}
 		We say \(U\) is a \textit{proper subspace} of \(V\) to exclude the cases \(U=\{\vb{0}\}\) and \(U=V\).
 	\end{rem}
+	On the other hand, we can also create larger vector spaces from smaller ones. For example, if we have a 2D subspace and a linearly independent 1D subspace of a 3D vector space, we can `combine' them to span the whole 3D space.
 	\begin{defn}
 		Suppose that \(V\) is a vector space over \(\mathbb{F}\) and \(U, W\) are subspaces of \(V\). The \textit{sum} of \(U\) and \(W\) is defined to be the set
 		\[U+W\coloneqq\{\vb{u}+\vb{w} \mid \vb{u}\in U, \vb{w}\in W\}.\]
@@ -2311,6 +2315,8 @@
 	\begin{rem}
 		Equivalently, \(V=U\oplus W\) if every element \(\vb{v}\in V\) can be written uniquely as \(\vb{u}+\vb{w}\) with \(\vb{u}\in U\) and \(\vb{w}\in W\).
 	\end{rem}
+
+	We can extend this idea to stick together any two vector spaces to form a larger one.
 	\begin{defn}
 		Given any two vector spaces \(U\) and \(W\) over \(\mathbb{F}\), the \textit{(external) direct sum}, \(U \oplus W\) of \(U\) and \(W\) is defined to be the set of pairs
 		\[\{(u, w) \mid \vb{u}\in U, w \in \vb{W}\}\]
@@ -2327,7 +2333,7 @@
 		\[V=U_1\oplus\dots\oplus U_n =\bigoplus_{i=1}^{n}U_i\,,\]
 		if every element \(\vb{v}\) in \(V\) can be written uniquely as
 		\[\vb{v}=\sum_{i=1}^{n}\vb{u}_i\]
-		with \(\vb{u}_1\in U_i\).
+		with \(\vb{u}_i\in U_i\).
 	\end{defn}
 	\begin{defn}
 		If \(U_1,\dots,U_n\) are vector spaces over \(\vb{F}\), their \textit{(external) direct sum} is the vector space
@@ -2336,13 +2342,14 @@
 	\end{defn}
 
 	\subsection{Matrices}
+	Next, we will investigate functions between vector spaces. Since we investigate them on vector spaces with nice properties of linearity, we want our functions to preserve such linearity. Therefore, we are particularly interested in the \textit{linear maps}.
 	\subsubsection{Linear Maps}
 	\begin{defn}
 		Suppose that \(U\) and \(V\) are vector spaces over a field \(\mathbb{F}\). A function
 		\(\mathcal{A}: U\to V\) is a \textit{linear map} if
 		\begin{enumerate}[topsep=0pt]
-			\item[(i)] \(\mathcal{A}(\vb{u}_1+\vb{u}_2)=\mathcal{A}(\vb{u}_1)+\mathcal{A}(\vb{u}_2)\) for all \(\vb{u}_1,\vb{u}_2\in U\).
-			\item[(ii)] \(\mathcal{A}(\lambda\vb{u})=\lambda\mathcal{A}(\vb{u})\) for all \(\vb{u}\in U\) and \(\lambda\in\mathbb{F}\).
+			\item \(\mathcal{A}(\vb{u}_1+\vb{u}_2)=\mathcal{A}(\vb{u}_1)+\mathcal{A}(\vb{u}_2)\) for all \(\vb{u}_1,\vb{u}_2\in U\);
+			\item \(\mathcal{A}(\lambda\vb{u})=\lambda\mathcal{A}(\vb{u})\) for all \(\vb{u}\in U\) and \(\lambda\in\mathbb{F}\).
 		\end{enumerate}
 		We say \(U\) is the \textit{domain} of \(\mathcal{A}\) and \(V\) is the \textit{codomain} of \(\mathcal{A}\). We denote the vector space of linear maps from \(U\) to \(V\) as \(\mathcal{L}(U,V)\).
 	\end{defn}
@@ -2555,17 +2562,17 @@
 	\end{defn}
 	\begin{propskip}
 		\begin{enumerate}[topsep=0pt]
-			\item[(i)] The Hermitian conjugate of a Hermitian conjugate:
+			\item The Hermitian conjugate of a Hermitian conjugate:
 			\[\mathsf{A}^{\dagger\dagger}=\mathsf{A}\,.\]
-			\item[(ii)] The Hermitian conjugate of a product:
+			\item The Hermitian conjugate of a product:
 			\[(\mathsf{AB})^\dagger=\mathsf{B^\dagger A^\dagger}\,.\]
 		\end{enumerate}
 	\end{propskip}
 	\begin{proofskip}
 		\begin{enumerate}[topsep=0pt]
-			\item[(i)]
+			\item
 			\[\mathsf{A}^{\dagger\dagger}=(\mathsf{A}^{*\mathrm{T}})^{\mathrm{T}*}=\mathsf{A}\,.\]
-			\item[(ii)]
+			\item
 			\begin{align*}
 				(\mathsf{AB})^\dagger&=((\mathsf{AB})\tp)^*\\
 				&=(\mathsf{B\tp A\tp})^*\\
@@ -2605,12 +2612,12 @@
 	\begin{defn}
 		An \textit{inner product space} is a vector space over \(\mathbb{C}\) equipped with an \textit{inner product}. An \textit{inner product} is a map \(\vdot:V\times V\to\mathbb{C}\) with the properties.
 		\begin{enumerate}[topsep=0pt]
-			\item[(i)] \textit{Sesquilinear.} For \(a,b\in\mathbb{C}\), \(\vb{x},\vb{y},\vb{z}\in V\),
+			\item \textit{Sesquilinear.} For \(a,b\in\mathbb{C}\), \(\vb{x},\vb{y},\vb{z}\in V\),
 			\[(a\vb{x}+b\vb{y})\vdot\vb{z}=a^*(\vb{x}\vdot\vb{z})+b^*(\vb{y}\vdot\vb{z})\,,\]
 			\[\vb{x}\vdot(a\vb{y}+b\vb{z})=a(\vb{x}\vdot\vb{y})+b(\vb{x}\vdot\vb{z})\,.\]
-			\item[(ii)] \textit{Hermitian.}
+			\item \textit{Hermitian.}
 			\[\vb{x}\vdot\vb{y}=(\vb{y}\vdot\vb{x})^*\,.\]
-			\item[(iii)] \textit{Positive definite.} For all \(\vb{x}\in V\setminus\{\vb{0}\}\), \(\vb{x}\vdot\vb{x}>0\), and \(\vb{0}\vdot\vb{0}=0\).
+			\item \textit{Positive definite.} For all \(\vb{x}\in V\setminus\{\vb{0}\}\), \(\vb{x}\vdot\vb{x}>0\), and \(\vb{0}\vdot\vb{0}=0\).
 		\end{enumerate} 
 	\end{defn}
 	\begin{rem}
@@ -3066,29 +3073,29 @@
 	\begin{prop}
 		For a diagonalisable matrix \(\mathsf{M}\),
 		\begin{enumerate}[topsep=0pt]
-			\item[(i)] \(\mathsf{M}^n=\mathsf{X\Lambda}^n\mathsf{X}^{-1}\).
-			\item[(ii)] \(\det\mathsf{M}=\prod_{i}\lambda_i\).
-			\item[(iii)] \(\tr\mathsf{M}=\sum_{i}\lambda_i\).
-			\item[(iv)] \(\tr(\mathsf{M}^n)=\sum_{i}\lambda_i^n\).
+			\item \(\mathsf{M}^n=\mathsf{X\Lambda}^n\mathsf{X}^{-1}\).
+			\item \(\det\mathsf{M}=\prod_{i}\lambda_i\).
+			\item \(\tr\mathsf{M}=\sum_{i}\lambda_i\).
+			\item \(\tr(\mathsf{M}^n)=\sum_{i}\lambda_i^n\).
 		\end{enumerate}
 	\end{prop}
 	\begin{proofskip}
 		\begin{enumerate}[topsep=0pt]
-			\item[(i)] \begin{align*}
+			\item \begin{align*}
 				\mathsf{M}^n&=(\mathsf{X\Lambda X}^{-1})\dots(\mathsf{X\Lambda X}^{-1})\\
 				&=\mathsf{X\Lambda}^n\mathsf{X}^{-1}\,.
 			\end{align*}
-			\item[(ii)] \begin{align*}
+			\item \begin{align*}
 				\det \mathsf{M}&=\det(\mathsf{X\Lambda X}^{-1})\\
 				&=\det\mathsf{X}\det\mathsf{\Lambda}\det\mathsf{X}^{-1}\\
 				&=\det\mathsf{\Lambda}=\prod_{i}\lambda_i\,.
 			\end{align*}
-			\item[(iii)] \begin{align*}
+			\item \begin{align*}
 				\tr\mathsf{M}&=\tr(\mathsf{X\Lambda X}^{-1})\\
 				&=\tr(\mathsf{\Lambda X}^{-1}\mathsf{X})\\
 				&=\tr\mathsf{\Lambda}=\sum_{i}\lambda_i\,.
 			\end{align*}
-			\item[(iv)] \begin{align*}
+			\item \begin{align*}
 				\tr(\mathsf{M}^n)&=\tr(\mathsf{X\Lambda}^n\mathsf{X}^{-1})\\
 				&=\tr(\mathsf{\Lambda}^n\mathsf{X}^{-1}\mathsf{X})\\
 				&=\tr(\mathsf{\Lambda}^n)=\sum_{i}\lambda_i^n\,.
@@ -3132,36 +3139,36 @@
 	\begin{lem}
 		For an endomorphism \(\mathcal{A}\in\mathbb{F}^n\) and \(\lambda\in\mathbb{F}\), the following are equivalent.
 		\begin{enumerate}[topsep=0pt]
-			\item[(i)] \(\lambda\) is an eigenvalue of \(\mathcal{A}\);
-			\item[(ii)] \(\lambda\) is a root of the characteristic polynomial \(p_A\);
-			\item[(iii)] \(\lambda\) is a root of the minimal polynomial \(m_A\). 
+			\item \(\lambda\) is an eigenvalue of \(\mathcal{A}\);
+			\item \(\lambda\) is a root of the characteristic polynomial \(p_A\);
+			\item \(\lambda\) is a root of the minimal polynomial \(m_A\). 
 		\end{enumerate}
 	\end{lem}
 	Let us extend our definition on the multiplicity of an eigenvalue.
 	\begin{defn}
 		Let \(\mathcal{A}\in\mathrm{End}(\mathbb{F}^n)\) be an endomorphism with an eigenvalue \(\lambda\).
 		\begin{enumerate}[topsep=0pt]
-			\item[(i)] The \textit{algebraic multiplicity} of \(\lambda\) is
+			\item The \textit{algebraic multiplicity} of \(\lambda\) is
 			\[a_\lambda\coloneqq\text{the multiplicity of }\lambda\text{ as a root of }p_A\,.\]
-			\item[(ii)] The \textit{geometric multiplicity} of \(\lambda\) is
+			\item The \textit{geometric multiplicity} of \(\lambda\) is
 			\[g_\lambda\coloneqq\dim E_A(\lambda)\,.\]
-			\item[(iii)] Another useful number is
+			\item Another useful number is
 			\[c_\lambda\coloneqq\text{the multiplicity of }\lambda\text{ as a root of }m_A\,.\]
 		\end{enumerate}
 	\end{defn}
 	\begin{lem}
 		Let \(\mathcal{A}\in\mathrm{End}(\mathbb{F}^n)\) be an endomorphism and \(\lambda\) be an eigenvalue of \(\mathsf{A}\).
 		\begin{enumerate}[topsep=0pt]
-			\item[(i)] \(1\le g_\lambda\le a_\lambda\);
-			\item[(ii)] \(1\le c_\lambda\le a_\lambda\).
+			\item \(1\le g_\lambda\le a_\lambda\);
+			\item \(1\le c_\lambda\le a_\lambda\).
 		\end{enumerate}
 	\end{lem}
 	\begin{lem}
 		For a square matrix over \(\mathbb{C}\), the following are equivalent
 		\begin{enumerate}[topsep=0pt]
-			\item[(i)] \(\mathsf{A}\) is diagonalisable;
-			\item[(ii)] \(a_\lambda= g_\lambda\) for all eigenvalues of \(\mathsf{A}\), i.e. \(\Delta_\lambda=0\) for all \(\lambda\);
-			\item[(iii)] \(c_\lambda=1\) for all eigenvalues of \(\mathsf{A}\).
+			\item \(\mathsf{A}\) is diagonalisable;
+			\item \(a_\lambda= g_\lambda\) for all eigenvalues of \(\mathsf{A}\), i.e. \(\Delta_\lambda=0\) for all \(\lambda\);
+			\item \(c_\lambda=1\) for all eigenvalues of \(\mathsf{A}\).
 		\end{enumerate}
 	\end{lem}
 
@@ -3189,9 +3196,9 @@
 
 		The Jordan normal form of a matrix satisfies the following properties:
 		\begin{enumerate}[topsep=0pt]
-			\item[(i)] \(a_\lambda\) is the total number of \(\lambda\) on the diagonal.
-			\item[(ii)] \(g_\lambda\) is the number of Jordan normal blocks with diagonal entries \(\lambda\)
-			\item[(iii)] \(c_\lambda\) is the size of the largest block with eigenvalue \(\lambda\). 
+			\item \(a_\lambda\) is the total number of \(\lambda\) on the diagonal.
+			\item \(g_\lambda\) is the number of Jordan normal blocks with diagonal entries \(\lambda\)
+			\item \(c_\lambda\) is the size of the largest block with eigenvalue \(\lambda\). 
 		\end{enumerate}
 	\end{thm}
 	\begin{rem}
@@ -3215,7 +3222,7 @@
 
 
 	\subsection{Duality (Non-examinable)}
-	This concept will be especially important if your are doing quantum mechanics.
+	This concept will be especially important if you are doing quantum mechanics.
 	\subsubsection{Dual Spaces}
 	To specify a subspace of \(\mathbb{F}^n\), we can write down a set of linear equations that every vector in the subspace satisfies. For example, let
 	\[U=\left\langle \begin{pmatrix}
@@ -3243,7 +3250,7 @@
 		To show that \(\{\epsilon_i\}\) do span \(V^*\), we need to show that any linear map \(\theta\in V^*\) can be written as
 		\[\theta=\sum_{i=1}^{n}\lambda_i\epsilon_i\,.\]
 		Let \(\lambda_i=\theta(\vb{e}_i)\in\mathbb{F}\), it suffices to show that the two representations agree on the basis \((\vb{e}_1,\dots,\vb{e}_n)\) of \(V\). We have
-		\[\sum_{i=1}^{n}\lambda_i\epsilon_i(\vb{e})_i=\lambda_j=\theta(\vb{e}_j)\,,\]
+		\[\sum_{i=1}^{n}\lambda_i\epsilon_i(\vb{e}_j)=\lambda_j=\theta(\vb{e}_j)\,,\]
 		so the claim is true.
 
 		Next, suppose that \(\sum \mu_i\epsilon_i=0\in V^*\) for some \(\mu_1,\dots,\mu_n\in F\). Then \(0=\sum \mu_i\epsilon_i(\vb{e}_j)=\mu_j\) for each \(j=1,\dots,n\). Thus \(\epsilon_1,\dots,\epsilon_n\) are linearly independent as claimed.\qed
@@ -3317,7 +3324,7 @@
 
 	\subsection{Forms}
 	\begin{defn}
-		Let \(U\) and \(V\) be vector spaces of \(\mathbb{F}\). A map \(\mathcal{F}:U\times V\to\mathbb{F}\) is a \textit{bilinear form} if it is linear in both of its arguments. For \(a,b\in\mathbb{C}\), \(\vb{u}_1,\vb{u}_2\in U\) and \(\vb{v}_1,\vb{v}_2\) in \(V\),
+		Let \(U\) and \(V\) be vector spaces over \(\mathbb{F}\). A map \(\mathcal{F}:U\times V\to\mathbb{F}\) is a \textit{bilinear form} if it is linear in both of its arguments. For \(a,b\in\mathbb{C}\), \(\vb{u}_1,\vb{u}_2\in U\) and \(\vb{v}_1,\vb{v}_2\) in \(V\),
 		\[\mathcal{F}(a\vb{u}_1+b\vb{u}_2,\vb{v}_1)=a\mathcal{F}(\vb{u}_1,\vb{v}_1)+b\mathcal{F}(\vb{u}_2,\vb{v}_1)\,,\]
 		\[\mathcal{F}(\vb{u}_1,a\vb{v}_1+b\vb{v}_2)=a\mathcal{F}(\vb{u}_1,\vb{v}_1)+b\mathcal{F}(\vb{u}_1,\vb{v}_2)\,.\]
 	\end{defn}
@@ -3466,8 +3473,8 @@
 	\[\lambda_1x'^2+\lambda_2y'^2=k\,,\]
 	which is the normalised equation for a conic section.
 
-	\begin{itemize}[topsep=0pt,parsep=1em]
-		\item[(i)] \(\lambda_1\lambda_2>0\). If \(\lambda_1\lambda_2>0\), then \(k\) must have the same sign as \(\lambda_1\), and this is an equation of an ellipse with principal axes coinciding with the \(x'\) and \(y'\) axes.
+	\begin{enumerate}[topsep=0pt,parsep=1em]
+		\item \(\lambda_1\lambda_2>0\). If \(\lambda_1\lambda_2>0\), then \(k\) must have the same sign as \(\lambda_1\), and this is an equation of an ellipse with principal axes coinciding with the \(x'\) and \(y'\) axes.
 		
 		\textit{Scale.} The scale of the ellipse is determined by \(k\).
 		
@@ -3476,8 +3483,8 @@
 		\textit{Orientation.} The orientation of the ellipse in the original basis is determined by the eigenvectors of \(\mathsf{S}\).
 		
 		In the degenerate case, \(\lambda_1=\lambda_2\), the ellipse becomes a circle with no preferred principal axes. Any two orthogonal (or just linearly independent) vectors may be chosen as the principal axes. 
-		\item[(ii)] \(\lambda_1\lambda_2<0\). If \(\lambda_1\lambda_2<0\) then this is an equation for a hyperbola with principal axes coinciding with the \(x'\) and \(y'\) axes.
-		\item[(iii)] \(\lambda_1\lambda_2=0\). If \(\lambda_1=\lambda_2=0\) then there is no quadratic term.
+		\item \(\lambda_1\lambda_2<0\). If \(\lambda_1\lambda_2<0\) then this is an equation for a hyperbola with principal axes coinciding with the \(x'\) and \(y'\) axes.
+		\item \(\lambda_1\lambda_2=0\). If \(\lambda_1=\lambda_2=0\) then there is no quadratic term.
 		
 		We assume that only one eigenvalue is zero; wlog \(\lambda_2=0\). Then we alternatively translate the origin according to
 		\[x'\to x'-\frac{b_1'}{2\lambda_1}\,,\;y'-\frac{c}{b'_2}+\frac{{b'}_1^2}{4\lambda_1 b'_2}\,,\]
@@ -3486,7 +3493,7 @@
 		This is the equation of a parabola with principal axes coinciding with the \(x'\) and \(y'\) axes.
 		
 		If \(b'_2=0\), the equation for the conic section can be reduces to \(\lambda_1 x'^2=k\), with possible solutions of zero (\(\lambda_1 k<0\)), one (\(k=0\)) or two (\(\lambda_1k>0\)) lines. 
-	\end{itemize}
+	\end{enumerate}
 	
 	\paragraph{Three Dimensions.} If \(n=3\) and \(\mathsf{\Lambda}\) does not have a zero eigenvalue, then with
 	\[\mathsf{x}'=\begin{pmatrix}
@@ -3580,10 +3587,10 @@
 	\end{defn}
 	\subsubsection{Behaviour of sequences}
 	Possible behaviours of a sequence \(s_n\) as \(n\) increases are:
-	\begin{enumerate}[topsep=0pt,leftmargin=30pt]
-		\item[(i)] \(s_n\) tends towards a particular value;
-		\item[(ii)] \(s_n\) does not tend to any value but remains limited in magnitude;
-		\item[(iii)] \(s_n\) is unlimited in magnitude.
+	\begin{enumerate}[topsep=0pt]
+		\item \(s_n\) tends towards a particular value;
+		\item \(s_n\) does not tend to any value but remains limited in magnitude;
+		\item \(s_n\) is unlimited in magnitude.
 	\end{enumerate}
 
 	\begin{defn}
@@ -4184,8 +4191,8 @@
 	\begin{thm}
 		Let \(f_n:[a,b]\to\mathbb{R}\) be a sequence of functions differentiable on \([a,b]\). If
 		\begin{enumerate}[topsep=0pt]
-			\item[(i)] for some \(c\in[a,b]\), \(f_n(c)\) converges;
-			\item[(ii)] the sequence of derivatives \(f_n'\) converges uniformly on \([a,b]\),
+			\item for some \(c\in[a,b]\), \(f_n(c)\) converges;
+			\item the sequence of derivatives \(f_n'\) converges uniformly on \([a,b]\),
 		\end{enumerate}
 		then \(f_n\) converges uniformly on \([a,b]\). If \(f=\lim_{n\to\infty}f_n\), then \(f\) is differentiable with derivative \(f'(x)=\lim_{n\to\infty}f'_n(x)\).
 	\end{thm}
@@ -4310,10 +4317,10 @@
 	\begin{ex}
 		Entire functions:
 		\begin{enumerate}[topsep=0pt]
-			\item[(i)] \(f(z)=c\), where \(c\in\mathbb{C}\).
-			\item[(ii)] \(f(z)=z\).
-			\item[(iii)] \(f(z)=\exp(z)\).
-			\item[(iv)] \(f(z)=z^n\), where \(n\in\mathbb{N}_0\).
+			\item \(f(z)=c\), where \(c\in\mathbb{C}\).
+			\item \(f(z)=z\).
+			\item \(f(z)=\exp(z)\).
+			\item \(f(z)=z^n\), where \(n\in\mathbb{N}_0\).
 		\end{enumerate}
 	\end{ex}
 	\textit{Property:} Sums, products and compositions of holomorphic functions are also holomorphic.
@@ -4321,10 +4328,10 @@
 	\begin{ex}
 		Non-holomorphic functions:
 		\begin{enumerate}[topsep=0pt]
-			\item[(i)] \(f(z)=\Re z\).
-			\item[(ii)] \(f(z)=z^*\).
-			\item[(iii)] \(f(z)=\abs{z}\).
-			\item[(iv)] \(f(z)=\abs{z}^2\).
+			\item \(f(z)=\Re z\).
+			\item \(f(z)=z^*\).
+			\item \(f(z)=\abs{z}\).
+			\item \(f(z)=\abs{z}^2\).
 		\end{enumerate}
 	\end{ex}
 	\begin{rem}
@@ -4449,11 +4456,11 @@
 	\begin{thm}\label{anahol}
 		Let \(f(z)=\sum c_n(z-z_0)^n\) be a complex power series with radius of convergence \(R>0\), then
 		\begin{enumerate}[topsep=0pt]
-			\item[(i)] \(f\) is holomorphic on \(D(z_0,R)\);
-			\item[(ii)] its derivative is given by the series
+			\item \(f\) is holomorphic on \(D(z_0,R)\);
+			\item its derivative is given by the series
 			\[\sum_{n=0}^{\infty}nc_n(z-z_0)^{n-1}\,,\]
 			which also has a radius of convergence \(R\);
-			\item[(iii)] \(f\) has derivatives of all orders on \(D(z_0,R)\) and \(f^{(n)}(z_0)=n!c_n\).
+			\item \(f\) has derivatives of all orders on \(D(z_0,R)\) and \(f^{(n)}(z_0)=n!c_n\).
 		\end{enumerate}
 	\end{thm}
 	\begin{proof}
@@ -4500,13 +4507,13 @@
 	\begin{prop}
 		Basic properties of contour integration:
 		\begin{enumerate}[topsep=0pt]
-			\item[(i)] \textit{Linearity.}
+			\item \textit{Linearity.}
 			\[\int_\gamma c_1f_1(z)+c_2f_2(z)\dd{z}=c_1\int_\gamma f_1(z)\dd{z}+c_2\int_\gamma f_2(z)\dd{z}\,.\]
-			\item[(ii)] \textit{Additivity.} If \(\gamma_1\) is a contour from \(z=a\) to \(z=b\), \(\gamma_2\) is a contour from \(z=b\) to \(z=c\), and \(\gamma\) is \(\gamma_1\) followed by \(\gamma_2\), then
+			\item \textit{Additivity.} If \(\gamma_1\) is a contour from \(z=a\) to \(z=b\), \(\gamma_2\) is a contour from \(z=b\) to \(z=c\), and \(\gamma\) is \(\gamma_1\) followed by \(\gamma_2\), then
 			\[\int_\gamma f(z)\dd{z}=\int_{\gamma_1}f(z)\dd{z}+\int_{\gamma_2}f(z)\dd{z}\,.\]
-			\item[(iii)] \textit{Inverse path.} If \(\gamma_+\) is a contour from \(\alpha\) to \(\beta\), and \(\gamma_-\) is the contour in reverse, then
+			\item \textit{Inverse path.} If \(\gamma_+\) is a contour from \(\alpha\) to \(\beta\), and \(\gamma_-\) is the contour in reverse, then
 			\[\int_{\gamma_+}f(z)\dd{z}=-\int_{\gamma_-}f(z)\dd{z}\,.\]
-			\item[(iv)] \textit{Reparameterisation.} If \(\gamma:[a,b]\to U\) is a contour, \(\phi:[a',b']\to[a,b]\in C^1\) with \(\phi(a')=a\) and \(\phi(b')=b\) so that \(\delta=\gamma\circ\phi:[a',b']\to U\) is a different parameterisation of the same curve, then
+			\item \textit{Reparameterisation.} If \(\gamma:[a,b]\to U\) is a contour, \(\phi:[a',b']\to[a,b]\in C^1\) with \(\phi(a')=a\) and \(\phi(b')=b\) so that \(\delta=\gamma\circ\phi:[a',b']\to U\) is a different parameterisation of the same curve, then
 			\[\int_\gamma f(z)\dd{z}=\int_\delta f(z)\dd{z}\,.\]
 		\end{enumerate}
 	\end{prop}
@@ -4782,11 +4789,11 @@
 	\begin{thm}
 		Let \(f\) be holomorphic on an annulus \(A=\{z\in\mathbb{C}\mid r<\abs{z-z_0}<R\}\), where \(0\le r<R\le\infty\). Then
 		\begin{enumerate}[topsep=0pt]
-			\item[(i)] There is a unique convergent \textit{Laurent series expansion} on \(A\)
+			\item There is a unique convergent \textit{Laurent series expansion} on \(A\)
 			\[f(z)=\sum_{n=-\infty}^{\infty}c_n(z-z_0)^n\,.\]
-			\item[(ii)] For any \(\rho\in(r,R)\), the coefficient \(c_n\) of the Laurent series is given by
+			\item For any \(\rho\in(r,R)\), the coefficient \(c_n\) of the Laurent series is given by
 			\[c_n=\frac{1}{2\pi i}\int_{\abs{z-z_0}=\rho}\frac{f(z)}{(z-z_0)^{n+1}}\dd{z}\,.\]
-			\item[(iii)] If \(r<\rho'\le\rho<R\), then the Laurent series converges uniformly on \(\{z\in\mathbb{C}\mid \rho'\le\abs{z-z_0}\le\rho\}\), and hence on any compact subdomain of \(A\).
+			\item If \(r<\rho'\le\rho<R\), then the Laurent series converges uniformly on \(\{z\in\mathbb{C}\mid \rho'\le\abs{z-z_0}\le\rho\}\), and hence on any compact subdomain of \(A\).
 		\end{enumerate}
 	\end{thm}
 	\begin{proof}[Non-examinable]
@@ -4877,7 +4884,7 @@
 		A \textit{singularity} of a function \(f\) is a point \(z=z_0\) where \(f\) is not holomorphic. If \(f\) has a singularity at \(z_0\), but \(f\) is holomorphic in a neighbourhood of \(z_0\) except at \(z_0\) itself, then \(z_0\) is an \textit{isolated singularity} of \(f\). If there exists no such neighbourhood, \(z_0\) is a non-isolated singularity.
 	\end{defn}
 	\begin{exs}
-		\begin{enumerate}[topsep=0pt,label=(\roman*)]
+		\begin{enumerate}[topsep=0pt]
 			\item \(f=\mathrm{cosech}\,z=\frac{1}{\sinh z}\) has isolated singularities at \(z=in\pi\), \(n\in\mathbb{Z}\) because \(\sinh x=0\) at these points.
 			\item \(f=\mathrm{cosech}\,\frac{1}{z}\) has isolated singularities at \(z=\frac{1}{in\pi}\), \(n\in\mathbb{Z}\setminus\{0\}\). \(f\) also has a non-isolated singularity at \(z=0\); for any disk \(D(\epsilon,0)\) we can find a large enough \(n\) such that the disk contains another singularity at \(z=\frac{1}{in\pi}\).
 		\end{enumerate}
@@ -4887,15 +4894,15 @@
 	\begin{defn}
 		There are three possible behaviours of \(f\) with isolated singularities:
 		\begin{enumerate}[topsep=0pt]
-			\item[(i)] If the first non-zero term in the Laurent series of \(f\) has \(n\ge 0\), then the Laurent series converges throughout the unpunctured disk \(D(z_0,R)\). We say \(f\) has a \textit{removable singularity} at \(z=z_0\).
-			\item[(ii)] If there exists some finite \(k>0\) such that \(c_{-k}\ne 0\) but \(c_n=0\) for all \(n<-k\), then \(f\) has a \textit{pole of order \(k\)} at \(z=z_0\).
-			\item[(iii)] Otherwise, if the Laurent series centred at \(z=z_0\) involves an infinite number of terms with \(n<0\), we say \(f\) has an \textit{essential singularity} at \(z=z_0\).
+			\item If the first non-zero term in the Laurent series of \(f\) has \(n\ge 0\), then the Laurent series converges throughout the unpunctured disk \(D(z_0,R)\). We say \(f\) has a \textit{removable singularity} at \(z=z_0\).
+			\item If there exists some finite \(k>0\) such that \(c_{-k}\ne 0\) but \(c_n=0\) for all \(n<-k\), then \(f\) has a \textit{pole of order \(k\)} at \(z=z_0\).
+			\item Otherwise, if the Laurent series centred at \(z=z_0\) involves an infinite number of terms with \(n<0\), we say \(f\) has an \textit{essential singularity} at \(z=z_0\).
 		\end{enumerate}
 	\end{defn}
 	\begin{exs}
 		\begin{enumerate}[topsep=0pt]
-			\item[(i)] Removable singularity typically arises when \(f\) is given by some formula which is not well-defined at \(z=z_0\); for example, take \(z_0=0\) and \(f(z)=(e^z-1)/z\).
-			\item[(ii)] An example of essential singularity is \(f(z)=e^{\frac{1}{z}}\) at \(z=0\).
+			\item Removable singularity typically arises when \(f\) is given by some formula which is not well-defined at \(z=z_0\); for example, take \(z_0=0\) and \(f(z)=(e^z-1)/z\).
+			\item An example of essential singularity is \(f(z)=e^{\frac{1}{z}}\) at \(z=0\).
 			\[e^{\frac{1}{z}}=\sum_{n=0}^{\infty}\frac{1}{n!}\qty(\frac{1}{z})^n=\sum_{n=-\infty}^{0}\frac{1}{(-n)!}z^n\,.\]
 		\end{enumerate}
 	\end{exs}
@@ -4932,9 +4939,9 @@
 	\begin{prop}
 		\(f\) has a pole at \(z=z_0\) if and only if \(\abs{f(z)}\to\infty\) as \(z\to z_0\). Moreover, the following statements are equivalent:
 		\begin{enumerate}[topsep=0pt]
-			\item[(i)] \(f\) has a pole of order \(k\) at \(z=z_0\).
-			\item[(ii)] \(f=(z-a)^{-k}g(z)\), where \(g:D(z_0,R)\to\mathbb{C}\) is holomorphic and \(g(z_0)\ne 0\).
-			\item[(iii)] \(f(z)=\frac{1}{h(z)}\), where \(h\) is holomorphic at \(z=z_0\) with a zero of order \(k\).
+			\item \(f\) has a pole of order \(k\) at \(z=z_0\).
+			\item \(f=(z-a)^{-k}g(z)\), where \(g:D(z_0,R)\to\mathbb{C}\) is holomorphic and \(g(z_0)\ne 0\).
+			\item \(f(z)=\frac{1}{h(z)}\), where \(h\) is holomorphic at \(z=z_0\) with a zero of order \(k\).
 		\end{enumerate}
 	\end{prop}
 	\begin{proof}
@@ -4956,7 +4963,7 @@
 	\subsubsection{Behaviour at Infinity}
 	We can examine the behaviour of a function \(f(z)\) as \(z\to\infty\) by defining a new variable \(\xi=\frac{1}{z}\) and a new function \(g(\xi)=f(z)\). The \(z=\infty\) maps to a single point \(\xi=0\), the point at infinity.
 	\begin{exs}
-		\begin{enumerate}[topsep=0pt,label=(\roman*)]
+		\begin{enumerate}[topsep=0pt]
 			\item \(f(z)=e^z=e^{\frac{1}{\xi}}=g(\xi)\) has an essential singularity at \(z=\infty\).
 			\item \(f(z)=z^2=\frac{1}{\xi^2}=g(\xi)\) has a double pole at \(z=\infty\).
 			\item \(f(z)=e^{\frac{1}{z}}=e^\xi=g(\xi)\) is analytic at \(z=\infty\).
@@ -5499,20 +5506,20 @@
 	\begin{thm}
 		If \(\tilde{\mathcal{L}}\) is self-adjoint on \((V,\braket{\,\vdot\,}{\,\vdot\,}_w)\), then
 		\begin{enumerate}[topsep=0pt]
-			\item[(i)] eigenvalues are real.
-			\item[(ii)] eigenfunctions with different eigenvalues are orthogonal.
+			\item eigenvalues are real.
+			\item eigenfunctions with different eigenvalues are orthogonal.
 		\end{enumerate}
 	\end{thm}
 
 	\begin{proof}
 		\begin{enumerate}[topsep=0pt]
-			\item[(i)] Let \(\tilde{\mathcal{L}}y=\lambda y\),
+			\item Let \(\tilde{\mathcal{L}}y=\lambda y\),
 			\begin{align*}
 				(\lambda^*-\lambda)\norm{y}_w^2&=(\lambda^*-\lambda)\braket{y}{y}_w\\
 				&=\braket{\lambda y}{y}_w-\braket{y}{\lambda y}_w\\
 				&=\braket{\tilde{\mathcal{L}}y}{y}_w-\braket{y}{\tilde{\mathcal{L}}y}_w=0\,.
 			\end{align*}
-			\item[(ii)] Let \(\tilde{\mathcal{L}}y_1=\lambda_1y_1\), \(\tilde{\mathcal{L}}y_2=\lambda_2y_2\), \(\lambda_1\ne \lambda_2\).
+			\item Let \(\tilde{\mathcal{L}}y_1=\lambda_1y_1\), \(\tilde{\mathcal{L}}y_2=\lambda_2y_2\), \(\lambda_1\ne \lambda_2\).
 			\begin{align*}
 				(\lambda_1-\lambda_2)\braket{y_1}{y_2}_w&=\braket{\lambda_1 y_1}{y_2}_w-\braket{y_1}{\lambda_2y_2}_w\\
 				&=\braket{\tilde{\mathcal{L}}y_1}{y_2}-\braket{y_1}{\tilde{\mathcal{L}}y_2}_w=0
@@ -6002,7 +6009,7 @@
 
 	There are two ways to do this.
 	\begin{enumerate}[topsep=0pt]
-		\item[(i)] We restrict to curves for which \(y\) can be made a function of \(x\). The length of the curve is given by
+		\item We restrict to curves for which \(y\) can be made a function of \(x\). The length of the curve is given by
 		\[L=\int_{A}^{B}\dd{l}=\int_{A}^{B}\sqrt{\dd{x}^2+\dd{y}^2}=\int_{x_A}^{x_B}\sqrt{1+\qty(\pdv{y}{x})^2}\dd{x}\,.\]
 		This is a functional of \(y(x)\):
 		\[L(y)=\int_{x_A}^{x_B}f(y')\dd{x}\,,\;f(y')=\sqrt{1+y'^2}\,.\]
@@ -6012,7 +6019,7 @@
 		so we must have
 		\[y'=\text{const.}\implies y=ax+b\,.\]
 		The geodesic on an Euclidean plane is a straight line.
-		\item[(ii)] This can be done more generally without the restriction by choosing a parameterisation \(\vb{x}=(x(t),y(t))\) for \(t\in[0,1]\) such that \(\vb{x}(0)=A\), \(\vb{x}(1)=B\), so
+		\item This can be done more generally without the restriction by choosing a parameterisation \(\vb{x}=(x(t),y(t))\) for \(t\in[0,1]\) such that \(\vb{x}(0)=A\), \(\vb{x}(1)=B\), so
 		\[L[x,y]=\int\dd{l}=\int_{0}^{1}\sqrt{\dot{x}^2+\dot{y}^2}\dd{t}\,.\]
 		We have
 		\[\pdv{f}{x}=\pdv{f}{y}=0\]
@@ -7358,11 +7365,11 @@
 	
 	This leaves us with three possibilities
 	\begin{enumerate}[topsep=0pt]
-		\item[(i)] \(\lambda=0\).
+		\item \(\lambda=0\).
 		\[\varphi=(A_0+B_0 x)(C_0+D_0 y)\,.\]
-		\item[(ii)] \(\lambda=\sigma^2>0\).
+		\item \(\lambda=\sigma^2>0\).
 		\[\varphi=(A_\sigma\cosh\sigma x+B_\sigma\sinh\sigma x)(C_\sigma\cos\sigma y+D_\sigma\sin\sigma y)\,.\]
-		\item[(iii)] \(\lambda=-k^2<0\).
+		\item \(\lambda=-k^2<0\).
 		\[\varphi=(A_k\cos kx+B_k\sin kx)(C_k\cosh ky+D_k\sinh ky)\,.\]
 	\end{enumerate}
 	
@@ -7818,7 +7825,7 @@
 		\end{align*}\qed
 	\end{proof}
 	\begin{exs}
-		\begin{enumerate}[topsep=0pt,label=(\roman*)]
+		\begin{enumerate}[topsep=0pt]
 			\item If \(\mathsf{T}\) is a tensor of rank two, then from the definition of the inner product, \(T_{11}=\tr(\mathsf{T})\) is a scalar.
 			\item Suppose \(\vb{u}\) and \(\vb{v}\) are vectors, then from the definition of the outer product, \(T_{ij}=u_iv_j\) is a tensor of rank two. It follows that \(T_{ii}=u_iv_i=\vb{u}\vdot\vb{v}\) is a scalar.
 			\item If \(\mathsf{A}\) is a rank-two tensor and \(\vb{u}\) is a vector, then \(v_i=A_{ij}u_j\) is a vector, since \(2+1-2=1\).
@@ -7992,32 +7999,31 @@
 	\begin{thm}
 		Consider the non-zero isotropic tensors in \(\mathbb{R}^3\).
 		\begin{enumerate}[topsep=0pt]
-			\item[(i)] All tensors of rank zero (scalars) are isotropic.
-			\item[(ii)] There are no rank one isotropic tensors.
-			\item[(iii)] The only second order isotropic tensors are scalar multiples of \(\delta_{ij}\).
-			\item[(iv)] The only third order isotropic tensors are the scalar multiples of \(\varepsilon_{ijk}\). 
+			\item All tensors of rank zero (scalars) are isotropic.
+			\item There are no rank one isotropic tensors.
+			\item The only second order isotropic tensors are scalar multiples of \(\delta_{ij}\).
+			\item The only third order isotropic tensors are the scalar multiples of \(\varepsilon_{ijk}\). 
 		\end{enumerate}
 	\end{thm}
-
 	\begin{proof}
 		The idea is simply to look at how tensors transform under a bunch of specific rotations by \(\pi\) or \(\pi/2\) about certain axes.
 		\begin{enumerate}[topsep=0pt]
-			\item[(i)] Trivial.
-			\item[(ii)] Consider a tensor of rank 1, so that
+			\item Trivial.
+			\item Consider a tensor of rank 1, so that
 			\[T'_i=R_{ij}T_j\,,\;\text{where }\mathsf{R}=\begin{pmatrix}
 				-1 & 0 & 0\\
 				0 & -1 & 0\\
 				0 & 0 & 1
 			\end{pmatrix}\,.\]
 			Requiring \(T'_i=T_i\) gives \(T_1=T_2=0\). A similar argument, using a different \(\mathsf{R}\),	also gives \(T_3=0\).
-			\item[(iii)] For a tensor of rank 2, consider the transformation
+			\item For a tensor of rank 2, consider the transformation
 			\[T'_{ij}=\tilde{R}_{ik}\tilde{R}_{jl}T_{kl}\,,\;\text{where }\mathsf{\tilde{R}}=\begin{pmatrix}
 				0 & 1 & 0\\
 				-1 & 0 & 0\\
 				0 & 0 & 1
 			\end{pmatrix}\,.\]
 			The rotation gives \(T'_{13}=T_{23}\) and \(T'_{23}=-T_{13}\) so if \(T'_{ij}=T_{ij}\), we must have \(T_{13}=T_{23}=0\). Meanwhile \(T'_{11}=T_{22}\). Similar arguments tell us that all off-diagonal elements must vanish and all diagonal elements must be equal: \(T_{11}=T_{22}=T_{33}=\lambda\) for some constant \(\lambda\). Hence \(T_{ij}=\lambda\delta_{ij}\).
-			\item[(iv)] For a rank 3 tensor we have
+			\item For a rank 3 tensor we have
 			\[T'_{ijk}=R_{il}R_{jp}R_{kq}T_{lpq}\,,\;\text{where }\mathsf{R}=\begin{pmatrix}
 				-1 & 0 & 0\\
 				0 & -1 & 0\\
@@ -8123,7 +8129,7 @@
 		\(\mathsf{X}(\vb{x})\) is indeed a tensor field.\qed
 	\end{proof}
 	\begin{exs}
-		\begin{enumerate}[topsep=0pt,label=(\roman*)]
+		\begin{enumerate}[topsep=0pt]
 			\item The divergence of a vector field \(\vb{F}\) is a scalar field \(\pdv{x_i} F_i\), since the contraction of a rank 2 tensor is a zeroth tensor.
 			\item The curl of a vector field \(\vb{F}\) is an axial-vector field, \(\varepsilon_{ijk}\pdv{x_j}F_k\), since the double contraction of a rank 5 pseudo-tensor field is a pseudo-vector field.
 			\item The Laplacian of a scalar field, \(\pdv{x_i}\pdv{x_i}\Phi\), is a scalar field.
@@ -8540,9 +8546,9 @@
 	\[\lim_{R\to\infty}\int_{\gamma}g(z)e^{i\lambda z}\dd{z}\,,\]
 	where
 	\begin{enumerate}[topsep=0pt]
-		\item[(i)] \(\lambda\) is a real positive constant;
-		\item[(ii)] \(g(z)\) is holomorphic in the upper half-plane except possibly at a finite number of poles;
-		\item[(iii)] the contour \(\gamma\) is a semicircle of radius \(R\) in the upper half-plane: \(\gamma:[0,\pi]\to\mathbb{C}\), \(\theta\mapsto Re^{i\theta}\).
+		\item \(\lambda\) is a real positive constant;
+		\item \(g(z)\) is holomorphic in the upper half-plane except possibly at a finite number of poles;
+		\item the contour \(\gamma\) is a semicircle of radius \(R\) in the upper half-plane: \(\gamma:[0,\pi]\to\mathbb{C}\), \(\theta\mapsto Re^{i\theta}\).
 	\end{enumerate}
 	\begin{lem}\label[lem]{upperjordan}
 		The upper bound for the contour integral is given by
@@ -8905,24 +8911,24 @@
 	\begin{prop}\label[prop]{ltprop}
 		The Laplace transform has the following properties.
 		\begin{enumerate}[topsep=0pt]
-			\item[(i)] \textit{Linearity.} For constants \(\alpha,\beta\in\mathbb{C}\),
+			\item \textit{Linearity.} For constants \(\alpha,\beta\in\mathbb{C}\),
 			\[\lt{\alpha f+\beta g}=\alpha\lt{f}+\beta\lt{g}\,.\]
-			\item[(ii)] \textit{Translation.} For real constant \(t_0\in\mathbb{R}\),
+			\item \textit{Translation.} For real constant \(t_0\in\mathbb{R}\),
 			\[\lt{f(t-t_0)H(t-t_0)}(s)=e^{-st_0}F(s)\,.\]
-			\item[(iii)] \textit{Scaling.} For constant \(\lambda>0\),
+			\item \textit{Scaling.} For constant \(\lambda>0\),
 			\[\lt{f(\lambda t)}(s)=\frac{1}{\lambda}F\qty(\frac{s}{\lambda})\,.\]
-			\item[(iv)] \textit{Shifting.} For a constant \(s_0\in\mathbb{C}\),
+			\item \textit{Shifting.} For a constant \(s_0\in\mathbb{C}\),
 			\[\lt{e^{s_o t}f(t)}(s)=F(s-s_0)\,.\]
-			\item[(v)] \textit{Transform of a derivative.}
+			\item \textit{Transform of a derivative.}
 			\[\lt{f'(t)}(s)=sF(s)-f(0)\,.\]
 			By repeatedly applying this formula, we find
 			\[\lt{f''(t)}(s)=s\lt{f'(t)}(s)-f'(0)=s^2F(s)-sf(0)-f'(0)\]
 			and so forth.
-			\item[(vi)] \textit{Derivative of a transform.}
+			\item \textit{Derivative of a transform.}
 			\[F'(s)=\lt{-tf(t)}(s)\,.\]
 			More generally,
 			\[F^{(n)}(s)=\lt{(-t)^n f(t)}(s)\,.\]
-			\item[(vii)] \textit{Asymptotic limit.}
+			\item \textit{Asymptotic limit.}
 			\[\lim_{s\to\infty}s F(s)=f(0)\,,\]
 			\[\lim_{s\to 0}sF(s)=f(\infty)\,,\]
 			provided that the limit \(\lim_{t\to\infty}f(t)\) exists.
@@ -8930,8 +8936,8 @@
 	\end{prop}
 	\begin{proofskip}
 		\begin{enumerate}[topsep=0pt]
-			\item[(i)] Follows from the linearity of integrals.
-			\item[(ii)] Setting \(\tilde{t}=t-t_0\), we have
+			\item Follows from the linearity of integrals.
+			\item Setting \(\tilde{t}=t-t_0\), we have
 			\begin{align*}
 				\int_{0}^{\infty}f(t-t_0)e^{-st}\dd{t}&=\int_{-t_0}^{\infty}f(\tilde{t})e^{-s(\tilde{t}+t_0)}\dd{\tilde{t}}\\
 				&=e^{-st_0}\int_{-t_0}^{\infty}f(\tilde{t})e^{-s\tilde{t}}\dd{\tilde{t}}\,.
@@ -8941,16 +8947,16 @@
 				\int_{0}^{\infty}f(t-t_0)H(t-t_0)e^{-st}\dd{t}&=e^{-st_0}\int_{-t_0}^{\infty}f(\tilde{t})H(\tilde{t})e^{-s\tilde{t}}\dd{\tilde{t}}\\
 				&=e^{-st_0}\int_{0}^{\infty}f(\tilde{t})e^{-s\tilde{t}}\dd{\tilde{t}}=e^{-st_0}F(s)\,.
 			\end{align*}
-			\item[(iii)] Define \(\tilde{t}=\lambda t\), we find
+			\item Define \(\tilde{t}=\lambda t\), we find
 			\[\int_{0}^{\infty}f(\lambda t)e^{-st}\dd{t}=\int_{0}^{\infty}f(\tilde{t})e^{-\frac{s}{\lambda}\tilde{t}}\frac{1}{\lambda}\dd{\tilde{t}}=\frac{1}{\lambda}F\qty(\frac{s}{\lambda})\,.\]
-			\item[(iv)] 
+			\item 
 			\[\int_{0}^{\infty}e^{s_0 t}f(t)e^{-st}\dd{t}=F(s-s_0)\,.\]
-			\item[(v)]
+			\item
 			\[\int_{0}^{\infty}f'(t)e^{-st}\dd{t}=[f(t)e^{-st}]_{t=0}^\infty-\int_{0}^{\infty}-sf(t)e^{-st}\dd{t}=sF(s)-f(0)\,.\]
 			Once again, we encounter the subtlety of analytic continuation. The proof breaks down if the integral \(\int_{0}^{\infty} f(t)e^{-st}\dd{t}\) does not exist. The relation still holds for analytically continued Laplace transforms, though.
-			\item[(vi)] Differentiating the definition of the Laplace transform gives
+			\item Differentiating the definition of the Laplace transform gives
 			\[F'(s)=\int_{0}^{\infty}-tf(t)e^{-st}\dd{t}=\lt{-tf(t)}\,.\]
-			\item[(vii)] We have
+			\item We have
 			\[sF(s)=f(0)+\int_{0}^{\infty}f'(t)e^{-st}\dd{t}\,.\]
 			By requirement, the limit \(\lim_{t\to\infty}f(t)\) exists, so \(f(t)\) and \(f'(t)\) do not grow faster than exponential. For \(s\to\infty\), the integral on the right-hand side therefore vanishes and we obtain
 			\[\lim_{s\to \infty}sF(s)=f(0)\,.\]
@@ -9153,11 +9159,11 @@
 	\subsection{Well-posedness (Non-examinable)}
 	\begin{clm}
 		Hadamard famously declared that a problem is well-posed if
-		\begin{itemize}[topsep=0pt]
-			\item[(i)] a solution exists;
-			\item[(ii)] the solution is unique;
-			\item[(iii)] the solution depends continuously on the initial and boundary data.
-		\end{itemize}
+		\begin{enumerate}[topsep=0pt]
+			\item a solution exists;
+			\item the solution is unique;
+			\item the solution depends continuously on the initial and boundary data.
+		\end{enumerate}
 	\end{clm}
 	Points (i)-(ii) are self-explanatory, but (iii) is far more subtle. If the initial and/or boundary data for a problem lie in a space \(X\) and the solution lies in \(Y\), then the solution to a generic initial-boundary value problem on \(\Omega\times(0,\infty)\) describes an abstract map
 	\[S_t:X\to Y\,.\]
@@ -10098,9 +10104,9 @@
 	\begin{defn}
 		Let \((G,\cdot,I)\) be a group and \(H\subseteq G\), then \((H,\cdot,I)\) is a \textit{subgroup} of \(G\), denoted \(H\le G\) if
 		\begin{enumerate}[topsep=0pt]
-			\item[(i)] \(I\in H\);
-			\item[(ii)] for all \(h_1,h_2\in H\), \(h_1\cdot h_2\in H\);
-			\item[(iii)] \((H,\cdot,I)\) is a group.
+			\item \(I\in H\);
+			\item for all \(h_1,h_2\in H\), \(h_1\cdot h_2\in H\);
+			\item \((H,\cdot,I)\) is a group.
 		\end{enumerate}
 		A subgroup \(H\le G\) is \textit{proper} if \(H\ne\{I\}\) and \(H\ne G\). 
 	\end{defn}
@@ -10146,16 +10152,16 @@
 	\begin{lem}\label[lem]{homidinv}
 		If \(\phi: H\to G\) is a homomorphism, then
 		\begin{enumerate}[topsep=0pt]
-			\item[(i)] \(\phi(I_H)=I_G\),
-			\item[(ii)] for all \(h\in H\), we have \(\phi(h^{-1})=\phi(h)^{-1}\).
+			\item \(\phi(I_H)=I_G\),
+			\item for all \(h\in H\), we have \(\phi(h^{-1})=\phi(h)^{-1}\).
 		\end{enumerate}
 	\end{lem}
 	\begin{proofskip}
-		\begin{enumerate}
-			\item[(i)]
+		\begin{enumerate}[topsep=0pt]
+			\item
 			\[\phi(I_H)\cdot_G\phi(I_H)=\phi(I_H\cdot_H I_H)=\phi(I_H)\]
 			\[\implies\quad\phi(I_H)=I_G\,.\]
-			\item[(ii)]
+			\item
 			\[\phi(h)\cdot_G\phi(h^{-1})=\phi(h\cdot_H h^{-1})=\phi(I_H)=I_G\]
 			\[\phi(h^{-1})\cdot_G\phi(h)=\phi(h^{-1}\cdot_H h)=\phi(I_H)=I_G\]
 			These are the defining properties of \(\phi(h)^{-1}\), so \(\phi(h^{-1})=\phi(h)^{-1}\).\qed
@@ -10201,7 +10207,7 @@
 		\end{enumerate}
 	\end{defn}
 	\begin{exs}
-		\begin{enumerate}[topsep=0pt,label=(\roman*)]
+		\begin{enumerate}[topsep=0pt]
 			\item Any group acts on any set by the \textit{trivial action} \(g*x=x\).
 			\item Any group acts on the set \(X=G\) by the \textit{left regular action} \(g*g'=g\cdot g'\) and the \textit{right regular action} \(g*g'=g'\cdot g\).
 			\item The dihedral group acts on the set of vertices of the regular \(n\)-gon.
@@ -10260,19 +10266,19 @@
 	\end{prop}
 	\begin{proofskip}
 		\begin{enumerate}[topsep=0pt,parsep=1em]
-			\item[(i)] Two cosets are either disjoint or equal.
+			\item Two cosets are either disjoint or equal.
 			
 			Suppose \(g_1 H\) and \(g_2 H\) have one element in common: \(g_1 h_1=g_2 h_2\). Then
 			\[g_1 H=g_2 h_2 h_1^{-1} H = g_2H\]
 			since \(h_2 h_1^{-1}\in H\). So if there is one element in common, the cosets are identical.
-			\item[(ii)] Two cosets \(g_1 H\) and \(g_2 H\) are identical if and only if \(g_1^{-1}g_2\in H\).
+			\item Two cosets \(g_1 H\) and \(g_2 H\) are identical if and only if \(g_1^{-1}g_2\in H\).
 			
 			If \(g_1^{-1} g_2=h\in H\), then
 			\[g_1 H=g_1 h H = g_1 g_1^{-1} g_2 H = g_2 H\,.\]
 			Conversely, if \(g_1 H=g_2 H\),
 			\[H=g_1^{-1} g_2 H\,,\]
 			so \(g_1^{-1} g_2 h\in H\) \(\forall h\in H\), so \(g_1^{-1} g_2\in H\).
-			\item[(iii)] Every element of \(G\) is in some coset.
+			\item Every element of \(G\) is in some coset.
 			
 			Since \(H\) contains \(I\), then for any element \(g\in G\), the coset \(g H\) contains \(g\).\qed
 		\end{enumerate}
@@ -10309,9 +10315,9 @@
 	\begin{defn}
 		An \textit{equivalence relation} is a binary relationship between elements of a set, written \(g_1\sim g_2\), which satisfies
 		\begin{enumerate}[topsep=0pt]
-			\item[(i)] \textit{Reflexivity}: \(g_1\sim g_1\).
-			\item[(ii)] \textit{Symmetry}: \(g_1\sim g_2\) implies \(g_2\sim g_1\).
-			\item[(iii)] \textit{Transitivity}: If \(g_1\sim g_2\) and \(g_2\sim g_3\), then \(g_1\sim g_3\).
+			\item \textit{Reflexivity}: \(g_1\sim g_1\).
+			\item \textit{Symmetry}: \(g_1\sim g_2\) implies \(g_2\sim g_1\).
+			\item \textit{Transitivity}: If \(g_1\sim g_2\) and \(g_2\sim g_3\), then \(g_1\sim g_3\).
 		\end{enumerate}
 	\end{defn}
 	
@@ -10320,11 +10326,11 @@
 	\end{prop}
 	\begin{proofskip}
 		\begin{enumerate}[topsep=0pt]
-			\item[(i)] Choose \(g=I\).
+			\item Choose \(g=I\).
 			\[g_1=Ig_1I^{-1}\,.\]
-			\item[(ii)] Suppose that \(g_2=gg_1g^{-1}\), then for \(g'=g^{-1}\),
+			\item Suppose that \(g_2=gg_1g^{-1}\), then for \(g'=g^{-1}\),
 			\[g_1=g'g_2g'^{-1}\,.\]
-			\item[(iii)] If \(g_2=g_ag_1g_a^{-1}\) and \(g_3=g_bg_2g_b^{-1}\), then
+			\item If \(g_2=g_ag_1g_a^{-1}\) and \(g_3=g_bg_2g_b^{-1}\), then
 			\[g_3=gg_1g^{-1}\,,\]
 			where \(g=g_bg_a\).\qed
 		\end{enumerate}
@@ -10335,17 +10341,17 @@
 	\begin{prop}
 		For a group \(G\),
 		\begin{enumerate}[topsep=0pt]
-			\item[(i)] For any \(g\in G\), \(a\in G\), \(gag^{-1}\) is in the same conjugacy class as \(a\).
-			\item[(ii)] The identity of any group is a conjugacy class by itself.
-			\item[(iii)] Each element of an Abelian group is in a class by itself.
+			\item For any \(g\in G\), \(a\in G\), \(gag^{-1}\) is in the same conjugacy class as \(a\).
+			\item The identity of any group is a conjugacy class by itself.
+			\item Each element of an Abelian group is in a class by itself.
 		\end{enumerate}
 	\end{prop}
 	\begin{proofskip}
 		\begin{enumerate}[topsep=0pt]
-			\item[(i)] Trivial by definition.
-			\item[(ii)] For any \(g\in G\),
+			\item Trivial by definition.
+			\item For any \(g\in G\),
 			\[gIg^{-1}=gg^{-1}=I\,.\]
-			\item[(iii)] For any \(g_1\), \(g_2\) in an Abelian group \(G\),
+			\item For any \(g_1\), \(g_2\) in an Abelian group \(G\),
 			\[g_2g_1g_2^{-1}=g_2g_2^{-1}g_1=g_1\,,\]
 			so \(g_1\) can only be a conjugacy class by itself.\qed
 		\end{enumerate}
@@ -10531,9 +10537,9 @@
 		\end{cases}\]
 	\end{rem}
 	\begin{lemskip}
-		\begin{enumerate}
-			\item[(i)] Cycles can be cycled. \((a_1~a_2~\dots~a_k)=(a_k~a_1~\dots~a_{k-1})\).
-			\item[(ii)] Disjoint cycles commute. If \(\sigma=(\sigma_1~\dots~\sigma_m)\) and \(\tau=(\tau_1~\dots~\tau_n)\) are disjoint cycles (\(\{\sigma_i\}_{i=1}^{m}\cap\{\tau_j\}_{j=1}^{n}=\varnothing\)), then
+		\begin{enumerate}[topsep=0pt]
+			\item Cycles can be cycled. \((a_1~a_2~\dots~a_k)=(a_k~a_1~\dots~a_{k-1})\).
+			\item Disjoint cycles commute. If \(\sigma=(\sigma_1~\dots~\sigma_m)\) and \(\tau=(\tau_1~\dots~\tau_n)\) are disjoint cycles (\(\{\sigma_i\}_{i=1}^{m}\cap\{\tau_j\}_{j=1}^{n}=\varnothing\)), then
 			\[\sigma\tau=\tau\sigma\,.\]
 		\end{enumerate}
 	\end{lemskip}
@@ -10985,10 +10991,10 @@
 
 		There are some properties of \(Q\):
 		\begin{enumerate}[topsep=0pt]
-			\item[(i)] \(Q_8\) has three order-4 subgroups, all isomorphic to \(C_4\).
-			\item[(ii)] \(Q_8\) has only one order-2 subgroup.
-			\item[(iii)] All the subgroups of \(Q_8\) are normal
-			\item[(iv)] \(Q_8\) is not Abelian.
+			\item \(Q_8\) has three order-4 subgroups, all isomorphic to \(C_4\).
+			\item \(Q_8\) has only one order-2 subgroup.
+			\item All the subgroups of \(Q_8\) are normal
+			\item \(Q_8\) is not Abelian.
 		\end{enumerate}
 
 		We can observe the \textit{Hamilton's relations}:
@@ -11238,12 +11244,12 @@
 	\begin{defn}
 		Recall that if \(V\) is a complex vector space then a \textit{Hermitian inner product} is a map \((-, -): V \times V \to\mathbb{C}\) satisfying
 		\begin{enumerate}[topsep=0pt]
-			\item[(i)] \textit{Sesquilinear.} For \(a,b\in\mathbb{C}\), \(\vb{x},\vb{y},\vb{z}\in V\),
+			\item \textit{Sesquilinear.} For \(a,b\in\mathbb{C}\), \(\vb{x},\vb{y},\vb{z}\in V\),
 			\[(a\vb{x}+b\vb{y},\vb{z})=a^*(\vb{x},\vb{z})+b^*(\vb{y},\vb{z})\,,\]
 			\[(\vb{x},a\vb{x}+b\vb{z})=a(\vb{x},\vb{y})+b(\vb{x},\vb{z})\,.\]
-			\item[(ii)] \textit{Hermitian.}
+			\item \textit{Hermitian.}
 			\[(\vb{x},\vb{y})=(\vb{y},\vb{x})^*\,.\]
-			\item[(iii)] \textit{Positive definite.} For all \(\vb{x}\in V\setminus\{\vb{0}\}\),
+			\item \textit{Positive definite.} For all \(\vb{x}\in V\setminus\{\vb{0}\}\),
 			\[(\vb{x},\vb{x})>0\,.\]
 		\end{enumerate}
 	\end{defn}
@@ -11327,28 +11333,28 @@
 	\begin{cor}
 		The following statements of the representation \((\rho,V)\) of a finite group \(G\) are equivalent:
 		\begin{enumerate}[topsep=0pt]
-			\item[(i)] \((\rho,V)\) is reducible.
-			\item[(ii)] \((\rho,V)\) is fully reducible (reduction to block diagonal form).
-			\item[(iii)] \(V\) has mutually orthogonal \(G\)-invariant subspaces.
+			\item \((\rho,V)\) is reducible.
+			\item \((\rho,V)\) is fully reducible (reduction to block diagonal form).
+			\item \(V\) has mutually orthogonal \(G\)-invariant subspaces.
 		\end{enumerate}
 	\end{cor}
 	\subsubsection{Schur's Lemma}
 	\begin{lem}[Schur's lemma]\label[lem]{schur}
 		Suppose \((\rho_V,V)\) and \((\rho_W,W)\) are irreducible representations of \(G\), where both \(V\) and \(W\) are vector spaces over an algebraically closed field \(\mathbb{F}\) (e.g. \(\mathbb{C}\)). Then
 		\begin{enumerate}[topsep=0pt]
-			\item[(i)] every element of \(\Hom_G(V, W)\) is either \(0\) or an isomorphism;
-			\item[(ii)] the only nontrivial \(G\)-linear maps are the scalar multiples of the identity.
+			\item every element of \(\Hom_G(V, W)\) is either \(0\) or an isomorphism;
+			\item the only nontrivial \(G\)-linear maps are the scalar multiples of the identity.
 		\end{enumerate}
 	\end{lem}
 	\begin{proofskip}[Non-examinable]
 		\begin{enumerate}[topsep=0pt]
-			\item[(i)] Let \(\phi\) be a non-zero \(G\)-linear map from \(V\) to \(W\). Let \(\vb{x}\in\ker\phi<V\), then for any \(g\in G\),
+			\item Let \(\phi\) be a non-zero \(G\)-linear map from \(V\) to \(W\). Let \(\vb{x}\in\ker\phi<V\), then for any \(g\in G\),
 			\[\phi(\rho_V(g)\vb{x})=\rho_W(g)\phi(\vb{x})=\vb{0}\,.\]
 			Therefore, \(\rho_V(g)\vb{x}\) is in the null space of \(\phi\), so \(\ker\phi\) is a invariant subspace of \(\rho_V(g)\). Since \(\rho_V\) is irreducible, the invariant subspace \(\ker\phi\) must be \(\{\vb{0}\}\), so \(\phi\) is injective.
 
 			Similarly \(0\ne \Im\phi\le W\) so \(\Im \phi = W\) since \(\rho_W\) is irreducible. Thus \(\phi\) is both injective and surjective, so an
 			isomorphism.
-			\item[(ii)] Suppose \(\phi\in \Hom_G(V, W)\) is non-zero. Then by (i) \(\phi\) is an isomorphism so \(V=W\). Since \(\mathbb{F}\) is algebraically closed we may find \(\lambda\) an eigenvalue of \(\phi\). Then \(\phi-\lambda \mathsf{I}_V\) has non-zero and \(G\)invariant kernel and so the map is zero. Thus \(\phi=\lambda \mathsf{I}_V\) as required.\qed
+			\item Suppose \(\phi\in \Hom_G(V, W)\) is non-zero. Then by (i) \(\phi\) is an isomorphism so \(V=W\). Since \(\mathbb{F}\) is algebraically closed we may find \(\lambda\) an eigenvalue of \(\phi\). Then \(\phi-\lambda \mathsf{I}_V\) has non-zero and \(G\)invariant kernel and so the map is zero. Thus \(\phi=\lambda \mathsf{I}_V\) as required.\qed
 		\end{enumerate}
 	\end{proofskip}
 	\begin{rem}
@@ -11499,49 +11505,49 @@
 	\begin{thm}\label{chatable}
 		Let \(\{\chi_i\}_{i=1}^{m}\) be the characters of the inequivalent irreducible representations, \\\(\{(\rho_i,V_i)\}_{i=1}^{m}\), of the group \(G\) with order \(n\).
 		\begin{enumerate}[topsep=0pt]
-			\item[(i)] The sum of characters for all the group elements of a representation, excluding the trivial representation, is zero.
+			\item The sum of characters for all the group elements of a representation, excluding the trivial representation, is zero.
 			\[\sum_{g\in G}\chi_i(g)=\begin{cases}
 				n & \text{for }i=1\\
 				0 & \text{for }i\ne 1\,.
 			\end{cases}\]
-			\item[(ii)] Characters are the same within the same conjugacy class.
+			\item Characters are the same within the same conjugacy class.
 			\[\chi_i(g)=\chi(hgh^{-1})\text{ for }g,h\in G\,.\]
-			\item[(iii)] The rows of the character table form orthogonal vectors. For \(i,j\in\{1,2,...,m\}\),
+			\item The rows of the character table form orthogonal vectors. For \(i,j\in\{1,2,...,m\}\),
 			\[\sum_{g\in G}\chi_i(g)^*\chi_j(g)=\begin{cases}
 				0 & \text{if }i\ne j\\
 				n & \text{if }i=j\,.
 			\end{cases}\]
-			\item[(iv)] The number of inequivalent irreducible representations is equal to the number of conjugacy classes.
-			\item[(v)] The columns of the character table of different conjugacy classes form orthogonal vectors. Let \(\abs{c_g}\) denote the number of elements conjugate with \(g\in G\). For \(g,h\in G\),
+			\item The number of inequivalent irreducible representations is equal to the number of conjugacy classes.
+			\item The columns of the character table of different conjugacy classes form orthogonal vectors. Let \(\abs{c_g}\) denote the number of elements conjugate with \(g\in G\). For \(g,h\in G\),
 			\[\sum_{i=1}^{m}\chi_i(g)^*\chi_i(h)=\begin{cases}
 				\frac{n}{\abs{c_g}} & \text{if }g\sim h\\
 				0 & \text{otherwise}\,.
 			\end{cases}\]
-			\item[(vi)] The sum of the squares of the dimensions of all the representations is equal to the order of the group.
+			\item The sum of the squares of the dimensions of all the representations is equal to the order of the group.
 			\[\sum_{i=1}^{m}(\dim_\mathbb{F}V_i)^2=n\,.\]
-			\item[(vii)] The dimension of each representation divides \(n\).
+			\item The dimension of each representation divides \(n\).
 			\[n=k\dim_\mathbb{F}V_i\,,\;k\in\mathbb{N}\,.\]
 		\end{enumerate}
 	\end{thm}
 	We can prove some parts of the above theorem.
 	\begin{proofskip}
 		\begin{enumerate}[topsep=0pt]
-			\item[(i)] This follows from the orthogonality of the characters (\cref{charortho}). Let \(\rho_\beta\) be the trivial irreducible representation such that \(\chi_\beta(g)=1\) for all \(g\in G\), then the equation above simplifies to
+			\item This follows from the orthogonality of the characters (\cref{charortho}). Let \(\rho_\beta\) be the trivial irreducible representation such that \(\chi_\beta(g)=1\) for all \(g\in G\), then the equation above simplifies to
 			\[\sum_{g\in G}\chi_\alpha(g)=\abs{G}\delta_{\alpha\beta}=\begin{cases}
 				\abs{G} & \text{if } \rho^{(\alpha)} \text{ is trivial}\\
 				0 & \text{otherwise}\,.
 			\end{cases}\]
-			\item[(ii)] A direct result of \cref{congcha}.
-			\item[(iii)] Equivalent to \cref{charortho}.
-			\item[(iv)] A full proof is beyond the scope of the course. Here is the outline. (iii) already shows that \(\{\chi_i\}\) is an orthonormal set in \(\mathcal{C}_G\). By Schur's lemma, we can also show that \(\chi_i\) spans \(\mathcal{C}_G\). Therefore, \(\{\chi_i\}\) forms an orthonormal basis for the space of class functions \(\mathcal{C}_G\). A direct corollary is this theorem.
-			\item[(v)] Let \(\mathsf{X}\) be the character table (keeping only one column in a conjugacy class) thought of as a matrix: \(X_{ij}=\chi_i(g_j)\) and let \(\mathsf{D}\) be the diagonal matrix whose diagonal entries are \(\abs{G}/\abs{c_G}\). Orthogonality of the characters (\cref{charortho}) tells us that
+			\item A direct result of \cref{congcha}.
+			\item Equivalent to \cref{charortho}.
+			\item A full proof is beyond the scope of the course. Here is the outline. (iii) already shows that \(\{\chi_i\}\) is an orthonormal set in \(\mathcal{C}_G\). By Schur's lemma, we can also show that \(\chi_i\) spans \(\mathcal{C}_G\). Therefore, \(\{\chi_i\}\) forms an orthonormal basis for the space of class functions \(\mathcal{C}_G\). A direct corollary is this theorem.
+			\item Let \(\mathsf{X}\) be the character table (keeping only one column in a conjugacy class) thought of as a matrix: \(X_{ij}=\chi_i(g_j)\) and let \(\mathsf{D}\) be the diagonal matrix whose diagonal entries are \(\abs{G}/\abs{c_G}\). Orthogonality of the characters (\cref{charortho}) tells us that
 			\[\sum_k\frac{\abs{c_g}}{\abs{G}}X_{ik}^*X_{jk}=\delta_{ij}\,,\]
 			\[\mathsf{X}^*\mathsf{D}^{-1}\mathsf{X}^T=\mathsf{I}\,.\]
 			Since \(\mathsf{X}\) is square (by (iv)), we can write the above equation as
 			\[\mathsf{D}^{-1}\mathsf{X}^\dagger=\mathsf{X}^{-1}\implies\mathsf{X}^\dagger\mathsf{X}=\mathsf{D}\,.\]
 			This is equivalent to
 			\[\sum_k\chi_k(g_i)^*\chi_k(g_j)=\delta_{ij}\frac{\abs{G}}{\abs{c_{g_i}}}\,.\]
-			\item[(vi)] Let \(n_i\) be the dimension of the irreducible representation \((\rho_i,V_i)\). Let \(\rho_\text{reg}\) be the regular representation of \(G\) with character \(\chi_\text{reg}\). Then \(\chi_\text{reg}(g)=\abs{G}\) when \(g=I\) and \(\chi_\text{reg}(g)=0\) otherwise. Therefore we have
+			\item Let \(n_i\) be the dimension of the irreducible representation \((\rho_i,V_i)\). Let \(\rho_\text{reg}\) be the regular representation of \(G\) with character \(\chi_\text{reg}\). Then \(\chi_\text{reg}(g)=\abs{G}\) when \(g=I\) and \(\chi_\text{reg}(g)=0\) otherwise. Therefore we have
 			\[\braket{\chi_\text{reg}}{\chi_i}=n_i\]
 			for all \(i\). Since
 			\[\chi_\text{reg}=\sum_{i=1}^{m}n_i\chi_i\,,\]
@@ -11551,7 +11557,7 @@
 
 			Alternatively, take the inner product of the first column with itself. By (v),
 			\[\sum_{i=1}^{m}(\dim V_i)^2=\sum_{i=1}^{m}\chi_i(I)^2=\abs{G}\,.\]
-			\item[(vii)] We will not prove this.\qed
+			\item We will not prove this.\qed
 		\end{enumerate}
 	\end{proofskip}
 
@@ -11706,7 +11712,7 @@
 
 	In the case of the coupled pendula, there are two normal modes.
 	\begin{enumerate}[topsep=0pt]
-		\item[(i)] \textit{In phase solution, \(\theta_1=\theta_2\).} In this case, the spring exerts no force since its length does not change. Each equation reduces to the same form:
+		\item \textit{In phase solution, \(\theta_1=\theta_2\).} In this case, the spring exerts no force since its length does not change. Each equation reduces to the same form:
 		\[\begin{cases}
 			ml\ddot{\theta}_1=-mg\theta_1\\
 			ml\ddot{\theta}_2=-mg\theta_2\,,
@@ -11714,7 +11720,7 @@
 		as if the two pendula were uncoupled. Therefore, we have
 		\[\theta_1=\theta_2=A\sin\omega(t-t_0)\quad\text{with}\quad\omega^2=\frac{g}{l}\,,\]
 		where \(A\) and \(t_0\) are arbitrary.
-		\item[(ii)] \textit{\(180^\circ\) out of phase solution, \(\theta_1=-\theta_2\).} Each equation is again reduced to the same form:
+		\item \textit{\(180^\circ\) out of phase solution, \(\theta_1=-\theta_2\).} Each equation is again reduced to the same form:
 		\[\begin{cases}
 			ml\ddot{\theta}_1=-(mg+2kl)\theta_1\\
 			ml\ddot{\theta}_2=-(mg+2kl)\theta_2\,,
@@ -11726,8 +11732,8 @@
 
 	Each of the two special cases describes a harmonic motion with a single, pure frequency:
 	\begin{enumerate}[topsep=0pt]
-		\item[(i)] \[\omega=\sqrt{\frac{g}{l}}\,.\]
-		\item[(ii)] \[\Omega=\sqrt{\frac{g}{l}+\frac{2k}{m}}\,.\]
+		\item \[\omega=\sqrt{\frac{g}{l}}\,.\]
+		\item \[\Omega=\sqrt{\frac{g}{l}+\frac{2k}{m}}\,.\]
 	\end{enumerate}
 
 	\begin{thm}

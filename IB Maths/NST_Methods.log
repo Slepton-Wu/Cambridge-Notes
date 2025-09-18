@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.21)  18 SEP 2025 00:43
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.21)  18 SEP 2025 17:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -881,26 +881,26 @@ Package cleveref Info: no abbreviation of names on input line 7852.
 ) (./NST_Methods.aux)
 \openout1 = `NST_Methods.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -945,13 +945,13 @@ LaTeX Font Info:    ... okay on input line 55.
 \enitdp@tabularnotes*=\count388
 Package pgfplots notification 'compat/show suggested version=true': document has been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 
-Package hyperref Info: Link coloring OFF on input line 55.
+Package hyperref Info: Link coloring OFF on input line 56.
 (./NST_Methods.out) (./NST_Methods.out)
 \@outlinefile=\write4
 \openout4 = `NST_Methods.out'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 67--68
+Underfull \hbox (badness 10000) in paragraph at lines 68--69
 
  []
 
@@ -960,15 +960,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 67--68
 [1
 
 ]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 110.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 111.
  (c:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 110.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 111.
  (c:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+esint on input line 110.
+LaTeX Font Info:    Trying to load font information for U+esint on input line 111.
  (c:/texlive/2025/texmf-dist/tex/latex/esint/uesint.fd
 File: uesint.fd 
 )
@@ -988,19 +988,19 @@ File: uesint.fd
 
 
 [7]
-Package hyperref Info: bookmark level for unknown defn defaults to 0 on input line 121.
-Package hyperref Info: bookmark level for unknown rem defaults to 0 on input line 160.
+Package hyperref Info: bookmark level for unknown defn defaults to 0 on input line 122.
+Package hyperref Info: bookmark level for unknown rem defaults to 0 on input line 161.
 
 
 [1]
-Package hyperref Info: bookmark level for unknown thm defaults to 0 on input line 185.
-Package hyperref Info: bookmark level for unknown cor defaults to 0 on input line 208.
+Package hyperref Info: bookmark level for unknown thm defaults to 0 on input line 186.
+Package hyperref Info: bookmark level for unknown cor defaults to 0 on input line 209.
 
 
 [2]
 
 [3]
-Package hyperref Info: bookmark level for unknown lem defaults to 0 on input line 295.
+Package hyperref Info: bookmark level for unknown lem defaults to 0 on input line 296.
 
 
 [4]
@@ -1008,21 +1008,21 @@ Package hyperref Info: bookmark level for unknown lem defaults to 0 on input lin
 [5]
 
 [6]
-Package hyperref Info: bookmark level for unknown exs defaults to 0 on input line 398.
+Package hyperref Info: bookmark level for unknown exs defaults to 0 on input line 399.
 
 
 [7]
-Package hyperref Info: bookmark level for unknown proof defaults to 0 on input line 461.
+Package hyperref Info: bookmark level for unknown proof defaults to 0 on input line 462.
 
 
 [8]
 
 [9]
-Package hyperref Info: bookmark level for unknown prop defaults to 0 on input line 529.
+Package hyperref Info: bookmark level for unknown prop defaults to 0 on input line 530.
 
 
 [10]
-Package hyperref Info: bookmark level for unknown proofskip defaults to 0 on input line 598.
+Package hyperref Info: bookmark level for unknown proofskip defaults to 0 on input line 599.
 
 
 [11]
@@ -1030,7 +1030,7 @@ Package hyperref Info: bookmark level for unknown proofskip defaults to 0 on inp
 [12]
 
 [13]
-Package hyperref Info: bookmark level for unknown altp defaults to 0 on input line 716.
+Package hyperref Info: bookmark level for unknown altp defaults to 0 on input line 717.
 
 
 [14]
@@ -1082,7 +1082,7 @@ Package hyperref Info: bookmark level for unknown altp defaults to 0 on input li
 [28]
 
 [29]
-Package hyperref Info: bookmark level for unknown ex defaults to 0 on input line 1369.
+Package hyperref Info: bookmark level for unknown ex defaults to 0 on input line 1370.
 
 
 [30]
@@ -1116,7 +1116,7 @@ Package hyperref Info: bookmark level for unknown ex defaults to 0 on input line
 [44]
 
 [45]
-Package hyperref Info: bookmark level for unknown rems defaults to 0 on input line 2014.
+Package hyperref Info: bookmark level for unknown rems defaults to 0 on input line 2015.
 
 
 [46]
@@ -1142,7 +1142,7 @@ Package hyperref Info: bookmark level for unknown rems defaults to 0 on input li
 [56]
 
 [57]
-Package hyperref Info: bookmark level for unknown propskip defaults to 0 on input line 2557.
+Package hyperref Info: bookmark level for unknown propskip defaults to 0 on input line 2564.
 
 
 [58]
@@ -1252,7 +1252,7 @@ Package hyperref Info: bookmark level for unknown propskip defaults to 0 on inpu
 [110]
 
 [111]
-Package hyperref Info: bookmark level for unknown clm defaults to 0 on input line 5071.
+Package hyperref Info: bookmark level for unknown clm defaults to 0 on input line 5078.
 
 
 [112]
@@ -1525,7 +1525,7 @@ Easytable[row:8,col:8]
 [242]
 
 [243]
-Package hyperref Info: bookmark level for unknown lemskip defaults to 0 on input line 10534.
+Package hyperref Info: bookmark level for unknown lemskip defaults to 0 on input line 10540.
 
 
 [244]
@@ -1619,10 +1619,10 @@ Package rerunfilecheck Info: File `NST_Methods.out' has not changed.
 (rerunfilecheck)             Checksum: 477AFCC7F5A189D7466C20CCCC40CE4E;26316.
  ) 
 Here is how much of TeX's memory you used:
- 43712 strings out of 473832
- 1005386 string characters out of 5733158
- 1478577 words of memory out of 5000000
- 66167 multiletter control sequences out of 15000+600000
+ 43711 strings out of 473832
+ 1005358 string characters out of 5733158
+ 1478588 words of memory out of 5000000
+ 66166 multiletter control sequences out of 15000+600000
  578269 words of font info for 132 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  83i,22n,93p,792b,1238s stack positions out of 10000i,1000n,20000p,200000b,200000s
