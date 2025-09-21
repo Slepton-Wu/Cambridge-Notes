@@ -1,10 +1,10 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.21)  21 SEP 2025 21:55
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.21)  21 SEP 2025 22:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**PQM
-(./PQM.tex
+**IB_systems
+(./IB_systems.tex
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
 (c:/texlive/2025/texmf-dist/tex/latex/base/article.cls
@@ -557,6 +557,8 @@ Package: nicematrix 2025/03/04 v7.1a Enhanced arrays with the help of PGF/TikZ
 \l__nicematrix_position_int=\count353
 \l__nicematrix_multiplicity_int=\count354
 \l__nicematrix_brace_yshift_dim=\dimen353
+) (c:/texlive/2025/texmf-dist/tex/latex/carlisle/slashed.sty
+Package: slashed 1997/01/16 v0.01 Feynman Slashed Character Notation (DPC)
 ) (c:/texlive/2025/texmf-dist/tex/latex/ntheorem/ntheorem.sty
 Style `ntheorem', Version 1.33 <2011/08/15>
 Package: ntheorem 2011/08/15 1.33
@@ -641,6 +643,7 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
  (c:/texlive/2025/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2024-11-05 v7.01l Hyperref: PDF Unicode definition (HO)
 )
+Package hyperref Info: Option `naturalnames' set `true' on input line 4040.
 Package hyperref Info: Hyper figures OFF on input line 4157.
 Package hyperref Info: Link nesting OFF on input line 4162.
 Package hyperref Info: Hyper index ON on input line 4165.
@@ -714,121 +717,6 @@ Package cleveref Info: `ntheorem' support loaded on input line 3055.
 Package cleveref Info: include cross-reference names in hyperlinks on input line 7836.
 Package cleveref Info: include cross-reference names in hyperlinks on input line 7852.
 Package cleveref Info: no abbreviation of names on input line 7852.
-) (c:/texlive/2025/texmf-dist/tex/latex/easy/easytable.sty
-Document Style `easytable' v1.0 <2001/06/13>.
-(c:/texlive/2025/texmf-dist/tex/latex/easy/easy.sty
-Document Style `easy' v1.1 <2001/05/31>.
-Package: easy 2001/05/31 v1.1
-\@easy@level=\count369
-\@easy@ncol=\count370
-\@easy@nrow=\count371
-\@easy@cnt=\count372
-\@easy@boxviii=\box72
-\@easy@minxviii=\dimen362
-\@easy@minyviii=\dimen363
-\@easy@maxxviii=\dimen364
-\@easy@maxyviii=\dimen365
-\@easy@boxvii=\box73
-\@easy@minxvii=\dimen366
-\@easy@minyvii=\dimen367
-\@easy@maxxvii=\dimen368
-\@easy@maxyvii=\dimen369
-\@easy@boxvi=\box74
-\@easy@minxvi=\dimen370
-\@easy@minyvi=\dimen371
-\@easy@maxxvi=\dimen372
-\@easy@maxyvi=\dimen373
-\@easy@boxv=\box75
-\@easy@minxv=\dimen374
-\@easy@minyv=\dimen375
-\@easy@maxxv=\dimen376
-\@easy@maxyv=\dimen377
-\@easy@boxiv=\box76
-\@easy@minxiv=\dimen378
-\@easy@minyiv=\dimen379
-\@easy@maxxiv=\dimen380
-\@easy@maxyiv=\dimen381
-\@easy@boxiii=\box77
-\@easy@minxiii=\dimen382
-\@easy@minyiii=\dimen383
-\@easy@maxxiii=\dimen384
-\@easy@maxyiii=\dimen385
-\@easy@boxii=\box78
-\@easy@minxii=\dimen386
-\@easy@minyii=\dimen387
-\@easy@maxxii=\dimen388
-\@easy@maxyii=\dimen389
-\@easy@boxi=\box79
-\@easy@minxi=\dimen390
-\@easy@minyi=\dimen391
-\@easy@maxxi=\dimen392
-\@easy@maxyi=\dimen393
-\@easy@hsizexxx=\dimen394
-\@easy@vsizexxx=\dimen395
-\@easy@hsizexxix=\dimen396
-\@easy@vsizexxix=\dimen397
-\@easy@hsizexxviii=\dimen398
-\@easy@vsizexxviii=\dimen399
-\@easy@hsizexxvii=\dimen400
-\@easy@vsizexxvii=\dimen401
-\@easy@hsizexxvi=\dimen402
-\@easy@vsizexxvi=\dimen403
-\@easy@hsizexxv=\dimen404
-\@easy@vsizexxv=\dimen405
-\@easy@hsizexxiv=\dimen406
-\@easy@vsizexxiv=\dimen407
-\@easy@hsizexxiii=\dimen408
-\@easy@vsizexxiii=\dimen409
-\@easy@hsizexxii=\dimen410
-\@easy@vsizexxii=\dimen411
-\@easy@hsizexxi=\dimen412
-\@easy@vsizexxi=\dimen413
-\@easy@hsizexx=\dimen414
-\@easy@vsizexx=\dimen415
-\@easy@hsizexix=\dimen416
-\@easy@vsizexix=\dimen417
-\@easy@hsizexviii=\dimen418
-\@easy@vsizexviii=\dimen419
-\@easy@hsizexvii=\dimen420
-\@easy@vsizexvii=\dimen421
-\@easy@hsizexvi=\dimen422
-\@easy@vsizexvi=\dimen423
-\@easy@hsizexv=\dimen424
-\@easy@vsizexv=\dimen425
-\@easy@hsizexiv=\dimen426
-\@easy@vsizexiv=\dimen427
-\@easy@hsizexiii=\dimen428
-\@easy@vsizexiii=\dimen429
-\@easy@hsizexii=\dimen430
-\@easy@vsizexii=\dimen431
-\@easy@hsizexi=\dimen432
-\@easy@vsizexi=\dimen433
-\@easy@hsizex=\dimen434
-\@easy@vsizex=\dimen435
-\@easy@hsizeix=\dimen436
-\@easy@vsizeix=\dimen437
-\@easy@hsizeviii=\dimen438
-\@easy@vsizeviii=\dimen439
-\@easy@hsizevii=\dimen440
-\@easy@vsizevii=\dimen441
-\@easy@hsizevi=\dimen442
-\@easy@vsizevi=\dimen443
-\@easy@hsizev=\dimen444
-\@easy@vsizev=\dimen445
-\@easy@hsizeiv=\dimen446
-\@easy@vsizeiv=\dimen447
-\@easy@hsizeiii=\dimen448
-\@easy@vsizeiii=\dimen449
-\@easy@hsizeii=\dimen450
-\@easy@vsizeii=\dimen451
-\@easy@hsizei=\dimen452
-\@easy@vsizei=\dimen453
-\@easy@dash@len=\dimen454
-\@easy@dash@sep=\dimen455
-)
-Package: easytable 2001/05/31v1.1
-\@tab@size@rule=\dimen456
-\@tab@size@dash=\dimen457
 ) (c:/texlive/2025/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
 \f@nch@headwidth=\skip72
@@ -847,39 +735,39 @@ Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
 \f@nch@widthR=\skip85
 \@temptokenb=\toks64
 ) (c:/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.markings.code.tex (c:/texlive/2025/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.markings.code.tex))
-\c@rem=\count373
-\c@ex=\count374
-\c@proof=\count375
-\c@altp=\count376
-\c@thm=\count377
-\c@cor=\count378
-\c@clminproof=\count379
-\c@proofskip=\count380
-\c@exs=\count381
-\c@rems=\count382
- (./PQM.aux)
-\openout1 = `PQM.aux'.
+\c@rem=\count369
+\c@ex=\count370
+\c@proof=\count371
+\c@altp=\count372
+\c@thm=\count373
+\c@cor=\count374
+\c@clminproof=\count375
+\c@proofskip=\count376
+\c@exs=\count377
+\c@rems=\count378
+ (./IB_systems.aux)
+\openout1 = `IB_systems.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 97.
-LaTeX Font Info:    ... okay on input line 97.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 97.
-LaTeX Font Info:    ... okay on input line 97.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 97.
-LaTeX Font Info:    ... okay on input line 97.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 97.
-LaTeX Font Info:    ... okay on input line 97.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 97.
-LaTeX Font Info:    ... okay on input line 97.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 97.
-LaTeX Font Info:    ... okay on input line 97.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 97.
-LaTeX Font Info:    ... okay on input line 97.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 97.
-LaTeX Font Info:    ... okay on input line 97.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 97.
-LaTeX Font Info:    ... okay on input line 97.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 97.
-LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -917,56 +805,38 @@ LaTeX Font Info:    ... okay on input line 97.
 
 Package pgfplots notification 'compat/show suggested version=true': document has been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 
-\c__nicematrix_shift_Ldots_last_row_dim=\dimen458
-\c__nicematrix_shift_exterior_Vdots_dim=\dimen459
-\c__nicematrix_innersep_middle_dim=\dimen460
-\c@tabularnotesi=\count383
-\enitdp@tabularnotes=\count384
-\c@tabularnotes*i=\count385
-\enitdp@tabularnotes*=\count386
-Package hyperref Info: Link coloring OFF on input line 97.
-(./PQM.out) (./PQM.out)
+\c__nicematrix_shift_Ldots_last_row_dim=\dimen362
+\c__nicematrix_shift_exterior_Vdots_dim=\dimen363
+\c__nicematrix_innersep_middle_dim=\dimen364
+\c@tabularnotesi=\count379
+\enitdp@tabularnotes=\count380
+\c@tabularnotes*i=\count381
+\enitdp@tabularnotes*=\count382
+Package hyperref Info: Link coloring OFF on input line 93.
+(./IB_systems.out) (./IB_systems.out)
 \@outlinefile=\write4
-\openout4 = `PQM.out'.
+\openout4 = `IB_systems.out'.
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 109--110
-
- []
-
-
-
-[1
-
-]
-
-[2] (./PQM.toc
-LaTeX Font Info:    Trying to load font information for U+msa on input line 3.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 97.
  (c:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 3.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 97.
  (c:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+esint on input line 3.
+LaTeX Font Info:    Trying to load font information for U+esint on input line 97.
  (c:/texlive/2025/texmf-dist/tex/latex/esint/uesint.fd
 File: uesint.fd 
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 3.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 97.
  (c:/texlive/2025/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
 
-[3])
-\tf@toc=\write5
-\openout5 = `PQM.toc'.
+[1
 
-
-
-[4]
-
-[1]
+]
 
 [2]
 
@@ -985,272 +855,26 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 [9]
 
 [10]
+\tf@thm=\write5
+\openout5 = `IB_systems.thm'.
 
-[11]
 
-[12]
 
-[13]
-
-[14]
-
-[15]
-
-[16]
-
-[17]
-
-[18]
-
-[19]
-
-[20]
-
-[21]
-
-[22]
-
-[23]
-
-[24]
-
-[25]
-
-[26]
-
-[27]
-
-[28]
-
-[29]
-
-[30]
-
-[31]
-
-[32]
-
-[33]
-
-[34]
-
-[35]
-
-[36]
-
-[37]
-
-[38]
-
-[39]
-
-[40]
-
-[41]
-
-[42]
-
-[43]
-
-[44]
-
-[45]
-
-[46]
-
-[47]
-LaTeX Font Info:    Trying to load font information for U+euf on input line 1744.
- (c:/texlive/2025/texmf-dist/tex/latex/amsfonts/ueuf.fd
-File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
-)
-
-[48]
-File: Stern-Gerlach.png Graphic file (type bmp)
-<Stern-Gerlach.png>
-
-
-[49]
-
-[50]
-
-[51]
-
-[52]
-
-[53]
-
-[54]
-
-[55]
-
-[56]
-
-[57]
-
-[58]
-
-[59]
-
-[60]
-
-[61]
-
-[62]
-
-[63]
-
-[64]
-
-[65]
-
-[66]
-
-[67]
-
-[68]
-
-[69]
-
-[70]
-
-[71]
-
-[72]
-Overfull \hbox (0.68439pt too wide) in paragraph at lines 2641--2642
-[]\TU/lmr/m/n/10 For any given energy, the state $[]$ which saturates the bound ([]6.95[]) obeys $\OML/cmm/m/it/10 A[] [] \OT1/cmr/m/n/10 =
- []
-
-
-
-[73]
-
-[74]
-
-[75]
-
-[76]
-
-[77]
-
-[78]
-File: periodic_table.png Graphic file (type bmp)
-<periodic_table.png>
-
-
-[79]
-
-[80]
-
-[81]
-
-[82]
-
-[83]
-
-[84]
-
-[85]
-
-[86]
-
-[87]
-
-[88]
-
-[89]
-
-[90]
-File: IE.png Graphic file (type bmp)
-<IE.png>
-
-
-[91]
-
-[92]
-
-[93]
-
-[94]
-
-[95]
-
-[96]
-
-[97]
-
-[98]
-
-[99]
-
-[100]
-
-[101]
-
-[102]
-
-[103]
-
-[104]
-
-[105]
-
-[106]
-
-[107]
-
-[108]
-
-[109]
-
-[110]
-
-[111]
-
-[112]
-
-[113]
-
-[114]
-
-[115]
-
-[116]
-
-[117]
-
-[118]
-
-[119]
-
-[120]
-
-[121]
-
-[122]
-
-[123]
-
-[124]
-\tf@thm=\write6
-\openout6 = `PQM.thm'.
-
-
-
-[125] (./PQM.aux)
+[11] (./IB_systems.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
-Package rerunfilecheck Info: File `PQM.out' has not changed.
-(rerunfilecheck)             Checksum: ACFF0086CAE3BFDCA25BA53F555893E6;8568.
+Package rerunfilecheck Info: File `IB_systems.out' has not changed.
+(rerunfilecheck)             Checksum: A053FDEDC3926C117B4FF5B89FBB84AB;888.
  ) 
 Here is how much of TeX's memory you used:
- 38634 strings out of 473832
- 909091 string characters out of 5733158
- 1388074 words of memory out of 5000000
- 61078 multiletter control sequences out of 15000+600000
- 582465 words of font info for 151 fonts, out of 8000000 for 9000
+ 37603 strings out of 473832
+ 887530 string characters out of 5733158
+ 1399366 words of memory out of 5000000
+ 60094 multiletter control sequences out of 15000+600000
+ 572098 words of font info for 101 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 99i,16n,105p,1889b,1043s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,16n,105p,1276b,688s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on PQM.pdf (129 pages).
+Output written on IB_systems.pdf (11 pages).

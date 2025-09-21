@@ -27,50 +27,50 @@
 \contentsline {subsubsection}{\numberline {3.3.1}Perturbations to Normal Modes}{29}{subsubsection.3.3.1}%
 \contentsline {subsection}{\numberline {3.4}Rayleigh--Schr\"{o}dinger Perturbation Theory}{30}{subsection.3.4}%
 \contentsline {subsection}{\numberline {3.5}Ladder Operators}{33}{subsection.3.5}%
-\contentsline {subsubsection}{\numberline {3.5.1}Angular Momentum Ladder Operators}{33}{subsubsection.3.5.1}%
-\contentsline {subsubsection}{\numberline {3.5.2}Harmonic Oscillator Ladder Operators}{34}{subsubsection.3.5.2}%
-\contentsline {subsection}{\numberline {3.6}Variational Perturbation Theory}{36}{subsection.3.6}%
-\contentsline {subsubsection}{\numberline {3.6.1}An Upper Bound to the Second Order Energy}{36}{subsubsection.3.6.1}%
-\contentsline {subsection}{\numberline {3.7}Multiple Perturbations}{37}{subsection.3.7}%
-\contentsline {subsubsection}{\numberline {3.7.1}Perturbations of Unequal Magnitudes}{37}{subsubsection.3.7.1}%
-\contentsline {subsubsection}{\numberline {3.7.2}Perturbations of Comparable Strengths}{38}{subsubsection.3.7.2}%
-\contentsline {subsubsection}{\numberline {3.7.3}Interchange Theorem}{39}{subsubsection.3.7.3}%
-\contentsline {section}{\numberline {4}Degenerate Perturbation Theory}{41}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Secular Equations for the Unperturbed Wavefunctions}{41}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Nearly Degenerate Perturbation Theory}{42}{subsection.4.2}%
-\contentsline {section}{\numberline {5}Time-Dependent Systems}{48}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Time-Dependent Schr\"{o}dinger Equation}{48}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Ehrenfest Theorem}{48}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Time-Dependent Perturbation Theory}{49}{subsection.5.3}%
-\contentsline {section}{\numberline {6}Intermolecular Interactions}{57}{section.6}%
-\contentsline {subsection}{\numberline {6.1}The Dispersion Energy}{57}{subsection.6.1}%
-\contentsline {subsubsection}{\numberline {6.1.1}Drude--London Model (Non-examinable)}{59}{subsubsection.6.1.1}%
-\contentsline {subsection}{\numberline {6.2}The Induction Energy}{59}{subsection.6.2}%
-\contentsline {section}{\numberline {7}Relativistic Effects}{61}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Hydrogen Fine Structure}{62}{subsection.7.1}%
-\contentsline {subsubsection}{\numberline {7.1.1}Relativistic Kinetic Energy}{63}{subsubsection.7.1.1}%
-\contentsline {subsubsection}{\numberline {7.1.2}Spin-Orbit Coupling}{64}{subsubsection.7.1.2}%
-\contentsline {subsubsection}{\numberline {7.1.3}The Darwin Term}{65}{subsubsection.7.1.3}%
-\contentsline {subsubsection}{\numberline {7.1.4}Total Effect}{66}{subsubsection.7.1.4}%
-\contentsline {subsubsection}{\numberline {7.1.5}Hyperfine Structure}{67}{subsubsection.7.1.5}%
-\contentsline {subsection}{\numberline {7.2}Larger Atoms}{68}{subsection.7.2}%
-\contentsline {subsubsection}{\numberline {7.2.1}Hydrogenic Atoms}{68}{subsubsection.7.2.1}%
-\contentsline {subsubsection}{\numberline {7.2.2}Terms and Levels for Real Atoms}{69}{subsubsection.7.2.2}%
-\contentsline {subsubsection}{\numberline {7.2.3}The Clebsch--Gordan Series}{69}{subsubsection.7.2.3}%
-\contentsline {subsubsection}{\numberline {7.2.4}Hund's Rules}{70}{subsubsection.7.2.4}%
-\contentsline {subsubsection}{\numberline {7.2.5}\(jj\) Coupling}{71}{subsubsection.7.2.5}%
-\contentsline {part}{\numberline {}Appendices}{74}{part*.2}%
-\contentsline {section}{\numberline {A}Convergence of Perturbation Series}{74}{appendix.A}%
-\contentsline {section}{\numberline {B}Wigner's \(2n+1\) Theorem}{76}{appendix.B}%
-\contentsline {section}{\numberline {C}More on the Polarisability of Hydrogen}{78}{appendix.C}%
-\contentsline {subsection}{\numberline {C.1}Rayleigh--Schr\"{o}dinger Sum Involving Continuum States}{78}{subsection.C.1}%
-\contentsline {subsection}{\numberline {C.2}Alternative Method Finding the Exact Hydrogen Polarisability}{80}{subsection.C.2}%
-\contentsline {section}{\numberline {D}Wavefunctions in the Degenerate Perturbation Theory}{81}{appendix.D}%
-\contentsline {section}{\numberline {E}The Three Pictures}{82}{appendix.E}%
-\contentsline {subsection}{\numberline {E.1}State Propagation}{82}{subsection.E.1}%
-\contentsline {subsection}{\numberline {E.2}Time-Dependent Hamiltonian}{83}{subsection.E.2}%
-\contentsline {subsection}{\numberline {E.3}The Heisenberg Picture}{84}{subsection.E.3}%
-\contentsline {subsection}{\numberline {E.4}The Interaction Picture}{85}{subsection.E.4}%
-\contentsline {section}{\numberline {F}Time-Dependent Perturbation in the Interaction Picture}{87}{appendix.F}%
-\contentsline {subsection}{\numberline {F.1}Raman Activity}{89}{subsection.F.1}%
-\contentsline {section}{\numberline {G}Dirac Equation}{90}{appendix.G}%
+\contentsline {subsubsection}{\numberline {3.5.1}Harmonic Oscillator Ladder Operators}{33}{subsubsection.3.5.1}%
+\contentsline {subsubsection}{\numberline {3.5.2}Angular Momentum Ladder Operators}{35}{subsubsection.3.5.2}%
+\contentsline {subsection}{\numberline {3.6}Variational Perturbation Theory}{37}{subsection.3.6}%
+\contentsline {subsubsection}{\numberline {3.6.1}An Upper Bound to the Second Order Energy}{38}{subsubsection.3.6.1}%
+\contentsline {subsection}{\numberline {3.7}Multiple Perturbations}{39}{subsection.3.7}%
+\contentsline {subsubsection}{\numberline {3.7.1}Perturbations of Unequal Magnitudes}{39}{subsubsection.3.7.1}%
+\contentsline {subsubsection}{\numberline {3.7.2}Perturbations of Comparable Strengths}{39}{subsubsection.3.7.2}%
+\contentsline {subsubsection}{\numberline {3.7.3}Interchange Theorem}{40}{subsubsection.3.7.3}%
+\contentsline {section}{\numberline {4}Degenerate Perturbation Theory}{42}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Secular Equations for the Unperturbed Wavefunctions}{42}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Nearly Degenerate Perturbation Theory}{43}{subsection.4.2}%
+\contentsline {section}{\numberline {5}Time-Dependent Systems}{49}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Time-Dependent Schr\"{o}dinger Equation}{49}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Ehrenfest Theorem}{49}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Time-Dependent Perturbation Theory}{50}{subsection.5.3}%
+\contentsline {section}{\numberline {6}Intermolecular Interactions}{58}{section.6}%
+\contentsline {subsection}{\numberline {6.1}The Dispersion Energy}{58}{subsection.6.1}%
+\contentsline {subsubsection}{\numberline {6.1.1}Drude--London Model (Non-examinable)}{60}{subsubsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.2}The Induction Energy}{60}{subsection.6.2}%
+\contentsline {section}{\numberline {7}Relativistic Effects}{62}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Hydrogen Fine Structure}{63}{subsection.7.1}%
+\contentsline {subsubsection}{\numberline {7.1.1}Relativistic Kinetic Energy}{64}{subsubsection.7.1.1}%
+\contentsline {subsubsection}{\numberline {7.1.2}Spin-Orbit Coupling}{65}{subsubsection.7.1.2}%
+\contentsline {subsubsection}{\numberline {7.1.3}The Darwin Term}{66}{subsubsection.7.1.3}%
+\contentsline {subsubsection}{\numberline {7.1.4}Total Effect}{67}{subsubsection.7.1.4}%
+\contentsline {subsubsection}{\numberline {7.1.5}Hyperfine Structure}{68}{subsubsection.7.1.5}%
+\contentsline {subsection}{\numberline {7.2}Larger Atoms}{69}{subsection.7.2}%
+\contentsline {subsubsection}{\numberline {7.2.1}Hydrogenic Atoms}{69}{subsubsection.7.2.1}%
+\contentsline {subsubsection}{\numberline {7.2.2}Terms and Levels for Real Atoms}{70}{subsubsection.7.2.2}%
+\contentsline {subsubsection}{\numberline {7.2.3}The Clebsch--Gordan Series}{70}{subsubsection.7.2.3}%
+\contentsline {subsubsection}{\numberline {7.2.4}Hund's Rules}{71}{subsubsection.7.2.4}%
+\contentsline {subsubsection}{\numberline {7.2.5}\(jj\) Coupling}{72}{subsubsection.7.2.5}%
+\contentsline {part}{\numberline {}Appendices}{75}{part*.2}%
+\contentsline {section}{\numberline {A}Convergence of Perturbation Series}{75}{appendix.A}%
+\contentsline {section}{\numberline {B}Wigner's \(2n+1\) Theorem}{77}{appendix.B}%
+\contentsline {section}{\numberline {C}More on the Polarisability of Hydrogen}{79}{appendix.C}%
+\contentsline {subsection}{\numberline {C.1}Rayleigh--Schr\"{o}dinger Sum Involving Continuum States}{79}{subsection.C.1}%
+\contentsline {subsection}{\numberline {C.2}Alternative Method Finding the Exact Hydrogen Polarisability}{81}{subsection.C.2}%
+\contentsline {section}{\numberline {D}Wavefunctions in the Degenerate Perturbation Theory}{82}{appendix.D}%
+\contentsline {section}{\numberline {E}The Three Pictures}{83}{appendix.E}%
+\contentsline {subsection}{\numberline {E.1}State Propagation}{83}{subsection.E.1}%
+\contentsline {subsection}{\numberline {E.2}Time-Dependent Hamiltonian}{84}{subsection.E.2}%
+\contentsline {subsection}{\numberline {E.3}The Heisenberg Picture}{85}{subsection.E.3}%
+\contentsline {subsection}{\numberline {E.4}The Interaction Picture}{86}{subsection.E.4}%
+\contentsline {section}{\numberline {F}Time-Dependent Perturbation in the Interaction Picture}{88}{appendix.F}%
+\contentsline {subsection}{\numberline {F.1}Raman Activity}{90}{subsection.F.1}%
+\contentsline {section}{\numberline {G}Dirac Equation}{91}{appendix.G}%

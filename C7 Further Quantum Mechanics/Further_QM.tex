@@ -169,7 +169,7 @@
     \begin{equation}
         \hat{A}\psi=a\psi\,,
     \end{equation}
-    then the value of \(A\) will always be measured to be \(a\). If this equation is not satisfied, then measured values of \(A\) will be drawn from a probability distribution. The expectation value and uncertainty of \(A\) is
+    then the value of \(A\) will always be measured to be \(a\). If this equation is not satisfied, then measured values of \(A\) will be drawn from a probability distribution in the set of eigenvalues, also known as the \textit{spectrum}, of \(\hat{A}\). The expectation value and uncertainty of \(A\) is
     \begin{align}
         \eval{A}&=\frac{\int\dd{\tau}\psi^*\hat{A}\psi}{\int\dd{\tau}\psi^*\psi}\\
         \Delta A&=\sqrt{\eval{A^2}-\eval{A}^2}\,.
@@ -190,11 +190,11 @@
         p_x&\longrightarrow \hat{p}_x=-\ii\hbar\pdv{}{x}\,.
     \end{align}
 
-    In general, two operators do not \textit{commute}, meaning that \(\hat{A}\hat{B}\ne\hat{B}\hat{A}\). This can be quantified by their \textit{commutator}, defined as
+    In general, two operators do not \textit{commute}, meaning that \(\hat{A}\hat{B}\ne\hat{B}\hat{A}\). This can be characterised by their \textit{commutator}, defined as
     \begin{equation}
         [\hat{A},\hat{B}]\coloneqq\hat{A}\hat{B}-\hat{B}\hat{A}\,.
     \end{equation}
-    Two commuting operators have a zero commutator. If two (suitably well-behaved) operators commute, they admit a common set of eigenfunctions. The converse also holds true: if there is a complete set of common eigenfunctions ('complete' means being able to expand any state in terms of these eigenfunctions), then the operators commute. Only if the state \(\psi\) is a simultaneous eigenstate of two operators can we measure the two physical observables with certainty. If the condition is not met, then the commutator places a lower bound on the product of the uncertainties
+    Two commuting operators have vanishing commutator. If two (suitably well-behaved) operators commute, they admit a common set of eigenfunctions. The converse also holds true: if there is a complete set of common eigenfunctions ('complete' means being able to expand any state in terms of these eigenfunctions), then the operators commute. Only if the state \(\psi\) is a simultaneous eigenstate of two operators can we measure the two physical observables with certainty. If the condition is not met, then the commutator places a lower bound on the product of the uncertainties
     \begin{equation}
         \Delta A\Delta B\ge\frac{1}{2}\abs{\eval{[\hat{A},\hat{B}]}}\,.
     \end{equation}
@@ -204,11 +204,11 @@
     \begin{equation}
         \hat{A}(a\ket{\phi}+b\ket{\psi})=a\hat{A}\ket{\phi}+b\hat{A}\ket{\psi}\,,
     \end{equation}
-    where \(a,b\in\CC\) are constants. Moreover, operators that correspond to physical observables must be Hermitian. For any linear operator \(\hat{A}\), we define its adjoint \(\hat{A}^\dagger\) to be the operator such that
+    where \(a,b\in\CC\) are constants. Moreover, operators that correspond to physical observables must be \textit{Hermitian}. For any linear operator \(\hat{A}\), we define its adjoint \(\hat{A}^\dagger\) to be the operator such that
     \begin{equation}
         \mel{\phi}{\hat{A}}{\psi}=\braket{\hat{A}^\dagger\phi}{\psi}\,.
     \end{equation}
-    An operator is Hermitian if it is self-adjoint,\footnote{There are actually some extremely subtle differences between self-adjoint and Hermitian operators in functional analysis, but they would only bother pure mathematicians.} meaning \(\hat{A}=\hat{A}^\dagger\), so that
+    An operator is \textit{Hermitian} if it is self-adjoint,\footnote{There are actually some extremely subtle differences between self-adjoint and Hermitian operators in functional analysis, but they would only bother pure mathematicians.} meaning \(\hat{A}=\hat{A}^\dagger\), so that
     \begin{equation}
         \mel{\phi}{\hat{A}}{\psi}=\braket{\hat{A}\phi}{\psi}=\mel{\psi}{\hat{A}}{\phi}^*\,.
     \end{equation}
@@ -225,7 +225,7 @@
     \begin{enumerate}[topsep=0pt,label=(\roman*)]
         \item The eigenvalues are all real.
         \item Eigenfunctions with different eigenvalues are orthogonal. Even if some eigenfunctions are degenerate, orthogonal eigenfunctions can always be constructed.
-        \item The eigenfunctions form a complete basis set. \footnote{The existence of continuum spectrum and generalised function actually make the condition a bit more subtle, but we won't discuss this in this course.}
+        \item The eigenfunctions form a complete basis set.\footnote{The existence of continuum spectrum and generalised function actually make the condition a bit more subtle, but we won't discuss this in this course.}
     \end{enumerate}
     Two functions are said to be \textit{orthogonal} if their inner product, defined as \(\braket{\phi}{\psi}\), is zero. Moreover, the completeness of the basis set means that any wavefunction \(\psi\) satisfying the boundary conditions can be expressed as a linear combination of the eigenfunctions,
     \begin{equation}
@@ -241,6 +241,7 @@
     \begin{equation}
         \ket{\psi}=\sum_i \braket{\phi_i}{\psi}\ket{\phi_i}\,.
     \end{equation}
+    Suppose \(\hat{A}\) has eigenstates \(\{\phi_i\}\) and spectrum \(\{a_i\}\), and we have a quantum state \(\psi\). The probability of a measurement to get \(a_i\) is \(\abs{\braket{\phi_i}{\psi}}^2\).
 
     From now on, we will denote the eigenstates just by their quantum number in the bra-ket notation: \(\ket{i}\equiv\ket{\phi_i}\), so that for example, we have
     \begin{equation}
@@ -412,7 +413,7 @@
     \begin{equation}
         \tilde{\psi}(p)=\braket{p}{\psi}=\bra{p}\int\dd{x}\ket{x}\braket{x}{\psi}=\int\dd{x}\braket{p}{x}\braket{x}{\psi}=\int\dd{x}\braket{p}{x}\psi(x)\,.
     \end{equation}
-    All we need to do is to find \(\braket{p}{x}\). We can transform it into a more familiar object, \(\braket{p}{x}=\braket{x}{p}^*\) --- it is the complex conjugate of the position representation of momentum eigenstate wavefunctions. We can find it as the eigenfunction of \(-\ii\mathrm{d}/\mathrm{d}x\). You should have done this in Part IB Chemistry A: \textit{Introduction to Quantum Mechanics}, \(\braket{x}{p}=\ee^{\ii px}/\sqrt{2\pi}\). Therefore, we have
+    All we need to do is to find \(\braket{p}{x}\). We can transform it into a more familiar object, \(\braket{p}{x}=\braket{x}{p}^*\) --- it is the complex conjugate of the position representation of momentum eigenstate wavefunctions. We can find it as the eigenfunction of \(-\ii\mathrm{d}/\mathrm{d}x\), \(\braket{x}{p}=\ee^{\ii px}/\sqrt{2\pi}\). You should have done this in Part IB Chemistry A: \textit{Introduction to Quantum Mechanics}. Therefore, we have
     \begin{equation}
         \tilde{\psi}(p)=\frac{1}{\sqrt{2\pi}}\int\dd{x}\ee^{-\ii px}\psi(x)\,.
     \end{equation}
@@ -491,7 +492,7 @@
     \end{equation}
     The components transform in the opposite way from the basis.
 
-    The same thing goes for operators. If a Hermitian operator \(\hat{A}\) is represented in the \(\{\ket{\phi_i}\}\) basis with matrix elements \(A_{ij}=\mel{\phi_i}{\hat{A}}{\phi_j}\), then in the new basis \(\{\ket{\theta_i}\}\), the matrix element \(\mathsf{A}'\) will be given by
+    The same thing goes for operators. If a Hermitian operator \(\hat{A}\) is represented in the \(\{\ket{\phi_i}\}\) basis with matrix elements \(A_{ij}=\mel{\phi_i}{\hat{A}}{\phi_j}\), then in the new basis \(\{\ket{\theta_i}\}\), the matrix \(\mathsf{A}'\) will be given by
     \begin{align}
         A_{ij}'&=\mel{\theta_i}{\hat{A}}{\theta_j}\notag\\
         &=\sum_{k,l}U_{ki}^*U_{lj}\mel{\phi_k}{\hat{A}}{\phi_l}\notag\\
@@ -543,11 +544,11 @@
     \begin{equation}
         \ket{\psi(t)}=\hat{U}(t,t_0)\ket{\psi(t_0)}\,.
     \end{equation}
-    You will briefly touch this operator in \cref{Chap:TDPT} and investigate it in much greater details in the appendix \cref{Chap:Three_Pictures}. Another important class of active unitary operators is those for symmetry transformations, such as spatial translations and rotations, but they are of more interests for theoretical physicists and we will not discuss them in any detail.\footnote{See my notes on Mathematical Tripos: \textit{Principles of Quantum Mechanics} if you are interested.}
+    You will briefly touch this operator in \cref{Chap:TDPT} and investigate it in much greater details in the appendix \cref{Chap:Three_Pictures}. Another important class of active unitary operators is those for symmetry transformations, such as spatial translations and rotations, but they are of more interest for theoretical physicists and we will not discuss them in any detail.\footnote{See my notes on Mathematical Tripos: \textit{Principles of Quantum Mechanics} if you are interested.}
 
-    However, we will introduce a simple but profound result that is somewhat similar but subtly different to what we introduced in \cref{Chap:Vec_and_Mat_reps}. Suppose we have a Hermitian operator \(\hat{A}\) with eigenstates \(\{\ket{a_i}\}\) and eigenvalues \(a_i\). Then a \textit{unitary equivalent observable} is \(\hat{U}\hat{A}\hat{U}^\dagger\), where \(\hat{U}\) is a unitary operator.  
+    However, we will introduce a simple but profound result that is somewhat similar but subtly different to what we introduced in \cref{Chap:Vec_and_Mat_reps}. Suppose we have a Hermitian operator \(\hat{A}\) with eigenstates \(\{\ket{a_i}\}\) and spectrum \(\{a_i\}\). Then a \textit{unitary equivalent observable} is \(\hat{U}\hat{A}\hat{U}^\dagger\), where \(\hat{U}\) is a unitary operator.  
     \begin{thm}
-        Unitary equivalent observables have the same eigenvalues.
+        Unitary equivalent observables have the same spectrum.
     \end{thm}
     \begin{proof}
         Since
@@ -565,7 +566,7 @@
         where \(\ket{b_i}\) is the eigenstate of the unitary equivalent operator \(\hat{B}=\hat{U}\hat{A}\hat{U}^{-1}\), with the same eigenvalue \(a_i\) as \(\hat{A}\).\qed
     \end{proof}
     
-    An example of this is the component of the spin angular momentum operator \(\hat{S}_z\). We can, for example, use a unitary operator corresponding to a \(90^\circ\) rotation along \(y\) axis to change it to \(\hat{S}_x\). They have the same set of eigenvalues: \(\pm\hbar/2\).
+    An example of this is the component of the spin angular momentum operator \(\hat{S}_z\). We can, for example, use a unitary operator corresponding to a \(90^\circ\) rotation along \(y\) axis to change it to \(\hat{S}_x\). They have the same spectrum: \(\pm\hbar/2\).
 
     The above result also hints that if we transform all of our states by \(\ket{\psi}\mapsto\hat{U}\ket{\psi}\) and all of our operators by \(\hat{A}\mapsto\hat{U}\hat{A}\hat{U}^\dagger\), everything will be equivalent before and after the transformation.
 
@@ -1309,7 +1310,7 @@
                 \draw[dashed] (3,4)--(3,0)node[below]{\(1\)};
             \end{scope}
         \end{tikzpicture}
-        \caption{The perturbation theory is appropriate in the first case, in which the reference Hamiltonian is ``close enough'' to the true Hamiltonian such that the perturbation only leads to small changes in the energies and wavefunctions. The perturbation theory may not work in the second case where the changes in energy levels is comparable with the energy level separations. The reference Hamiltonian is too far away from the true Hamiltonian. Either we will then need too many terms in the series expansion to get a satisfactory result, or the series just may not converge. We will discuss this convergence issue in appendix \cref{Appendix:Converge}.}
+        \caption{The perturbation theory is appropriate in the first case, in which the reference Hamiltonian is ``close enough'' to the true Hamiltonian such that the perturbation only leads to small changes in the energies and wavefunctions. The perturbation theory may not work in the second case where the changes in energy levels are comparable with the energy level separations. The reference Hamiltonian is too far away from the true Hamiltonian. Either we will then need too many terms in the series expansion to get a satisfactory result, or the series just may not converge. We will discuss this convergence issue in appendix \cref{Appendix:Converge}.}
     \end{figure}
 
     We will employ the conventional \textit{intermediate normalisation}, where the unperturbed wavefunction will be normalised
@@ -1665,14 +1666,14 @@
         Despite its practical difficulty, Rayleigh--Schr\"{o}dinger perturbation theory provides some useful physical insight. The expression (\ref{RS_polarisability_expansion}) shows that an atom will have a large polarisability if it possess low-lying excited states with an appropriate symmetry.
     \end{ex}
 
-    \subsection{Ladder Operators}
-    A \textit{ladder operator} in quantum mechanics is an operator that acts on an eigenstate of another operator to produce an eigenfunction with a different value. Since the changes to the quantum number are usually \(+1\) (raising operator) or \(-1\) (lowering operator), they got their names by imagining stepping up or down one `rung' on the `ladder' of eigenstates.
+    \subsection{Ladder Operators}\label{Chap:Ladder}
+    A \textit{ladder operator} in quantum mechanics is an operator that acts on an eigenstate of another operator to produce another eigenstate with a different eigenvalue. Since the changes to the quantum number are usually \(+1\) (raising operator) or \(-1\) (lowering operator), they got their names by imagining stepping up or down one `rung' on the `ladder' of eigenstates.
 
     If we have a Hermitian operator \(\hat{B}\), and another operator \(\hat{a}\) which satisfy the commutation relationship
     \begin{equation}\label{ladder_operator}
         [\hat{B},\hat{a}]=c\hat{a}
     \end{equation}
-    for some real constant \(c\), then \(\hat{a}\) is a ladder operator\footnote{The notation \(a\) here stands for \textit{annihilation}, as \(\hat{a}\) and \(\hat{a}^\dagger\) are more formally known as the \textit{annihilation} and \textit{creation} operator. They create/destroy quanta of vibration (phonons).} for \(\hat{B}\). To show this, consider acting \(\hat{a}\) on the eigenstate of \(\hat{B}\), \(\ket{b}\) with eigenvalue \(b\). We have
+    for some real constant \(c\), then \(\hat{a}\) is a ladder operator\footnote{The notation \(a\) here stands for \textit{annihilation}, as \(\hat{a}\) and \(\hat{a}^\dagger\) are more formally known as the \textit{annihilation} and \textit{creation} operator. They create/destroy quanta of excitations.} for \(\hat{B}\). To show this, consider acting \(\hat{a}\) on the eigenstate of \(\hat{B}\), \(\ket{b}\) with eigenvalue \(b\). We have
     \begin{align}
         \hat{B}\hat{a}\ket{b}&=\hat{a}\hat{B}\ket{b}+[\hat{B},\hat{a}]\ket{b}\notag \\
         &=b\hat{a}\ket{b}+c\hat{a}\ket{b}\notag \\
@@ -1686,37 +1687,12 @@
     \end{equation}
     Hence, if \(\hat{a}\) is a raising (lowering) operator, then its Hermitian conjugate \(\hat{a}^\dagger\) will be a lowering (raising) operator, changing the magnitude of the eigenvalue by the same amount.
 
-    \subsubsection{Angular Momentum Ladder Operators}
-    By the commutation relationship of angular momentum operator
-    \begin{equation}
-        [\hat{J}_i,\hat{J}_j]=\ii\sum_k\epsilon_{ijk}\hat{J}_k\qquad [\hat{\vb{J}}^2,\hat{J}_i]=0
-    \end{equation}
-    for \(i,j,k\in\{x,y,z\}\), one can show that the operators
-    \begin{align}
-        \hat{J}_+&=\hat{J}_x+\ii\hat{J}_y\\
-        \hat{J}_-&=\hat{J}_x-\ii\hat{J}_y
-    \end{align}
-    satisfy the commutation relationships
-    \begin{align}
-        [\hat{J}_z,\hat{J}_\pm]&=\pm\hat{J}_\pm \\
-        [\hat{\vb{J}}^2,\hat{J}_\pm]&=0\,,
-    \end{align}
-    and so they are ladder operators for \(\hat{J}_z\). We have
-    \begin{align}
-        \hat{J}_z\hat{J}_{\pm}\ket{J,M}&=(M\pm 1)\hat{J}_{\pm}\ket{J,M}\,,\\
-        \hat{\vb{J}}^2\hat{J}_{\pm}\ket{J,M}&=J(J+1)\hat{J}_{\pm}\ket{J,M}\,,
-    \end{align}
-    where \(\ket{J,M}=Y_{JM}\) is the angular momentum eigenstates. Therefore,
-    \begin{equation}
-        \hat{J}_{\pm}\ket{J,M}\propto\ket{J,M\pm 1}\,.
-    \end{equation}
-
     \subsubsection{Harmonic Oscillator Ladder Operators}
     The Hamiltonian of a standard harmonic oscillator takes the form
     \begin{equation}
         \hat{H}=-\frac{1}{2}\dv[2]{}{q}+\frac{1}{2}q^2\,.
     \end{equation}
-    We will first show how to use the ladder operators to infer the eigenvalues of the harmonic oscillator without needing to solve any differential equations. The ladder operators of the Harmonic oscillator are given by
+    We can actually work out the spectrum of the harmonic oscillator by only using the ladder operators, without needing to solve any differential equations as we did in Part IB. The ladder operators of the Harmonic oscillator are given by
     \begin{align}
         \hat{a}&=\sqrt{\frac{1}{2}}\left(q+\dv{}{q}\right)\\
         \hat{a}^\dagger&=\sqrt{\frac{1}{2}}\left(q-\dv{}{q}\right)\,.
@@ -1729,7 +1705,7 @@
     \begin{equation}
         n=\mel{n}{\hat{N}}{n}=\mel{n}{\hat{a}^\dagger\hat{a}}{n}=\norm{\hat{a}\ket{n}}^2\ge 0\,,
     \end{equation}
-    we find that we cannot lower the eigenstate \(\ket{n}\) infinitely. We must have \(n\ge 0\), so the lowering process must somehow terminate at some point to avoid negative values of \(n\). This will be our ground state, and is given by \(\hat{a}\ket{n}=\vb{0}\). Therefore, we must have \(n=0\) to be the ground state. The excited states can be obtained by repeatedly acting \(\hat{a}^\dagger\) on \(\ket{0}\), so the eigenvalues of \(\hat{H}\) are given by \(k+\frac{1}{2}\), where \(k\in\NN_0\).
+    we find that we cannot lower the eigenstate \(\ket{n}\) infinitely. We must have \(n\ge 0\), so the lowering process must somehow terminate at some point to avoid negative values of \(n\). This will be our ground state, and is given by \(\hat{a}\ket{n}=\vb{0}\). Therefore, we must have \(n=0\) to be the ground state. The excited states can be obtained by repeatedly acting \(\hat{a}^\dagger\) on \(\ket{0}\), so the spectrum of \(\hat{H}\) are given by \(\{k+\frac{1}{2}\}\), where \(k\in\NN_0\).
 
     Using this method, we can also easily find the eigenfunctions of \(\hat{H}\). If we directly solve the Schr\"{o}dinger equation, then we have a second-order differential equation which we can't easily solve. The standard method would then be to solve this using an infinite series. However, we have claimed that the ground state satisfies
     \begin{equation}
@@ -1808,9 +1784,109 @@
         
     \end{ex}
 
+        \subsubsection{Angular Momentum Ladder Operators}
+    By the commutation relationship of angular momentum operator
+    \begin{equation}
+        [\hat{J}_i,\hat{J}_j]=\ii\sum_k\epsilon_{ijk}\hat{J}_k\qquad [\hat{\vb{J}}^2,\hat{J}_i]=0
+    \end{equation}
+    for \(i,j,k\in\{x,y,z\}\), one can show that the operators
+    \begin{align}
+        \hat{J}_+&=\hat{J}_x+\ii\hat{J}_y\\
+        \hat{J}_-&=\hat{J}_x-\ii\hat{J}_y
+    \end{align}
+    satisfy the commutation relationships
+    \begin{align}
+        [\hat{J}_z,\hat{J}_\pm]&=\pm\hat{J}_\pm \\
+        [\hat{\vb{J}}^2,\hat{J}_\pm]&=0\,,
+    \end{align}
+    and so they are ladder operators for \(\hat{J}_z\).
+
+    Suppose we denote a simultaneous eigenstate of \(\hat{\vb{J}}^2\) and \(\hat{J}_z\) by \(\ket{\beta,m}\), where
+    \begin{align}
+        \hat{\vb{J}}^2\ket{\beta,m}&=\hbar^2\beta\ket{\beta,m} \\
+        \hat{J}_z\ket{\beta,m}&=\hbar m\ket{\beta,m}\,.
+    \end{align} 
+    From the properties of the ladder operators, we learn that
+    \begin{equation}
+        \hat{\vb{J}}^2(\hat{J}_\pm\ket{\beta,m})=\hat{J}_\pm\hat{\vb{J}}^2\ket{\beta,m}=\hbar^2\beta \hat{J}_\pm \ket{\beta,m}
+    \end{equation}
+    and
+    \begin{equation}
+        \hat{J}_z(\hat{J}_\pm\ket{\beta,m})=([\hat{J}_z,\hat{J}_\pm]+\hat{J}_\pm \hat{J}_z)\ket{\beta,m}=(m\pm 1)\hbar(\hat{J}_\pm\ket{\beta,m})\,.
+    \end{equation}
+    These show that the new states \(\hat{J}_\pm\ket{\beta,m}\), if not zero, are still eigenstates of both \(\hat{\vb{J}}^2\) and \(\hat{J}_z\), with the same eigenvalues \(\beta\hbar^2\) for \(\hat{\vb{J}}^2\). However, their \(\hat{J}_z\) eigenvalue is shifted up or down by one unit of \(\hbar\). Their role is to rotate our system, aligning more or less of its total angular momentum along the \(z\)-axis without changing the total angular momentum available.
+
+    Just as for the harmonic oscillator, examining the algebra of our raising and lowering operators has told us the separation between angular momentum eigenstates, given a starting point \(\ket{\beta,m}\). To fix our initial states, we must examine the norm. Let's assume \(\ket{\beta,m}\) is correctly normalized and we compute
+    \begin{align}
+        \norm{\hat{J}_+\ket{\beta,m}}^2&=\expval{\hat{J}_-\hat{J}_+}{\beta,m}=\expval{(J_x-\ii J_y)(J_x+\ii J_y)}{\beta,m}\notag\\
+        &=\expval{\hat{\vb{J}}^2-\hat{J}_z^2-\hbar \hat{J}_z}{\beta,m}=\hbar^2(\beta-m(m+1))\,.
+    \end{align}
+    But since this is a norm, whatever state \(\ket{\beta,m}\) we started we must have
+    \begin{equation}
+        \beta-m(m+1)\ge 0\,,
+    \end{equation}
+    with equality iff \(\hat{J}_+\ket{\beta,m}=0\) vanishes. This shows that it cannot be possible to keep applying \(\hat{J}_+\), repeatedly raising \(\hat{J}_z\) eigenvalue \(m\). There must be some maximum value of \(m\) --- let's call it \(j\) --- for which \(\hat{J}_+\ket{\beta,j}=0\). This can only be the case if \(\beta\) obeys
+    \begin{equation}
+        \beta=j(j+1)
+    \end{equation}
+    and so is fixed in terms of the maximum allowed value of \(m\).
+
+    Similarly for a generic \(m\) value we find
+    \begin{equation}
+        \norm{\hat{J}_-\ket{\beta,m}}^2=\hbar^2(\beta-m(m-1))
+    \end{equation}
+    so it also cannot be possible to keep lowering the \(\hat{J}_z\) eigenvalue. There must be some minimum value of \(m\), say \(j'\), for which \(\hat{J}_-\ket{\beta,j'}=0\) and this can only be the case if
+    \begin{equation}
+        \beta=j'(j'-1)\,.
+    \end{equation}
+    Applying \(\hat{J}_\pm\) does not change the \(\hat{\vb{J}}^2\) eigenvalue \(\beta\), so these two values of \(\beta\) must agree. Comparing them, we obtain a equation
+    \begin{equation}
+        \beta=j(j+1)=j'(j'-1)\,,
+    \end{equation}
+    with solutions \(j'=j+1\) or \(j'=-j\). By definition \(j'\) can't be greater than \(j\) so we must have \(j'=-j\). The eigenvalue \(\beta\hbar^2=j(j+1)\hbar^2\) is determined by \(j\), so we henceforth label our states as \(\ket{j,m}\); this labelling is simple less cluttered than \(\ket{\beta=j(j+1),m}\).
+    
+    Finally, we note that since applying \(\hat{J}_-\) repeatedly will take us from the highest state \(\ket{j,j}\) through \(\ket{j,j-1},\dots\) down to \(\ket{j,-j}\), so it must be that \(2j\) is a non-negative integer. In other words, the possible values for \(j\) are
+    \begin{equation}
+        j\in\left\{0,\frac{1}{2},1,\frac{3}{2},\dots\right\}=\frac{1}{2}\NN_0\,.
+    \end{equation}
+    Once the total angular momentum quantum number \(j\) is fixed, we have
+    \begin{equation}
+        m\in\{-j,-j+1,\dots,j-1,j\}\,.
+    \end{equation}
+    Thus there is in total of \(2j+1\) possible \(m\) values for each \(j\). We can move between states with the same \(j\) but different \(m\) using raising and lowering operators \(\hat{J}_\pm\) which obey
+    \begin{align}
+        \hat{J}_+\ket{j,m}&=\hbar\sqrt{j(j+1)-m(m+1)}\ket{j,m+1}\label{ang_momentum_raising}\\
+        \hat{J}_-\ket{j,m}&=\hbar\sqrt{j(j+1)-m(m-1)}\ket{j,m-1}\label{ang_momentum_lowering}\,.
+    \end{align}
+    These operators only change the \(\hat{J}_z\) eigenvalue, not the \(\hat{\vb{J}}^2\) one. They just realign a given system, placing more (\(\hat{J}_+\)) or less (\(\hat{J}_-\)) of its angular momentum along the \(z\)-axis.
+
+    \begin{figure}
+        \centering
+        \begin{tikzpicture}
+            \draw (0,0) circle (1.47);
+            \draw[->] (0,-1.8)--(0,1.8)node[right]{\small\(z\)};
+            \draw[blue,dashed,thick] (0,0)--(1.47,0);
+            \draw[thick] (0,0)--(1.34,0.6);
+            \draw[red,dashed,thick] (0,0)--(0.85,1.2);
+            \draw[dashed] (0,0) ellipse (1.47 and 0.14);
+            \draw[dashed] (0,0.6) ellipse (1.34 and 0.13);
+            \draw[dashed] (0,1.2) ellipse (0.85 and 0.08);
+            \draw[dashed] (0,-0.6) ellipse (1.34 and 0.13);
+            \draw[dashed] (0,-1.2) ellipse (0.85 and 0.08);
+            \foreach \x in {-2,...,2}{
+                \draw (0,0.6*\x)node[left]{\tiny\(\x\)}--(0.04,0.6*\x);
+            }
+            \draw[->,red] (1.46,0.653) arc (24.1:54.7:1.6);
+            \node[red] at (1.4,1.1)[right]{\small\(\hat{J}_+\)};
+            \draw[->,blue] (1.46,0.653) arc (24.1:0:1.6);
+            \node[blue] at (1.8,0.3)[right]{\small\(\hat{J}_-\)};
+        \end{tikzpicture}
+        \caption{\(\vb{J}\) eigenvectors for \(j=2\) states. Only the magnitude and the projection along the \(z\) axis is definite so each state is represented by a circle on a sphere. The raising and lowering operators makes the \(\vb{J}\) more/less aligned with the \(z\) axis.}
+    \end{figure}
+
     \subsection{Variational Perturbation Theory}\label{Chap:Variational_Perturbation}
-    You should be familiar with the variational principles.
-    \begin{lem}[Variational principles]
+    You should be familiar with the variational principle.
+    \begin{lem}[Variational principle]
         Let \(\hat{H}\) be a Hamiltonian with ground state wavefunction \(\psi_0\) with energy \(E_0\). Let \(\tilde{\psi}\) be any trial wavefunction, then
         \begin{equation}
             \tilde{E}=\frac{\mel{\tilde{\psi}}{\hat{H}}{\tilde{\psi}}}{\braket{\tilde{\psi}}{\tilde{\psi}}}\ge E_0\,,
@@ -1936,7 +2012,7 @@
         E_n^{(1,0)}&=\expval{\hat{H}_a^{(1,0)}}{n}\\
         E_n^{(0,1)}&=\expval{\hat{H}_b^{(0,1)}}{n}\,.
     \end{align}
-    The second-equations in \(\lambda_a^2\) and \(\lambda_b^2\) are analogous to (\ref{perturbation_eqn_second}). However, we also have a second-order equation in \(\lambda_a\lambda_b\) containing cross terms
+    The second-order equations in \(\lambda_a^2\) and \(\lambda_b^2\) are analogous to (\ref{perturbation_eqn_second}). However, we also have a second-order equation in \(\lambda_a\lambda_b\) containing cross terms
     \begin{equation}
         (\hat{H}^{(0,0)}-E_n^{(0,0)})\ket{\psi_n^{(1,1)}}+(\hat{H}_a^{(1,0)}-E_n^{(1,0)})\ket{\psi_n^{(0,1)}}+(\hat{H}_b^{(0,1)}-E_n^{(0,1)})\ket{\psi_n^{(1,0)}}-E_n^{(1,1)}\ket{n}=0\,.
     \end{equation}
@@ -2073,7 +2149,7 @@
     \begin{equation}
         \sum_i\mel{\psi_{nk}^{(0)}}{\hat{H}^{(0)}+\lambda\hat{H}^{(1)}-E_n^{(0)}-\lambda E_{nj}^{(1)}}{\psi_{ni}^{(0)}}c_{ij}=0
     \end{equation}
-    for degenerate states. Since \(\hat{H}=\hat{H}^{(0)}+\lambda\hat{H}^{(1)}\) is the total Hamiltonian, and \(E_{nj}=E_n^{(0)}+\lambda E_{nj}^{(1)}\) is the total energy corrected to the first order. For a set of exactly degenerate states, solving the secular equations\footnote{This is essentially the Schr\"{o}dinger equation
+    for degenerate states. Since \(\hat{H}=\hat{H}^{(0)}+\lambda\hat{H}^{(1)}\) is the total Hamiltonian, and \(E_{nj}=E_n^{(0)}+\lambda E_{nj}^{(1)}\) is the total energy corrected to the first order, for a set of exactly degenerate states, solving the secular equations\footnote{This is essentially the Schr\"{o}dinger equation
     \begin{equation}
         \mathsf{H}\vb{c}_j=E_{nj}\vb{c}_j
     \end{equation}
@@ -2094,7 +2170,7 @@
         \end{equation}
         One can write the dipole moment operator into a sum of the normal coordinates \(Q_k\), which can in turn be written as a sum of the ladder operators \(\hat{a}_k\) and \(\hat{a}_k^\dagger\).\footnote{One can first integrate out the common electronic wavefunction to work out \(\hat{\vb{\mu}}(\vb{Q})\) as a function of nuclear coordinates only, then expand it around the equilibrium nuclear geometry. See \textit{B8: Symmetry} for detail.} This will show that only transitions between states in which the quantum number of only a single mode changes by one can happen, i.e. \(\Delta n_k = \pm 1\).
 
-        However, anharmonicity brings interesting complications. Since raising and lowering operators no longer holds for anharmonic states, overtones and combination lines are now allowed. Moreover, the fact that the Hamiltonian itself changes leading to the coupling of normal modes can bring interesting features to the IR and Raman spectra. The harmonic states \(\ket{n_1,n_2,\dots}\) which originally diagonalises the harmonic Hamiltonian \(\mel{n_1',n_2',\dots}{\hat{H}_{\text{harmonic}}}{n_1,n_2,\dots}=\sum_i\omega_i(n_i+\frac{1}{2})\delta_{n_1n_1'}\delta_{n_2n_2'}\dots\) no longer does so. This effect can be particularly strong if the two states with the same symmetry happen to be close in energy. We will investigate this effect using nearly degenerate perturbation theory.
+        However, anharmonicity brings interesting complications. Since raising and lowering operators no longer hold for anharmonic states, overtones and combination lines are now allowed. Moreover, the fact that the Hamiltonian itself changes leading to the coupling of normal modes can bring interesting features to the IR and Raman spectra. The harmonic states \(\ket{n_1,n_2,\dots}\) which originally diagonalise the harmonic Hamiltonian \(\mel{n_1',n_2',\dots}{\hat{H}_{\text{harmonic}}}{n_1,n_2,\dots}=\sum_i\omega_i(n_i+\frac{1}{2})\delta_{n_1n_1'}\delta_{n_2n_2'}\dots\) no longer do so. This effect can be particularly strong if the two states with the same symmetry happen to be close in energy. We will investigate this effect using nearly degenerate perturbation theory.
 
         The classic example is \(\mathrm{CO_2}\). We will take the harmonic approximation as the reference Hamiltonian. In this case, the molecule has 4 normal modes: a symmetric stretch \((Q_1)\) of symmetry \(\Sigma_g^+\), a doubly-degenerate bend \((Q_{2x},Q_{2y})\) of symmetry \(\Pi_u\) and an antisymmetric stretch \((Q_3)\) of symmetry \(\Sigma_u^+\). We label a vibrational state by the three quantum numbers \(\ket{n_1,n_2,n_3}\), where \(n_2=n_{2x}+n_{2y}\). Denoting \(Q_2^2=Q_{2x}^2+Q_{2y}^2\), the unperturbed Hamiltonian and energy are
         \begin{equation}
@@ -2262,7 +2338,7 @@
         \end{equation}
         or
         \begin{equation}
-            n'-n=\pm 1\,.
+            n'-n=\pm N\,.
         \end{equation}
         State \(\ket{k}\) will only interact with states \(\ket{k+G}\) and \(\ket{k-G}\).
 
@@ -2296,9 +2372,9 @@
 
         For a real periodic potential that can be written in a Fourier series
         \begin{equation}
-            V(x)=\sum_{m=1}^{\infty}V_m\cos\left(\frac{m\pi x}{a}\right)\,,
+            V(x)=\sum_{m=1}^{\infty}V_m\cos\left(\frac{2\pi mx}{a}\right)\,,
         \end{equation}
-        the term \(\cos(m\pi x/a)=\ee^{+\ii mGx}+\ee^{-\ii mGx}\) will lead to the interaction between \(\ket{k}\) and \(\ket{k\pm m G}\), and hence band gaps will open at \(\pm\frac{m\pi}{a}\). For a most general periodic potential, \(V_m\ne 0\) for all \(m\), so band gaps are opened at all positive integer multiples of \(\pm\frac{\pi}{a}\), leading to the band structure you met in IB Chemistry A.
+        the term \(\cos(2\pi mx/a)=\ee^{+\ii mGx}+\ee^{-\ii mGx}\) will lead to the interaction between \(\ket{k}\) and \(\ket{k\pm m G}\), and hence band gaps will open at \(\pm\frac{m\pi}{a}\). For a most general periodic potential, \(V_m\ne 0\) for all \(m\), so band gaps are opened at all positive integer multiples of \(\pm\frac{\pi}{a}\), leading to the band structure you met in IB Chemistry A.
     \end{ex}
 
     \newpage
@@ -2382,7 +2458,7 @@
     \end{equation}
     We have dropped the superscript \((0)\) on \(\psi_k\) and \(E_k\) because the stationary state is necessarily unperturbed.
 
-    As in the Rayleigh--Schr\"{o}dinger perturbation theory, we now expand the perturbed wavefunction in terms of the unperturbed state. In the method developed by Dirac, known as the variation of constants,\footnote{This is formally known as the \textit{interaction picture}, or the \textit{Dirac picture}. We will not introduce it in the main text, because we can work out the first-order time-dependent perturbation theory without using this formal framework. However, this is very useful if we want to go to higher orders to explain things like Raman scattering, so it is introduced in the appendix, together with the other two pictures: the Schr\"{o}dinger picture and the Heisenberg picture.} the coefficients depend on time
+    As in the Rayleigh--Schr\"{o}dinger perturbation theory, we now expand the perturbed wavefunction in terms of the unperturbed states. In the method developed by Dirac, known as the variation of constants,\footnote{This is formally known as the \textit{interaction picture}, or the \textit{Dirac picture}. We will not introduce it in the main text, because we can work out the first-order time-dependent perturbation theory without using this formal framework. However, this is very useful if we want to go to higher orders to explain things like Raman scattering, so it is introduced in the appendix, together with the other two pictures: the Schr\"{o}dinger picture and the Heisenberg picture.} the coefficients depend on time
     \begin{equation}
         \ket{\Psi(t)}=\sum_k a_k(t)\ket{\Psi_k(t)}=\sum_k a_k(t) \ee^{-\ii E_k t} \ket{\psi_k}\,.
     \end{equation}
@@ -2692,13 +2768,13 @@
     \begin{equation}
         \mel{00}{\hat{\mu}_{\AA i}\hat{\mu}_{\BB i}}{mn}\mel{mn}{\hat{\mu}_{\AA j}\hat{\mu}_{\BB j}}{00}=\mel{0_{\AA}}{\hat{\mu}_{\AA i}}{m_{\AA}}\mel{0_{\BB}}{\hat{\mu}_{\BB i}}{n_{\BB}}\mel{m_{\AA}}{\hat{\mu}_{\AA j}}{0_{\AA}}\mel{n_{\BB}}{\hat{\mu}_{\BB j}}{0_{\BB}}
     \end{equation}
-    vanishes, where \(i\ne j\in\{x,y,z\}\). This is because we can reverse the direction of, say, axis \(i\) on atom \(\AA\), and this will change the sign of the expression. However, energy should be totally symmetric, so it can only be zero. The only non-vanishing terms are
+    vanish, where \(i\ne j\in\{x,y,z\}\). This is because we can reverse the direction of, say, axis \(i\) on atom \(\AA\), and this will change the sign of the expression. However, energy should be totally symmetric, so it can only be zero. The only non-vanishing terms are
     \begin{equation}
         \mel{00}{\hat{\mu}_{\AA i}\hat{\mu}_{\BB i}}{mn}\mel{mn}{\hat{\mu}_{\AA i}\hat{\mu}_{\BB i}}{00}=\mel{0_{\AA}}{\hat{\mu}_{\AA i}}{m_{\AA}}\mel{0_{\BB}}{\hat{\mu}_{\BB i}}{n_{\BB}}\mel{m_{\AA}}{\hat{\mu}_{\AA i}}{0_{\AA}}\mel{n_{\BB}}{\hat{\mu}_{\BB i}}{0_{\BB}}\,,
     \end{equation}
     where \(i\in\{x,y,z\}\). Moreover, by spherical symmetry, this is the same for \(x\), \(y\) and \(z\), and we have 6 such terms in total (1 from \(x\), 1 from \(y\) and \(2^2=4\) from \(z\)). This gives us the total expression
     \begin{equation}\label{dispersion_force}
-        E_0^{(2)}=-\frac{6}{R^6}\sum_{m,n\ne 0}\frac{\abs{\mel{0_{\AA}}{\hat{\mu}_{\AA z}}{m_{\AA}}}^2\abs{\mel{0_{\BB}}{\hat{\mu}_{\BB z}}{m_{\BB}}}^2}{(E_{\AA,m}^{(0)}-E_{\AA,0}^{(0)})+(E_{\BB,n}^{(0)}-E_{\BB,0}^{(0)})}\,.
+        E_0^{(2)}=-\frac{6}{R^6}\sum_{m,n\ne 0}\frac{\abs{\mel{0_{\AA}}{\hat{\mu}_{\AA z}}{m_{\AA}}}^2\abs{\mel{0_{\BB}}{\hat{\mu}_{\BB z}}{n_{\BB}}}^2}{(E_{\AA,m}^{(0)}-E_{\AA,0}^{(0)})+(E_{\BB,n}^{(0)}-E_{\BB,0}^{(0)})}\,.
     \end{equation}
     Since both the numerator and denominator are positive, the dispersion force is attractive and scales as \(R^{-6}\).
 
@@ -2767,7 +2843,7 @@
     \begin{equation}
         \eval{E_0^{(1)}}=-\frac{\mu_{\AA}^2\mu_{\BB}^2}{k_B TR^3}\,.
     \end{equation}
-    This is the thermal average of the interaction energy between two isolated dipoles, scaling as \(R^{-3}\).\footnote{This is not what happens in a bulk system where there are more than just two molecules. When interaction strengths \(\ll k_B T\), the orientations of the molecules would be isotropic, and this first order contribution will also vanish as there will be on average as many alignment as misalignments of molecular orientations. In such case, the average interaction between each pair of molecules would be
+    This is the thermal average of the interaction energy between two isolated dipoles, scaling as \(R^{-3}\).\footnote{This is not what happens in a bulk system where there are more than just two molecules. When interaction strengths \(\ll k_B T\), the orientations of the molecules would be isotropic, and this first order contribution will also vanish as there will be on average as many alignments as misalignments of molecular orientations. In such case, the average interaction between each pair of molecules would be
     \begin{equation}
         -\frac{\mu_\AA^2\mu_\BB^2}{3k_B T R^6}\,,
     \end{equation}
@@ -2783,7 +2859,7 @@
         E_{\AA,\text{ind}}&=-\sum_{m\ne 0}\frac{\abs{\mel{00}{\hat{H}^{(1)}}{m0}}^2}{E_{\AA,m}^{(0)}-E_{\AA,0}^{(0)}}\,, \label{molecular_induction_A} \\
         E_{\BB,\text{ind}}&=-\sum_{n\ne 0}\frac{\abs{\mel{00}{\hat{H}^{(1)}}{0n}}^2}{E_{\BB,n}^{(0)}-E_{\BB,0}^{(0)}}\,.\label{molecular_induction_B}
     \end{align}
-    The dispersion term (\ref{molecular_dispersion}) is again the interaction between the instantaneous dipole of \(\AA\) and the instantaneous dipole of \(\BB\), but we now have two extra contributions. The induction terms (\ref{molecular_induction_A}) and (\ref{molecular_induction_B}) are the interactions between permanent dipole of \(\AA\) with the instantaneous dipole of \(\BB\), and the permanent dipole of \(\BB\) with the instantaneous dipole of \(\AA\), respectively.\footnote{In bulk system, the orientationally averaged induction interaction becomes what is known as the \textit{Debye force}. For a polar molecule A and non-polar molecule B, the interaction energy is given by
+    The dispersion term (\ref{molecular_dispersion}) is again the interaction between the instantaneous dipole of \(\AA\) and the instantaneous dipole of \(\BB\), but we now have two extra contributions. The induction terms (\ref{molecular_induction_A}) and (\ref{molecular_induction_B}) are the interactions between permanent dipole of \(\AA\) with the instantaneous dipole of \(\BB\), and the permanent dipole of \(\BB\) with the instantaneous dipole of \(\AA\), respectively.\footnote{In a bulk system, the orientationally averaged induction interaction becomes what is known as the \textit{Debye force}. For a polar molecule A and non-polar molecule B, the interaction energy is given by
     \begin{equation}
         -\frac{\mu_\AA^2\alpha_B}{R^6}\,.
     \end{equation}
@@ -2792,7 +2868,7 @@
     \newpage
  
     \section{Relativistic Effects}
-    Everything we discussed so far ignores \textit{relativity}, which refers to the breakdown of non-relativistic mechanics when particles have relative speeds approaching the speed of light in vacuum. Special relativity is the simpler theory of relativity, which deals with situations in which gravity is negligible. This is almost always the case as far as chemistry is concerned since electromagnetic forces are orders of magnitude larger than gravity.\footnote{The electromagnetic force between two electrons can be written as a power series in the dimensionless \textit{fine structure constant}, \(\alpha\approx\frac{1}{137}\), which characterises the strengths of electromagnetic forces. The corresponding parameter characterising the strength of gravitational force is \(\alpha_{\text{G}}\sim 10^{-45}\), which is much smaller. It is therefore always safe to ignore gravitational interactions in chemical systems.} The incorporation of special relativity into quantum mechanics is known as \textit{Quantum Field Theory} (QFT), and it was first achieved by Dirac in 1927. As its name suggests, quantum field theory is the quantisation of the classical field theory, in which all the fields, such as the electromagnetic field, are being quantised. Moreover, elementary particles like electrons are also thought of as `ripples' on an `electron field' spanning throughout the whole universe. This is a much deeper subject, but it can be chemically significant --- in particular, spontaneous emission can only be explained by QFT.\footnote{If you are really interested in QFT (I hope you are not), you can check Prof. David Tong's notes on Quantum Field Theory, which is a Part III course for Mathematical Tripos. It takes him 4 chapters to arrive at Dirac's equation, and to have a firm grasp on it, you should probably also read his notes on Classical Dynamics and General Relativity as prerequisites.}
+    Everything we discussed so far ignores \textit{relativity}, which refers to the breakdown of non-relativistic mechanics when particles have relative speeds approaching the speed of light in vacuum. Special relativity is the simpler theory of relativity, which deals with situations in which gravity is negligible. This is almost always the case as far as chemistry is concerned since electromagnetic forces are orders of magnitude larger than gravity.\footnote{The electromagnetic force between two electrons can be written as a power series in the dimensionless \textit{fine structure constant}, \(\alpha\approx\frac{1}{137}\), which characterises the strengths of electromagnetic forces. The corresponding parameter characterising the strength of gravitational force is \(\alpha_{\text{G}}\sim 10^{-45}\), which is much smaller. It is therefore always safe to ignore gravitational interactions in chemical systems.} The incorporation of special relativity into quantum mechanics is known as \textit{Quantum Field Theory} (QFT), and it was first achieved by Dirac in 1927. As its name suggests, quantum field theory is the quantisation of classical field theories, in which all the fields, such as the electromagnetic field, are quantised. Moreover, elementary particles like electrons are also thought of as `ripples' on an `electron field' spanning throughout the whole universe. This is a much deeper subject, but it can be chemically significant --- in particular, spontaneous emission can only be explained by QFT.\footnote{If you are really interested in QFT (I hope you are not), you can check Prof. David Tong's notes on Quantum Field Theory, which is a Part III course for Mathematical Tripos. It takes him 4 chapters to arrive at Dirac's equation, and to have a firm grasp on it, you should probably also read his notes on Classical Dynamics and General Relativity as prerequisites.}
     
     General relativity is much more complicated and the unification of quantum mechanics and general relativity (known as quantum gravity) is still an important open question in theoretical physics.
 
@@ -2802,7 +2878,7 @@
     \begin{equation}
         \left(\beta m_e c^2 + c\sum_{n=1}^{3}\alpha_n\hat{p}_n\right)\vb{\psi}(\vb{x},t)=\ii\hbar\pdv{\psi(\vb{x},t)}{t}\,.
     \end{equation}
-    You can find a brief derivation of Dirac equation in \cref{Chap:Dirac_eqn}. This looks reminiscent to the time-dependent Schr\"{o}dinger equation, but with a few important differences. The wavefunction \(\vb{\psi}\) is no longer a scalar function, but a 4-component vector\footnote{Technically, a \textit{bispinor}. It transforms in a slightly different way than vectors under rotation.}, which corresponds to a spin-up and spin-down electron, and a spin-up and spin-down positron. The operator in brackets on the left replaces the non-relativistic Hamiltonian. \(\alpha_n\) and \(\beta\) are \(4\times 4\) matrices that obey certain symmetry and commutation properties. \(m_e\) is the rest mass of the electron, \(c\) is the speed of light and \(\hat{p}_n\) is the \(n^{\text{th}}\) component of the momentum operator. To include the potential due to the hydrogen nucleus, we add in the potential term
+    You can find a brief derivation of the Dirac equation in \cref{Chap:Dirac_eqn}. This looks reminiscent to the time-dependent Schr\"{o}dinger equation, but with a few important differences. The wavefunction \(\vb{\psi}\) is no longer a scalar function, but a 4-component vector\footnote{Technically, a \textit{bispinor}. It transforms in a slightly different way than vectors under rotation.}, which corresponds to a spin-up and spin-down electron, and a spin-up and spin-down positron. The operator in brackets on the left replaces the non-relativistic Hamiltonian. \(\alpha_n\) and \(\beta\) are \(4\times 4\) matrices that obey certain symmetry and commutation properties. \(m_e\) is the rest mass of the electron, \(c\) is the speed of light and \(\hat{p}_n\) is the \(n^{\text{th}}\) component of the momentum operator. To include the potential due to the hydrogen nucleus, we add in the potential term
     \begin{equation}
         \left(\beta m_e c^2 + c\sum_{n=1}^{3}\alpha_n\hat{p}_n-\frac{e^2}{4\pi\epsilon_0 r}\right)\vb{\psi}(\vb{x},t)=\ii\hbar\pdv{\psi(\vb{x},t)}{t}\,.
     \end{equation}
@@ -3272,9 +3348,9 @@
     \part*{Appendices}
     \addcontentsline{toc}{part}{\protect\numberline{}Appendices}
     \appendix
-    
+
     \section{Convergence of Perturbation Series}\label{Appendix:Converge}
-    We began our study of perturbation theory by assuming that the states and energy eigenvalues of the full Hamiltonian depend analytically on a dimensionless parameter \(\lambda\) controlling the perturbation. Even when the individual coefficients of powers of \(\lambda\) are finite, this is often not the case because the infinite perturbative series itself may fail to converge, or may converge only for some range of \(\lambda\). The issue is that the coefficients of \(\lambda\) may grow too rapidly. Heuristically, the condition for convergence is thus that the typical energy splitting \(\mel{m}{H^{(1)}}{n}\) induced by the perturbation should be much smaller than the initial energy difference \(E_m-E_n\). However, a detailed criterion is often hard to come by since the higher terms in the perturbation expansion involve complicated sums (or integrals) over many different intermediate states.
+    We began our study of perturbation theory by assuming that the states and energy spectrum of the full Hamiltonian depend analytically on a dimensionless parameter \(\lambda\) controlling the perturbation. Even when the individual coefficients of powers of \(\lambda\) are finite, this is often not the case because the infinite perturbative series itself may fail to converge, or may converge only for some range of \(\lambda\). The issue is that the coefficients of \(\lambda\) may grow too rapidly. Heuristically, the condition for convergence is thus that the typical energy splitting \(\mel{m}{H^{(1)}}{n}\) induced by the perturbation should be much smaller than the initial energy difference \(E_m-E_n\). However, a detailed criterion is often hard to come by since the higher terms in the perturbation expansion involve complicated sums (or integrals) over many different intermediate states.
 
     To illustrate this in a simple context, let's consider in turn the following three perturbations of a 1D harmonic oscillator potential
     \begin{equation}
@@ -3505,7 +3581,7 @@
 
     \subsection{Alternative Method Finding the Exact Hydrogen Polarisability}
 
-    There is actually a way finding out the polarisability of hydrogen atom, originally due to A. Dalgarno and J.T. Lewis, not involving solving the first-order wavefunction analytically in the parabolic coordinates, or evaluating the complicated Rayleigh-Schr\"{o}dinger sum numerically.
+    There is actually a way of finding out the polarisability of hydrogen atom exactly, originally due to A. Dalgarno and J.T. Lewis, without solving the first-order wavefunction analytically in the parabolic coordinates, or evaluating the complicated Rayleigh-Schr\"{o}dinger sum numerically.
 
     Suppose there is an operator \(\hat{X}\) such that \(\hat{H}^{(1)}=[\hat{X},\hat{H}^{(0)}]\), then
     \begin{align}
@@ -3920,7 +3996,7 @@
     \end{equation}
     Note that while we normally think about the static polarisability for Raman activity, it is in fact the dynamic polarisability at the laser frequency that matters, although the distinction has no consequences if we are only interested in the symmetry argument of whether or not the integral is non-zero.
 
-    The inclusion of the intermediate states \(\ket{k}\) is what gives the common interpretation of there existing a transitory virtual state in Raman scattering, although we see that interpretation is only loosely correct. It is not that the system moves to one virtual state, but rather that it includes all possible states, although with a greater contribution from those with energies closer to the initial energy plus or minus the laser energy.
+    The inclusion of the intermediate states \(\ket{k}\) is what gives the common interpretation that there existing a transitory virtual state in Raman scattering, although we see that interpretation is only loosely correct. It is not that the system moves to one virtual state, but rather that it includes all possible states, although with a greater contribution from those with energies closer to the initial energy plus or minus the laser energy.
 
     \section{Dirac Equation}\label{Chap:Dirac_eqn}
     Let's have a look at the non-relativistic Schr\"{o}dinger equation

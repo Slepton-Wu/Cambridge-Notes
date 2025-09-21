@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.21)  12 SEP 2025 17:58
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.21)  21 SEP 2025 23:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -855,21 +855,16 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 [4]
 
 [1]
-Overfull \hbox (0.30704pt too wide) in paragraph at lines 196--198
-\TU/lmr/m/n/10 Two commuting operators have a zero commutator. If two (suitably well-behaved) operators commute,
- []
-
-
 
 [2]
 
 [3]
-Package hyperref Info: bookmark level for unknown thm defaults to 0 on input line 281.
-Package hyperref Info: bookmark level for unknown proof defaults to 0 on input line 289.
+Package hyperref Info: bookmark level for unknown thm defaults to 0 on input line 282.
+Package hyperref Info: bookmark level for unknown proof defaults to 0 on input line 290.
 
 
 [4]
-Package hyperref Info: bookmark level for unknown prop defaults to 0 on input line 338.
+Package hyperref Info: bookmark level for unknown prop defaults to 0 on input line 339.
 
 
 [5]
@@ -883,13 +878,13 @@ Package hyperref Info: bookmark level for unknown prop defaults to 0 on input li
 [9]
 
 [10]
-Package hyperref Info: bookmark level for unknown lem defaults to 0 on input line 601.
+Package hyperref Info: bookmark level for unknown lem defaults to 0 on input line 602.
 
 
 [11]
 
 [12]
-Package hyperref Info: bookmark level for unknown ex defaults to 0 on input line 672.
+Package hyperref Info: bookmark level for unknown ex defaults to 0 on input line 673.
 
 
 [13]
@@ -907,12 +902,12 @@ Package hyperref Info: bookmark level for unknown ex defaults to 0 on input line
 [19]
 
 [20]
-Underfull \hbox (badness 2762) in paragraph at lines 1116--1117
+Underfull \hbox (badness 2762) in paragraph at lines 1117--1118
 []\TU/lmr/m/n/10 The eigenvalues are the frequencies
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1116--1117
+Underfull \hbox (badness 10000) in paragraph at lines 1117--1118
 \TU/lmr/m/n/10 squared and the eigenvectors are
  []
 
@@ -966,9 +961,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 1116--1117
 
 [44]
 
-[45] (./band_gap.tex)
+[45]
 
-[46]
+[46] (./band_gap.tex)
 
 [47]
 
@@ -1001,11 +996,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 1116--1117
 [61]
 
 [62]
+
+[63]
 File: Hydrogen_fine_structure.png Graphic file (type bmp)
 <Hydrogen_fine_structure.png>
 
-
-[63]
 
 [64]
 
@@ -1018,10 +1013,10 @@ File: Hydrogen_fine_structure.png Graphic file (type bmp)
 [68]
 
 [69]
-Package hyperref Info: bookmark level for unknown thmskip defaults to 0 on input line 3157.
-
 
 [70]
+Package hyperref Info: bookmark level for unknown thmskip defaults to 0 on input line 3233.
+
 
 [71]
 
@@ -1064,12 +1059,14 @@ Package hyperref Info: bookmark level for unknown thmskip defaults to 0 on input
 [90]
 
 [91]
+
+[92]
 \tf@thm=\write6
 \openout6 = `Further_QM.thm'.
 
 
 
-[92] (./Further_QM.aux)
+[93] (./Further_QM.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -1078,12 +1075,12 @@ Package rerunfilecheck Info: File `Further_QM.out' has not changed.
 (rerunfilecheck)             Checksum: 39FFC0A894C95AD2732E65AFBFD49BE6;9762.
  ) 
 Here is how much of TeX's memory you used:
- 39311 strings out of 473832
- 925321 string characters out of 5733158
- 2085812 words of memory out of 5000000
- 61761 multiletter control sequences out of 15000+600000
+ 39343 strings out of 473832
+ 926173 string characters out of 5733158
+ 2086177 words of memory out of 5000000
+ 61793 multiletter control sequences out of 15000+600000
  581107 words of font info for 147 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 99i,21n,105p,1947b,2155s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,21n,105p,1939b,2155s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Further_QM.pdf (96 pages).
+Output written on Further_QM.pdf (97 pages).

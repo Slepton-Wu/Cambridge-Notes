@@ -1592,8 +1592,7 @@
     \begin{equation}
         J_z(J_\pm\ket{\beta,m})=([J_z,J_\pm]+J_\pm J_z)\ket{\beta,m}=(m\pm 1)\hbar(J_\pm\ket{\beta,m})\,.
     \end{equation}
-    These show that the new states \(J_\pm\ket{\beta,m}\), if not zero, are still eigenstates of both \(\vb{J}^2\) and \(J_z\), with the same eigenvalues \(\beta\hbar^2\) for \(\vb{J}^2\). However, their \(J_z\) eigenvalue is shifted up or down (respectively for \(J_+\ket{\beta,m}\) and \(J_-\ket{\beta,m}\)) by one unit of \(\hbar\). We see that the role of \(J_\pm\) in angular momentum is similar to the role of \(A\) and \(A^\dagger\) for energy of the harmonic oscillator. Again, \(J_+\) and \(J_-\) are often called the \textit{raising} and \textit{lowering operators}. Their role is to rotate our system, aligning more or less of its total angular momentum along the \(z\)-axis without
-    changing the total angular momentum available.
+    These show that the new states \(J_\pm\ket{\beta,m}\), if not zero, are still eigenstates of both \(\vb{J}^2\) and \(J_z\), with the same eigenvalues \(\beta\hbar^2\) for \(\vb{J}^2\). However, their \(J_z\) eigenvalue is shifted up or down (respectively for \(J_+\ket{\beta,m}\) and \(J_-\ket{\beta,m}\)) by one unit of \(\hbar\). We see that the role of \(J_\pm\) in angular momentum is similar to the role of \(A\) and \(A^\dagger\) for energy of the harmonic oscillator. Again, \(J_+\) and \(J_-\) are often called the \textit{raising} and \textit{lowering operators}. Their role is to rotate our system, aligning more or less of its total angular momentum along the \(z\)-axis without changing the total angular momentum available.
 
     Just as for the harmonic oscillator, examining the algebra of our raising and lowering operators has told us the separation between angular momentum eigenstates, given a starting point \(\ket{\beta,m}\). To fix our initial states, we must examine the norm. By assumption, \(\ket{\beta,m}\) itself is correctly normalized and we compute
     \begin{align}
@@ -1602,7 +1601,7 @@
     \end{align}
     But since this is a norm, whatever state \(\ket{\beta,m}\) we started we must have
     \begin{equation}
-        \norm{J_+\ket{\beta,m}}^2=\beta-m(m+1)\ge 0\,,
+        \beta-m(m+1)\ge 0\,,
     \end{equation}
     with equality iff \(J_+\ket{\beta,m}=0\) is the trivial state. This shows that it cannot be possible to keep applying \(J_+\), repeatedly raising \(J_z\) eigenvalue \(m\) while leaving \(\beta\). There must be some maximum value of \(m\) --- let's call it \(j\) --- for which \(J_+\ket{\beta,j}=0\). This can only be the case if \(\beta\) obeys
     \begin{equation}
@@ -1612,7 +1611,7 @@
 
     Similarly for a generic \(m\) value we find
     \begin{equation}
-        \norm{J_-\ket{\beta,m}}^2=\beta-m(m-1)
+        \norm{J_-\ket{\beta,m}}^2=\hbar^2(\beta-m(m-1))
     \end{equation}
     so it also cannot be possible to keep lowering the \(J_z\) eigenvalue whilst remaining in the Hilbert space. There must be some minimum value of \(m\), say \(j'\), for which \(J_-\ket{\beta,j'}=0\) and this can only be the case if
     \begin{equation}
