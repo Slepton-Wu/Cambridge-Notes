@@ -2737,7 +2737,7 @@
 		Therefore, \(\mathsf{G}\) is positive definite by definition.\qed
 	\end{proof}
 	\subsubsection{The Gram--Schmidt Process}
-	For a \(\mathbb{F}^n\) space, a set of mutually orthogonal vectors can be generated using the following process.
+	For an \(\mathbb{F}^n\) space, a set of mutually orthogonal vectors can be generated using the following process.
 	\begin{prop}[The Gram--Schmidt process]
 		Let \(\mathbb{F}^n\) be a vector space equipped with an inner product. Given a set of linearly independent vectors \(\{\vb{w}_1,\dots,\vb{w}_n\}\), a set of mutually orthogonal vectors \(\{\vb{v}_1,\dots,\vb{v}_n\}\) as
 		\begin{align*}
@@ -11907,14 +11907,14 @@
 	\[-\omega^2T_{ij}Q_j+V_{ij}Q_j=0\,,\]
 	or in matrix notation,
 	\begin{equation}\tag{\(\dagger\dagger\)}
-		(-\omega^2\mathsf{T}+\mathsf{V})\mathsf{Q}=\vb{0}\,,
+		(-\omega^2\mathsf{T}+\mathsf{V})\vb{Q}=\vb{0}\,,
 	\end{equation}
 	where
-	\[\mathsf{Q}=\begin{pmatrix}
+	\[\vb{Q}=\begin{pmatrix}
 		Q_1 \\ Q_2 \\ \vdots \\ Q_N
 	\end{pmatrix}\,.\]
 
-	Since we are interested in non-trivial solutions where \(\mathsf{Q}\) is non-zero, we must have
+	Since we are interested in non-trivial solutions where \(\vb{Q}\) is non-zero, we must have
 	\[\det(-\omega^2\mathsf{T}+\mathsf{V})=0\,.\]
 	The left-hand side is a polynomial of degree \(N\) in \(\omega^2\), and the solutions are the squares of the normal frequencies. This is referred to as the \textit{characteristic equation}.
 
@@ -11950,7 +11950,7 @@
 
 		By supposition, \(\omega_m\ne\omega_n\), so we must have \((\vb{Q}^{(m)})\tp\mathsf{T}\vb{Q}^{(n)}=0\). Therefore, \(\vb{Q}^{(m)}\) and \(\vb{Q}^{(n)}\) are orthogonal with respect to \(\mathsf{T}\).
 
-		If \(\omega_m=\omega_n\), then there exists linearly independent \(\vb{Q}^{(m)}\) and \(\vb{Q}^{(n)}\). An orthogonal pair can always be constructed using Gram-Schmidt orthogonalisation.\qed
+		If \(\omega_m=\omega_n\), then there exists linearly independent \(\vb{Q}^{(m)}\) and \(\vb{Q}^{(n)}\). An orthogonal pair can always be constructed using Gram--Schmidt orthogonalisation.\qed
 	\end{proof}
 
 	\begin{thm}
@@ -11990,7 +11990,7 @@
 			q_i(t)T_{ij}Q_j^{(n)}&=\sum_{m=1}^{N}\alpha^{(m)}(t)Q_i^{(m)}T_{ij}Q_j^{(n)}\\
 			&=\sum_{m=1}^{N}\alpha^{(m)}(t)\delta_{mn}\\
 			&=\alpha^{(n)}(t)\,.
-		\end{align*}\qed
+ 		\end{align*}\qed
 	\end{altp}
 
 	\subsection{Examples}
