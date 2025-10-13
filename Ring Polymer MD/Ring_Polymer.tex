@@ -73,6 +73,7 @@
 \newcommand{\CC}{\mathbb{C}}
 \DeclareMathOperator{\tr}{tr}
 
+\usetikzlibrary{decorations.pathmorphing}
 
 \begin{document}
     \setlength{\parindent}{0pt}
@@ -165,41 +166,45 @@
 
     Now we have \(N\) identical-looking matrix elements in the integrand, each looks like
     \begin{equation}
-        M_i=\mel{q_i}{\ee^{-\frac{\beta}{N}\hat{H}}}{q_{i+1}}\,,
+        M_i=\mel{q_i}{\ee^{-\beta_N \hat{H}}}{q_{i+1}}\,,
     \end{equation}
-    where we have identified \(q_{1}\equiv q_{N+1}\). This equals
+    where we have identified \(q_{1}\equiv q_{N+1}\) and denoted \(\beta_N\coloneqq \beta /N\). We will symmetrically break this to
     \begin{equation}
-        M_i=\mel{q_i}{\ee^{-\frac{\beta}{N}\hat{T}}\ee^{-\frac{\beta}{N}\hat{V}}}{q_{i+1}}\,,
+        M_i\simeq\mel{q_i}{\ee^{-\beta_N\hat{V}/2}\ee^{-\beta_N\hat{T}}\ee^{-\beta_N\hat{V}/2}}{q_{i+1}}\,.
     \end{equation}
-    because breaking the exponential only introduces error \(O(\frac{1}{N^2})\) in the exponent in each term, which is a higher order infinitesimal in \(N\to\infty\). To evaluate this, we again use the trick of inserting an identity operator between the exponentials, but this time is the momentum basis, giving
-    \begin{equation}
-        M_i=\int\dd{p}\mel{q_i}{\ee^{-\frac{\beta}{N}\hat{T}}}{p}\mel{p}{\ee^{-\frac{\beta}{N}\hat{V}}}{q_{i+1}}\,.
-    \end{equation}
-    Both terms are then trivial to evaluate --- \(\ket{p}\) is an eigenstate of \(\hat{T}\), and since \(\hat{V}\) is a scalar function of coordinates, \(q_{i+1}\) is also an eigenstate of \(\hat{V}\). Therefore we have
+    This is because breaking \(\hat{H}=\hat{T}+\hat{V}\) asymmetrically will introduce a \(O(\frac{1}{N^2})\) error in each term by Baker--Campbell--Hausdorff formula, while breaking \(\hat{H}\) asymmetrically in this way will only introduce a \(O(\frac{1}{N^3})\) error in each term due to cancellation of \(O(\frac{1}{N^2})\) terms, leading to a \(O(\frac{1}{N^2})\) error globally in \(Z\). There are no difference in the above to splitting schemes as \(N\to\infty\), but the error in symmetric splitting is smaller when \(N\) is finite.
+
+    Since \(\{\ket{q_i}\}\) is an eigenbasis of \(\hat{V}\)
     \begin{align}
-        M_i&=\int\dd{p}\ee^{-\frac{\beta}{N}\frac{p^2}{2m}}\ee^{-\frac{\beta}{N}V(q_{i+1})}\braket{q_i}{p}\braket{p}{q_{i+1}}\,.
+        M_i&\simeq\mel{q_i}{\ee^{-\beta_N\hat{V}/2}\ee^{-\beta_N\hat{T}}\ee^{-\beta_N\hat{V}/2}}{q_{i+1}}\notag\\
+        &=\ee^{-\beta_N V(q_i)/2}\mel{q_i}{\ee^{-\beta_N\hat{T}}}{q_{i+1}}\ee^{-\beta_N V(q_{i+1})/2}\,.
     \end{align}
-    This is easy to evaluate. The bra-ket is just the position representation of momentum eigenstates
+    To evaluate the matrix element in the middle, we again use the trick of inserting an identity operator between the exponentials, but this time is the momentum basis, giving
+    \begin{align}
+        M_i&\simeq\ee^{-\beta_N V(q_i)/2}\ee^{-\beta_N V(q_{i+1})/2}\int\dd{p}\mel{q_i}{\ee^{-\beta_N\hat{T}}}{p}\braket{p}{q_{i+1}}\notag\\
+        &=\ee^{-\beta_N V(q_i)/2}\ee^{-\beta_N V(q_{i+1})/2}\int\dd{p}\ee^{-\frac{\beta_N p^2}{2m}}\braket{q_i}{p}\braket{p}{q_{i+1}}\,.
+    \end{align}
+    The bra-kets are just the position representation of momentum eigenstates
     \begin{equation}
         \braket{q_i}{p}=\frac{1}{\sqrt{2\pi\hbar}}\ee^{\ii p q_i/\hbar}\,.
     \end{equation}
     Therefore,
     \begin{equation}
-       M_i=\frac{1}{2\pi\hbar}\ee^{-\frac{\beta}{N}V(q_{i+1})}\int\dd{p} \ee^{\ii p (q_i-q_{i+1})/\hbar}\ee^{-\frac{\beta p^2}{2mN}}\,.
+       M_i\simeq\frac{1}{2\pi\hbar}\ee^{-\beta_N V(q_i)/2}\ee^{-\beta_N V(q_{i+1})/2}\int\dd{p} \ee^{\ii p (q_i-q_{i+1})/\hbar}\ee^{-\frac{\beta_N p^2}{2m}}\,.
     \end{equation}
     We are only left with a simple Gaussian integral (after completing the square), which evaluates to
     \begin{equation}
-        \int\dd{p} \ee^{\ii p (q_i-q_{i+1})/\hbar}\ee^{-\frac{\beta p^2}{2mN}}=\sqrt{\frac{2\pi mN}{\beta}}\exp\left(-\frac{mN}{2\beta\hbar^2}(q_i - q_{i+1})^2\right)\,,
+        \int\dd{p} \ee^{\ii p (q_i-q_{i+1})/\hbar}\ee^{-\frac{\beta_N p^2}{2m}}=\sqrt{\frac{2\pi m}{\beta_N}}\exp\left(-\frac{m}{2\beta_N\hbar^2}(q_i - q_{i+1})^2\right)\,,
     \end{equation}
     and so the matrix elements are
     \begin{equation}
-        M_i=\sqrt{\frac{mN}{2\pi\beta\hbar^2}}\exp\left[-\frac{mN}{2\beta\hbar^2}(q_i - q_{i+1})^2-\frac{\beta}{N}V(q_{i+1})\right]\,.
+        M_i\simeq\sqrt{\frac{m}{2\pi\beta_N\hbar^2}}\exp\left[-\frac{m}{2\beta_N\hbar^2}(q_i - q_{i+1})^2-\frac{\beta_N[V(q_i)+V(q_{i+1})]}{2}\right]\,.
     \end{equation}
     The partition function of interest is therefore
     \begin{equation}
-        Z=\lim_{N\to\infty}\left(\frac{mN}{2\pi\beta\hbar^2}\right)^{N/2}\int\dd{q_1}\dots\dd{q_N}\exp\left[-\sum_{i=1}^{N}\left(\frac{mN}{2\beta\hbar^2}(q_i - q_{i+1})^2+\frac{\beta}{N}V(q_i)\right)\right]\,.
+        Z=\lim_{N\to\infty}\left(\frac{m}{2\pi\beta_N\hbar^2}\right)^{N/2}\int\dd{q_1}\dots\dd{q_N}\exp\left[-\sum_{i=1}^{N}\left(\frac{m}{2\beta_N\hbar^2}(q_i - q_{i+1})^2+\beta_N V(q_i)\right)\right]\,.
     \end{equation}
-    This form of the partition function starts to reveal its name `ring polymer'. We just need a few extra steps to get there. In particular, notice the prefactor --- it is exactly what is known as the thermal wavelength, which can be obtained by integrating the momentum degrees of freedom when evaluating the classical partition function. It is just instead of \(\beta\), we have \(\beta/N\) here. Hence, we define \(\beta_N=\beta/N\), the effective (inverse) temperature, and observe that
+    This form of the partition function starts to reveal its name `ring polymer'. We just need a few extra steps to get there. In particular, notice the prefactor --- it is exactly what is known as the thermal wavelength, which can be obtained by integrating the momentum degrees of freedom when evaluating the classical partition function. It is just instead of \(\beta\), we have \(\beta_N\equiv\beta/N\) here. This is the effective (inverse) temperature of our ring polymer. Observe that
     \begin{equation}
         \left(\frac{m}{2\pi\beta_N\hbar^2}\right)^{1/2}=\frac{1}{2\pi\hbar}\int\dd{p_i}\exp\left(-\frac{\beta_N p_i^2}{2m}\right)\,.
     \end{equation}
@@ -211,7 +216,7 @@
     \end{align}
     where
     \begin{equation}
-        H_N=\sum_{i=1}^{N}\left(\frac{p_i^2}{2m}+\frac{m}{2\beta_N^2\hbar^2}(q_i-q_{i+1})^2+V(q_i)\right)\,.
+        H_N=\sum_{i=1}^{N}\left[\frac{p_i^2}{2m}+\frac{m}{2\beta_N^2\hbar^2}(q_i-q_{i+1})^2+V(q_i)\right]\,.
     \end{equation}
     We see something magical here. This is exactly the classical partition function of a \(N\)-particle polymer ring system connected by springs of angular frequency \(\omega_N=\frac{1}{\beta_N\hbar}\), placed on a potential \(V\) at inverse temperature \(\beta_N\). If we take the \(N\to\infty\) limit, the partition function this polymer ring with \(N\) particles becomes that of a single quantum particle!
 
@@ -231,31 +236,319 @@
         \eval{A}&=\frac{1}{Z}\sum_{\ket{n}}\expval{\ee^{-\beta \hat{H}}\hat{A}}{n}\notag \\
         &=\frac{1}{Z}\tr[\ee^{-\beta\hat{H}}\hat{A}]\,.
     \end{align}
-    Using the same trick as for the partition function, we can write
+    We use the same trick to split the \(\ee^{-\beta\hat{H}}\) into \(N\to\infty\) parts, and equate \(Z\) with the ring polymer partition function
     \begin{equation}
-        \eval{A}=\lim_{N\to\infty}\frac{1}{Z_N}\int\dd[N]{\vb{q}}\mel{q_1}{\ee^{-\frac{\beta}{N}\hat{H}}}{q_2}\dots\mel{q_N}{\ee^{-\frac{\beta}{N}\hat{H}}\hat{A}}{q_1}\,.
+        \eval{A}=\lim_{N\to\infty}\frac{1}{Z_N}\tr\left[\left(\ee^{-\beta_N\hat{H}}\right)^N\hat{A}\right]\,.
     \end{equation}
-    Notice the extra \(\hat{A}\) in the final matrix element.
-    
-    To proceed, we assume that the operator of interest \(\hat{A}=A(\hat{q})\) is a function of position only, and so \(\hat{A}\ket{q_i}=A(q_i)\ket{q_i}\). Therefore,
+    A nice property of the trace is that it is cyclic invariant, meaning that we can move any number of slices of \(\ee^{-\beta_N\hat{H}}\) after \(\hat{A}\)
     \begin{equation}
-        \eval{A}=\lim_{N\to\infty}\frac{1}{Z_N}\int\dd[N]{\vb{q}}A(q_1)\mel{q_1}{\ee^{-\frac{\beta}{N}\hat{H}}}{q_2}\dots\mel{q_N}{\ee^{-\frac{\beta}{N}\hat{H}}}{q_1}\,.
+        \eval{A}=\lim_{N\to\infty}\frac{1}{Z_N}\tr\left[\left(\ee^{-\beta_N\hat{H}}\right)^{j}\hat{A}\left(\ee^{-\beta_N\hat{H}}\right)^{N-j}\right]\,,
+    \end{equation}
+    where \(0\le j\le N\). We take one step further and write \(\eval{A}\) as the average of the right hand sides with \(1\le j\le N\):
+    \begin{equation}
+        \eval{A}=\lim_{N\to\infty}\frac{1}{N Z_N}\sum_{j=1}^{N}\tr\left[\left(\ee^{-\beta_N\hat{H}}\right)^{j}\hat{A}\left(\ee^{-\beta_N\hat{H}}\right)^{N-j}\right]\,.
+    \end{equation}
+    For each \(j\), we can use our good old trick of inserting identity operators between each pair of slices, giving
+    \begin{equation}
+        \eval{A}=\lim_{N\to\infty}\frac{1}{N Z_N}\sum_{j=1}^{N}\int\dd[N]{\vb{q}}\mel{q_1}{\ee^{-\beta_N\hat{H}}}{q_2}\dots\mel{q_j}{\ee^{-\beta_N\hat{H}}\hat{A}}{q_{j+1}}\dots\mel{q_N}{\ee^{-\beta_N\hat{H}}}{q_1}\,.
+    \end{equation}
+    Notice the extra \(\hat{A}\) in the \(j^{\text{th}}\) matrix element.
+
+    \subsection{Coordinate-Dependent Quantities}
+    To proceed, we assume that the operator of interest \(\hat{A}=A(\hat{q})\) is a function of coordinate only, and so \(\hat{A}\ket{q_i}=A(q_i)\ket{q_i}\). An example is the potential energy \(\hat{V}=V(\hat{q})\). Then since \(\hat{A}\ket{q}=A(q)\ket{q}\),
+    \begin{equation}
+        \eval{A}=\lim_{N\to\infty}\frac{1}{N Z_N}\sum_{j=1}^{N}\int\dd[N]{\vb{q}}A(q_{j+1})\mel{q_1}{\ee^{-\beta_N\hat{H}}}{q_2}\dots\mel{q_N}{\ee^{-\beta_N\hat{H}}}{q_1}\,.
     \end{equation}
     This now reduces to what we have seen before, just with an extra scalar function in the integral. We can write it as
-    \begin{equation}
-        \eval{A}=\lim_{N\to\infty}\frac{1}{Z_N}\int\dd[N]{\vb{p}}\dd[N]{\vb{q}} A(q_1)\ee^{-\beta_N H_N}\,,
+    \begin{align}
+        \eval{A}&=\lim_{N\to\infty}\frac{1}{(2\pi\hbar)^N Z_N}\int\dd[N]{\vb{p}}\dd[N]{\vb{q}} \left[\frac{1}{N}\sum_{j=1}^{N}A(q_j)\right]\ee^{-\beta_N H_N}\notag \\
+        &=\lim_{N\to\infty}\frac{1}{(2\pi\hbar)^N Z_N}\int\dd[N]{\vb{p}}\dd[N]{\vb{q}} \mathcal{A}_N\ee^{-\beta_N H_N}
+    \end{align}
+    which is the classical thermal average of \(\mathcal{A}_N\) for the polymer ring, where
+    \begin{equation}\label{ring_polymer_observable}
+        \mathcal{A}_N(\vb{q})=\frac{1}{N}\sum_{i=1}^{N}A(q_i)
     \end{equation}
-    which is the classical thermal average of \(A(q_1)\) for the polymer ring. Moreover, since we are integrating over all \(q_i\), the particles in the polymer ring are equivalent, so we can write it as
+    is the average value of \(A\) for the \(N\) particles on the polymer ring. We reduced the quantum thermal average into the classical thermal average in a polymer ring,
     \begin{equation}
-        \eval{A}=\lim_{N\to\infty}\frac{1}{Z_N}\int\dd[N]{\vb{p}}\dd[N]{\vb{q}} A_N\ee^{-\beta_N H_N}\,,
+        \eval{A}=\lim_{N\to\infty}\eval{\mathcal{A}_N}\,.
+    \end{equation}
+    
+    Therefore, if we are interested in the thermal average of some coordinate-dependent quantity of a quantum particle, we can replace it with a ring polymer of large \(N\), propagate the ring polymer classically and sample \(\eval{\mathcal{A}_N}\). This will give us \(\eval{A}\) exactly in the \(N\to\infty\) limit.
+
+    \subsection{Kinetic Energy}
+    We can also evaluate the thermal average of some other quantities, despite involving a bit more effort. We will take the kinetic energy operator \(\hat{T}=\frac{\hat{p}^2}{2m}\) as an example.
+
+    For symmetry, we move a half extra slice of \(\ee^{-\beta_N\hat{H}}\) after \(\hat{T}\) and get
+    \begin{equation}
+        \eval{T}=\lim_{N\to\infty}\sum_{j=1}^{N}\int\dd[N]{\vb{q}}\mel{q_1}{\ee^{-\beta_N\hat{H}}}{q_2}\dots\mel{q_j}{\ee^{-\beta_N\hat{H}/2}\hat{T}\ee^{-\beta_N\hat{H}/2}}{q_{j+1}}\dots\mel{q_N}{\ee^{-\beta_N\hat{H}}}{q_1}\,.
+    \end{equation}
+    Splitting \(\hat{H}=\hat{T}+\hat{V}\) again gives
+    \begin{align}
+        \mel{q_j}{\ee^{-\beta_N\hat{H}/2}\hat{T}\ee^{-\beta_N\hat{H}/2}}{q_{j+1}}&=\exp\left[-\beta_N\frac{V(q_j)+V(q_{j+1})}{2}\right]\mel{q_j}{\ee^{-\beta_N\hat{T}/2}\hat{T}\ee^{-\beta_N\hat{T}/2}}{q_{j+1}}\notag\\
+        &=\exp\left[-\beta_N\frac{V(q_j)+V(q_{j+1})}{2}\right]\mel{q_j}{\hat{T}\ee^{-\beta_N\hat{T}}}{q_{j+1}}\notag \\
+        &=-\exp\left[-\beta_N\frac{V(q_j)+V(q_{j+1})}{2}\right]\pdv{}{\beta_N}\mel{q_j}{\ee^{-\beta_N\hat{T}}}{q_{j+1}}\notag \\
+        &=-\exp\left[-\beta_N\frac{V(q_j)+V(q_{j+1})}{2}\right]\pdv{}{\beta_N}\left[\left(\frac{m}{2\pi\hbar^2\beta_N}\right)^{\frac{1}{2}}\exp\left(-\frac{m(q_j-q_{j+1})^2}{2\hbar^2\beta_N}\right)\right]\notag \\
+        &=\exp\left[-\beta_N\frac{V(q_j)+V(q_{j+1})}{2}\right]\left[\frac{1}{2\beta_N}-\frac{m(q_j-q_{j+1})^2}{2\hbar^2\beta^2}\right]\mel{q_j}{\ee^{-\beta_N\hat{T}}}{q_{j+1}}\notag \\
+        &=\left[\frac{1}{2\beta_N}-\frac{1}{2}m\omega_N^2(q_j-q_{j+1})^2\right]\mel{q_j}{\ee^{-\beta_N\hat{H}}}{q_{j+1}}\,.
+    \end{align}
+    Therefore, the quantum thermal average of kinetic energy is identical to \(N\to\infty\) limit of classical thermal average of the kinetic energy estimator \(T_N\)
+    \begin{equation}
+        \eval{T}=\lim_{N\to\infty}\frac{1}{(2\pi\hbar)^N Z_N}\int\dd[N]{\vb{q}}\dd[N]{\vb{p}}\mathcal{T}_N\ee^{-\beta_N H_N}=\lim_{N\to\infty}\eval{\mathcal{T}_N}\,,
     \end{equation}
     where
-    \begin{equation}\label{ring_polymer_observable}
-        A_N(\vb{q})=\frac{1}{N}\sum_{i=1}^{N}A(q_i)
+    \begin{equation}
+        \mathcal{T}_N=\frac{1}{2\beta_N}-\frac{1}{2N}\sum_{j=1}^{N}m\omega_N^2(q_j-q_{j+1})^2\,.
     \end{equation}
-    is the average value of \(A\) for the \(N\) particles on the polymer ring.
 
-    We reduced the quantum thermal average into the classical thermal average in a polymer ring.
+    \subsection{Total Energy}
+    We can trivially work out the total energy estimator by summing up the kinetic and potential energy estimators:
+    \begin{equation}
+        \mathcal{E}_{N, \text{TD}}=\mathcal{T}_N + \mathcal{V}_N=\frac{1}{2\beta_N}-\frac{1}{2n}\sum_{j=1}^{N}m\omega_N^2(q_j-q_{j+1})^2+\frac{1}{N}\sum_{j=1}^{N}V(q_j)\,,
+    \end{equation}
+    where the extra subscript TD stands for 'thermodynamic' as this estimator is known as the \textit{thermodynamic energy estimator}. This is to distinguish with another total energy estimator that will be introduced later. We than have
+    \begin{equation}
+        \eval{E}=\lim_{N\to\infty}\frac{1}{(2\pi\hbar)^N Z_N}\int\dd[N]{\vb{p}}\dd{\vb{q}}\mathcal{E}_{N,\text{TD}}\ee^{-\beta_N H_N}=\eval{\mathcal{E}_{N,\text{TD}}}\,.
+    \end{equation}
+
+    An alternative approach is to use the thermodynamic relation
+    \begin{equation}
+        \eval{E}=-\left(\pdv{\ln Z}{\beta}\right)_V\,,
+    \end{equation}
+    where we already have the ring polymer expression of partition function \(Z_N\). This gives the same thermodynamic energy estimator \(\mathcal{E}_{N, \text{TD}}\).
+
+    \(\mathcal{E}_{N, \text{TD}}\) is not the only estimator that gives the total energy. The \textit{centroid virial energy estimator}
+    \begin{equation}
+        \mathcal{E}_{N, \text{CV}}=\frac{1}{2\beta}+\frac{1}{2n}\sum_{j=1}^{N}(q_j-\overline{q})\dv{V(q_j)}{q_j}+\frac{1}{N}\sum_{j=1}^{N}V(q_j)\,,
+    \end{equation}
+    where \(\overline{q}=\frac{1}{n}\sum_{k=1}^{N}q_k\) is the centroid coordinate of the polymer beads, can be shown to have the same average \(\eval{\mathcal{E}_{N, \text{CV}}}=\eval{\mathcal{E}_{N, \text{TD}}}\) as the thermodynamics energy estimator, but with a way smaller variance.
+    \begin{figure}[ht!]
+        \centering
+        \input{files/Energy_estimator.tex}
+        \caption{Average energies of a harmonic oscillator with \(\beta\hbar\omega=10\), sampled with 20000 runs using the two estimators. The error bars are the standard deviation of the energies.}
+    \end{figure}
+    In the example above, both thermodynamic energy estimator and centroid virial estimator converges to the exact \(\eval{E}\) as \(N\to\infty\). However, the standard deviation of the thermodynamic estimator grows asymptotically as \(\sqrt{N}\), so the required number of sample would increase linearly with \(N\) to keep the standard error in the mean constant. By contrast, the standard deviation of the centroid virial estimator is asymmetrically constant of \(N\). 
+
+    \newpage
+    \section{Propagating the Ring Polymer Dynamics}
+    \subsection{Integrating the Equations of Motion}
+    In the previous section, we have established that to sample the equilibrium thermal average of some quantum system, we can instead propagate the dynamics of a classical ring polymer system and sample the thermal average of the corresponding classical estimator.
+
+    Given a classical Hamiltonian \(H(\vb{p},\vb{q})\) with initial conditions \(\vb{p}(0)=\vb{p}_0\), \(\vb{q}(0)=\vb{q}_0\), the evolution of the system is governed deterministically by the Hamilton's equation
+    \begin{align}
+        \dot{\vb{p}}=-\pdv{H}{\vb{q}} \\
+        \dot{\vb{q}}=+\pdv{H}{\vb{p}}\,.
+    \end{align}
+    For our Hamiltonian \(H=\frac{\vb{p}^2}{2m}+V(\vb{q})\), this is
+    \begin{align}
+        \dot{\vb{p}}=-\pdv{V}{\vb{q}} \\
+        \dot{\vb{q}}=+\frac{\vb{p}}{m}
+    \end{align}
+    as one would expect from Newton's second law.
+
+    These are a set of differential equations, and to work out the trajectory, we need to integrate these equations of motion. The most common way to do this is to use the velocity Verlet algorithm (see my notes on NST Part II C8: \textit{Computer Simulation Methods}), in which the following steps are carried out iteratively to propagate the dynamics:
+    \begin{align}
+        \vb{p}_{n+\frac{1}{2}}&=\vb{p}_{n}-\frac{\delta t}{2}\pdv{V}{\vb{q}}(\vb{q}_{n})  \\
+        \vb{q}_{n+1}&=\vb{q}+\delta t\frac{\vb{p}_{n+\frac{1}{2}}}{m} \\
+        \vb{p}_{n+1}&=\vb{p}_{n+\frac{1}{2}}-\frac{\delta t}{2}\pdv{V}{\vb{q}}(\vb{q}_{n+1})\,.
+    \end{align}
+    This propagates the momenta under \(V\) by half a time step, propagates the coordinates by a full time step, and then propagate the momenta by another time step, corresponding to symmetrically splitting the time evolution operator by
+    \begin{equation}
+        \ee^{-\mathcal{L}\delta t}\simeq \ee^{-\mathcal{L}_V\delta t/2}\ee^{-\mathcal{L}_T \delta t}\ee^{-\mathcal{L}_V/2}\,.
+    \end{equation}
+    This is accurate to \(O(\delta t^3)\) for each time step (\(O(\delta t^2)\) globally), and is better than propagating the coordinates and momenta by a full time step simultaneously, which is known as the Euler's algorithm and is accurate to \(O(\delta t^2)\) each step and \(O(\delta t)\) globally.
+
+    For ring polymer molecular dynamics, we can of course directly use the standard velocity Verlet algorithm with Hamiltonian
+    \begin{equation}
+        H_N(\vb{p},\vb{q})=\frac{\vb{p}^2}{2m}+V(\vb{q})\,,
+    \end{equation}
+    where
+    \begin{equation}
+        V(\vb{q})=\sum_{j=1}^{N}\left[\frac{1}{2}m\omega_N^2(q_j-q_{j+1})^2+V(q_j)\right]\,,
+    \end{equation}
+    to propagate the dynamics. However, the harmonic springs between the beads are stiff, especially with large \(N\) (\(\omega_N=N/\beta\hbar\)). This requires a very small time step for us to propagate the internal vibrations of the ring polymer beads accurately. (Usually a time step of \(1/20\) of the shortest characteristic vibrational time scale of the system is safe.)
+
+    Luckily, we know how to solve the vibrational motions of systems connected by harmonic springs exactly! We can break them down to normal modes and propagate these internal normal modes exactly. (See NST Part II C8: \textit{Further Quantum Mechanics} or NST Part IB Mathematical Methods.) We break down the Hamiltonian as
+    \begin{equation}
+        H_{N}(\vb{p},\vb{q})=H_{N,0}(\vb{p},\vb{q})+V_{N}(\vb{q})\,,
+    \end{equation}
+    where
+    \begin{equation}
+        H_{0,N}=\sum_{j=1}^{N}\left[\frac{p_j^2}{2m}+\frac{1}{2}m\omega_N^2(q_j-q_{j+1})^2\right]
+    \end{equation}
+    is the free ring polymer Hamiltonian without the external potential and
+    \begin{equation}
+        V_N(\vb{q})=\sum_{j=1}^{N}V(q_j)
+    \end{equation}
+    is the external potential. Since the potential of the free ring polymer Hamiltonian \(H_0(\vb{p},\vb{q})\) is harmonic, it can be diagonalised with a normal mode transformation
+    \begin{equation}\label{normal_mode_transformation}
+        \begin{cases}
+            \tilde{p}_k=\sum_{j=1}^{n}p_jC_{jk}\\
+            \tilde{q}_k=\sum_{j=1}^{n}q_jC_{jk}\,,
+        \end{cases}
+    \end{equation}
+    where
+    \begin{equation}
+        C_{jk}=\begin{cases}
+            \sqrt{1/n} & k=0 \\
+            \sqrt{2/n}\cos(2\pi jk/n) & 1\le k\le n/2 -1 \\
+            \sqrt{1/2} (-1)^j & k=n/2 \\
+            \sqrt{2/n}\sin(2\pi jk/n) &n/2+1 \le k \le n\,,
+        \end{cases}
+    \end{equation}
+    giving
+    \begin{equation}
+        H_0(\tilde{\vb{p}},\tilde{\vb{q}})=\sum_{k=0}^{N-1}\left[\frac{\tilde{p}_k^2}{2m}+\frac{1}{2}m\omega_k^2\tilde{q}_k^2\right]
+    \end{equation}
+    with
+    \begin{equation}
+        \omega_k=2\omega_N\sin\left(\frac{k\pi}{n}\right)\,.
+    \end{equation}
+    Notice that we have shifted the range of indices from \(1\le j\le N\) to \(0\le k\le N-1\). You should be familiar with this because \(C_{jk}\) and \(\omega_k^2\) are actually exactly the H\"{u}ckel molecular orbital coefficients and the orbital energies of a cyclic polyene. This is because the H\"{u}ckel matrix of a cyclic polyene and the potential energy matrix of a ring polymer are exactly the same:
+    \begin{equation}
+        \mathsf{H}_{\text{polyene}}=\begin{pmatrix}
+            \alpha & \beta & 0 & \cdots & \beta \\
+            \beta & \alpha & \beta & \cdots & 0 \\
+            0 & \beta & \alpha & \cdots & 0 \\
+            \vdots & \vdots & \vdots & \ddots & \vdots \\
+            \beta & 0 & 0 & \cdots & \alpha
+        \end{pmatrix}\quad\stackrel{\alpha=2,\beta=-1}{\longleftrightarrow}\quad\mathsf{V}=\begin{pmatrix}
+            2 & -1 & 0 & \cdots & -1 \\
+            -1 & 2 & -1 & \cdots & 0 \\
+            0 & -1 & 2 & \cdots & 0 \\
+            \vdots & \vdots & \vdots & \ddots & \vdots \\
+            -1 & 0 & 0 & \cdots & 2
+        \end{pmatrix}
+    \end{equation}
+    such that \(\sum_{j=1}^{N}(q_j-q_{j+1})^2=\vb{q}\tp \mathsf{V}\vb{q}\). Moreover, the normal mode transformation (\ref{normal_mode_transformation}) is exactly the discrete Fourier transform, which can be efficiently carried out using the Fast Fourier Transform (FFT) algorithm with a scaling no larger than \(O(n\log n)\).
+
+    In the normal mode coordinates, the Hamiltonian \(H_{0,N}\) is broken down into \(N\) independent harmonic oscillators, each evolving sinusoidally
+    \begin{equation}
+        \begin{cases}
+            \tilde{q}_k=A_k\sin(\omega_k t) + B_k\cos(\omega_k t) \\
+            \tilde{p}_k=mA_k\omega_k\cos(\omega_k t) - mB_k\omega_k\cos(\omega_k t)\,.
+        \end{cases}
+    \end{equation} 
+    
+    To overall idea is therefore breaking down the ring polymer evolution by
+    \begin{equation}
+        \ee^{-\mathcal{L}\delta t}=\ee^{-\mathcal{L}_V\delta /2}\ee^{-\mathcal{L}_0\delta t}\ee^{-\mathcal{L}_V\delta t/2}\,,
+    \end{equation}
+    i.e. evolve the momenta by the external potential for half a time step, transform into the normal mode coordinates, evolve the coordinates and momenta by the internal ring normal modes for a full time step, revert back to the real coordinates, and finally evolve the momenta by the external potential for half a time step. The detailed algorithm is
+    \begin{align}
+        \vb{p}'&=\vb{p}_n-\frac{\delta t}{2}\dv{V}{\vb{q}}(\vb{q}_n)\\
+        \tilde{\vb{p}}'&=\mathsf{C}\tp\vb{p}'\\
+        \tilde{\vb{q}}'&=\mathsf{C}\tp\vb{q}_n\\
+        \begin{pmatrix}
+            \tilde{p}_k'' \\
+            \tilde{q}_k''
+        \end{pmatrix}&=\begin{pmatrix}
+            \cos\omega_k\delta t & -m\omega_k \sin\omega_k\delta t \\
+            \frac{1}{m\omega_k}\sin\omega_k\delta t & \cos\omega_k\delta t
+        \end{pmatrix}\begin{pmatrix}
+            \tilde{p}_k' \\
+            \tilde{q}_k'
+        \end{pmatrix} \\
+        \vb{p}''&=\mathsf{C}\tilde{\vb{p}}''\\
+        \vb{q}_{n+1}&=\mathsf{C}\tilde{\vb{q}}''\\
+        \vb{p}_{n+1}&=\vb{p}''-\frac{\delta t}{2}\dv{V}{\vb{q}}(\vb{q}_{n+1})
+    \end{align}
+
+    \subsection{Sampling in Canonical Ensemble}
+    The above algorithm well propagates the dynamics of the ring polymer in a microcanonical ensemble, but we can't use them to calculate canonical thermal averages because
+    \begin{itemize}
+        \item The above algorithm rigorously conserves the energy \(H_N\). Instead in a canonical ensemble with constant energy, the phase space should be sampled with all possible \(H_N\) weighted by their Boltzmann factors.
+        \item It is far from ergodic. If the external potential is harmonic, then the whole \(H_N\) is diagonal in the normal mode representation and hence there is no energy flow between the normal modes. If the external potential is instead mildly anharmonic, then the energy exchanges between modes very slowly. It is therefore not even possible to fully sample the microcanonical constant energy hypersurface in the phase space ergodically within the typical timescale of a simulation.
+    \end{itemize}
+
+    Therefore to meaningfully work out a thermal average, we need to attach a thermostat to our ring polymer system. Here we will briefly introduce the path integral Langevin equation (PILE) thermostat.
+
+    \subsubsection{The Path Integral Langevin Equation Thermostat}
+    The PILE thermostat attaches a separate Langevin thermostat to each internal mode of the free ring polymer, so that the free polymer would evolve by
+    \begin{align}
+        \dv{}{t}\tilde{q}_k&=\frac{\tilde{p}_k}{m} \\
+        \dv{}{t}\tilde{p}_k&=-m\omega_k^2\tilde{q}_k-\gamma_k\tilde{p}_k+\sqrt{\frac{2m\gamma_k}{\beta_n}}\xi_k(t)\,,\label{Langevin_momentum}
+    \end{align}
+    where \(\gamma_k(t)\) represents an uncorrelated, Gaussian-distributed random form with unit variance and zero mean:
+    \begin{equation}
+        \eval{\xi_k(t)}=0\qquad \eval{\xi_k(0)\xi_k(t)}=\delta(t)\,,
+    \end{equation}
+    and the \textit{friction coefficients} \(\gamma_k\) governs the rate at which the velocities are thermalised. The first term in (\ref{Langevin_momentum}) is the free evolution of a microcanonical harmonic oscillator, and the two extra terms are from the Langevin thermostat. Their origins are explained in NST Part II B7: \textit{Statistical Mechanics}.
+
+    The PILE thermostat uses the propagator
+    \begin{equation}
+        \ee^{-\mathcal{L}_\gamma \delta t/2}\ee^{-\mathcal{L}_V\delta t/2}\ee^{-\mathcal{L}_0\delta t}\ee^{-\mathcal{L}_V\delta t/2}\ee^{-\mathcal{L}_\gamma\delta t/2}\,,
+    \end{equation}
+    where the extra thermostatting steps (\(\ee^{-\mathcal{L}_\gamma\delta t/2}\)) implements the last two extra terms in (\ref{Langevin_momentum}). They are implemented by
+    \begin{align}
+        \tilde{p}_k &= \sum_{j=1}^{n} p_j C_{jk} \\
+        \tilde{p}_k &= \ee^{-\gamma_k \delta t/2}\tilde{p}_k + \sqrt{\frac{m(1-\ee^{-\gamma_k \delta t})}{\beta_N}}\xi_k \\
+        p_j &=\sum_{k=1}^{N}C_{jk}\tilde{p}_k\,,
+    \end{align}
+    where \(\xi_k\) is a independent Gaussian number randomly drawn from a Gaussian distribution with zero mean and unit variance each time.
+
+    The friction coefficients \(\gamma_k\) governs the rate at which the momenta in each mode is thermalised (randomised). The autocorrelation time
+    \begin{equation}
+        \tau_V=\frac{1}{\eval{V^2}-\eval{V}^2}\int_{0}^{\infty}\dd{t}\eval{(V(0)-\eval{V})(V(t)-\eval{V})}
+    \end{equation}
+    of the free ring polymer mode potential \(V=\frac{1}{2}m\omega_k^2\tilde{q}_k^2\) can be worked out analytically to be
+    \begin{equation}
+        \tau_V=\frac{1}{2\gamma_k}+\frac{\gamma_k}{2\omega_k^2}
+    \end{equation}
+    for \(\omega_k>0\). The optimum friction coefficient is the one that minimises \(\tau_V\) (and hence samples the most efficiently), which is \(\gamma_k=\omega_k\). This leaves only a single physical parameter \(\tau_0\) to be specified for thermostatting the centroid mode \(k=0\).
+    \begin{equation}
+        \gamma_k = \begin{cases}
+            1/\tau_0 & k=0 \\
+            \omega_k & k\ne 0\,.
+        \end{cases}
+    \end{equation}
+
+    \newpage
+    \section{Generalisation for Multipaticle System}
+    The above equations are derived for the one-particle one-dimensional quantum mechanical problem with Hamiltonian
+    \begin{equation}
+        \hat{H}=\frac{\hat{p}^2}{2m}+V(\hat{q})\,.
+    \end{equation}
+    The generalisation to higher dimensions is trivial, and in the absence of quantum mechanical exchange effects for identical particles (fermionic and bosonic), it is also straightforward to generalise to multiparticle systems. For example, the Hamiltonian
+    \begin{equation}
+        \hat{H}=\sum_{i=1}^{M}\frac{\hat{\vb{p}}_i^2}{2m_i}+V(\hat{\vb{r}}_i,\hat{\vb{r}}_2,\dots,\hat{\vb{q}_M}^2)
+    \end{equation}
+    have the ring polymer Hamiltonian
+    \begin{equation}
+        H_N(\{\vb{p}_i\},\{\vb{r}_i\})=\sum_{i=1}^{M}\sum_{j=1}^{N}\left[\frac{\vb{p}_{i,j}^2}{2m_i}+\frac{1}{2}m_i\omega_N^2\norm{\vb{r}_{i,j}-\vb{r}_{i,j+1}}^2\right]+\sum_{j=1}^{N}V(\vb{r}_{1,j},\dots,\vb{r}_{M,j})\,.
+    \end{equation}
+
+    \begin{figure}[ht!]
+        \centering
+        \begin{tikzpicture}[decoration = {snake,amplitude=1.2pt,segment length=2mm}]
+            \fill (0,1) node (A1) {} circle (0.1);
+            \fill (-1,0.7) node (A2) {} circle (0.1);
+            \fill (-0.6,-0.3) node (A3) {} circle (0.1);
+            \fill (0.8,-0.4) node (A4) {} circle (0.1);
+            \fill (0.9,0.5) node (A5) {} circle (0.1);
+            \draw[decorate] (A1)--(A2)--(A3)--(A4)--(A5)--(A1);
+
+            \fill (5,1.2) node (B1) {} circle (0.1);
+            \fill (4.2,0.6) node (B2) {} circle (0.1);
+            \fill (4.5,-0.4) node (B3) {} circle (0.1);
+            \fill (6,-0.6) node (B4) {} circle (0.1);
+            \fill (5.9,0.5) node (B5) {} circle (0.1);
+            \draw[decorate] (B1)--(B2)--(B3)--(B4)--(B5)--(B1);
+
+            \draw[dashed] (A1)--(B1);
+            \draw[dashed] (A2)--(B2);
+            \draw[dashed] (A3)--(B3);
+            \draw[dashed] (A4)--(B4);
+            \draw[dashed] (A5)--(B5);
+        \end{tikzpicture}
+        \caption{Two interacting ring polymers with \(N=5\).}
+    \end{figure}
+
+    Identical particle exchange effects become important when the de Broglie thermal wavelengths \(\Lambda_i(T)=h/\sqrt{2\pi m_i k_B T}\) exceed the hard sphere diameters of the atoms. These effects can in principle be included by considering dimerisation, trimerisation, etc. of ring polymers (see Chandler and Wolynes). However, it is hardly ever necessary for those of us who work in chemistry departments to have to worry about them, because these effects are almost always negligible, e.g. in liquid para-hydrogen even at its melting temperature (\(13.8\unit{K}\)).
+
+
+
+
+
 
     \newpage
     \section{Kubo-Transformed Correlation Function}
@@ -383,25 +676,25 @@
         \end{equation}
         Consider again Trotter-splitting the exponential of the Hamiltonians, but this time
         \begin{equation}
-            \ee^{-(\beta-\lambda)\hat{H}}=\left(\ee^{-\beta\hat{H}}\right)^{\frac{\beta-\lambda}{\beta}}=\lim_{N\to\infty}\left(\ee^{-\frac{\beta}{N}\hat{H}}\right)^{N(1-\frac{\lambda}{\beta})}\,,
+            \ee^{-(\beta-\lambda)\hat{H}}=\left(\ee^{-\beta\hat{H}}\right)^{\frac{\beta-\lambda}{\beta}}=\lim_{N\to\infty}\left(\ee^{-\beta_N\hat{H}}\right)^{N(1-\frac{\lambda}{\beta})}\,,
         \end{equation}
         and similarly
         \begin{equation}
-            \ee^{-\lambda\hat{H}}=\lim_{N\to\infty}\left(\ee^{-\frac{\beta}{N}\hat{H}}\right)^{N\frac{\lambda}{\beta}}\,.
+            \ee^{-\lambda\hat{H}}=\lim_{N\to\infty}\left(\ee^{-\beta_N\hat{H}}\right)^{N\frac{\lambda}{\beta}}\,.
         \end{equation}
         Therefore,
         \begin{equation}
-            K_{AB}(0)=\lim_{N\to\infty}\frac{1}{\beta Z_N}\int_{0}^{\beta}\dd{\lambda}\tr\left[\left(\ee^{-\frac{\beta}{N}\hat{H}}\right)^{N(1-\frac{\lambda}{\beta})}\hat{A}\left(\ee^{-\frac{\beta}{N}\hat{H}}\right)^{N\frac{\lambda}{\beta}}\hat{B}\right]\,.
+            K_{AB}(0)=\lim_{N\to\infty}\frac{1}{\beta Z_N}\int_{0}^{\beta}\dd{\lambda}\tr\left[\left(\ee^{-\beta_N\hat{H}}\right)^{N(1-\frac{\lambda}{\beta})}\hat{A}\left(\ee^{-\beta_N\hat{H}}\right)^{N\frac{\lambda}{\beta}}\hat{B}\right]\,.
         \end{equation}
         Let's consider the effect of the integral averaging over \(\lambda\): \(\frac{1}{\beta}\int_{0}^{\beta}\). There are \(N(1-\frac{\lambda}{\beta})\) pieces of \(\ee^{-\beta_N \hat{H}}\) in front of \(\hat{A}\) and \(N\frac{\lambda}{\beta}\) between \(\hat{A}\) and \(\hat{B}\). What the integral does is averaging over the number of \(\ee^{-\beta_N \hat{H}}\) pieces distributed between these two places, while making sure that there are \(N\) of them in total. When \(N\) is large, this can be replaced by the sum
         \begin{equation}
-            \frac{1}{\beta}\int_{0}^{\beta}\dd{\lambda}f(\lambda)\longmapsto \lim_{N\to\infty}\frac{1}{N}\sum_{\lambda=1}^{N}f\left(\lambda\frac{\beta}{N}\right)\,.
+            \frac{1}{\beta}\int_{0}^{\beta}\dd{\lambda}f(\lambda)\longmapsto \lim_{N\to\infty}\frac{1}{N}\sum_{\lambda=1}^{N}f\left(\lambda\beta_N\right)\,.
         \end{equation}
         Therefore we can write
         \begin{equation}
-            K_{AB}(0)=\lim_{N\to\infty}\frac{1}{N Z_N}\sum_{k=1}^{N}\tr\left[\left(\ee^{-\frac{\beta}{N}\hat{H}}\right)^{k}\hat{A}\left(\ee^{-\frac{\beta}{N}\hat{H}}\right)^{N-k}\hat{B}\right]\,.
+            K_{AB}(0)=\lim_{N\to\infty}\frac{1}{N Z_N}\sum_{k=1}^{N}\tr\left[\left(\ee^{-\beta_N\hat{H}}\right)^{k}\hat{A}\left(\ee^{-\beta_N\hat{H}}\right)^{N-k}\hat{B}\right]\,.
         \end{equation}
-        Now there are \(N+2\) operators in the trace. We again use the trick of inserting identity operators between them, while associating \(\hat{A}\) and \(\hat{B}\) to the \(\ee^{-\frac{\beta}{N}\hat{H}}\) in front of them, giving
+        Now there are \(N+2\) operators in the trace. We again use the trick of inserting identity operators between them, while associating \(\hat{A}\) and \(\hat{B}\) to the \(\ee^{-\beta_N\hat{H}}\) in front of them, giving
         \begin{equation}
             \lim_{N\to\infty}\frac{1}{Z_N}\frac{1}{N}\sum_{k=1}^{N}\int\dd[N]{\vb{q}}\dots\mel{q_k}{\ee^{-\beta_N \hat{H}}\hat{A}}{q_{k+1}}\dots\mel{q_N}{\ee^{-\beta_N\hat{H}}\hat{B}}{q_1}\,.
         \end{equation}

@@ -1,4 +1,12 @@
 \contentsline {section}{\numberline {1}Partition Function}{1}{section.1}%
 \contentsline {section}{\numberline {2}Thermal Average of an Operator}{4}{section.2}%
-\contentsline {section}{\numberline {3}Kubo-Transformed Correlation Function}{5}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Relation to Ring Polymer Average}{7}{subsection.3.1}%
+\contentsline {subsection}{\numberline {2.1}Coordinate-Dependent Quantities}{4}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Kinetic Energy}{5}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Total Energy}{6}{subsection.2.3}%
+\contentsline {section}{\numberline {3}Propagating the Ring Polymer Dynamics}{7}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Integrating the Equations of Motion}{7}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Sampling in Canonical Ensemble}{9}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}The Path Integral Langevin Equation Thermostat}{9}{subsubsection.3.2.1}%
+\contentsline {section}{\numberline {4}Generalisation for Multipaticle System}{11}{section.4}%
+\contentsline {section}{\numberline {5}Kubo-Transformed Correlation Function}{12}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Relation to Ring Polymer Average}{14}{subsection.5.1}%

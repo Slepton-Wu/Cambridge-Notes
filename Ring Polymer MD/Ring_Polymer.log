@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.21)  15 SEP 2025 22:14
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.21)  13 OCT 2025 16:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -666,26 +666,26 @@ File: l3backend-xetex.def 2024-05-08 L3 backend support: XeTeX
 ) (./Ring_Polymer.aux)
 \openout1 = `Ring_Polymer.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 77.
-LaTeX Font Info:    ... okay on input line 77.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 77.
-LaTeX Font Info:    ... okay on input line 77.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 77.
-LaTeX Font Info:    ... okay on input line 77.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 77.
-LaTeX Font Info:    ... okay on input line 77.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 77.
-LaTeX Font Info:    ... okay on input line 77.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 77.
-LaTeX Font Info:    ... okay on input line 77.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 77.
-LaTeX Font Info:    ... okay on input line 77.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 77.
-LaTeX Font Info:    ... okay on input line 77.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 77.
-LaTeX Font Info:    ... okay on input line 77.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 77.
-LaTeX Font Info:    ... okay on input line 77.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -723,13 +723,13 @@ LaTeX Font Info:    ... okay on input line 77.
 
 Package pgfplots notification 'compat/show suggested version=true': document has been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 
-Package hyperref Info: Link coloring OFF on input line 77.
+Package hyperref Info: Link coloring OFF on input line 78.
 (./Ring_Polymer.out) (./Ring_Polymer.out)
 \@outlinefile=\write4
 \openout4 = `Ring_Polymer.out'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 87--88
+Underfull \hbox (badness 10000) in paragraph at lines 88--89
 
  []
 
@@ -738,19 +738,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 87--88
 [1
 
 ] (./Ring_Polymer.toc
-LaTeX Font Info:    Trying to load font information for U+msa on input line 4.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 3.
  (c:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 4.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 3.
  (c:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+esint on input line 4.
+LaTeX Font Info:    Trying to load font information for U+esint on input line 3.
  (c:/texlive/2025/texmf-dist/tex/latex/esint/uesint.fd
 File: uesint.fd 
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 4.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 3.
  (c:/texlive/2025/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 ))
@@ -760,8 +760,8 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 
 
 [2]
-Package hyperref Info: bookmark level for unknown clm defaults to 0 on input line 118.
-Package hyperref Info: bookmark level for unknown lem defaults to 0 on input line 126.
+Package hyperref Info: bookmark level for unknown clm defaults to 0 on input line 119.
+Package hyperref Info: bookmark level for unknown lem defaults to 0 on input line 127.
 
 
 [1]
@@ -771,17 +771,36 @@ Package hyperref Info: bookmark level for unknown lem defaults to 0 on input lin
 [3]
 
 [4]
-Package hyperref Info: bookmark level for unknown defn defaults to 0 on input line 284.
+Overfull \hbox (33.67334pt too wide) detected at line 293
+[]
+ []
 
 
-[5]
+
+[5] (./files/Energy_estimator.tex)
 
 [6]
-Package hyperref Info: bookmark level for unknown proof defaults to 0 on input line 380.
-
 
 [7]
-Overfull \hbox (1.40225pt too wide) detected at line 412
+
+[8]
+
+[9]
+
+[10]
+
+[11]
+Package hyperref Info: bookmark level for unknown defn defaults to 0 on input line 577.
+
+
+[12]
+
+[13]
+Package hyperref Info: bookmark level for unknown proof defaults to 0 on input line 673.
+
+
+[14]
+Overfull \hbox (1.40225pt too wide) detected at line 705
 []
  []
 
@@ -790,21 +809,21 @@ Overfull \hbox (1.40225pt too wide) detected at line 412
 
 
 
-[8] (./Ring_Polymer.aux)
+[15] (./Ring_Polymer.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `Ring_Polymer.out' has not changed.
-(rerunfilecheck)             Checksum: 0183ED0E117C7029AAD60DA3DB95A728;804.
+(rerunfilecheck)             Checksum: 737644ED761C17FEC348758F39BBB56A;2213.
  ) 
 Here is how much of TeX's memory you used:
- 34740 strings out of 473832
- 797271 string characters out of 5733158
- 1292627 words of memory out of 5000000
- 57258 multiletter control sequences out of 15000+600000
- 566136 words of font info for 79 fonts, out of 8000000 for 9000
+ 35351 strings out of 473832
+ 813412 string characters out of 5733158
+ 1393509 words of memory out of 5000000
+ 57857 multiletter control sequences out of 15000+600000
+ 567065 words of font info for 85 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 99i,13n,105p,734b,479s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,18n,105p,734b,2239s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Ring_Polymer.pdf (10 pages).
+Output written on Ring_Polymer.pdf (17 pages).
