@@ -1,0 +1,932 @@
+\documentclass{article}
+
+\usepackage{amsmath,geometry,amsfonts,array,makecell,enumitem,bm,esint,booktabs,multirow,mathtools,upgreek,amssymb,pgfplots,mathrsfs,nicematrix,slashed, chemfig, tikzorbital}
+\usepackage[amsmath]{ntheorem}
+\usepackage[hidelinks,naturalnames]{hyperref}
+\usepackage[nameinlink,noabbrev]{cleveref}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead[L]{\itshape\nouppercase{\leftmark}}
+\fancyhead[R]{M1 Inorganic Materials}
+
+\title{Inorganic Materials}
+\author{Yue Wu}
+
+\geometry{a4paper,hmargin=1.1in,vmargin=1.2in}
+
+\setlength{\parskip}{1em}
+\tolerance=1000
+\emergencystretch=1em
+\hyphenpenalty=1000
+\exhyphenpenalty=100
+\righthyphenmin=3
+
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{decorations.markings}
+
+\theoremstyle{plain}\theoremheaderfont{\normalfont\itshape}\theorembodyfont{\rmfamily}\theoremseparator{.}\newtheorem*{rem}{Remark}\newtheorem*{ex}{Example}\newtheorem*{proof}{Proof}\newtheorem*{altp}{Alternative proof}
+
+\theoremstyle{plain}\theoremheaderfont{\normalfont\bfseries}\theorembodyfont{\rmfamily}\theoremseparator{.}\newtheorem{thm}{Theorem}[section]\newtheorem{lem}[thm]{Lemma}\newtheorem{prop}[thm]{Proposition}\newtheorem*{cor}{Corollary}\newtheorem{defn}[thm]{Definition}\newtheorem{clm}[thm]{Claim}\newtheorem{clminproof}{Claim}
+
+\theoremstyle{break}\theoremheaderfont{\normalfont\itshape}\theorembodyfont{\rmfamily}\theoremseparator{.\medskip}\newtheorem*{proofskip}{Proof}\newtheorem*{exs}{Examples}\newtheorem*{rems}{Remarks}
+
+\theoremstyle{break}\theoremheaderfont{\normalfont\bfseries}\theorembodyfont{\rmfamily}\theoremseparator{.\medskip}\newtheorem{lemskip}[thm]{Lemma}\newtheorem{defnskip}[thm]{Definition}\newtheorem{propskip}[thm]{Proposition}\newtheorem{thmskip}[thm]{Theorem}
+
+\crefname{thm}{Theorem}{Theorems}\crefname{defn}{Definition}{Definitions}\crefname{lem}{Lemma}{Lemmas}\crefname{lemskip}{Lemma}{Lemmas}\crefname{cor}{Corollary}{Corollaries} \crefname{prop}{Proposition}{Propositions}\crefname{clm}{Claim}{Claims}
+
+\setcounter{tocdepth}{2}
+\setcounter{section}{0}
+\numberwithin{equation}{section}
+
+\newcommand{\qed}{\hfill\ensuremath{\Box}}
+\newcommand{\unit}[1]{\ \mathrm{#1}}
+\newcommand{\ii}{\mathrm{i}}
+\newcommand{\ee}{\mathrm{e}}
+\newcommand{\tp}{^\mathrm{T}}
+\newcommand{\dd}[2][]{\mathrm{d}^{#1} #2\,}
+\renewcommand{\d}[2][]{\mathrm{d}^{#1} #2}
+\newcommand{\dv}[3][]{\frac{\mathrm{d}^{#1} #2}{{\mathrm{d} #3}^{#1}}}
+\newcommand{\pdv}[3][]{\frac{\partial^{#1} #2}{{\partial #3}^{#1}}}
+\newcommand{\bra}[1]{\left\langle #1 \right|}
+\newcommand{\ket}[1]{\left| #1 \right\rangle}
+\newcommand{\braket}[2]{\left\langle #1 \middle| #2 \right\rangle}
+\newcommand{\mel}[3]{\left\langle #1 \middle| #2 \middle| #3 \right\rangle}
+\newcommand{\eval}[1]{\left\langle #1 \right\rangle}
+\newcommand{\expval}[2]{\left\langle #2 \middle| #1 \middle| #2 \right\rangle}
+\newcommand{\vb}[1]{\bm{\mathrm{#1}}}
+\newcommand{\vu}[1]{\hat{\bm{\mathrm{#1}}}}
+\newcommand{\cross}{\bm{\times}}
+\newcommand{\vdot}{\bm{\cdot}}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\norm}[1]{\left\| #1 \right\|}
+\newcommand{\grad}{\vb{\nabla}}
+\renewcommand{\div}{\vb{\nabla}\cdot}
+\newcommand{\curl}{\vb{\nabla}\times}
+\newcommand{\laplacian}{\nabla^2}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\hb}{\mathcal{H}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\nuc}{_{\text{n}}}
+\newcommand{\el}{_{\text{e}}}
+
+\usetikzlibrary{arrows.meta,calc, math}
+
+\setchemfig{
+  atom sep=2em,
+  bond style={line width=0.8pt},
+  cram width=2pt
+}
+
+
+\begin{document}
+    \setlength{\parindent}{0pt}
+	\Huge\textsf{\textbf{Inorganic Materials}}
+		
+	\Large\textsf{\textbf{University of Cambridge Part III Natural Sciences Tripos}}
+
+	\noindent\makebox[\linewidth]{\rule{\textwidth}{2pt}}
+
+	\large\textsf{\textbf{Yue Wu}}
+	\begin{itemize}[topsep=0pt,leftmargin=15pt]
+		\item[] \textit{Yusuf Hamied Department of Chemistry\\
+		Lensfield Road,\\
+		Cambridge, CB2 1EW}\\
+
+		\textit{yw628@cam.ac.uk}
+	\end{itemize}
+    \thispagestyle{empty}
+    \pagenumbering{roman}
+    \setlength{\parindent}{15pt}
+
+    \newpage
+    \begin{center}
+		\textbf{\Large{Acknowledgements}}
+	\end{center}
+	\large
+	Nothing in these lecture notes is original. They are largely based on the notes by Prof. Paul Wood, who lectured this course in 2025. Moreover, they are nowhere near accurate representations of what was actually lectured, and in particular, all errors are almost surely mine.
+
+    \vskip 30pt
+
+    \begin{center}
+		\textbf{\Large{Preface}}
+	\end{center}
+	\large
+    This course focuses on the magnetic properties of inorganic materials. It is not a theoretical course, so it will be pretty handwavy on quantum mechanical arguments. As a theoretical chemist though, I have tried my best to make this course notes more rigorous than the original official notes without being too pedantic. 
+    
+	\normalsize
+    \newpage
+	\tableofcontents
+	\newpage
+    \pagenumbering{arabic}
+
+    \section{Magnetism in a Single Ion}
+    \subsection{Magnetic Moment}
+    In the 1820's Oersted showed that an electric current \(\vb{J}\), caused by the movement of charge carriers like electrons, can generate a magnetic field given by\footnote{The full form of this equation is
+    \begin{equation}
+        \curl \vb{B}=\mu_0\left(\vb{J}+\epsilon_0\pdv{\vb{E}}{t}\right)\,,
+    \end{equation}
+    where the latter term is something known as a \textit{displacement current}. It comes when we're working with something like a capacitor, but we are not dealing with them in this course. Moreover, we are not distinguishing \(\vb{H}\) and \(\vb{B}\) and calling both of them `magnetic field' for some reason that will be explained later.
+    }
+    \begin{equation}
+        \curl \vb{B}=\mu_0\vb{J}\,,
+    \end{equation}
+    where \(\mu_0\) is the permeability of free space. On the other hand, it is also found that a rotational current \(I\) in a circular wire generates something called a \textit{magnetic moment}, \(\vb{\mu}\) (or sometimes \(\vb{m}\)), given by
+    \begin{equation}
+        \vb{\mu}=I\vu{n}A\,,
+    \end{equation}
+    where \(A\) the area enclosed by the circular wir and \(\vu{n}\) is the unit normal, such that placing the magnetic moment \(\vb{\mu}\) in a magnetic field \(\vb{B}\) will experience a torque
+    \begin{equation}
+        \vb{\tau}=\vb{\mu}\cross\vb{B}\,.
+    \end{equation}
+    This will lead to an additional potential energy
+    \begin{equation}
+        E=-\vb{\mu}\vdot\vb{B}
+    \end{equation}
+    for a magnetic moment placed in a magnetic field which favours the magnetic moment to align with the magnetic field, just like an electric dipole moment will align with an electric field.
+
+    \begin{figure}[ht!]
+        \centering
+        \begin{tikzpicture}
+            \draw[->,thick] (240:0.5)--node[right]{\(\vb{\mu}\)}(60:2);
+            \draw[->, rotate=-30, fill=gray!20] (0.38,0) arc [start angle=-60, end angle=305, x radius=0.8cm, y radius=0.25cm] node[below]{\(I\)};
+            \draw[thick] (60:0.25)--(60:2);
+
+            \draw[->,thick] (-3,-1)--(-3,3)node[right]{\(\vb{B}\)};
+            \draw[->] (50:2.7) arc (50:70:2.7) node[above]{\(\tau\)};
+        \end{tikzpicture}
+        \caption{A charged particle with angular momentum will experience a torque in a magnetic field.}
+    \end{figure}
+
+    This reveals the close link between the angular momentum of a moving current and the magnetic moment. Suppose a particle of charge \(+q\) of mass \(m\) is rotating around a circle of radius \(r\) with angular velocity \(\vb{\omega}\). This is effectively a current
+    \begin{equation}
+        I=\frac{Q}{t}=\frac{\omega q}{2\pi}\,,
+    \end{equation}
+    which produces a magnetic moment
+    \begin{equation}
+        \vb{\mu} =\frac{\vb{\omega} q r^2}{2}\,.
+    \end{equation}
+    Since the particle carries an angular momentum
+    \begin{equation}
+        \vb{L}=mr^2\vb{\omega}\,,
+    \end{equation}
+    we can conclude that the magnetic moment it creates is proportional to the angular momentum
+    \begin{equation}
+        \vb{\mu}=\gamma\vb{L}=\frac{q}{2m}\vb{L}\,,
+    \end{equation}
+    where the proportionality constant \(\gamma\) is known as the \textit{gyromagnetic ratio}. This magnetic moment, coming from orbital angular momentum (momentum caused by particle orbiting around some point), is often written with a seemingly redundant extra factor
+    \begin{equation}
+        \vb{\mu}_{L}=g_L \frac{q}{2m}\vb{L}\,,
+    \end{equation}
+    where \(g_L=1\) is the Land\'{e} \(g\)-factor for orbital angular momentum due to some reason that will be apparent immediately.
+
+    Some charge-carrying particles, like electrons, have another natural source of angular momentum --- that is its spin. For a particle of spin \(s\), it carries a spin angular momentum of magnitude
+    \begin{equation}
+        \norm{\vb{s}}=\hbar\sqrt{s(s+1)}\,,
+    \end{equation}
+    which also leads to a magnetic moment
+    \begin{equation}
+        \vb{\mu}_s = \gamma \vb{s}=g_S \frac{q}{2m}\vb{s}\,.
+    \end{equation}
+    The spin of a particle does not come from its circular motion. It is intrinsic to the particle so we have no reason to assume \(g_S=1\) as for the orbital angular momentum case. For free electrons, \(g_{S, e-}\approx 2.0\),\footnote{In Dirac's theory, every point-like Fermion should have \(g_S=2\) exactly, while it is actually slightly above 2 for some subtle Quantum Field Theory effects. This is known as the anomalous magnetic moment.} while for other particles like a proton, it takes some other values that are not relevant for us. For a single, isolated free electron, the magnitude of the magnetic moment is
+    \begin{equation}
+        \mu_s=g_S\mu_{\text{B}}\sqrt{s(s+1)}\,,
+    \end{equation}
+    where \(s=\frac{1}{2}\), and \(\mu_{\text{B}}\) is the Bohr's magneton, characterising the strength of the magnetic moment of an electron. Note that since the charge of an electron is negative, \(q=-e\), its magnetic moment \(\vb{\mu}_s\) is in the opposite direction of its spin \(\vb{s}\), i.e. the gyromagnetic ratio is negative. We will take extra care on whether we are talking about the direction of the spin or the direction of the magnetic moment in future.
+
+    \subsection{Magnetic Moment of Ions and Atoms}
+    In an ion or atoms, there are two main sources of angular momenta --- the spins and the orbital angular momentum of the electrons. The nucleus also carries nuclear spin, but the magnetic moment is proportional to \(m^{-1}\), and since nuclei are much heavier than the electrons, we are ignoring the nuclear contribution.
+
+    The Schr\"{o}dinger equation tells us that the electronic spins and orbital angular momentum of an atom (ion) are characterised by two quantum numbers, the total spin quantum number \(S\) and the total orbital angular momentum quantum number \(L\). However, due to relativistic effects that are neglected in Schr\"{o}dinger's equation, the spin and orbital angular momentum can interact, and the effect is that these two numbers are no longer well defined. This process is called \textit{spin-orbit coupling}, and the overall result is that the spin is well-described by the total angular momentum quantum number \(J\).
+
+    The strength of spin-orbit coupling is characterised by the spin-orbit coupling constant \(\lambda\), and the magnitude of \(\lambda\) is strongly dependent on the nuclear charge, \(\lambda\propto Z^4\). This means that for atoms not too heavy (up to around the third row transition metals), we can treat the spin-orbit coupling as a perturbation and still sensibly talk about the \(L\) and \(S\) values of an electronic term, and the possible \(J\) values are \(J=L+S, \dots, \abs{L-S}\). This is the \textit{\(LS\) coupling} (or \textit{Russell--Saunders coupling}) scheme. For the remainder of this course, we will always assume that the spin-orbit coupling is weak enough that the \(LS\) coupling scheme always applies.
+    
+    The way to work out the \(L\), \(S\) and \(J\) values for an electronic configuration should be familiar from Part IB and Part II, and the ground term (level) is determined by the Hund's rules.
+
+    \begin{ex}
+        \textit{Gaseous \(\mathrm{Ti^{3+}}\) ion.}
+
+        A free \(\mathrm{Ti^{3+}}\) ion has electron configuration \(\mathrm{[Ar]\ 3d^1}\). The \(L\) and \(S\) values satisfying the Hund's first and second rules can be worked out using the box method.
+
+        \begin{figure}[ht!]
+            \centering
+            \begin{tikzpicture}
+                \foreach \i in {-2,...,2}{
+                    \draw (0.8*\i-0.4,-0.6) rectangle (0.8*\i + 0.4, 0.6);
+                    \node at (-0.8*\i,1) {\(\i\)};
+                }
+                \draw[arrows = {->[harpoon]}, thick] (-1.6,-0.3)--(-1.6,0.3);
+                \node at (-2.5,0.95){\(m_\ell = \)};
+            \end{tikzpicture}
+        \end{figure}
+
+        This gives \(L=2\) and \(S=\frac{1}{2}\), with spin multiplicity \(2S+1=2\). The available \(J\) values are \(J=\frac{5}{2}, \frac{3}{2}\). This is less than half-filled, so we need to minimise \(J\), giving \(J=\frac{3}{2}\). The ground level is therefore \(^2 D_{\frac{3}{2}}\).
+
+        \begin{figure}[ht!]
+            \centering
+            \begin{tikzpicture}
+                \draw (-0.3,0)--(0.3,0)node[right]{\(J=\frac{3}{2}\)};
+                \draw (-0.3,1)--(0.3,1)node[right]{\(J=\frac{5}{2}\)};
+            \end{tikzpicture}
+        \end{figure}
+    \end{ex}
+    
+    \subsubsection{Free Ions}
+    When both the electronic spin and angular momentum are present in a free ion (atom), the overall magnetic moment is proportional to the total angular momentum:
+    \begin{equation}\label{free_ion_m_J}
+        \mu_J = g_J\mu_{\text{B}}\sqrt{J(J+1)}\,,
+    \end{equation}
+    where the Land\'{e} \(g\)-factor for the total angular momentum is given by the complicated formula
+    \begin{equation}
+        g_{J}=g_{L}\frac{J(J+1)-S(S+1)+L(L+1)}{2J(J+1)}+g_{S}\frac{J(J+1)+S(S+1)-L(L+1)}{2J(J+1)}\,.
+    \end{equation}
+    We have \(g_L=1\), and if we take \(g_S=2\), the above equation simplifies to
+    \begin{equation}\label{free_ion_g_J}
+        g_{J}\approx 1 + \frac{J(J+1)+S(S+1)-L(L+1)}{2J(J+1)}\,.
+    \end{equation}
+
+    \subsubsection{Transition Metal Complexes}
+    Free atoms and ions are of little interests to chemists. Instead, the materials showing the most interesting magnetic properties are the transition metal complexes, which will be the main topic of this course.
+
+    The above equation cannot be directly applied to transition metal complexes, because we need a bit extra considerations on the orbital angular momentum.
+
+    We now make the claim that for a ion to carry orbital angular momentum, it must have a set of partially filled degenerate orbitals. This can be seen from the atomic orbitals: an orbital with angular momentum quantum number \(\ell\) is \((2\ell+1)\)-degenerate, and the non-degenerate \(\mathrm{s}\)-orbital carries zero orbital angular momentum. The reason is that if several orbitals are degenerate, then any complex linear combination of them is also an allowed stationary state. The electron can occupy a coherent superposition with relative phases which evolve in a way such that it produces a probability density that circulates around the nucleus, leading to orbital angular momentum --- this can be imagined by electrons hopping between degenerate orbitals at different orientations.
+
+    However, the degeneracies of the valence \(\mathrm{d}\) orbitals are broken in transition metal complexes due to ligand field splitting. This leads to the quenching of the orbital angular momentum. For example, in an octahedral complex, the \(\mathrm{d}\) orbitals are split into a \(T_{2g}\) set and a \(E_g\) set. The \(E_g\) set is only doubly degenerate, and since the orbital angular momentum quantum number can only be integers, it can carry no momentum. The \(T_{2g}\) set, on the other hand, are triply degenerate, and can carry one unit of angular momentum. Hence, if an octahedral complex has term symbol \(A\) or \(E\), it effectively has \(L_{\text{eff}}=0\), and we say that the angular momentum is completely quenched, while an complex with term symbol \(T\) is partially quenched, and has \(L_{\text{eff}}=1\).
+
+    \begin{ex}
+        \textit{Ground state term symbols and orbital angular momentum of octahedral complexes.}
+        \begin{figure}[ht!]
+            \centering
+            \begin{tikzpicture}
+                \draw (-1.6,0)--(-0.8,0);
+                \draw (-0.4,0)--(0.4,0);
+                \draw (0.8,0)--(1.6,0);
+                \draw (-1,1.3)--(-0.2,1.3);
+                \draw (0.2,1.3)--(1,1.3);
+                \node at (-2.3,0) {\(t_{2g}\)};
+                \node at (-2.3,1.3) {\(e_{g}\)};
+                \foreach \i in {-1,0,1}{
+                    \draw[arrows = {->[harpoon]},thick] (1.2*\i-0.06,-0.2)--(1.2*\i-0.06,0.4);
+                }
+                \foreach \i in {-1,0}{
+                    \draw[arrows = {->[harpoon]},thick] (1.2*\i+0.06,0.4)--(1.2*\i+0.06,-0.2);
+                }
+                \foreach \i in {-1,0}{
+                    \draw[arrows = {->[harpoon]},thick] (1.2*\i+0.6-0.06,1.1)--(1.2*\i+0.6-0.06,1.7);
+                }
+
+                \node at (0,-1) {\(\mathrm{Co^{2+}}\), \(d^7\) HS};
+                \node at (0,-1.55) {\(T\)};
+                \node at (0,-2.1) {\(L_{\text{eff}}=1\).};
+
+                \begin{scope}[shift={(5,0)}]
+                    \draw (-1.6,0)--(-0.8,0);
+                    \draw (-0.4,0)--(0.4,0);
+                    \draw (0.8,0)--(1.6,0);
+                    \draw (-1,1.3)--(-0.2,1.3);
+                    \draw (0.2,1.3)--(1,1.3);
+                    \foreach \i in {-1,0,1}{
+                        \draw[arrows = {->[harpoon]},thick] (1.2*\i-0.06,-0.2)--(1.2*\i-0.06,0.4);
+                    }
+                    \foreach \i in {-1}{
+                        \draw[arrows = {->[harpoon]},thick] (1.2*\i+0.6-0.06,1.1)--(1.2*\i+0.6-0.06,1.7);
+                    }
+                    \node at (0,-1) {\(\mathrm{Cr^{2+}}\), \(d^4\) HS};
+                    \node at (0,-1.55) {\(E\)};
+                    \node at (0,-2.1) {\(L_{\text{eff}}=0\).};
+                \end{scope}
+
+                \begin{scope}[shift={(10,0)}]
+                    \draw (-1.6,0)--(-0.8,0);
+                    \draw (-0.4,0)--(0.4,0);
+                    \draw (0.8,0)--(1.6,0);
+                    \draw (-1,1.3)--(-0.2,1.3);
+                    \draw (0.2,1.3)--(1,1.3);
+                    \foreach \i in {-1,0,1}{
+                        \draw[arrows = {->[harpoon]},thick] (1.2*\i-0.06,-0.2)--(1.2*\i-0.06,0.4);
+                    }
+                    \foreach \i in {-1,0}{
+                        \draw[arrows = {->[harpoon]},thick] (1.2*\i+0.6-0.06,1.1)--(1.2*\i+0.6-0.06,1.7);
+                    }
+                    \node at (0,-1) {\(\mathrm{Mn^{2+}}\), \(d^5\) HS};
+                    \node at (0,-1.55) {\(A\)};
+                    \node at (0,-2.1) {\(L_{\text{eff}}=0\).};
+                \end{scope}
+                
+            \end{tikzpicture}
+        \end{figure}
+    \end{ex}
+
+    To avoid this complication, it is often good enough to only consider the contribution of the electron spins to the magnetic moment. This leads to the spin only formula
+    \begin{equation}
+        \mu_{\text{so}}=g_{\text{so}}\mu_{\text{B}}\sqrt{S(S+1)}
+    \end{equation}
+    for an ion of spin quantum number \(S\). This is the formula you have seen throughout in Part IB and Part II when calculating the effective magnetic moment of e.g. a transition metal complex ion.
+
+    If we are making a very crude estimation, then we can directly take the Land\'{e} \(g\)-factor to be that of a free electron, \(g_{\text{so}}\approx g_{S, e^-}\approx 2.0\). However, due to the fact that the electron is not completely free in the complexes and that we have ignored the orbital angular momentum contribution, we usually need a slightly larger value of \(g_{\text{so}}\) to match the experimental value of measured magnetic moment.
+    \begin{ex}
+        \textit{\(\mathrm{Ti^{3+}}\) complex: \(\mathrm{[Ti(CN)_6]^{3-}}\)}
+
+        Let's return to the \(\mathrm{Ti^{3+}}\) example, but this time in a complex \(\mathrm{[Ti(CN)_6]^{3-}}\). Suppose this complex is octahedral, then the orbital diagram is shown below.
+
+        \begin{figure}[ht!]
+            \centering
+            \begin{tikzpicture}
+                \draw (-1.6,0)--(-0.8,0);
+                \draw (-0.4,0)--(0.4,0);
+                \draw (0.8,0)--(1.6,0);
+                \draw (-1,1.7)--(-0.2,1.7);
+                \draw (0.2,1.7)--(1,1.7);
+                \node at (-2.3,0) {\(t_{2g}\)};
+                \node at (-2.3,1.7) {\(e_{g}\)};
+                \draw[arrows = {->[harpoon]},thick] (-1.2,-0.2)--(-1.2,0.4);
+                \node at (0,-1) {octahedral};
+
+                \draw[dashed] (1,1.7)--(5,2);
+                \draw[dashed] (1,1.7)--(5,1.3);
+                \draw (5,2)--(5.8,2);
+                \draw (5,1.3)--(5.8,1.3);
+                \draw[dashed] (1,0)--(4.4,0.2);
+                \draw[dashed] (1,0)--(5,-0.4);
+                \draw (5,-0.4)--(5.8,-0.4);
+                \draw (4.4,0.2)--(5.2,0.2);
+                \draw (5.6,0.2)--(6.4,0.2);
+                \draw[arrows = {->[harpoon]},thick] (5.4,-0.6)--(5.4,0);
+                \node at (5.4,-1) {distorted};
+            \end{tikzpicture}
+        \end{figure}
+
+        The term symbol is \(^2 T_{2g}\), with \(L=1\) and \(S=\frac{1}{2}\). The available \(J\) values are \(\frac{1}{2}\) and \(\frac{3}{2}\).
+
+        However, this complex has asymmetrically filled \(t_{2g}\) level, and so it is susceptible to Jahn--Teller distortion. This further breaks the degeneracy of the \(t_{2g}\) level and leads to a complete quenching of angular momentum.
+    \end{ex}
+
+    Due to the double effect of ligand field splitting and Jahn--Teller distortion, the orbital angular momentum of transition metal complexes are almost always completely quenched, and so it is fine to consider \(S\) only.
+
+    \subsubsection{Lanthanide Ions}
+    The special case comes to the lanthanide \(3^{+}\) ions. We have learned in Part II A1 that those ions have extremely contracted \(\mathrm{4f}\) orbitals, and the interactions between the metal ions and ligands are predominantly ionic with little covalency. As a result, the degeneracy of the \(\mathrm{4f}\) orbitals are not broken and they behave closely to free ions. Therefore, the formula of the magnetic moments and Land\'{e} \(g\)-factors for free ions, (\ref{free_ion_m_J}) and (\ref{free_ion_g_J}), work extremely well for lanthanide ions.
+
+    \subsubsection{Spin Crossover Complex}
+    We are familiar with the idea that a coordination complex can be classified as being either high or low spin. However, there are possibilities that the difference in crystal field stabilisation energies between the two spin states are so small that it is comparable to the thermal energy at some achievable temperature.
+    
+    The most common combination of metal and ligand that gives rise to this situation is \(\mathrm{Fe\ (II)}\) with moderately strong \(\sigma\)-donor ligands (e.g. \(\mathrm{S}\) or \(\mathrm{N}\)-donors). In these materials the low spin state (with \(S=0\)) is always lower in energy (enthalpy) than the high spin state (with \(S=2\)). However, a spin state \(S\) has degeneracy \(2S+1\), leading to an associated molar entropy
+    \begin{equation}
+        S_S=R\ln(2S+1)\,,
+    \end{equation}
+    where we have assumed the orbital angular momentum to be completely quenched. For free ions or lanthanide complexes where the orbital angular momentum is significant, the corresponding entropy is
+    \begin{equation}
+        S_J=R\ln(2J+1)\,.
+    \end{equation}
+    As the temperature is raised the population of the energetically excited state increases (from zero) and the sample switches from being diamagnetic to paramagnetic.
+
+    For example, consider the octahedral \(\mathrm{Fe\ (II)}\) complex shown in \cref{Fig:crossover_structure} and the plot of \(\mu^2\) (or equivalently \(\chi T\), see later) against temperature is shown in \cref{Fig:crossover_plot}. The molecular orbital diagrams of the low spin and high spin states are shown below.
+
+    \begin{figure}[ht!]
+        \centering
+        \begin{tikzpicture}
+            \draw (-1.6,0)--(-0.8,0);
+            \draw (-0.4,0)--(0.4,0);
+            \draw (0.8,0)--(1.6,0);
+            \draw (-1,1.3)--(-0.2,1.3);
+            \draw (0.2,1.3)--(1,1.3);
+            \node at (-2.3,0) {\(t_{2g}\)};
+            \node at (-2.3,1.3) {\(e_{g}\)};
+            \foreach \i in {-1,0,1}{
+                \draw[arrows = {->[harpoon]},thick] (1.2*\i-0.06,-0.2)--(1.2*\i-0.06,0.4);
+            }
+            \foreach \i in {-1,0,1}{
+                \draw[arrows = {->[harpoon]},thick] (1.2*\i+0.06,0.4)--(1.2*\i+0.06,-0.2);
+            }
+
+            \node at (0,-1) {Low spin, \(S=0\)};
+            \node at (0,-1.6) {\(\mathrm{CFSE}=-\frac{12}{5}\Delta_o\)};
+
+            \begin{scope}[shift={(6,0)}]
+                \draw (-1.6,0)--(-0.8,0);
+                \draw (-0.4,0)--(0.4,0);
+                \draw (0.8,0)--(1.6,0);
+                \draw (-1,1.3)--(-0.2,1.3);
+                \draw (0.2,1.3)--(1,1.3);
+                \node at (-2.3,0) {\(t_{2g}\)};
+                \node at (-2.3,1.3) {\(e_{g}\)};
+                \foreach \i in {-1,0,1}{
+                    \draw[arrows = {->[harpoon]},thick] (1.2*\i-0.06,-0.2)--(1.2*\i-0.06,0.4);
+                }
+                \foreach \i in {-1}{
+                    \draw[arrows = {->[harpoon]},thick] (1.2*\i+0.06,0.4)--(1.2*\i+0.06,-0.2);
+                }
+                \foreach \i in {-1,0}{
+                    \draw[arrows = {->[harpoon]},thick] (1.2*\i+0.6-0.06,1.1)--(1.2*\i+0.6-0.06,1.7);
+                }
+
+                \node at (0,-1) {High spin, \(S=2\)};
+                \node at (0,-1.6) {\(\mathrm{CFSE}=-\frac{2}{5}\Delta_o\)};
+            \end{scope}
+        \end{tikzpicture}
+    \end{figure}
+
+    \begin{figure}[ht!]
+        \centering
+        \begin{tikzpicture}
+            \node at (0,0){
+                \chemleft[\chemfig{
+                    \charge{35:2.3pt=\scriptsize\(\mathrm{II}\)}{Fe}?[a]?[b]
+                    (-[:90,1.2]  N*6(-[:60](-[,0.85]N*5([:-55]-N?[a]=-=-))=-(-[,0.9](=[:150]S)-[:30]\chemabove{N}{H}-[:-30]R)=-(-[,0.85]N*5([:-125]-=-=N?[b]-))=))
+                    (-[:-90,1.35]@{c}N)
+                    (-[:-155,1.35]@{d}N)
+                    (-[:-25,1.35]@{e}N)
+                }\chemright]\qquad 2 \ \chemfig{\charge{30:3pt=\scriptsize\(\ominus\)}{X}}
+                \chemmove{\draw[-,shorten >=5mm,shorten >=1mm](c)..controls +(180:2mm) and +(-65:7mm)..(d);}
+                \chemmove{\draw[-,shorten >=5mm,shorten >=1mm](c)..controls +(0:2mm) and +(-115:7mm)..(e);}
+            };
+            \node at (2.1,2.3) {\(2\,\oplus\)};
+        \end{tikzpicture}
+        \caption{The structure of a spin crossover complex, where \(\mathrm{R}\) is \(\mathrm{Me}\) or \(\mathrm{H}\) and \(\mathrm{X^-}\) is \(\mathrm{BF_4^-}\) or \(\mathrm{ClO_4^-}\).}
+        \label{Fig:crossover_structure}
+    \end{figure}
+
+    \begin{figure}
+        \centering
+        \input{figures/spin_crossover.tex}
+        \caption{The \(\mu^2\) against \(T\) of a spin crossover complex. The blue and orange plots are for \(\mathrm{R=Me}\) and the green and red points are for \(\mathrm{R=H}\).}
+        \label{Fig:crossover_plot}
+    \end{figure}
+    
+    The low spin state in enthalpically favourable due to a higher \(\abs{\text{CFSE}}\). Assuming each pair of spin-parallel electrons contributes an exchange energy \(-K\), we can estimate the enthalpy change from low spin to high spin to be
+    \begin{align}
+        \Delta H_m&\approx\left[-\frac{2}{5}\Delta_o - \binom{5}{2}K\right]-\left[-\frac{12}{5}\Delta_o - 2\binom{3}{2}K\right]\notag\\
+        &=2\Delta_o-4K>0\,,
+    \end{align}
+    where \(\Delta_o\) is the octahedral crystal field splitting energy. The high spin state is entropically favoured,
+    \begin{equation}
+        \Delta S_m\approx R\ln S_{\text{HS}}-R\ln S_{\text{LS}}=R\ln 5>0\,,
+    \end{equation}
+    which allows us to estimate the spin crossover temperature
+    \begin{equation}
+        \Delta G_m = \Delta_r H_m - T_c \Delta S_m =0 \quad\implies \quad T_c = \frac{\Delta H_m}{\Delta S_m}\,.
+    \end{equation}
+
+    Note that the identity of the \(\mathrm{R}\) group has an effect on the crossover temperature. This is because we have neglected the volumetric contribution to the enthalpy, \(\Delta H_m=\Delta E_m+P\Delta V_m\). There is an associate size change when the spin state of the complex changes. Due to the different sizes of the \(\mathrm{R}\) groups, the packing densities of the complexes in solid states might be different, and hence the \(\Delta V_m\) might be different. This leads to a change in \(\Delta H_m\) and hence in crossover temperature \(T_c\).
+
+    \subsection{Magnetisation in Bulk Material}
+    The magnetic moment of a single ion is, however, difficult to measure since practically we always have a bulk material, and what we can measure is only the combined magnetic properties of the whole sample. Here, we will assume that the magnetic moments of different spin carriers are non-interacting, so the total magnetic moment of the sample, known as the \textit{magnetisation}, is just the vector sum of all the individual magnetic moments of each ions,
+    \begin{equation}
+        \vb{M}=\sum\vb{\mu}\,.
+    \end{equation}
+    We will look at this in two different perspectives --- a classical perspective and a quantum perspective; the latter is apparently more correct.
+    \subsubsection{The Classical View}
+    Now suppose we have an ensemble of non-interacting magnetic moments that are allowed to point in any direction in space, as shown in \cref{Fig:Classical_magnetisation}. When there are no external magnetic fields, \(\vb{H}=\vb{0}\), the magnetic moments have no preferred orientations so they are pointing in random directions. Therefore, their vector sum cancels out by symmetry and we have \(\vb{M}=\vb{0}\) as shown in (a). Now suppose we are applying a small magnetic field in some direction, say \(\vu{z}\), \(\vb{H}=H\vu{z}\). The magnetic moments interact with the field with energy \(E=-\vb{H}\vdot\vb{\mu}\), so they are preferred to align with the field. However, temperature will randomize the orientations of the magnetic moments since the randomized state has larger entropy than having all spins completely aligned with the field. As a result, we have a small resultant magnetisation along the applied field, \(\vb{M}=M\vu{z}\), as shown in (b). As we increase the field, there are larger preference for the spins to align with the field since the energy penalty of misalignment increases, and so the \(M\) increases, as shown in (c). This comes to a limit when all the spins are completely aligned with the field as in (d), and we reach a saturation magnetisation \(\vb{M}_{\text{sat}}=M_{\text{sat}}\vu{z}\).
+
+    \begin{figure}[ht!]
+        \centering
+        \begin{tikzpicture}
+            \foreach \i in {0,...,6}{
+                \draw[thin,color=gray!50] (0.7*\i,0)--(0.7*\i,4.2);
+                \draw[thin,color=gray!50] (0,0.7*\i)--(4.2,0.7*\i);
+            }
+            \foreach \i in {0,...,6}{
+                \foreach \j in {0,...,6}{
+                    \tikzmath{\x = rand*180;}
+                    \draw[thick] (0.7*\i,0.7*\j)--++(180+\x :0.2);
+                    \draw[->,thick] (0.7*\i,0.7*\j)--++(\x :0.2);
+                }
+            }
+            \node at (5.3,2.1)[blue]{\(\vb{M}=\vb{0}\)};
+            \node at (2.1,-1){(a) \(H=0\).};
+            \begin{scope}[shift={(7.5,0)}]
+                \foreach \i in {0,...,6}{
+                    \draw[thin,color=gray!50] (0.7*\i,0)--(0.7*\i,4.2);
+                    \draw[thin,color=gray!50] (0,0.7*\i)--(4.2,0.7*\i);
+                }
+                \foreach \i in {0,...,6}{
+                    \foreach \j in {0,...,6}{
+                        \tikzmath{\x = rand;
+                        \y = 70*\x + 110*\x*\x*\x + 90;}
+                        \draw[thick] (0.7*\i,0.7*\j)--++(180+\y :0.2);
+                        \draw[->,thick] (0.7*\i,0.7*\j)--++(\y :0.2);
+                    }
+                }
+                \draw[ultra thick, blue, ->] (5,1.6)--node[right]{\(\vb{M}\)}(5,2.6);
+                \node at (2.1,-1){(b) small \(H\).};
+            \end{scope}
+            \begin{scope}[shift={(0,-6.5)}]
+                \foreach \i in {0,...,6}{
+                    \draw[thin,color=gray!50] (0.7*\i,0)--(0.7*\i,4.2);
+                    \draw[thin,color=gray!50] (0,0.7*\i)--(4.2,0.7*\i);
+                }
+                \foreach \i in {0,...,6}{
+                    \foreach \j in {0,...,6}{
+                        \tikzmath{\x = rand;
+                        \y = 30*\x + 70*\x*\x*\x + 90;}
+                        \draw[thick] (0.7*\i,0.7*\j)--++(180+\y :0.2);
+                        \draw[->,thick] (0.7*\i,0.7*\j)--++(\y :0.2);
+                    }
+                }
+                \draw[ultra thick, blue, ->] (5,1.3)--node[right]{\(\vb{M}\)}(5,2.9);
+                \node at (2.1,-1){(c) large \(H\).};
+            \end{scope}
+            \begin{scope}[shift={(7.5,-6.5)}]
+                \foreach \i in {0,...,6}{
+                    \draw[thin,color=gray!50] (0.7*\i,0)--(0.7*\i,4.2);
+                    \draw[thin,color=gray!50] (0,0.7*\i)--(4.2,0.7*\i);
+                }
+                \foreach \i in {0,...,6}{
+                    \foreach \j in {0,...,6}{
+                        \draw[thick] (0.7*\i,0.7*\j)--++(-90 :0.2);
+                        \draw[->,thick] (0.7*\i,0.7*\j)--++(90 :0.2);
+                    }
+                }
+                \draw[ultra thick, blue, ->] (5,1.1)--node[right]{\(\vb{M}_{\text{sat}}\)}(5,3.1);
+                \node at (2.1,-1){(c) \(H\to\infty\).};
+            \end{scope}
+        \end{tikzpicture}
+        \caption{Non-interacting magnetic moments at finite temperatures with magnetic fields upward.}
+        \label{Fig:Classical_magnetisation}
+    \end{figure}
+
+    Since in a bulk material, each magnetic moment experiences an energy \(E=-\vb{\mu}\vdot\vb{H}=-\mu_z H\) in the magnetic field, and the magnetisation in other directions other that \(z\) cancels out so we have \(M=\sum \mu_z\), we can identify that\footnote{Technically, this should be Helmholtz (or Gibbs) free energy in \(NVT\) (\(NVP\)) ensembles.}
+    \begin{equation}
+        M=-\pdv{E}{H}\,.
+    \end{equation}
+    We further define the \textit{magnetic susceptibility}, \(\chi\), to be the ease that the magnetisation is generated by the magnetic field,
+    \begin{equation}
+        \chi\coloneqq \pdv{M}{H}=-\pdv[2]{E}{H}\,.
+    \end{equation}
+    By the crude analysis above, we can have the rough idea that the magnetic susceptibility is large near \(H=0\), while it decreases to \(0\) when \(H\) is very large, since then the magnetisation will reach a saturation and further increasing \(H\) will not increase \(M\) any more.
+    
+    \subsubsection{The Quantum View}
+    Now let's proceed to the quantum mechanical view of magnetisation. Now when we impose a magnetic field of strength \(H\) along \(\vu{z}\) direction, what it does to a quantum mechanical spin is that it creates a preferred direction, or axis of quantisation. We can therefore observe the component of spins along this direction. For a particle of spin \(S\), its spin angular momentum along \(z\) direction spin governed by the spin magnetic quantum number, \(M_S\), taking values \(-S, -S+1, \dots, S\). There are in total \(2S+1\) of them. The spin angular momentum along this direction is \(S_z=\hbar M_S\). Since the field strength is \(H\), each of these levels have different energies
+    \begin{equation}
+        E=-\vb{\mu}\vdot\vb{H}=g\mu_{\text{B}} M_S H\,.
+    \end{equation}
+    The negative sign disappears because recall that the gyromagnetic ratio of electron is negative so the direction of spin is opposite to that of the magnetic moment. The magnetic field breaks the degeneracies of different \(M_S\) levels, and the energy gap between levels are proportional to \(H\).
+
+    \begin{figure}
+        \centering
+        \begin{tikzpicture}
+            \draw[->] (0,0)--(5,0)node[below]{\(H\)};
+            \draw[->] (0,0)--(0,5)node[left]{\(E\)};
+            \foreach \i in {-2,...,2}{
+                \draw(0,2.5)--(5,2.5+\i);
+                \draw (-1.1,2.5+0.05*\i)--(-0.1,2.5+0.05*\i);
+                \draw (5.1,2.5+\i)--(6.1,2.5+\i)node[right]{\(\i\)};
+            }
+            \node at (6.1,5.3)[right]{\(M_S\)};
+            \draw[<->](5.3,0.55)--node[right]{\small\(\Delta E=g\mu_{\text{B}}H\)}(5.3,1.45);
+            \draw[thick,->] (7.5,0.5)--node[right]{\(k_B T\)}(7.5,1.8);
+            \foreach \i in {-2,...,2}{
+                \fill[red] (5.6+0.2*\i,0.5) circle (0.05);
+            }
+            \foreach \i in {-1,...,1}{
+                \fill[red] (5.6+0.3*\i,1.5) circle (0.05);
+            }
+            \fill[red] (5.6,2.5) circle (0.05);
+        \end{tikzpicture}
+        \caption{External magnetic field results in the splitting of the \(M_S\) levels. The occupation of the \(M_S\) levels in the canonical ensemble follows the Boltzmann distribution.}
+    \end{figure}
+
+    The population of different \(M_S\) levels follows the Boltzmann distribution. When \(\Delta E=g\mu_{\text{B}} H\gg k_B T\), i.e. the magnetic field is large or the temperature is small, the spins will populate the lowest \(M_S\) state only. Therefore, the magnetic moments are maximally aligned with the field and we have a maximum \(\vb{M}=\vb{M}_{\text{sat}}\). If we decrease the field strength or increase the temperature, the thermal energy will be enough to promote the spins to higher \(M_S\) values, until when \(\Delta E=g\mu_{\text{B}} H\ll k_B T\), all \(M_S\) states are equally occupied, and the magnetic moments cancels so we get \(\vb{M}=\vb{0}\).
+
+    \subsubsection{The Brillouin Function}
+    We can be more quantitative. The canonical thermal average of the \(M_S\) value is
+    \begin{align}
+        \eval{M_S}&=\frac{\sum_{M_S=-S}^{S} M_S \ee^{-\beta E(M_S)}}{\sum_{M_S=-S}^{S} \ee^{-\beta E(M_S)}}\notag \\
+        &=\frac{\sum_{M_S=-S}^{S} M_S \ee^{-\beta g\mu_{\text{B}} M_S H}}{\sum_{M_S=-S}^{S} \ee^{-\beta g\mu_{\text{B}} M_S H}}\,,
+    \end{align}
+    where \(\beta=1/k_B T\) is the thermodynamic inverse temperature. Denoting \(\beta g\mu_{\text{B}} H\) as \(\lambda\), this is
+    \begin{align}
+        \eval{M_S}&=\frac{\sum_{M_S=-S}^{S} M_S \ee^{-\lambda M_S}}{\sum_{M_S=-S}^{S} \ee^{-\lambda M_S}}\notag \\
+        &=\frac{-\pdv{}{\lambda}\sum_{M_S=-S}^{S} \ee^{-\lambda M_S}}{\sum_{M_S=-S}^{S} \ee^{-\lambda M_S}}\notag \\
+        &=-\pdv{}{\lambda}\ln Z(\lambda)\,,
+    \end{align}
+    where \(Z(\lambda)=\sum_{M_S}\ee^{-\lambda M_S}\) is the partition function. This partition function is a geometric series, evaluated to
+    \begin{equation}
+        Z(\lambda)=\frac{\sinh(\frac{(2S+1)\lambda}{2})}{\sinh(\frac{\lambda}{2})}\,,
+    \end{equation}
+    and finally this gives
+    \begin{equation}
+        \eval{M_S}=-\left[\frac{2S+1}{2}\coth\left(\frac{(2S+1)}{2}\lambda\right)-\frac{1}{2}\coth\left(\frac{\lambda}{2}\right)\right]\,.
+    \end{equation}
+    It's common to define the \textit{Brillouin function}
+    \begin{equation}
+        B_S(x)=\frac{2S+1}{2S}\coth\left(\frac{(2S+1)}{2S}x\right)-\frac{1}{2}\coth\left(\frac{x}{2S}\right)\,.
+    \end{equation}
+    This allows us to compactly write
+    \begin{equation}
+        \eval{M_S}=-SB_S(\lambda S)=-SB_S(\beta g\mu_{\text{B}}S H)\,.
+    \end{equation}
+    The molar magnetisation is therefore
+    \begin{align}
+        M(H, T) &= -N_A g \mu_{\text{B}}\eval{M_S}=N_A g \mu_{\text{B}} S B_S(\beta g\mu_{\text{B}}S H)\notag \\
+        &=N_A g \mu_{\text{B}} S B_S\left(\frac{g\mu_{\text{B}}S}{k_B} \frac{H}{T}\right)\,.
+    \end{align}
+    where \(N_A\) is the Avogadro's constant.
+
+    The magnetisation \(M\) is a function of \(\frac{H}{T}\) only, but the functional form in pretty complex. Their plots are shown in \cref{Fig:Brillouin_func}. These plots are, however, easy to interpret. As \(H/T\) increases, the molar magnetisation monotonically increases until it reaches the saturation value \(N_A g \mu_{\text{B}} S\), or \(2S\) molar Bohr magnetons taking \(g=2\). This gives us a way of measuring the spin in bulk magnetic materials.
+
+    \begin{figure}
+        \centering
+        \input{figures/Brillouin_spin.tex}
+        \caption{The magnetisation per mole of non-interacting spins against \(H/T\), taking \(g=2\).}
+        \label{Fig:Brillouin_func}
+    \end{figure}
+
+    This high \(H/T\) limit is, however, difficult to reach since we either need a really strong magnet or a temperature close to absolute zero --- both are experimentally inaccessible. We will go to this regime in experiments only if we really need to. Instead, we are more interested in the \(H/T\to 0\) limit, since a small magnetic field and room temperature are trivially achievable.
+
+    \subsubsection{The Curie's Law}
+    If you look carefully, you can see that the \(H(\frac{H}{T})\) graph is approximately linear in the \(\frac{H}{T}\to 0\) limit, which means a constant magnetic susceptibility. The full expression of \(\chi(H, T)=\pdv{M}{H}\) needs a tough differentiation of the Brillouin function, and its full expression is meaningless to us. Instead, to look at the \(\frac{H}{T}\to 0\) limit, we only need to perform a Taylor expansion in \(\frac{H}{T}\). For small \(x\), we have \(\coth x\sim\frac{1}{x}+\frac{1}{3}x\), and substituting into the expression of \(M\), we have
+    \begin{equation}
+        M(H, T)=\frac{N_A g^2 \mu_{\text{B}}^2 H S(S+1)}{3k_B T}\,.
+    \end{equation}
+    This means that for small \(H/T\), the magnetic susceptibility is
+    \begin{equation}
+        \chi=\frac{M}{H}=\frac{N_A g^2 \mu_{\text{B}}^2 S(S+1)}{3k_B T}\,.
+    \end{equation}
+    This is independent of \(H\) (as long as \(H\) is small) and inversely proportional to \(T\). We can write this as
+    \begin{equation}
+        \chi=\frac{C}{T}\,,
+    \end{equation}
+    which is known as \textit{Curie's law}, named after Pierre Curie (not Marie Curie), where
+    \begin{equation}
+        C=\frac{N_A g^2 \mu_{\text{B}}^2 S(S+1)}{3 k_B}
+    \end{equation}
+    is \textit{Curie's constant}. This law holds when
+    \begin{itemize}
+        \item the ground term is well isolated from any excited terms, so only the \(2S+1\) different \(M_S\) states from the same \(S\) state are populated at the temperature considered;
+        \item there are no interactions between spins.
+    \end{itemize}
+
+    Note that we have \(\chi T=C\propto S(S+1)\), and we also have \(\mu^2\propto S(S+1)\), so it is actually the macroscopic quantity \(\chi T\) that is actually measured in experiments, not the microscopic \(\mu^2\). Therefore, in figures like \cref{Fig:crossover_plot}, the proper \(y\)-axis label should actually be \(\chi T\), not \(\mu^2\).
+
+    \subsubsection*{A Note on Units}
+    Whilst much of the scientific world has moved to SI units, magnetochemists have continued to work with the cgs (centimetre-gram-second) units. There is good reason to do this since it simplifies the calculations considerably.
+
+    Before we proceed, let's make clear of two easily confused quantities, the magnetic flux density (or magnetic induction) \(\vb{B}\) and the magnetic field strength \(\vb{H}\). What we've discussed above is the magnetic field strength \(\vb{H}\), which measures the external magnetic field generated by free currents, not counting materials' response. However, when a external field is applied to a media, the media respond to the external field and generates a magnetisation \(\vb{M}\). This magnetisation also generates magnetic fields that can be experienced by other particles in the media, such as a moving charge or other magnetic moments. The total effect is the magnetic flux density
+    \begin{equation}
+        \vb{B}=\mu_0(\vb{H}+\vb{M})\,,
+    \end{equation}
+    where in SI units, the vacuum magnetic permeability \(\mu_0=4\pi\times 10^{-7}\unit{N}\unit{A}^{-2}\). The SI unit of \(\vb{B}\) is Tesla (\(\mathrm{T}=\mathrm{kg\ s^{-2}\ A^{-2}}\)) and the unit of \(\vb{H}\) is \(\mathrm{A\ m^{-1}}\). Therefore in vacuum, we have an annoying scaling between \(\vb{B}\) and \(\vb{H}\):
+    \begin{equation}
+        \vb{B}=\mu_0\vb{H}\,.
+    \end{equation}
+
+    In the cgs unit, however, we take a different convention to put this extra \(4\pi\) factor in front of \(\vb{H}\) to somewhere in the Maxwell's equations (which doesn't affect us since we don't bother solving Maxwell's equations) so that now we have
+    \begin{equation}
+        \vb{B}_{\text{cgs}}=\vb{H}_{\text{cgs}}+4\pi\vb{M}_{\text{cgs}}\,,
+    \end{equation}
+    and in vacuum, we have
+    \begin{equation}
+        \vb{B}_{\text{cgs}}=\vb{H}_{\text{cgs}}
+    \end{equation}
+    so the magnetic field and magnetic flux density now becomes the same. The cgs unit of \(\vb{B}\) is Gauss (\(\mathrm{G}\)), with \(1\unit{T}=10,000\unit{G}\), and the unit of \(\vb{H}\) is Oersted (\(\mathrm{Oe}\)), so a magnetic field of \(1\unit{Oe}\) produces a magnetic flux density \(1\unit{G}\) in vacuum. The down side is that people often forget which is the correct unit of which, and tend to use them interchangeably.
+
+    Two additional units in the cgs system are the energy \(1\unit{erg}=10^{-7}\unit{J}\) and the \textit{electromagnetic unit} for magnetic moments \(1\unit{emu}\equiv 1\unit{erg}\unit{G}^{-1}=10^{-3}\unit{J}\unit{T}^{-1}\). One mole of Bohr magnetons is \(N_A\mu_{\text{B}}=5,585\unit{emu}\unit{mol}^{-1}\) in cgs units, and the saturation magnetisation is
+    \begin{equation}
+        M_{\text{sat}}=g S N_A\mu_{\text{B}}\approx 5,585gS\unit{emu}\unit{mol}^{-1}\,.
+    \end{equation}
+    The combination of constants \(N_A \mu_{\text{B}}^2/3k_B=0.12504\) is coincidentally very close to \(\frac{1}{8}\), which allows us to approximate the Curie's constant as
+    \begin{equation}
+        C=\frac{N_A \mu_{\text{B}}^2}{3k_B}\approx \frac{1}{8}g^2 S(S+1)\,.
+    \end{equation}
+    If we take \(g\approx 2\), this gives us the handy formula
+    \begin{equation}
+        C\approx\frac{1}{2}S(S+1)\,.
+    \end{equation}
+
+    \subsubsection{Deviation from Curie Behaviour}
+    In many compounds, the magnetic susceptibility does not obey the Curie law, but instead obey a modified version
+    \begin{equation}
+        \chi=\frac{C}{T-\Theta}
+    \end{equation}
+    known as the \textit{Curie--Weiss} law for some parameter \(\Theta\) known as the \textit{Weiss constant}. This deviation from the pure Curie law can arise from a series of phenomena, including the presence of thermally accessible excited states of a single ion or some form of interaction between spin centres on neighbouring molecules. We will look at mechanisms through which they can interact later, and we will have a glimpse of how this equation arise when we introduce the Ising model. What is important is that, in both situations, there is no longer a single energy level, so our above derivation for Curie law fails.
+
+    Suppose we have two spins, quantised along some direction in the magnetic field. There are two possibilities of their relative alignments: they are either be parallel or antiparallel. If the spins are parallel, then they are said to be in \textit{ferromagnetic alignment}, and if they are antiparallel, they are in \textit{antiferromagnetic alignment}.
+
+    If the interaction between the two spins have an effect such that the ferromagnetic (parallel) alignment is lowered in energy than having two isolated spins and the antiferromagnetic (antiparallel) spin is raised in energy, then the two spins are said to have a \textit{ferromagnetic interaction}. This types of interaction will encourage the alignment of spins with each other, and hence all of them tends to align with the field, leading to an increased magnetic susceptibility. This will lead to a positive \(\Theta\).
+
+    On the other hand, if the interaction between spins has an effect to encourage antiferromagnetic alignment, then this is known as an antiferromagnetic interaction, which leads to a negative \(\Theta\).
+
+    A plot of \(\chi\), \(\chi^{-1}\) and \(\chi T\) against \(T\) are shown in \cref{Fig:Curie_Weiss}. In the \(\chi^{-1}\)-\(T\) graph, it is easy to read off the value of \(\Theta\) by the \(x\) intercept, while in the \(\chi T\)-\(T\) graph, we have \(\chi T\to T\) as \(T\to\infty\) independent of \(\Theta\), which helps us to determine the spin \(S\) (or \(g\) value) of the molecule of interest.
+
+    \begin{figure}
+        \centering
+        \begin{tikzpicture}
+            \draw[->] (0,0)--node[below=5mm]{\footnotesize\(T/\mathrm{K}\)}(3.5,0);
+            \draw[->] (0,0)--(0,3.5);
+            \node[rotate=90] at (-1.05,1.75){\footnotesize\(\chi/\mathrm{emu\ mol^{-1}}\)};
+            \foreach \i in {0,50,...,250}{
+                \draw (0.012*\i, 0)--(0.012*\i, -0.05)node[below]{\footnotesize\(\i\)};
+            }
+            \foreach \i in {0,0.02,0.04}{
+                \draw (0,80*\i)--(-0.05,80*\i)node[left]{\footnotesize\(\i\)};
+            }
+            \draw[thick,domain=10:270, smooth, variable=\x,samples=100] plot ({0.012*\x}, {80*0.375/\x});
+            \draw[thick,domain=30:270, smooth, variable=\x,samples=100,red] plot ({0.012*\x}, {80*0.375/(\x-20)});
+            \draw[thick,domain=0:270, smooth, variable=\x,samples=100,blue] plot ({0.012*\x}, {80*0.375/(\x+20)});
+
+            \begin{scope}[shift={(5,0)}]
+                \draw[->] (0,0)--node[below=5mm]{\footnotesize\(T/\mathrm{K}\)}(3.5,0);
+                \draw[->] (0,0)--(0,3.5);
+                \node[rotate=90] at (-1.05,1.75){\footnotesize\(\chi^{-1}/\mathrm{mol\ emu^{-1}}\)};
+                \foreach \i in {0,50,...,250}{
+                    \draw (0.012*\i, 0)--(0.012*\i, -0.05)node[below]{\footnotesize\(\i\)};
+                }
+                \foreach \i in {0,400,800}{
+                    \draw (0,0.004*\i)--(-0.05,0.004*\i)node[left]{\footnotesize\(\i\)};
+                }
+                \draw[thick,domain=0:270, smooth, variable=\x,samples=100] plot ({0.012*\x}, {0.004*\x/0.375});
+                \draw[thick,domain=20:290, smooth, variable=\x,samples=100,red] plot ({0.012*\x}, {0.004*(\x-20)/0.375});
+                \draw[thick,domain=0:250, smooth, variable=\x,samples=100,blue] plot ({0.012*\x}, {0.004*(\x+20)/0.375});
+            \end{scope}
+            \begin{scope}[shift={(10,0)}]
+                \draw[->] (0,0)--node[below=5mm]{\footnotesize\(T/\mathrm{K}\)}(3.5,0);
+                \draw[->] (0,0)--(0,3.5);
+                \node[rotate=90] at (-1.05,1.75){\footnotesize\(\chi T/\mathrm{emu\ K\ mol^{-1}}\)};
+                \foreach \i in {0,50,...,250}{
+                    \draw (0.012*\i, 0)--(0.012*\i, -0.05)node[below]{\footnotesize\(\i\)};
+                }
+                \foreach \i in {0,1,2}{
+                    \draw (0,1.5*\i)--(-0.05,1.5*\i)node[left]{\footnotesize\(\i\)};
+                }
+                \draw[thick,domain=0:270, smooth, variable=\x,samples=100] plot ({0.012*\x}, {1.5*0.375});
+                \draw[thick,domain=24:270, smooth, variable=\x,samples=100,red] plot ({0.012*\x}, {1.5*0.375*\x/(\x-20)});
+                \draw[thick,domain=0:270, smooth, variable=\x,samples=100,blue] plot ({0.012*\x}, {1.5*0.375*\x/(\x+20)});
+            \end{scope}
+        \end{tikzpicture}
+        \caption{Plot of \(\chi\), \(\chi^{-1}\) and \(\chi T\) against \(T\) for spins with \(S=\frac{1}{2}\), \(g=2\) and \(\Theta=0\unit{K}\) (black), \(\Theta=-20\unit{K}\) (antiferromagnetic, blue) and \(\Theta=+20\unit{K}\) (ferromagnetic, red).}
+        \label{Fig:Curie_Weiss}
+    \end{figure}
+
+    If the ferromagnetic/antiferromagnetic interactions are too strong, then the system's behaviour will deviate from the Curie--Weiss law again. In such cases, we can still fit the Curie--Weiss law to the high temperature regime, and hence we usually linearly extrapolate the high temperature data and obtain a \(x\)-intercept to determine a suitable value of \(\Theta\).
+    
+    \newpage
+    \section{Magnetism in Polynuclear Species}
+    In this section, we will examine what happens when paramagnetic ions come into close proximity and the interactions between them becomes significant.
+
+    \subsection{Interactions between Two Spins}
+    As we mentioned before, two spins have two possible alignments --- ferromagnetic and antiferromagnetic alignments, and depending on the interactions between them, either of them may be lower in energy.
+    
+    \begin{figure}[ht!]
+        \centering
+        \begin{tikzpicture}
+            \draw(0,0)--(1,0)node[right]{\(F\)};
+            \draw(0,2.5)--(1,2.5)node[right]{\(AF\)};
+            \draw[<->] (0.5,0.1)--node[right]{\(\abs{2J}\)}(0.5,2.4);
+            \draw[->] (-0.5,-0.3)--(-0.5,0.3);
+            \draw[->] (-0.3,-0.3)--(-0.3,0.3);
+            \draw[->] (-0.5,2.2)--(-0.5,2.8);
+            \draw[<-] (-0.3,2.2)--(-0.3,2.8);
+            \draw (-1.8,1.25)--(-0.8,1.25);
+            \draw (1.8,1.25)--(2.8,1.25);
+            \node at (0.5,-1) {(i) Ferromagnetic interaction, \(J>0\).};
+
+            \begin{scope}[shift={(7,0)}]
+                \draw(0,0)--(1,0)node[right]{\(AF\)};
+                \draw(0,2.5)--(1,2.5)node[right]{\(F\)};
+                \draw[<->] (0.5,0.1)--node[right]{\(\abs{2J}\)}(0.5,2.4);
+                \draw[->] (-0.5,-0.3)--(-0.5,0.3);
+                \draw[<-] (-0.3,-0.3)--(-0.3,0.3);
+                \draw[->] (-0.5,2.2)--(-0.5,2.8);
+                \draw[->] (-0.3,2.2)--(-0.3,2.8);
+                \draw (-1.8,1.25)--(-0.8,1.25);
+                \draw (1.8,1.25)--(2.8,1.25);
+                \node at (0.5,-1) {(ii) Antiferromagnetic interaction, \(J<0\).};
+            \end{scope}
+        \end{tikzpicture}
+    \end{figure}
+    
+    We define the energy difference between the antiferromagnetic alignment and the ferromagnetic alignment states to be \(2J\),
+    \begin{equation}
+        2J = E_{\text{AF}}-E_{\text{F}}\,.
+    \end{equation}
+    Then ferromagnetic interaction has \(J>0\) while antiferromagnetic interaction has \(J<0\).
+
+    We've established that the main source of magnetism in ions comes from unpaired electrons, and hence the atomic orbitals with unpaired electrons are called \textit{magnetic orbitals}. How these magnetic orbitals interact determines whether the magnetic moments are coupled in a ferromagnetic or an antiferromagnetic way.
+
+    \subsubsection{Heitler--London Model (Non-examinable)}
+    The following discussion assumes familiarity of the contents in Part II A4: \textit{Theoretical Techniques}.
+
+    Suppose we have two localised magnetic orbitals on two neighbouring ions, \(\phi_a(\vb{r})\) and \(\phi_b(\vb{r})\), each with an unpaired electron. Now we bring the two ions into proximity, so the electrons interact with the total Hamiltonian
+    \begin{equation}
+        \hat{H}=\hat{h}(1)+\hat{h}(2)+\frac{1}{r_{12}}
+    \end{equation}
+    in atomic units, where \(\hat{h}\) is the one-electron Hamiltonian. The Heitler--London model assumes the singlet (spin-antiparallel) and triplet (spin-parallel) states of the combined system to have spatial wavefunction
+    \begin{align}
+        \Phi_S & = \frac{\phi_a(1)\phi_b(2)+\phi_b(1)\phi_a(2)}{\sqrt{2(1+S^2)}} \\
+        \Phi_T & = \frac{\phi_a(1)\phi_b(2)-\phi_b(1)\phi_a(2)}{\sqrt{2(1-S^2)}}\,,
+    \end{align}
+    combined with the triplet and singlet spin wavefunctions, respectively. Through some tedious algebra, the energies of the two states can be found to be
+    \begin{align}
+        E_S &= \expval{\hat{H}}{\Phi_S}=\frac{h_{aa}+2Sh_{ab}+h_{bb}+J+K}{1+S^2} \\
+        E_T &= \expval{\hat{H}}{\Phi_T}=\frac{h_{aa}-2Sh_{ab}+h_{bb}+J-K}{1-S^2} \,,
+    \end{align}
+    where \(J\) is the coulomb integral and \(K\) is the exchange integral. The energy difference between the two states, expanded to order \(S^2\), is
+    \begin{equation}
+        E_S - E_T \approx 2K + 4Sh_{ab}\,.
+    \end{equation}
+    The resonance integral \(h_{ab}\) is negative, so it is common to define the \textit{hopping integral} \(t=-h_{ab}\) so that \(t\) is positive. We can recognise that the spin-antiparallel singlet state is exactly the antiferromagnetic state, and the spin-parallel triplet state is the ferromagnetic state, so we have
+    \begin{equation}
+        E_{\text{AF}}-E_{\text{F}}\approx2K-4St\,.
+    \end{equation}
+    It is conventional to write the spin coupling Hamiltonian to be \(\hat{H}=-2J\hat{\vb{S}}_1\vdot\hat{\vb{S}}_2\), and so this energy gap is \(2J\). Therefore we have
+    \begin{equation}
+        2J=2K-4St\,.
+    \end{equation}
+    Now both \(2K\) and \(4St\) are positive. The \(2K\) term comes from the exchange interaction between parallel spins, so when this term dominates, the system favours ferromagnetic alignment. This is sometimes known as the \textit{potential exchange term}. The \(4St\) terms arises from the electrons' ability to ``hop'' between atoms, which is only allowed if the electrons carry opposite spin (by Pauli exclusion principle). This leads to a reduction of the electrons' kinetic energy, and hence the system favours antiferromagnetic alignment if this term dominates. This is known as the \textit{kinetic exchange term}.
+
+    \subsection{Direct Exchange}
+    The above formula
+    \begin{equation}
+        2J=2K-4St
+    \end{equation}
+    applies when the two magnetic orbitals are close to each other so that both the exchange integral \(K\) and overlap integral \(S\) are non-negligible. This often requires the two ions to be \(\sim 4\ \text{\AA}\) apart or closer. This kind of interaction between unpaired spins by direct exchange interactions or electron hopping is known as \textit{direct exchange}.
+
+    However, the metal ions in clusters are rarely close enough for these interactions to be significant, but still, communications between the spins are still clearly detected in many compounds. This suggests that there might be some indirect processes dominating the spin interactions in these species.
+
+    \subsection{Superexchange}
+    Superexchange is an indirect second order effect. It describes how two magnetic atoms that are far apart couple their spins through a non-magnetic atom, such as the ligand, that sits between them.
+    
+    Inheriting the nomenclature of the direct exchange, if a superexchange favours an antiferromagnetic state, then this is known as a kinetic superexchange, while if the ferromagnetic state is favoured, it is a potential superexchange. These are best illustrated with a few examples.
+
+    \subsubsection{Potential Superexchange}
+    Potential superexchange stabilises the ferromagnetic ground state through mutually orthogonal orbitals in the exchange pathway. This is comparatively rare, but can be achieved in several ways. The most common example is a pair of \(90^\circ\) orthogonal orbitals in \(\mathrm{M-X-M}\), where \(\mathrm{X}\) is a ligand.
+
+    \begin{ex}
+        \textit{\(\mathrm{M}(e_g)-\mathrm{O}-\mathrm{M}(e_g)\) in \(\mathrm{[Cu(OH)_2Cu]^{2+}}\) dimer.}
+
+        The two metal centres in the dimer are far apart, with little orbital overlap, so direct exchange is not possible.
+        \begin{figure}[ht!]
+            \centering
+            \begin{tikzpicture}
+                \orbital[pos = {(-1.1,0)}, pcolor=white]{dyz};
+                \orbital[pos = {(1.1,0)}, pcolor=white]{dyz};
+                \node at (0,0){
+                    \chemfig{[:45,2.2]O*4(--O--)}
+                };
+                \draw[thick,->] (-2.2,-0.3)--(-2.2,0.3);
+                \draw[thick,->] (2.2,-0.3)--(2.2,0.3);
+            \end{tikzpicture}
+        \end{figure}
+
+        The bonding between metal and ligand is not purely ionic (crystal field approach), but instead has a significant covalent contribution. Thus the magnetic orbital on a metal may have some ligand character. Thus the ligand bears some spin density from both metals centres and acts as a mediator for communication between the spins formally located on metals the two centres.
+
+        \begin{figure}[ht!]
+            \centering
+            \begin{tikzpicture}
+                \orbital[pos = {(-1.1,0)}, pcolor=red!20, ncolor=red!20!black!40]{dyz};
+                \orbital[pos = {(1.1,0)}, pcolor=blue!20, ncolor=blue!20!black!40]{dyz};
+                \node[rotate=225] at (0,1.1){\tikz{\orbital[pos = {(0,0)}, pcolor=red!40, ncolor=red!40!black!50]{py};}};
+                \node[rotate=135] at (0,1.1){\tikz{\orbital[pos = {(0,0)}, pcolor=blue!40, ncolor=blue!40!black!50]{py};}};
+                \node at (0,0){
+                    \chemfig{[:45,2.2]*4(----)}
+                };
+                \draw[arrows = {->[harpoon]},thick,red] (-2.3,0.3)--(-2.3,-0.3);
+                \draw[arrows = {->[harpoon]},thick,blue] (2.42,0.3)--(2.42,-0.3);
+                \draw[arrows = {->[harpoon]},thick,red] (-1.3,1.3)--(-1.3,1.9);
+                \draw[arrows = {->[harpoon]},thick,red] (-1.18,1.9)--(-1.18,1.3);
+                \draw[arrows = {->[harpoon]},thick,blue] (1.3,1.9)--(1.3,1.3);
+                \draw[arrows = {->[harpoon]},thick,blue] (1.18,1.3)--(1.18,1.9);
+
+                \draw[thick,->] (3.5,0.5)to[bend left=15] node[above,align=center]{\small electron \\ \small transfer} (6,0.5);
+
+                \begin{scope}[shift={(9.5,0)}]
+                    \orbital[pos = {(-1.1,0)}, pcolor=red!20, ncolor=red!20!black!40]{dyz};
+                    \orbital[pos = {(1.1,0)}, pcolor=blue!20, ncolor=blue!20!black!40]{dyz};
+                    \node[rotate=225] at (0,1.1){\tikz{\orbital[pos = {(0,0)}, pcolor=red!40, ncolor=red!40!black!50]{py};}};
+                    \node[rotate=135] at (0,1.1){\tikz{\orbital[pos = {(0,0)}, pcolor=blue!40, ncolor=blue!40!black!50]{py};}};
+                    \node at (0,0){
+                        \chemfig{[:45,2.2]*4(----)}
+                    };
+                    \draw[arrows = {->[harpoon]},thick,red] (-2.3,0.3)--(-2.3,-0.3);
+                    \draw[arrows = {->[harpoon]},thick,blue] (2.42,0.3)--(2.42,-0.3);
+                    \draw[arrows = {->[harpoon]},thick,red] (-2.42,-0.3)--(-2.42,0.3);
+                    \draw[arrows = {->[harpoon]},thick,red] (-1.18,1.9)--(-1.18,1.3);
+                    \draw[arrows = {->[harpoon]},thick,blue] (1.3,1.9)--(1.3,1.3);
+                    \draw[arrows = {->[harpoon]},thick,blue] (2.3,-0.3)--(2.3,0.3);
+                \end{scope}
+            \end{tikzpicture}
+        \end{figure}
+
+        
+    \end{ex}
+
+
+    
+
+    
+
+    
+    
+
+
+
+    \newpage
+    \part*{Appendices}
+    \addcontentsline{toc}{part}{\protect\numberline{}Appendices}
+    \appendix
+\end{document}
