@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.21)  8 SEP 2025 19:20
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.21)  4 NOV 2025 09:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -738,19 +738,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 91--92
 [1
 
 ] (./path_integral.toc
-LaTeX Font Info:    Trying to load font information for U+msa on input line 2.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 4.
  (c:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 2.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 4.
  (c:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+esint on input line 2.
+LaTeX Font Info:    Trying to load font information for U+esint on input line 4.
  (c:/texlive/2025/texmf-dist/tex/latex/esint/uesint.fd
 File: uesint.fd 
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 2.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 4.
  (c:/texlive/2025/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 ))
@@ -760,49 +760,47 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 
 
 [2]
+Package hyperref Info: bookmark level for unknown lem defaults to 0 on input line 144.
+
 
 [1]
-Package hyperref Info: bookmark level for unknown lem defaults to 0 on input line 155.
-
 
 [2]
 
 [3]
 
 [4]
+Package hyperref Info: bookmark level for unknown prop defaults to 0 on input line 289.
+Package hyperref Info: bookmark level for unknown proof defaults to 0 on input line 295.
+
 
 [5]
-Package hyperref Info: bookmark level for unknown prop defaults to 0 on input line 300.
-Package hyperref Info: bookmark level for unknown proof defaults to 0 on input line 306.
-
 
 [6]
 
 [7]
 
 [8]
-
-[9]
 \tf@thm=\write6
 \openout6 = `path_integral.thm'.
 
 
 
-[10] (./path_integral.aux)
+[9] (./path_integral.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `path_integral.out' has not changed.
-(rerunfilecheck)             Checksum: 2760F073D3A4CB5DADA15A023F3B4578;1798.
+(rerunfilecheck)             Checksum: 76EEA0E38BFD509EBF3387DC80DA77EB;1197.
  ) 
 Here is how much of TeX's memory you used:
- 34746 strings out of 473832
- 797510 string characters out of 5733158
- 1293629 words of memory out of 5000000
- 57263 multiletter control sequences out of 15000+600000
+ 34745 strings out of 473832
+ 797499 string characters out of 5733158
+ 1293623 words of memory out of 5000000
+ 57262 multiletter control sequences out of 15000+600000
  565318 words of font info for 78 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  99i,17n,105p,735b,479s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on path_integral.pdf (12 pages).
+Output written on path_integral.pdf (11 pages).
