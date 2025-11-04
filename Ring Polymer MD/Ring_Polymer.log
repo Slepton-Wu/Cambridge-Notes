@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.21)  13 OCT 2025 16:43
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.21)  4 NOV 2025 12:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -760,8 +760,7 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 
 
 [2]
-Package hyperref Info: bookmark level for unknown clm defaults to 0 on input line 119.
-Package hyperref Info: bookmark level for unknown lem defaults to 0 on input line 127.
+Package hyperref Info: bookmark level for unknown lem defaults to 0 on input line 144.
 
 
 [1]
@@ -771,7 +770,7 @@ Package hyperref Info: bookmark level for unknown lem defaults to 0 on input lin
 [3]
 
 [4]
-Overfull \hbox (33.67334pt too wide) detected at line 293
+Overfull \hbox (24.2098pt too wide) detected at line 281
 []
  []
 
@@ -790,20 +789,17 @@ Overfull \hbox (33.67334pt too wide) detected at line 293
 [10]
 
 [11]
-Package hyperref Info: bookmark level for unknown defn defaults to 0 on input line 577.
+Package hyperref Info: bookmark level for unknown defn defaults to 0 on input line 545.
 
 
 [12]
 
 [13]
-Package hyperref Info: bookmark level for unknown proof defaults to 0 on input line 673.
+Package hyperref Info: bookmark level for unknown clm defaults to 0 on input line 653.
+Package hyperref Info: bookmark level for unknown proof defaults to 0 on input line 659.
 
 
 [14]
-Overfull \hbox (1.40225pt too wide) detected at line 705
-[]
- []
-
 \tf@thm=\write6
 \openout6 = `Ring_Polymer.thm'.
 
@@ -815,13 +811,13 @@ LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `Ring_Polymer.out' has not changed.
-(rerunfilecheck)             Checksum: 737644ED761C17FEC348758F39BBB56A;2213.
+(rerunfilecheck)             Checksum: 6E1799473ADF43B2F8906FFF444F9712;2186.
  ) 
 Here is how much of TeX's memory you used:
- 35351 strings out of 473832
- 813412 string characters out of 5733158
- 1393509 words of memory out of 5000000
- 57857 multiletter control sequences out of 15000+600000
+ 35350 strings out of 473832
+ 813405 string characters out of 5733158
+ 1394487 words of memory out of 5000000
+ 57856 multiletter control sequences out of 15000+600000
  567065 words of font info for 85 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  99i,18n,105p,734b,2239s stack positions out of 10000i,1000n,20000p,200000b,200000s
