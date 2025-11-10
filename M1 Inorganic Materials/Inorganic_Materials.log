@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.21)  10 NOV 2025 02:16
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.21)  10 NOV 2025 02:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1018,10 +1018,10 @@ Package rerunfilecheck Info: File `Inorganic_Materials.out' has not changed.
 (rerunfilecheck)             Checksum: 9A18A417F6303DAC190569D7E441C8FC;1786.
  ) 
 Here is how much of TeX's memory you used:
- 44578 strings out of 473832
- 1053601 string characters out of 5733158
- 1672444 words of memory out of 5000000
- 66963 multiletter control sequences out of 15000+600000
+ 44593 strings out of 473832
+ 1053954 string characters out of 5733158
+ 1673444 words of memory out of 5000000
+ 66978 multiletter control sequences out of 15000+600000
  575731 words of font info for 127 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  99i,21n,105p,1384b,2199s stack positions out of 10000i,1000n,20000p,200000b,200000s
