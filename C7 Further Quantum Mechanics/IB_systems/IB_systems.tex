@@ -169,7 +169,7 @@
         \psi(0)&=d=0\notag \\
         \psi(L)&=c\sin kL + d\cos kL=0\,.
     \end{align}
-    These conditions give \(d=0\) and \(kL=n\pi\) for \(n\in\mathbb{Z}\). Note that \(kL=n\pi\) and \(kL=-n\pi\) are physically equivalent and \(n=0\) gives vanishing wavefunction, we reduce the range of \(n\) to \(n\in\mathbb{N}\). In conclusion, the normalised wavefunctions and energy spectrum are
+    These conditions give \(d=0\) and \(kL=n\pi\) for \(n\in\mathbb{Z}\). Note that since \(kL=n\pi\) and \(kL=-n\pi\) are physically equivalent and \(n=0\) gives vanishing wavefunction, we reduce the range of \(n\) to \(n\in\mathbb{N}\). In conclusion, the normalised wavefunctions and energy spectrum are
     \begin{align}
         E_n&=\frac{n^2\pi^2\hbar^2}{2mL^2}\\
         \psi_n(x)&=\begin{cases}
@@ -219,12 +219,16 @@
     \begin{equation}
         p''-2p'q+(2\lambda-1)p=0\,.
     \end{equation}
+    We take \(2n=2\lambda-1\) so
+    \begin{equation}
+        p''-2p'q+2np=0\,.
+    \end{equation}
     
     To solve this type of equations, one can try to expand the solution in an infinite series
     \begin{equation}
         p(q)=\sum_{k=0} a_k q^k\,.
     \end{equation}
-    If we substitute this into the Hermite equation, and requiring the coefficients of all powers of \(q\) to be zero, we get the recursion relation
+    If we substitute this into the above equation, and requiring the coefficients of all powers of \(q\) to be zero, we get the recursion relation
     \begin{equation}
         a_{k+2}=\frac{2k-2n}{(k+2)(k+1)}a_k\,.
     \end{equation}
@@ -253,7 +257,7 @@
     \end{equation}
     which is clearly not normalisable.
 
-    Therefore, we must require the expansion somehow terminates at some value of \(k\), i.e. \(p(q)\) is a polynomial. This would require \(2k-2n=0\) at some \(k\), meaning that \(n\) is an integer.\footnote{Alternatively, this can be understood by Sturm--Liouville theory. See my notes on IB Mathematical Methods.} The polynomial solution of the \textit{Hermite equation}
+    Therefore, we must require the expansion somehow terminates at some value of \(k\), i.e. \(p(q)\) is a polynomial. This would require \(2k-2n=0\) at some \(k\), meaning that \(n\) is an integer.\footnote{Alternatively, this can be understood by Sturm--Liouville theory. See my notes on IB Mathematical Methods.} The polynomial solution of the \textit{Hermite equation of order \(n\)},
     \begin{equation}
         p''-2qp'+2np=0\,,\ n\in\mathbb{Z}
     \end{equation}
@@ -432,7 +436,7 @@
     \end{equation}
     This is solved by \(R(r)=\ee^{\pm r/a}\), and we clearly have to discard the \(e^{+r/a}\) solution because it is not normalisable. So, we must have \(R(r)\sim e^{\pm r/a}\) as \(r\to\infty\). We see that \(a\), which recall is related to the inverse energy of the system, sets the characteristic size of the wavefunction. Meanwhile, near the origin \(r=0\) the dominant terms are
    \begin{equation}
-        \dv[2]{R}{r}+\frac{2}{r}\dv{R}{r}-\frac{\ell(\ell+1)}{r^2}R\approx 0\text{ for }r\ll 1\,.
+        \dv[2]{R}{r}+\frac{2}{r}\dv{R}{r}-\frac{\ell(\ell+1)}{r^2}R\approx 0\text{ for }r\to 0\,.
     \end{equation}
     If we make the power-law ansatz \(R\sim r^\alpha\), we find
    \begin{equation}
@@ -458,7 +462,7 @@
     \end{equation}
     which gives the recursion relation
     \begin{equation}\label{hydrogen_recursion}
-        c_k=\frac{1}{ak}\frac{2(k+l)-\beta a}{k+2\ell+1}c_{k-1}\,.
+        c_k=\frac{1}{ak}\frac{2(k+\ell)-\beta a}{k+2\ell+1}c_{k-1}\,.
     \end{equation}
 
     Similar to the argument we made when discussing the harmonic oscillator, for a wavefunction to be normalisable, this recursion relation must terminate at some time --- otherwise this brings us back to the \(R(r)\sim \ee^{+r/a}\) situation.
@@ -544,7 +548,7 @@
             \draw (0.2,0.1)--(0.2,-0.1) node[below]{\(a_0\)};
             \draw[domain=0:4, smooth, variable=\x,samples=100] plot ({\x}, {(2-1.33*\x/0.2+3.704*\x*\x)*2.72^(-\x/0.6)});
         }
-        \caption{The (un-normalised) s radial wavefunctions for \(n= 1,2\) and \(3\).}
+        \caption{The s radial wavefunctions for \(n= 1,2\) and \(3\).}
         \label{Fig:hydrogen_s}
     \end{figure}
 
@@ -559,18 +563,18 @@
             \draw[domain=0:4, smooth, variable=\x,samples=100] plot ({\x}, {(2-1.33*\x/0.2+3.704*\x*\x)*2.72^(-\x/0.6)});
         }
         \tikz{
-            \draw[->] (-0.2,0)--(4,0) node[above]{\(x\)};
+            \draw[->] (-0.2,0)--(4,0) node[above]{\(r\)};
             \draw[->] (0,-1)--(0,2.5) node[right]{\(\psi_{3,1}(r)\)};
             \draw (0.2,0.1)--(0.2,-0.1) node[below]{\(a_0\)};
             \draw[domain=0:4, smooth, variable=\x,samples=100] plot ({\x}, {(\x/0.2)*(2-\x/0.6)*2.72^(-\x/0.6)});
         }
         \tikz{
-            \draw[->] (-0.2,0)--(4,0) node[above]{\(x\)};
+            \draw[->] (-0.2,0)--(4,0) node[above]{\(r\)};
             \draw[->] (0,-1)--(0,2.5) node[right]{\(\psi_{3,2}(r)\)};
             \draw (0.2,0.1)--(0.2,-0.1) node[below]{\(a_0\)};
             \draw[domain=0:4, smooth, variable=\x,samples=100] plot ({\x}, {(\x*\x/0.2)*2.72^(-\x/0.6)});
         }
-        \caption{The (un-normalised) radial wavefunctions for fixed \(n=3\) with angular momentum varying from \(\ell=0\) (s) to \(\ell=1\) (p) to \(\ell=2\) (d).}
+        \caption{The radial wavefunctions for fixed \(n=3\) with angular momentum varying from \(\ell=0\) (s) to \(\ell=1\) (p) to \(\ell=2\) (d).}
         \label{Fig:hydrogen_spd}
     \end{figure}
 
