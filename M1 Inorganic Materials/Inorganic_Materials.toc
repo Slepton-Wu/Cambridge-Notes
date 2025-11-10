@@ -17,4 +17,10 @@
 \contentsline {subsection}{\numberline {2.2}Direct Exchange}{14}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Superexchange}{14}{subsection.2.3}%
 \contentsline {subsubsection}{\numberline {2.3.1}Potential Superexchange}{15}{subsubsection.2.3.1}%
-\contentsline {part}{\numberline {}Appendices}{16}{part*.3}%
+\contentsline {subsubsection}{\numberline {2.3.2}Kinetic Superexchange}{16}{subsubsection.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.3}Angular Dependence of Superexchange}{17}{subsubsection.2.3.3}%
+\contentsline {subsubsection}{\numberline {2.3.4}General Features of Superexchange}{18}{subsubsection.2.3.4}%
+\contentsline {subsection}{\numberline {2.4}Magnetic Susceptibility of Clusters}{18}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}High Temperature Limit}{18}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}Low Temperature Limit}{19}{subsubsection.2.4.2}%
+\contentsline {part}{\numberline {}Appendices}{20}{part*.3}%

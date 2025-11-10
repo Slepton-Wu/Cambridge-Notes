@@ -184,19 +184,19 @@
     \end{equation}
     where \(g_L=1\) is the Land\'{e} \(g\)-factor for orbital angular momentum due to some reason that will be apparent immediately.
 
-    Some charge-carrying particles, like electrons, have another natural source of angular momentum --- that is its spin. For a particle of spin \(s\), it carries a spin angular momentum of magnitude
+    Some charge-carrying particles, like electrons, have another natural source of angular momentum --- that is its spin. For a particle of spin \(S\), it carries a spin angular momentum of magnitude
     \begin{equation}
-        \norm{\vb{s}}=\hbar\sqrt{s(s+1)}\,,
+        \norm{\vb{S}}=\hbar\sqrt{S(S+1)}\,,
     \end{equation}
     which also leads to a magnetic moment
     \begin{equation}
-        \vb{\mu}_s = \gamma \vb{s}=g_S \frac{q}{2m}\vb{s}\,.
+        \vb{\mu}_S = \gamma \vb{S}=g_S \frac{q}{2m}\vb{S}\,.
     \end{equation}
-    The spin of a particle does not come from its circular motion. It is intrinsic to the particle so we have no reason to assume \(g_S=1\) as for the orbital angular momentum case. For free electrons, \(g_{S, e-}\approx 2.0\),\footnote{In Dirac's theory, every point-like Fermion should have \(g_S=2\) exactly, while it is actually slightly above 2 for some subtle Quantum Field Theory effects. This is known as the anomalous magnetic moment.} while for other particles like a proton, it takes some other values that are not relevant for us. For a single, isolated free electron, the magnitude of the magnetic moment is
+    The spin of a particle does not come from its circular motion. It is intrinsic to the particle so we have no reason to assume \(g_S=1\) as for the orbital angular momentum case. For free electrons, \(g_{S, e-}\approx 2.0\),\footnote{In Dirac's theory, every point-like Fermion should have \(g_S=2\) exactly, while it is actually slightly above \(2\) for some subtle Quantum Field Theory effects. This is known as the anomalous magnetic moment.} while for other particles like a proton, it takes some other values that are not relevant for us. For a single, isolated free electron, the magnitude of the magnetic moment is
     \begin{equation}
-        \mu_s=g_S\mu_{\text{B}}\sqrt{s(s+1)}\,,
+        \mu_S=g_S\mu_{\text{B}}\sqrt{S(S+1)}\,,
     \end{equation}
-    where \(s=\frac{1}{2}\), and \(\mu_{\text{B}}\) is the Bohr's magneton, characterising the strength of the magnetic moment of an electron. Note that since the charge of an electron is negative, \(q=-e\), its magnetic moment \(\vb{\mu}_s\) is in the opposite direction of its spin \(\vb{s}\), i.e. the gyromagnetic ratio is negative. We will take extra care on whether we are talking about the direction of the spin or the direction of the magnetic moment in future.
+    where \(S=\frac{1}{2}\), and \(\mu_{\text{B}}\) is the Bohr's magneton, characterising the strength of the magnetic moment of an electron. Note that since the charge of an electron is negative, \(q=-e\), its magnetic moment \(\vb{\mu}_S\) is in the opposite direction of its spin \(\vb{S}\), i.e. the gyromagnetic ratio is negative. We will take extra care on whether we are talking about the direction of the spin or the direction of the magnetic moment in future.
 
     \subsection{Magnetic Moment of Ions and Atoms}
     In an ion or atoms, there are two main sources of angular momenta --- the spins and the orbital angular momentum of the electrons. The nucleus also carries nuclear spin, but the magnetic moment is proportional to \(m^{-1}\), and since nuclei are much heavier than the electrons, we are ignoring the nuclear contribution.
@@ -219,7 +219,7 @@
                     \draw (0.8*\i-0.4,-0.6) rectangle (0.8*\i + 0.4, 0.6);
                     \node at (-0.8*\i,1) {\(\i\)};
                 }
-                \draw[arrows = {->[harpoon]}, thick] (-1.6,-0.3)--(-1.6,0.3);
+                \draw[arrows = {->[left]}, thick] (-1.6,-0.3)--(-1.6,0.3);
                 \node at (-2.5,0.95){\(m_\ell = \)};
             \end{tikzpicture}
         \end{figure}
@@ -271,13 +271,13 @@
                 \node at (-2.3,0) {\(t_{2g}\)};
                 \node at (-2.3,1.3) {\(e_{g}\)};
                 \foreach \i in {-1,0,1}{
-                    \draw[arrows = {->[harpoon]},thick] (1.2*\i-0.06,-0.2)--(1.2*\i-0.06,0.4);
+                    \draw[arrows = {->[left]},thick] (1.2*\i-0.06,-0.2)--(1.2*\i-0.06,0.4);
                 }
                 \foreach \i in {-1,0}{
-                    \draw[arrows = {->[harpoon]},thick] (1.2*\i+0.06,0.4)--(1.2*\i+0.06,-0.2);
+                    \draw[arrows = {->[left]},thick] (1.2*\i+0.06,0.4)--(1.2*\i+0.06,-0.2);
                 }
                 \foreach \i in {-1,0}{
-                    \draw[arrows = {->[harpoon]},thick] (1.2*\i+0.6-0.06,1.1)--(1.2*\i+0.6-0.06,1.7);
+                    \draw[arrows = {->[left]},thick] (1.2*\i+0.6-0.06,1.1)--(1.2*\i+0.6-0.06,1.7);
                 }
 
                 \node at (0,-1) {\(\mathrm{Co^{2+}}\), \(d^7\) HS};
@@ -291,10 +291,10 @@
                     \draw (-1,1.3)--(-0.2,1.3);
                     \draw (0.2,1.3)--(1,1.3);
                     \foreach \i in {-1,0,1}{
-                        \draw[arrows = {->[harpoon]},thick] (1.2*\i-0.06,-0.2)--(1.2*\i-0.06,0.4);
+                        \draw[arrows = {->[left]},thick] (1.2*\i-0.06,-0.2)--(1.2*\i-0.06,0.4);
                     }
                     \foreach \i in {-1}{
-                        \draw[arrows = {->[harpoon]},thick] (1.2*\i+0.6-0.06,1.1)--(1.2*\i+0.6-0.06,1.7);
+                        \draw[arrows = {->[left]},thick] (1.2*\i+0.6-0.06,1.1)--(1.2*\i+0.6-0.06,1.7);
                     }
                     \node at (0,-1) {\(\mathrm{Cr^{2+}}\), \(d^4\) HS};
                     \node at (0,-1.55) {\(E\)};
@@ -308,10 +308,10 @@
                     \draw (-1,1.3)--(-0.2,1.3);
                     \draw (0.2,1.3)--(1,1.3);
                     \foreach \i in {-1,0,1}{
-                        \draw[arrows = {->[harpoon]},thick] (1.2*\i-0.06,-0.2)--(1.2*\i-0.06,0.4);
+                        \draw[arrows = {->[left]},thick] (1.2*\i-0.06,-0.2)--(1.2*\i-0.06,0.4);
                     }
                     \foreach \i in {-1,0}{
-                        \draw[arrows = {->[harpoon]},thick] (1.2*\i+0.6-0.06,1.1)--(1.2*\i+0.6-0.06,1.7);
+                        \draw[arrows = {->[left]},thick] (1.2*\i+0.6-0.06,1.1)--(1.2*\i+0.6-0.06,1.7);
                     }
                     \node at (0,-1) {\(\mathrm{Mn^{2+}}\), \(d^5\) HS};
                     \node at (0,-1.55) {\(A\)};
@@ -344,7 +344,7 @@
                 \draw (0.2,1.7)--(1,1.7);
                 \node at (-2.3,0) {\(t_{2g}\)};
                 \node at (-2.3,1.7) {\(e_{g}\)};
-                \draw[arrows = {->[harpoon]},thick] (-1.2,-0.2)--(-1.2,0.4);
+                \draw[arrows = {->[left]},thick] (-1.2,-0.2)--(-1.2,0.4);
                 \node at (0,-1) {octahedral};
 
                 \draw[dashed] (1,1.7)--(5,2);
@@ -356,7 +356,7 @@
                 \draw (5,-0.4)--(5.8,-0.4);
                 \draw (4.4,0.2)--(5.2,0.2);
                 \draw (5.6,0.2)--(6.4,0.2);
-                \draw[arrows = {->[harpoon]},thick] (5.4,-0.6)--(5.4,0);
+                \draw[arrows = {->[left]},thick] (5.4,-0.6)--(5.4,0);
                 \node at (5.4,-1) {distorted};
             \end{tikzpicture}
         \end{figure}
@@ -397,10 +397,10 @@
             \node at (-2.3,0) {\(t_{2g}\)};
             \node at (-2.3,1.3) {\(e_{g}\)};
             \foreach \i in {-1,0,1}{
-                \draw[arrows = {->[harpoon]},thick] (1.2*\i-0.06,-0.2)--(1.2*\i-0.06,0.4);
+                \draw[arrows = {->[left]},thick] (1.2*\i-0.06,-0.2)--(1.2*\i-0.06,0.4);
             }
             \foreach \i in {-1,0,1}{
-                \draw[arrows = {->[harpoon]},thick] (1.2*\i+0.06,0.4)--(1.2*\i+0.06,-0.2);
+                \draw[arrows = {->[left]},thick] (1.2*\i+0.06,0.4)--(1.2*\i+0.06,-0.2);
             }
 
             \node at (0,-1) {Low spin, \(S=0\)};
@@ -415,13 +415,13 @@
                 \node at (-2.3,0) {\(t_{2g}\)};
                 \node at (-2.3,1.3) {\(e_{g}\)};
                 \foreach \i in {-1,0,1}{
-                    \draw[arrows = {->[harpoon]},thick] (1.2*\i-0.06,-0.2)--(1.2*\i-0.06,0.4);
+                    \draw[arrows = {->[left]},thick] (1.2*\i-0.06,-0.2)--(1.2*\i-0.06,0.4);
                 }
                 \foreach \i in {-1}{
-                    \draw[arrows = {->[harpoon]},thick] (1.2*\i+0.06,0.4)--(1.2*\i+0.06,-0.2);
+                    \draw[arrows = {->[left]},thick] (1.2*\i+0.06,0.4)--(1.2*\i+0.06,-0.2);
                 }
                 \foreach \i in {-1,0}{
-                    \draw[arrows = {->[harpoon]},thick] (1.2*\i+0.6-0.06,1.1)--(1.2*\i+0.6-0.06,1.7);
+                    \draw[arrows = {->[left]},thick] (1.2*\i+0.6-0.06,1.1)--(1.2*\i+0.6-0.06,1.7);
                 }
 
                 \node at (0,-1) {High spin, \(S=2\)};
@@ -441,8 +441,8 @@
                     (-[:-155,1.35]@{d}N)
                     (-[:-25,1.35]@{e}N)
                 }\chemright]\qquad 2 \ \chemfig{\charge{30:3pt=\scriptsize\(\ominus\)}{X}}
-                \chemmove{\draw[-,shorten >=5mm,shorten >=1mm](c)..controls +(180:2mm) and +(-65:7mm)..(d);}
-                \chemmove{\draw[-,shorten >=5mm,shorten >=1mm](c)..controls +(0:2mm) and +(-115:7mm)..(e);}
+                \chemmove{\draw[-,thick,shorten <=1mm,shorten >=1mm](c)..controls +(180:2mm) and +(-65:7mm)..(d);}
+                \chemmove{\draw[-,thick,shorten <=1mm,shorten >=1mm](c)..controls +(0:2mm) and +(-115:7mm)..(e);}
             };
             \node at (2.1,2.3) {\(2\,\oplus\)};
         \end{tikzpicture}
@@ -689,13 +689,13 @@
     \begin{equation}
         M_{\text{sat}}=g S N_A\mu_{\text{B}}\approx 5,585gS\unit{emu}\unit{mol}^{-1}\,.
     \end{equation}
-    The combination of constants \(N_A \mu_{\text{B}}^2/3k_B=0.12504\) is coincidentally very close to \(\frac{1}{8}\), which allows us to approximate the Curie's constant as
+    The combination of constants \(N_A \mu_{\text{B}}^2/3k_B=0.12504\unit{emu}\unit{K}\unit{mol}^{-1}\) is coincidentally very close to \(\frac{1}{8}\) in cgs units, which allows us to approximate the Curie's constant as
     \begin{equation}
-        C=\frac{N_A \mu_{\text{B}}^2}{3k_B}\approx \frac{1}{8}g^2 S(S+1)\,.
+        C=\frac{N_A \mu_{\text{B}}^2}{3k_B}g^2 S(S+1)\approx \frac{1}{8}g^2 S(S+1)\unit{emu}\unit{K}\unit{mol}^{-1}
     \end{equation}
-    If we take \(g\approx 2\), this gives us the handy formula
+    in cgs units. If we take \(g\approx 2\), this gives us the handy formula
     \begin{equation}
-        C\approx\frac{1}{2}S(S+1)\,.
+        C\approx\frac{1}{2}S(S+1)\unit{emu}\unit{K}\unit{mol}^{-1}\,.
     \end{equation}
 
     \subsubsection{Deviation from Curie Behaviour}
@@ -802,9 +802,9 @@
     
     We define the energy difference between the antiferromagnetic alignment and the ferromagnetic alignment states to be \(2J\),
     \begin{equation}
-        2J = E_{\text{AF}}-E_{\text{F}}\,.
+        2J = E_{\text{AF}}-E_{\text{F}}\,,
     \end{equation}
-    Then ferromagnetic interaction has \(J>0\) while antiferromagnetic interaction has \(J<0\).
+    where \(J\) is called the \textit{exchange parameter}. Then a ferromagnetic interaction has \(J>0\) while an antiferromagnetic interaction has \(J<0\).
 
     We've established that the main source of magnetism in ions comes from unpaired electrons, and hence the atomic orbitals with unpaired electrons are called \textit{magnetic orbitals}. How these magnetic orbitals interact determines whether the magnetic moments are coupled in a ferromagnetic or an antiferromagnetic way.
 
@@ -844,7 +844,7 @@
     \begin{equation}
         2J=2K-4St
     \end{equation}
-    applies when the two magnetic orbitals are close to each other so that both the exchange integral \(K\) and overlap integral \(S\) are non-negligible. This often requires the two ions to be \(\sim 4\ \text{\AA}\) apart or closer. This kind of interaction between unpaired spins by direct exchange interactions or electron hopping is known as \textit{direct exchange}.
+    applies when the two magnetic orbitals are close to each other so that both the exchange integral \(K\) and overlap integral \(S\) are non-negligible. This often requires the two ions to be \(\sim 4\ \text{\AA}\) apart or closer. This kind of interaction between unpaired spins by direct exchange interactions or electron hopping is known as \textit{direct exchange}. Usually, unless \(S\) in negligible for some reason (e.g. \(S=0\) due to symmetry), the kinetic term tends to dominate and the coupling tends to be antiferromagnetic.
 
     However, the metal ions in clusters are rarely close enough for these interactions to be significant, but still, communications between the spins are still clearly detected in many compounds. This suggests that there might be some indirect processes dominating the spin interactions in these species.
 
@@ -857,7 +857,7 @@
     Potential superexchange stabilises the ferromagnetic ground state through mutually orthogonal orbitals in the exchange pathway. This is comparatively rare, but can be achieved in several ways. The most common example is a pair of \(90^\circ\) orthogonal orbitals in \(\mathrm{M-X-M}\), where \(\mathrm{X}\) is a ligand.
 
     \begin{ex}
-        \textit{\(\mathrm{M}(e_g)-\mathrm{O}-\mathrm{M}(e_g)\) in \(\mathrm{[Cu(OH)_2Cu]^{2+}}\) dimer.}
+        \textit{\(90^\circ \) \(\mathrm{M}(e_g)-\mathrm{O}-\mathrm{M}(e_g)\) in \(\mathrm{[Cu(OH)_2Cu]^{2+}}\) dimer.}
 
         The two metal centres in the dimer are far apart, with little orbital overlap, so direct exchange is not possible.
         \begin{figure}[ht!]
@@ -870,6 +870,8 @@
                 };
                 \draw[thick,->] (-2.2,-0.3)--(-2.2,0.3);
                 \draw[thick,->] (2.2,-0.3)--(2.2,0.3);
+
+                \node at (0,-1.6) {Localised orbitals (electrostatic picture)};
             \end{tikzpicture}
         \end{figure}
 
@@ -882,38 +884,240 @@
                 \orbital[pos = {(1.1,0)}, pcolor=blue!20, ncolor=blue!20!black!40]{dyz};
                 \node[rotate=225] at (0,1.1){\tikz{\orbital[pos = {(0,0)}, pcolor=red!40, ncolor=red!40!black!50]{py};}};
                 \node[rotate=135] at (0,1.1){\tikz{\orbital[pos = {(0,0)}, pcolor=blue!40, ncolor=blue!40!black!50]{py};}};
+                \node[rotate=315] at (0,-1.1){\tikz{\orbital[pos = {(0,0)}, pcolor=red!40, ncolor=red!40!black!50]{py};}};
+                \node[rotate=45] at (0,-1.1){\tikz{\orbital[pos = {(0,0)}, pcolor=blue!40, ncolor=blue!40!black!50]{py};}};
                 \node at (0,0){
                     \chemfig{[:45,2.2]*4(----)}
                 };
-                \draw[arrows = {->[harpoon]},thick,red] (-2.3,0.3)--(-2.3,-0.3);
-                \draw[arrows = {->[harpoon]},thick,blue] (2.42,0.3)--(2.42,-0.3);
-                \draw[arrows = {->[harpoon]},thick,red] (-1.3,1.3)--(-1.3,1.9);
-                \draw[arrows = {->[harpoon]},thick,red] (-1.18,1.9)--(-1.18,1.3);
-                \draw[arrows = {->[harpoon]},thick,blue] (1.3,1.9)--(1.3,1.3);
-                \draw[arrows = {->[harpoon]},thick,blue] (1.18,1.3)--(1.18,1.9);
 
-                \draw[thick,->] (3.5,0.5)to[bend left=15] node[above,align=center]{\small electron \\ \small transfer} (6,0.5);
+                \draw[arrows = {->[left]},thick,red] (-2.3,0.3)--(-2.3,-0.3);
+                \draw[arrows = {->[right]},thick,blue] (2.3,0.3)--(2.3,-0.3);
 
-                \begin{scope}[shift={(9.5,0)}]
+                \begin{scope}[shift={(-3.5,-3.5)}]
+                    \orbital[pos = {(-1.1,0)}, pcolor=red!20, ncolor=red!20!black!40]{dyz};
+                    \node[rotate=225] at (0,1.1){\tikz{\orbital[pos = {(0,0)}, pcolor=red!40, ncolor=red!40!black!50]{py};}};
+                    \node[rotate=315] at (0,-1.1){\tikz{\orbital[pos = {(0,0)}, pcolor=red!40, ncolor=red!40!black!50]{py};}};
+                    \node at (0,0){
+                        \chemfig{[:45,2.2]*4(----)}
+                    };
+                    \draw[arrows = {->[left]},thick,red] (-2.3,0.3)--(-2.3,-0.3);
+                    \draw[arrows = {->[left]},thick,red] (-0.9,1.8)--(-0.9,1.2);
+                    \draw[arrows = {->[left]},thick,red] (-1.05,1.2)--(-1.05,1.8);
+                    \draw[arrows = {->[left]},thick,red] (-0.9,-1.2)--(-0.9,-1.8);
+                    \draw[arrows = {->[left]},thick,red] (-1.05,-1.8)--(-1.05,-1.2);
+                    \draw[red,dashed,thick] (-1.06,1.5) ellipse (0.1 cm and 0.4 cm);
+                    \draw[arrows = {->[right]},red] (-1.13,1.7) to[bend right=80] (-2.55,0.5);
+                \end{scope}
+
+                \begin{scope}[shift={(3.5,-3.5)}]
+                    \orbital[pos = {(1.1,0)}, pcolor=blue!20, ncolor=blue!20!black!40]{dyz};
+                    \node[rotate=135] at (0,1.1){\tikz{\orbital[pos = {(0,0)}, pcolor=blue!40, ncolor=blue!40!black!50]{py};}};
+                    \node[rotate=45] at (0,-1.1){\tikz{\orbital[pos = {(0,0)}, pcolor=blue!40, ncolor=blue!40!black!50]{py};}};
+                    \node at (0,0){
+                        \chemfig{[:45,2.2]*4(----)}
+                    };
+                    \draw[arrows = {->[right]},thick,blue] (2.3,0.3)--(2.3,-0.3);
+                    \draw[arrows = {->[right]},thick,blue] (0.9,1.8)--(0.9,1.2);
+                    \draw[arrows = {->[right]},thick,blue] (1.05,1.2)--(1.05,1.8);
+                    \draw[arrows = {->[right]},thick,blue] (0.9,-1.2)--(0.9,-1.8);
+                    \draw[arrows = {->[right]},thick,blue] (1.05,-1.8)--(1.05,-1.2);
+                    \draw[blue,dashed,thick] (1.06,1.5) ellipse (0.1 cm and 0.4 cm);
+                    \draw[arrows = {->[left]},blue] (1.13,1.7) to[bend left=80] (2.55,0.5);
+                \end{scope}
+
+                \begin{scope}[shift={(0,-7)}]
                     \orbital[pos = {(-1.1,0)}, pcolor=red!20, ncolor=red!20!black!40]{dyz};
                     \orbital[pos = {(1.1,0)}, pcolor=blue!20, ncolor=blue!20!black!40]{dyz};
                     \node[rotate=225] at (0,1.1){\tikz{\orbital[pos = {(0,0)}, pcolor=red!40, ncolor=red!40!black!50]{py};}};
                     \node[rotate=135] at (0,1.1){\tikz{\orbital[pos = {(0,0)}, pcolor=blue!40, ncolor=blue!40!black!50]{py};}};
+                    \node[rotate=315] at (0,-1.1){\tikz{\orbital[pos = {(0,0)}, pcolor=red!40, ncolor=red!40!black!50]{py};}};
+                    \node[rotate=45] at (0,-1.1){\tikz{\orbital[pos = {(0,0)}, pcolor=blue!40, ncolor=blue!40!black!50]{py};}};
                     \node at (0,0){
                         \chemfig{[:45,2.2]*4(----)}
                     };
-                    \draw[arrows = {->[harpoon]},thick,red] (-2.3,0.3)--(-2.3,-0.3);
-                    \draw[arrows = {->[harpoon]},thick,blue] (2.42,0.3)--(2.42,-0.3);
-                    \draw[arrows = {->[harpoon]},thick,red] (-2.42,-0.3)--(-2.42,0.3);
-                    \draw[arrows = {->[harpoon]},thick,red] (-1.18,1.9)--(-1.18,1.3);
-                    \draw[arrows = {->[harpoon]},thick,blue] (1.3,1.9)--(1.3,1.3);
-                    \draw[arrows = {->[harpoon]},thick,blue] (2.3,-0.3)--(2.3,0.3);
+
+                    \draw[arrows = {->[left]},thick,red] (-2.45,-0.3)--(-2.45,0.3);
+                    \draw[arrows = {->[left]},thick,red] (-2.3,0.3)--(-2.3,-0.3);
+                    \draw[arrows = {->[right]},thick,blue] (2.45,-0.3)--(2.45,0.3);
+                    \draw[arrows = {->[right]},thick,blue] (2.3,0.3)--(2.3,-0.3);
+                    \draw[arrows = {->[left]},thick,blue] (-0.4,2.6)--(-0.4,2);
+                    \draw[arrows = {->[left]},thick,red] (0.4,2.6)--(0.4,2);
+                \end{scope}
+
+                \draw[->,thick] (0,-2)--node[right,align=center]{electron\\ transfer}(0,-4);
+            \end{tikzpicture}
+        \end{figure}
+
+        Note that the orbitals of the metals and ligands are divided into two orthogonal subsets --- one labelled in red and the other in blue. A simultaneous electron hopping allows the unpaired spin density to transfer to the ligand orbitals, and now these spins are close enough to have significant exchange interaction \(K\). Note that since the two ligand orbitals are orthogonal, the \(4St\) term vanishes; this orthogonality is inherited from the orthogonality of the two metal \(\mathrm{d}_{x^2-y^2}\) orbitals. Therefore, a parallel pair of spins are favoured in these ligand orbitals, which in turn favours a parallel pair of spins in the metal magnetic orbitals.
+
+        If the electrons originally in the two metal magnetic orbitals are antiparallel, then this type of electron hopping will result in an antiparallel pair of electron on oxygen, which is disfavoured by Hund's first rule. Therefore, this type of potential superexchange results in ferromagnetic interaction.
+    \end{ex}
+
+    \subsubsection{Kinetic Superexchange}
+    Kinetic superexchange stabilises the antiferromagnetic ground state through overlap of two magnetic orbitals which share the same anion orbital i.e. there is a net bonding interaction between the two magnetic orbitals.
+    \begin{ex}
+        \textit{\(180^\circ \) \(\mathrm{M}(e_g)-\mathrm{O}-\mathrm{M}(e_g)\) interaction.}
+
+        Suppose now we have two magnetic \(e_g\) orbitals, but this time connected directly by a bridging \(\mathrm{O^{2-}}\) at \(180^\circ\).
+
+        \begin{figure}[ht!]
+            \centering
+            \begin{tikzpicture}
+                \clip (-5,-2) rectangle (5,1);
+                \node[rotate=45] at (-1.5,0){\tikz{\orbital[pos = {(0,0)}, pcolor=white]{dyz};}};
+                \node[rotate=135] at (1.5,0){\tikz{\orbital[pos = {(0,0)}, pcolor=white]{dyz};}};
+                \node at (0,0){
+                    \chemfig{-[,2.1]O-[,2.1]}
+                };
+                \draw[thick,->] (-2.7,-0.3)--(-2.7,0.3);
+                \draw[thick,->] (2.7,0.3)--(2.7,-0.3);
+
+                \node at (0,-1.6) {Localised orbitals (electrostatic picture)};
+                
+            \end{tikzpicture}
+        \end{figure}
+
+        Again ligand-metal orbital interaction covalency enables electron transfers.
+        \begin{figure}[ht!]
+            \centering
+            \begin{tikzpicture}
+                \clip (-5,-6) rectangle (5,2);
+                \node[rotate=45] at (-1.5,0){\tikz{\orbital[pos = {(0,0)}, pcolor=white]{dyz};}};
+                \node[rotate=135] at (1.5,0){\tikz{\orbital[pos = {(0,0)}, pcolor=white]{dyz};}};
+                \orbital[pos = {(0,0)}, pcolor=white]{py};
+                \node at (0,0){
+                    \chemfig{-[,2.1]-[,2.1]}
+                };
+                \draw[arrows = {->[right]},thick] (-1.5,1.6)--(-1.5,1);
+                \draw[arrows = {->[right]},thick] (1.5,1)--(1.5,1.6);
+                \draw[arrows = {->[left]},thick] (-0.08,1)--(-0.08,1.6);
+                \draw[arrows = {->[left]},thick] (0.08,1.6)--(0.08,1);
+
+                \draw[thick,->] (0,-1)to[bend left=15]node[right,align=center]{electron\\ transfer}(0,-2.5);
+
+                \begin{scope}[shift={(0,-4.7)}]
+                    \node[rotate=45] at (-1.5,0){\tikz{\orbital[pos = {(0,0)}, pcolor=white]{dyz};}};
+                    \node[rotate=135] at (1.5,0){\tikz{\orbital[pos = {(0,0)}, pcolor=white]{dyz};}};
+                    \orbital[pos = {(0,0)}, pcolor=white]{py};
+                    \node at (0,0){
+                        \chemfig{-[,2.1]-[,2.1]}
+                    };
+                    \draw[arrows = {->[right]},thick] (-1.58,1.6)--(-1.58,1);
+                    \draw[arrows = {->[right]},thick] (1.58,1)--(1.58,1.6);
+                    \draw[arrows = {->[right]},thick] (-1.42,1)--(-1.42,1.6);
+                    \draw[arrows = {->[right]},thick] (1.42,1.6)--(1.42,1);
                 \end{scope}
             \end{tikzpicture}
         \end{figure}
 
-        
+        This hopping stabilisation is only possible if the two magnetic orbitals of metals initially carries opposite spins, so it results in antiferromagnetic coupling.
     \end{ex}
+
+    The example shown above is the \(\sigma\)-pathway of kinetic superexchange. A \(\pi\) pathway is also possible between two \(t_{2g}\) magnetic orbitals, with the arrangement shown in the figure below. This is usually weaker than the \(\sigma\) superexchange.
+    \begin{figure}[ht!]
+        \centering
+        \begin{tikzpicture}
+            \clip (-5,-1) rectangle (5,1);
+            \node at (-1,0){\tikz{\orbital[pos = {(0,0)}, pcolor=white]{dyz};}};
+            \node[rotate=90] at (1,0){\tikz{\orbital[pos = {(0,0)}, pcolor=white]{dyz};}};
+            \orbital[pos = {(0,0)}, pcolor=white]{pz};
+            \node at (0,0){
+                \chemfig{-[,1.5]-[,1.5]}
+            };
+            \draw[thick,->] (-2,-0.3)--(-2,0.3);
+            \draw[thick,->] (2,0.3)--(2,-0.3);
+            
+        \end{tikzpicture}
+    \end{figure}
+
+    \subsubsection{Angular Dependence of Superexchange}
+    As for the direct exchange, kinetic superexchange tends to dominate over potential superexchange unless \(S\) is small e.g. due to symmetry. As a result, the coupling constant \(J\) tends to have strong angular dependence.
+
+    \begin{ex}
+        \textit{Planar copper dimers with two hydroxyl bridges.}
+
+        We continue investigating the following family of planar copper dimers.
+
+        \begin{figure}[ht!]
+            \centering
+            \begin{tikzpicture}
+                \clip (-5,-2) rectangle (5,2);
+                \node at (0,0){
+                    \chemfig{[:135,1.5]Cu*4(-O(-[,0.9]H)-Cu(-[:135]@{a}N)(-[:-135]@{b}N)-O(-[,0.9]H)-)(-[:45]@{c}N)(-[:-45]@{d}N)}
+                    \chemmove{\draw[-,thick,shorten <=0.5mm, shorten >=0.5mm](a)..controls +(-135:7mm) and +(135:7mm)..(b);}
+                    \chemmove{\draw[-,thick,shorten <=0.5mm, shorten >=0.5mm](c)..controls +(-45:7mm) and +(45:7mm)..(d);}
+                };
+            \end{tikzpicture}
+            
+        \end{figure}
+
+        By changing the size of the \(\mathrm{N-R-N}\) ligand, we can alter the \(\mathrm{Cu-O-Cu}\) bond angle \(\theta\). When \(\theta=90^\circ\) exactly, this is the kinetic superexchange example we met before. Since the two orbitals are orthogonal, kinetic exchange is not possible so \(J\) is positive (ferromagnetic). As the bond angle deviates from \(90^\circ\), kinetic superexchange becomes possible via scheme shown in the previous example. Hence \(J\) begins to decrease.
+
+        \begin{figure}[ht!]
+            \centering
+            \input{figures/J_angle.tex}
+            \caption{The exchange parameter against ligand-metal bond angle for copper dimer.}
+            \label{Fig:ligand_J}
+        \end{figure}
+
+        The \(J\) against \(\theta\) is plotted in \cref{Fig:ligand_J} for a range of compounds. It is found that the data shows a very good linearity against \(\theta\), with the empirical relationship
+        \begin{equation}
+            2J=(-74\theta + 7215)\unit{cm}^{-1}
+        \end{equation}
+        for \(\theta\ge 90^\circ\) measured in degrees. Since the potential superexchange is much stronger than kinetic superexchange, we only need very small spatial overlap (via ligand) for the kinetic term to dominate --- in this case \(J=0\) when \(\theta=97.5\).
+    \end{ex}
+
+    From the above example, it can be seen that the ferromagnetic coupling is fragile. The potential superexchange can be easily overwhelmed by the kinetic superexchange even with only a tiny amount of spatial overlap. It seems that it is therefore very difficult to produce ferromagnetic materials like magnets --- and even if we can make one by carefully controlling the geometry of orbital interaction, the small \(\abs{J}\) makes the ferromagnetic alignment easily scrambled by thermal activation once \(k_B T\approx \abs{J}\) at room temperatures.
+
+    We will see how this problem is resolved when we have a magnetic network.
+
+    \subsubsection{General Features of Superexchange}
+    To conclude:
+    \begin{itemize}
+        \item The kinetic exchange pathways are usually stronger than potential superexchange. As a consequence, when competing pathways are present the resultant interaction tends to be antiferromagnetic. Exceptions occur when all superexchange pathways involve orthogonal orbitals so that kinetic exchange is not possible.
+        \item Because of the better overlap in \(\sigma\)-bonds, the \(\sigma\)-type superexchange tends to be greater than \(\pi\)-superexchange, i.e. the interactions involving the \(e_g\) orbitals tend to predominate. 
+        \item The magnitude of \(J\) is very sensitive to overlap (covalency). As a consequence \(\abs{J}\) tends to increase as we move from left to right (better energy match with ligand) or move down the group (more diffuse orbitals), and for softer and more polarisable ligands.
+        \item For ions with more than one magnetic orbitals, both \(\sigma\) and \(\pi\) type interactions are possible.
+    \end{itemize}
+
+    \subsection{Magnetic Susceptibility of Clusters}
+    Magnetic coupling makes the susceptibility of clusters deviate from the simple Curie law --- and the resulting general expression of \(\chi\) is usually quite complicated: coupling splits the system to a number of energy levels, with population given by the Boltzmann distribution, and each contributes accordingly to the total magnetic susceptibility. We will first investigate the high temperature and low temperature limits, which are quite easy to work out, before discussing how to find the general expression of \(\chi(T)\) for a cluster.
+
+    \subsubsection{High Temperature Limit}
+    If the temperature is high enough with \(k_B T\gg \abs{J}\), we can simply ignore the coupling and act as if the spin carriers are non-interacting. If the cluster carries spins \(\{S_1,\dots,S_n\}\), the molar susceptibility of the cluster is therefore the sum of the molar susceptibility of the individual spin carriers in the ideal Curie case,
+    \begin{equation}
+        \chi T=\sum_{i=1}^{n}\frac{N_A g^2 \mu_{\text{B}}^2}{3k_B} S_i (S_i+1)\,.
+    \end{equation}
+    If we use \(g\approx 2.0\), this gives
+    \begin{equation}
+        \chi T\approx\sum_{i=1}^{n}\frac{1}{2}S_i (S_i+1)\unit{emu}\unit{K}\unit{mol}^{-1}
+    \end{equation}
+    in cgs units.
+
+    \subsubsection{Low Temperature Limit}
+    Now, if \(k_B T\ll\abs{J}\), only the overall magnetic ground state is occupied. The whole cluster acts as like a single spin carrier with total spin \(S_{\text{T}}\), so that
+    \begin{equation}
+        \chi T=\frac{N_A g^2 \mu_{\text{B}}^2}{3k_B} S_{\text{T}} (S_{\text{T}}+1)\approx \frac{1}{2}S_{\text{T}}(S_{\text{T}}+1)\unit{emu}\unit{K}\unit{mol}^{-1}\,.
+    \end{equation}
+    Note that to use Curie law, we must have \(\frac{H}{T} / k_B\mu_{\text{B}}^{-1}\ll 1\) so that we are in the linear region of Brillouin's function. Since we take \(T\) to be small, \(H\) needs to small as well.
+
+
+    The total spin \(S_{\text{T}}\) for the magnetic ground state varies from case to case. If all the coupling within the cluster is ferromagnetic, the magnetic ground state clearly has all spins aligned so
+    \begin{equation}
+        S_{\text{T}}=\sum_{i=1}^{n}S_i\,.
+    \end{equation}
+    If we have a chain of \(n\) identical spins \(S\), then the magnetic ground state has the spins alternating in direction. If \(n\) is even, then the ground states have all spins cancelled out so \(S_{\text{T}}=0\), and hence
+    \begin{equation}
+        \chi T =0\,.
+    \end{equation}
+    If \(n\) is even, then we have all spins cancelled except one spin left out so \(S_{\text{T}}=S\) and
+    \begin{equation}
+        \chi T=\frac{N_A g^2 \mu_{\text{B}}^2}{3k_B} S(S+1)\,.
+    \end{equation}
+    If the coupling geometry is any more complex, then we need to find ground state \(S_{\text{T}}\) \textit{ad hoc}.
+
+        
+    
 
 
     
