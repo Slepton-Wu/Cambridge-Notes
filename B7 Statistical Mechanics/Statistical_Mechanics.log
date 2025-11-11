@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.21)  10 OCT 2025 17:45
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.21)  11 NOV 2025 17:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -475,12 +475,11 @@ Package: xparse 2024-08-16 L3 Experimental document command parser
 \l__randomwalk_step_number_int=\count328
 \l__randomwalk_x_dim=\dimen309
 \l__randomwalk_y_dim=\dimen310
+) (c:/texlive/2025/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
 ) (c:/texlive/2025/texmf-dist/tex/latex/ntheorem/ntheorem.sty
 Style `ntheorem', Version 1.33 <2011/08/15>
 Package: ntheorem 2011/08/15 1.33
-(c:/texlive/2025/texmf-dist/tex/latex/base/ifthen.sty
-Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
-)
 \theorem@style=\toks46
 \theorem@@style=\toks47
 \theorembodyfont=\toks48
@@ -654,29 +653,33 @@ Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
 \c@thm=\count343
 \c@law=\count344
 \c@pos=\count345
- (./Statistical_Mechanics.aux)
+ (c:/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarymath.code.tex (c:/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryfpu.code.tex)
+\tikz@math@for@depth=\count346
+\tikz@math@dimen=\dimen319
+\tikz@math@toks=\toks65
+) (./Statistical_Mechanics.aux)
 \openout1 = `Statistical_Mechanics.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -716,23 +719,23 @@ Package pgfplots notification 'compat/show suggested version=true': document has
 
 (c:/texlive/2025/texmf-dist/tex/latex/lcg/lcg.sty
 Package: lcg 2013/08/09 v1.3 generating random numbers
-\f@rst=\count346
-\l@st=\count347
-\cr@nd=\count348
-\c@lcg@rand=\count349
+\f@rst=\count347
+\l@st=\count348
+\cr@nd=\count349
+\c@lcg@rand=\count350
 
 Smallest possible random number: 0
 Largest possible random number: 2147483646
 The pseudo random numbers will be stored in the LaTeX counter `lcg@rand'
 )
-Random number generator initialized to 317585
-Package hyperref Info: Link coloring OFF on input line 85.
+Random number generator initialized to 383899
+Package hyperref Info: Link coloring OFF on input line 87.
 (./Statistical_Mechanics.out) (./Statistical_Mechanics.out)
 \@outlinefile=\write4
 \openout4 = `Statistical_Mechanics.out'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 97--98
+Underfull \hbox (badness 10000) in paragraph at lines 99--100
 
  []
 
@@ -761,7 +764,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 [4]
 
 [1]
-Package hyperref Info: bookmark level for unknown pos defaults to 0 on input line 151.
+Package hyperref Info: bookmark level for unknown pos defaults to 0 on input line 153.
 
 
 [2]
@@ -1073,7 +1076,7 @@ File: LC.png Graphic file (type bmp)
 [58]
 
 [59]
-Package hyperref Info: bookmark level for unknown law defaults to 0 on input line 2654.
+Package hyperref Info: bookmark level for unknown law defaults to 0 on input line 2668.
 
 
 [60]
@@ -1131,7 +1134,7 @@ Package hyperref Info: bookmark level for unknown law defaults to 0 on input lin
 [86]
 
 [87]
-Package hyperref Info: bookmark level for unknown thm defaults to 0 on input line 4060.
+Package hyperref Info: bookmark level for unknown thm defaults to 0 on input line 4074.
 
 
 [88]
@@ -1161,12 +1164,12 @@ Package rerunfilecheck Info: File `Statistical_Mechanics.out' has not changed.
 (rerunfilecheck)             Checksum: 41FAB00282D3181BACE129F72DB23496;9644.
  ) 
 Here is how much of TeX's memory you used:
- 43989 strings out of 473832
- 997240 string characters out of 5733158
- 1501649 words of memory out of 5000000
- 66471 multiletter control sequences out of 15000+600000
+ 44533 strings out of 473832
+ 1009602 string characters out of 5733158
+ 1505507 words of memory out of 5000000
+ 67009 multiletter control sequences out of 15000+600000
  575552 words of font info for 122 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 99i,22n,105p,1362b,2075s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,22n,105p,1362b,2071s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on Statistical_Mechanics.pdf (99 pages).

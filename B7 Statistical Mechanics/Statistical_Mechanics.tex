@@ -1,6 +1,6 @@
 \documentclass{article}
 
-\usepackage{amsmath,geometry,graphicx,array,makecell,enumitem,bm,booktabs,multirow,pgfplots,bm,amssymb,mathtools,randomwalk}
+\usepackage{amsmath,geometry,graphicx,array,makecell,enumitem,bm,booktabs,multirow,pgfplots,bm,amssymb,mathtools,randomwalk,ifthen}
 \usepackage[amsmath]{ntheorem}
 \usepackage[hidelinks,naturalnames]{hyperref}
 \usepackage[nameinlink,noabbrev]{cleveref}
@@ -81,6 +81,8 @@
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
 \pgfplotsset{compat=1.18}
+
+\usetikzlibrary{math}
 
 \begin{document}
     \setlength{\parindent}{0pt}
@@ -989,43 +991,31 @@
     \begin{figure}
         \centering
         \begin{tikzpicture}[scale=0.9]
+            \pgfmathsetseed{2}
+
             \draw[white, fill=blue!5!violet!6] (-2.8,-2.8) rectangle (2.8,2.8);
+
             \foreach \x in {-3,...,2}{
                 \draw (0.5+\x,-2.5)--(0.5+\x,2.5);
                 \draw (-2.5,0.5+\x)--(2.5,0.5+\x);
             }
+
             \draw[fill=violet!20] (-0.5,-1.5) rectangle (0.5,1.5);
             \draw[fill=violet!20] (-1.5,-0.5) rectangle (1.5,0.5);
             \draw[fill=purple!20] (-0.5,-0.5) rectangle (0.5,0.5);
-            \node at (-2,2) {\up};
-            \node at (-1,2) {\up};
-            \node at (0,2) {\up};
-            \node at (1,2) {\down};
-            \node at (2,2) {\down};
-            \node at (-2,1) {\down};
-            \node at (-1,1) {\up};
-            \node at (0,1) {\down};
-            \node at (1,1) {\up};
-            \node at (2,1) {\down};
-            \node at (-2,0) {\up};
-            \node at (-1,0) {\up};
-            \node at (0,0) {\up};
-            \node at (1,0) {\up};
-            \node at (2,0) {\down};
-            \node at (-2,-1) {\up};
-            \node at (-1,-1) {\down};
-            \node at (0,-1) {\up};
-            \node at (1,-1) {\up};
-            \node at (2,-1) {\down};
-            \node at (-2,-2) {\up};
-            \node at (-1,-2) {\up};
-            \node at (0,-2) {\up};
-            \node at (1,-2) {\down};
-            \node at (2,-2) {\up};
+
+            \foreach \i in {-2,...,2}{
+                \foreach \j in {-2,...,2}{
+                    \pgfmathrandominteger{\a}{1}{2}
+                    \ifthenelse{\a = 1}{\node at (\i,\j) {\up};}{\node at (\i,\j) {\down};}
+                }
+            }
+
             \foreach \x in {0,...,3}{
                 \draw[fill=blue!5!violet!6] (4,1.2*\x-2.3) rectangle (5,1.2*\x-1.3);
                 \draw[fill=blue!5!violet!6] (6,1.2*\x-2.3) rectangle (5,1.2*\x-1.3);
             }
+
             \node at (4.5,1.8) {\up};
             \node at (5.5,1.8) {\up};
             \node at (4.5,0.6) {\down};
@@ -1034,6 +1024,7 @@
             \node at (5.5,-0.6) {\down};
             \node at (4.5,-1.8) {\down};
             \node at (5.5,-1.8) {\up};
+
             \draw [decorate,decoration={brace,amplitude=5pt,mirror},thick] (6.2,0.1) -- (6.2,2.3) node[midway,xshift=6em]{\small \(\text{interaction energy}=-J\)};
             \draw [decorate,decoration={brace,amplitude=5pt,mirror},thick] (6.2,-2.3) -- (6.2,-0.1) node[midway,xshift=6em]{\small \(\text{interaction energy}=+J\)};
         \end{tikzpicture}
@@ -1109,6 +1100,7 @@
             \node at (3.5,1.15)[green]{\(\beta Jz=0.5\)};
             \node at (3.4,1.7)[blue]{\(\beta Jz=1\)};
             \node at (3.4,2)[violet]{\(\beta Jz=2\)};
+
             \draw[->] (5.2,-2)--(9.7,-2)node[below]{\(k_BT/Jz\)};
             \draw[->] (5.2,-2)--(5.2,2)node[left]{\(\eval{s}_0\)};
             \draw (5.5,-1.95)--(5.5,-2.05)node[below]{\(0\)};
@@ -1255,18 +1247,20 @@
             \node at (3.9,0.9)[blue]{\footnotesize\(V_{\text{acc}}=V-v_{\text{ex}}\)};
             \node at (6.6,0.9)[blue]{\footnotesize\(V_{\text{acc}}=V-2v_{\text{ex}}\)};
             \node at (9.3,0.9)[blue]{\footnotesize\(V_{\text{acc}}=V-3v_{\text{ex}}\)};
-            \fill [red] (4.5,0.2) circle (0.08);
-            \draw [red] (4.5,0.2) circle (0.16);
-            \fill [red] (6,-0.8) circle (0.08);
-            \draw [red] (6,-0.8) circle (0.16);
-            \fill [red] (7,0) circle (0.08);
-            \draw [red] (7,0) circle (0.16);
-            \fill [red] (8.9,0.1) circle (0.08);
-            \draw [red] (8.9,0.1) circle (0.16);
-            \fill [red] (9.5,0.4) circle (0.08);
-            \draw [red] (9.5,0.4) circle (0.16);
-            \fill [red] (9.2,-0.7) circle (0.08);
-            \draw [red] (9.2,-0.7) circle (0.16);
+
+            \pgfmathsetseed{1}
+            \foreach \num in {1,2,3}{
+                \begin{scope}[shift = {(2.7*\num,0)}]
+                    \foreach \i in {1,...,\num}{
+                        \tikzmath{
+                            \x = rand + 1.2;
+                            \y = rand;
+                        }
+                        \fill [red] (\x,\y) circle (0.08);
+                        \draw [red] (\x,\y) circle (0.16);
+                    }
+                \end{scope}
+            }
         \end{tikzpicture}
         \caption{Ignoring any volume excluded by the walls and any excluded volume overlaps, each particle inserted into the system excludes a volume \(v_{\text{ex}}\), reducing the accessible volume.}
     \end{figure}
@@ -1343,8 +1337,8 @@
             \foreach \y in {1,2,3}{
                 \draw (0.04,1.4*\y-0.5)--(-0.04,1.4*\y-0.5)node[left]{\small \(\y\)};
             }
-        \end{tikzpicture}
-        \begin{tikzpicture}[scale=1.1]
+
+        \begin{scope}[shift={(6,0)}]
             \draw[->](-0.2,0) -- (5,0) node[below]{\(V_r\)};
             \draw[->](0,-0.2) -- (0,4) node[left]{\(P_r\)};
             \draw[blue, thick, domain=0.6:2.9,samples=100, smooth, variable=\x] plot ({2*\x-0.7}, {11*(-3/(\x*\x)+ 7.36/(3*\x -1))-5.7});
@@ -1365,8 +1359,8 @@
             \draw [red,dashed,thick] (0.55,2.05)--(0.55,0);
             \fill[cyan] (0.79,0.4) circle (0.03) node[below]{\small S};
             \fill[cyan] (2.19,2.77) circle (0.03) node[above]{\small S}; 
-        \end{tikzpicture}\\
-        \begin{tikzpicture}[scale=1.1]
+        \end{scope}
+        \begin{scope}[shift={(0,-5)}]
             \draw[->](-0.2,0) -- (5,0) node[below]{\(V_r\)};
             \draw[->](0,-0.2) -- (0,3.7) node[left]{\(P_r\)};
             \foreach \x in {0.5,1,1.5,2,2.5,3,3.5}{
@@ -1392,8 +1386,8 @@
             \node[purple] at (4,1.5) {\scriptsize\(T_r=0.95\)};
             \node[violet] at (4,0.8) {\scriptsize\(T_r=0.9\)};
             \node[blue] at (2,0.6) {\scriptsize\(T_r=0.85\)};
-        \end{tikzpicture}
-        \begin{tikzpicture}
+        \end{scope}
+        \begin{scope}[shift={(6,-5)}]
             \draw[thick,red,fill=red!10] (0.5,0) to[out=90,in=268] (0.51,1) to[out=88,in=180] (2,2.5) to[out=0,in=130] (5.5,0);
             \draw[thick,cyan,fill=cyan!10] (0.5,0) to[out=70,in=184] (2,2.5) to[out=358,in=135] (3.5,1.25) to[out=315,in=170] (5.5,0);
             \draw[->] (0,0)--(6.2,0)node[below]{\(\phi\)};
@@ -1410,6 +1404,7 @@
             \node[violet] at (0.45,2) {\scriptsize vapour};
             \node[violet] at (4.4,2) {\scriptsize liquid};
             \node[violet,align=center] at (2,1.15) {\scriptsize phase-separated \\[-4pt] \scriptsize mixture}; 
+        \end{scope}
         \end{tikzpicture}
         \caption{(a) The pressure as a function of the volume above, at and below the critical temperature. All quantities are scaled by their values at the critical point. (b) Below the critical point, the pressure has a `van der Waals loop'. A Maxwell equal-area construction, shown here, is used to find the point of coexistence (labelled `B'). Spinodals, where the system becomes mechanically unstable, are labelled `S'. (c) The coexistence region results in constant pressure region. (d) Phase diagram for the van der Waals model determined using Maxwell constructions.}
         \label{vdW_loops}
@@ -1608,37 +1603,28 @@
     \begin{figure}
         \centering
         \begin{tikzpicture}
-            \draw[ultra thick, rounded corners, fill=blue!10] (0,0) rectangle (4,4);
-            \node at (2,-0.6){\(\Delta U_{N,N+1}=0\)};
-            \node at (2,-1.1){\(\exp(-\beta\Delta U_{N,N+1})=1\)};
-            \node at (2,2){\tikz{
-                \draw[red,fill=red!10] (1,1) circle (0.3);
-                \draw[red,fill=red!10] (2,0.7) circle (0.3);
-                \draw[red,fill=red!10] (3.3,1) circle (0.3);
-                \draw[red,fill=red!10] (2.5,2.2) circle (0.3);
-                \draw[red,fill=red!10] (1.4,3.3) circle (0.3);
-                \draw[red,fill=red!10] (3.5,3.4) circle (0.3);
-                \draw[red,fill=red!10] (1.4,2.1) circle (0.3);
-                \draw[red,fill=red!10] (3,1.7) circle (0.3);
-            }};
-            \draw[blue,fill=blue!30] (2.3,2.8) circle (0.3);
+            \draw[ultra thick, rounded corners, fill=blue!10] (-2,-2) rectangle (2,2);
+            \node at (0,-2.6){\(\Delta U_{N,N+1}=0\)};
+            \node at (0,-3.1){\(\exp(-\beta\Delta U_{N,N+1})=1\)};
+            \pgfmathsetseed{2}
+            \foreach \i in {1,...,8}{
+                \draw[red,fill=red!10] (1.6*rand,1.6*rand) circle (0.3);
+            }
+            \draw[blue,fill=blue!30] (-0.6,0.2) circle (0.3);
 
-            \draw[ultra thick, rounded corners, fill=blue!10] (6,0) rectangle (10,4);
-            \node at (8,-0.6){\(\Delta U_{N,N+1}=\infty\)};
-            \node at (8,-1.1){\(\exp(-\beta\Delta U_{N,N+1})=0\)};
-            \node at (8,2){\tikz{
-                \draw[red,fill=red!10] (1,1) circle (0.3);
-                \draw[red,fill=red!10] (2,0.7) circle (0.3);
-                \draw[red,fill=red!10] (3.3,1) circle (0.3);
-                \draw[red,fill=red!10] (2.5,2.2) circle (0.3);
-                \draw[red,fill=red!10] (1.4,3.3) circle (0.3);
-                \draw[red,fill=red!10] (3.5,3.4) circle (0.3);
-                \draw[red,fill=red!10] (1.4,2.1) circle (0.3);
-                \draw[red,fill=red!10] (3,1.7) circle (0.3);
-            }};
-            \draw[blue,fill=blue!30] (7.5,2) circle (0.3);
+            \begin{scope}[shift={(6,0)}]
+                \draw[ultra thick, rounded corners, fill=blue!10] (-2,-2) rectangle (2,2);
+                \node at (0,-2.6){\(\Delta U_{N,N+1}=\infty\)};
+                \node at (0,-3.1){\(\exp(-\beta\Delta U_{N,N+1})=0\)};
+                \pgfmathsetseed{2}
+                \foreach \i in {1,...,8}{
+                    \draw[red,fill=red!10] (1.6*rand,1.6*rand) circle (0.3);
+                }
+                \draw[blue,fill=blue!30] (0.3,0.8) circle (0.3);
+            \end{scope}
         \end{tikzpicture}
         \caption{A sample configuration of a hard sphere system.}
+
     \end{figure}
 
     \subsection{Virial Expansion for Classical Imperfect Gases}
@@ -1689,31 +1675,38 @@
     \begin{figure}
         \centering
         \begin{tikzpicture}
-            \draw[ultra thick, rounded corners, fill=blue!10] (0,0) rectangle (4,4);
-            \node at (2,-0.7){\(\displaystyle\text{Probability}=\frac{V-V_{\text{int}}}{V}\)};
-            \node at (2,2){\tikz{
-                \draw[red,dashed,fill=red,fill opacity = 0.15] (3.3,1) circle (0.6);
-                \draw[red,dashed,fill=red,fill opacity = 0.15] (1.4,2) circle (0.6);
-                \draw[red,dashed,fill=red,fill opacity = 0.15] (2.8,3.4) circle (0.6);
-                \draw[red,fill=red!10] (3.3,1) circle (0.1);
-                \draw[red,fill=red!10] (1.4,2) circle (0.1);
-                \draw[red,fill=red!10] (2.8,3.4) circle (0.1);
-                \draw[->] (1.4,2)--node[above]{\small\(R_{\text{max}}\)}(2,2);
-                \node at (1.9,1.3) {\small \(v_{\text{int}}\)};
-            }};
-            \draw[blue,fill=blue!30] (2.4,1.8) circle (0.1);
+            \draw[ultra thick, rounded corners, fill=blue!10] (-2,-2) rectangle (2,2);
+            \node at (0,-2.7){\(\displaystyle\text{Probability}=\frac{V-V_{\text{int}}}{V}\)};
+            \pgfmathsetseed{8}
+            \foreach \i in {1,2,3}{
+                \tikzmath{
+                    \x = 1.3 * rand;
+                    \y = 1.3 * rand;
+                }
+                \draw[red,dashed,fill=red,fill opacity = 0.15] (\x,\y) circle (0.6);
+                \draw[red,fill=red!10] (\x,\y) circle (0.1);
+                \ifthenelse{\i = 3}{
+                    \draw[->] (\x,\y)--node[above]{\small\(R_{\text{max}}\)}(\x + 0.6,\y);
+                    \node at (\x+0.5,\y-0.7) {\small \(v_{\text{int}}\)};
+                }{}
+            }
+            
+            \draw[blue,fill=blue!30] (-1,-0.5) circle (0.1);
 
-            \draw[ultra thick, rounded corners, fill=blue!10] (6,0) rectangle (10,4);
-            \node at (8,-0.7){\(\displaystyle\text{Probability}=\frac{V_{\text{int}}}{V}\)};
-            \node at (8,2){\tikz{
-                \draw[red,dashed,fill=red,fill opacity = 0.15] (3.3,1) circle (0.6);
-                \draw[red,dashed,fill=red,fill opacity = 0.15] (1.4,2) circle (0.6);
-                \draw[red,dashed,fill=red,fill opacity = 0.15] (2.8,3.4) circle (0.6);
-                \draw[red,fill=red!10] (3.3,1) circle (0.1);
-                \draw[red,fill=red!10] (1.4,2) circle (0.1);
-                \draw[red,fill=red!10] (2.8,3.4) circle (0.1);
-            }};
-            \draw[blue,fill=blue!30] (7.4,2) circle (0.1);
+            \begin{scope}[shift={(6,0)}]
+                \draw[ultra thick, rounded corners, fill=blue!10] (-2,-2) rectangle (2,2);
+                \node at (0,-2.7){\(\displaystyle\text{Probability}=\frac{V_{\text{int}}}{V}\)};
+                \pgfmathsetseed{8}
+                \foreach \i in {1,2,3}{
+                    \tikzmath{
+                        \x = 1.3 * rand;
+                        \y = 1.3 * rand;
+                    }
+                    \draw[red,dashed,fill=red,fill opacity = 0.15] (\x,\y) circle (0.6);
+                    \draw[red,fill=red!10] (\x,\y) circle (0.1);
+                }
+                \draw[blue,fill=blue!30] (0.4,0) circle (0.1);
+            \end{scope}
         \end{tikzpicture}
         \caption{Widom insertion method to determine the excess chemical potential of a dilute non-ideal gas system.}
     \end{figure}
@@ -2001,9 +1994,30 @@
     \begin{figure}
         \centering
         \begin{tikzpicture}
-            \node[blue] at (-5,0){\RandomWalk{number = 75, length = {4pt, 5pt, 6pt}, angles = {-175,-170,-165,-160,-155,-150,-145,-140,-135,-130,-125,-120,-115,-110,-105,175,170,165,160,155,150,145,140,135,130,125,120,115,110,105}, degree, angles-relative, revert-random}};
-            \node[blue!50!cyan] at (0,0){\RandomWalk{number = 75, length = {4pt, 5pt, 6pt}}};
-            \node[cyan] at (5,0){\RandomWalk{number = 75, length = {4pt, 5pt, 6pt}, angles = {-145,-100,-90,-80,-75,-70,-65,-60,-55,-50,-45,-40,-35,-30,-25,-20,-15,-12,-10,-8,-5,-3,0,145,100,90,85,80,75,70,65,60,55,50,45,40,35,30,25,20,15,12,10,8,5,3}, degree, angles-relative, revert-random}};
+            \node at (-5,0){\tikz{\pgfmathsetseed{1}
+            \coordinate (p) at (0,0);
+            \pgfmathsetmacro{\a}{360*rnd}
+
+            \foreach \i in {1,...,70}{
+                \draw[blue] (p) -- ++({\a}: rand*0.07 + 0.3) coordinate (p);
+                \pgfmathparse{mod(\a + 180 + 90*rand,360)}\xdef\a{\pgfmathresult}
+            }}};
+
+            \node at (0,0){\tikz{\pgfmathsetseed{12345}
+            \coordinate (p) at (5,0);
+
+            \foreach \i in {1,...,70}{
+                \draw[blue!50!cyan] (p) -- ++(360*rand: rand*0.07 + 0.3) coordinate (p);
+            }}};
+
+            \node at (5,0){\tikz{\pgfmathsetseed{123456}
+            \coordinate (p) at (10,0);
+            \pgfmathsetmacro{\a}{360*rnd}
+
+            \foreach \i in {1,...,70}{
+                \draw[cyan] (p) -- ++({\a}: rand*0.07 + 0.3) coordinate (p);
+                \pgfmathparse{mod(\a + 260*rand*rand,360)}\xdef\a{\pgfmathresult}
+            }}};
 
             \node[align=center] at (-5,-2.2) {Poor solvent \\ \(\chi>\frac{1}{2}\)};
             \node[align=center] at (0,-2.2) {\(\theta\) solvent \\ \(\chi=\frac{1}{2}\)};
