@@ -1,6 +1,6 @@
 \documentclass{article}
 
-\usepackage{amsmath,geometry,amsfonts,array,makecell,enumitem,bm,esint,booktabs,multirow,mathtools,upgreek,amssymb,pgfplots,mathrsfs,nicematrix,slashed, chemfig, tikzorbital}
+\usepackage{amsmath,geometry,amsfonts,array,makecell,enumitem,bm,esint,booktabs,multirow,mathtools,upgreek,amssymb,pgfplots, chemfig, tikzorbital,subcaption,adjustbox}
 \usepackage[amsmath]{ntheorem}
 \usepackage[hidelinks,naturalnames]{hyperref}
 \usepackage[nameinlink,noabbrev]{cleveref}
@@ -116,7 +116,7 @@
 		\textbf{\Large{Preface}}
 	\end{center}
 	\large
-    This course focuses on the magnetic properties of inorganic materials. It is not a theoretical course, so it will be pretty handwavy on quantum mechanical arguments. As a theoretical chemist though, I have tried my best to make this course notes more rigorous than the original official notes without being too pedantic. 
+    This course focuses on the magnetic properties of inorganic materials. It is not a theoretical course, so it will be pretty handwavy on quantum mechanical/statistical mechanical arguments. But I, as a theoretical chemist though, have tried my best to make this course notes more rigorous than the original official notes without being too pedantic. 
     
 	\normalsize
     \newpage
@@ -196,7 +196,7 @@
     \begin{equation}
         \mu_S=g_S\mu_{\text{B}}\sqrt{S(S+1)}\,,
     \end{equation}
-    where \(S=\frac{1}{2}\), and \(\mu_{\text{B}}\) is the Bohr's magneton, characterising the strength of the magnetic moment of an electron. Note that since the charge of an electron is negative, \(q=-e\), its magnetic moment \(\vb{\mu}_S\) is in the opposite direction of its spin \(\vb{S}\), i.e. the gyromagnetic ratio is negative. We will take extra care on whether we are talking about the direction of the spin or the direction of the magnetic moment in future.
+    where \(S=\frac{1}{2}\), and \(\mu_{\text{B}}=e\hbar/2m_e\) is the Bohr's magneton (also denoted \(\beta\)) which characterises the strength of the magnetic moment of an electron. Note that since the charge of an electron is negative, \(q=-e\), its magnetic moment \(\vb{\mu}_S\) is in the opposite direction of its spin \(\vb{S}\), i.e. the gyromagnetic ratio is negative. We will take extra care on whether we are talking about the direction of the spin or the direction of the magnetic moment in future.
 
     \subsection{Magnetic Moment of Ions and Atoms}
     In an ion or atom, there are two main sources of angular momenta --- the spins and the orbital angular momentum of the electrons. The nucleus also carries nuclear spin, but the magnetic moment is proportional to \(m^{-1}\), and since nuclei are much heavier than the electrons, we are ignoring the nuclear contribution.
@@ -485,10 +485,8 @@
     \begin{figure}[ht!]
         \centering
         \begin{tikzpicture}
-            \foreach \i in {0,...,6}{
-                \draw[thin,color=gray!50] (0.7*\i,0)--(0.7*\i,4.2);
-                \draw[thin,color=gray!50] (0,0.7*\i)--(4.2,0.7*\i);
-            }
+            \pgfmathsetseed{88888}
+            \draw[step=0.7,thin,color=gray!50] (0,0) grid (4.2,4.2);
             \foreach \i in {0,...,6}{
                 \foreach \j in {0,...,6}{
                     \tikzmath{\x = rand*180;}
@@ -499,10 +497,7 @@
             \node at (5.3,2.1)[blue]{\(\vb{M}=\vb{0}\)};
             \node at (2.1,-1){(a) \(H=0\).};
             \begin{scope}[shift={(7.5,0)}]
-                \foreach \i in {0,...,6}{
-                    \draw[thin,color=gray!50] (0.7*\i,0)--(0.7*\i,4.2);
-                    \draw[thin,color=gray!50] (0,0.7*\i)--(4.2,0.7*\i);
-                }
+                \draw[step=0.7,thin,color=gray!50] (0,0) grid (4.2,4.2);
                 \foreach \i in {0,...,6}{
                     \foreach \j in {0,...,6}{
                         \tikzmath{\x = rand;
@@ -515,10 +510,7 @@
                 \node at (2.1,-1){(b) small \(H\).};
             \end{scope}
             \begin{scope}[shift={(0,-6.5)}]
-                \foreach \i in {0,...,6}{
-                    \draw[thin,color=gray!50] (0.7*\i,0)--(0.7*\i,4.2);
-                    \draw[thin,color=gray!50] (0,0.7*\i)--(4.2,0.7*\i);
-                }
+                \draw[step=0.7,thin,color=gray!50] (0,0) grid (4.2,4.2);
                 \foreach \i in {0,...,6}{
                     \foreach \j in {0,...,6}{
                         \tikzmath{\x = rand;
@@ -531,10 +523,7 @@
                 \node at (2.1,-1){(c) large \(H\).};
             \end{scope}
             \begin{scope}[shift={(7.5,-6.5)}]
-                \foreach \i in {0,...,6}{
-                    \draw[thin,color=gray!50] (0.7*\i,0)--(0.7*\i,4.2);
-                    \draw[thin,color=gray!50] (0,0.7*\i)--(4.2,0.7*\i);
-                }
+                \draw[step=0.7,thin,color=gray!50] (0,0) grid (4.2,4.2);
                 \foreach \i in {0,...,6}{
                     \foreach \j in {0,...,6}{
                         \draw[thick] (0.7*\i,0.7*\j)--++(-90 :0.2);
@@ -854,17 +843,18 @@
     Inheriting the nomenclature of the direct exchange, if a superexchange favours an antiferromagnetic state, then this is known as a kinetic superexchange, while if the ferromagnetic state is favoured, it is a potential superexchange. These are best illustrated with a few examples.
 
     \subsubsection{Potential Superexchange}
-    Potential superexchange stabilises the ferromagnetic ground state through mutually orthogonal orbitals in the exchange pathway. This is comparatively rare, but can be achieved in several ways. The most common example is a pair of \(90^\circ\) orthogonal orbitals in \(\mathrm{M-X-M}\), where \(\mathrm{X}\) is a ligand.
+    Potential superexchange stabilises the ferromagnetic ground state through mutually orthogonal orbitals in the exchange pathway. This is comparatively rare, but can be achieved in several ways. The most common example is a pair of \(90^\circ\) orthogonal orbitals in \(\mathrm{M-L-M}\), where \(\mathrm{L}\) is a ligand.
 
     \begin{ex}
         \textit{\(90^\circ \) \(\mathrm{M}(e_g)-\mathrm{O}-\mathrm{M}(e_g)\) in \(\mathrm{[Cu(OH)_2Cu]^{2+}}\) dimer.}
 
         The two metal centres in the dimer are far apart, with little orbital overlap, so direct exchange is not possible.
+
         \begin{figure}[ht!]
             \centering
             \begin{tikzpicture}
-                \orbital[pos = {(-1.1,0)}, pcolor=white]{dyz};
-                \orbital[pos = {(1.1,0)}, pcolor=white]{dyz};
+                \orbital[pos = {(-1.1,0)}, pcolor=white]{dyz}
+                \orbital[pos = {(1.1,0)}, pcolor=white]{dyz}
                 \node at (0,0){
                     \chemfig{[:45,2.2]O*4(--O--)}
                 };
@@ -875,17 +865,17 @@
             \end{tikzpicture}
         \end{figure}
 
-        The bonding between metal and ligand is not purely ionic (crystal field approach), but instead has a significant covalent contribution. Thus the magnetic orbital on a metal may have some ligand character. Thus the ligand bears some spin density from both metals centres and acts as a mediator for communication between the spins formally located on metals the two centres.
+        The bonding between metal and ligand is not purely ionic (crystal field theory), but instead has a significant covalent contribution. Thus the magnetic orbital on a metal may have some ligand character. As a result, the ligand bears some spin density from both metals centres and acts as a mediator for communication between the spins formally located on metals the two centres. This brings the spin polarisations on the metals closer together and allow exchange interaction happen.
 
         \begin{figure}[ht!]
             \centering
             \begin{tikzpicture}
-                \orbital[pos = {(-1.1,0)}, pcolor=red!20, ncolor=red!20!black!40]{dyz};
-                \orbital[pos = {(1.1,0)}, pcolor=blue!20, ncolor=blue!20!black!40]{dyz};
-                \node[rotate=225] at (0,1.1){\tikz{\orbital[pos = {(0,0)}, pcolor=red!40, ncolor=red!40!black!50]{py};}};
-                \node[rotate=135] at (0,1.1){\tikz{\orbital[pos = {(0,0)}, pcolor=blue!40, ncolor=blue!40!black!50]{py};}};
-                \node[rotate=315] at (0,-1.1){\tikz{\orbital[pos = {(0,0)}, pcolor=red!40, ncolor=red!40!black!50]{py};}};
-                \node[rotate=45] at (0,-1.1){\tikz{\orbital[pos = {(0,0)}, pcolor=blue!40, ncolor=blue!40!black!50]{py};}};
+                \orbital[pos = {(-1.1,0)}, pcolor=red!20, ncolor=red!20!black!40]{dyz}
+                \orbital[pos = {(1.1,0)}, pcolor=blue!20, ncolor=blue!20!black!40]{dyz}
+                \node[rotate=225] at (0,1.1){\tikz{\orbital[pos = {(0,0)}, pcolor=red!40, ncolor=red!40!black!50]{py}}};
+                \node[rotate=135] at (0,1.1){\tikz{\orbital[pos = {(0,0)}, pcolor=blue!40, ncolor=blue!40!black!50]{py}}};
+                \node[rotate=315] at (0,-1.1){\tikz{\orbital[pos = {(0,0)}, pcolor=red!40, ncolor=red!40!black!50]{py}}};
+                \node[rotate=45] at (0,-1.1){\tikz{\orbital[pos = {(0,0)}, pcolor=blue!40, ncolor=blue!40!black!50]{py}}};
                 \node at (0,0){
                     \chemfig{[:45,2.2]*4(----)}
                 };
@@ -894,9 +884,9 @@
                 \draw[arrows = {->[right]},thick,blue] (2.3,0.3)--(2.3,-0.3);
 
                 \begin{scope}[shift={(-3.5,-3.5)}]
-                    \orbital[pos = {(-1.1,0)}, pcolor=red!20, ncolor=red!20!black!40]{dyz};
-                    \node[rotate=225] at (0,1.1){\tikz{\orbital[pos = {(0,0)}, pcolor=red!40, ncolor=red!40!black!50]{py};}};
-                    \node[rotate=315] at (0,-1.1){\tikz{\orbital[pos = {(0,0)}, pcolor=red!40, ncolor=red!40!black!50]{py};}};
+                    \orbital[pos = {(-1.1,0)}, pcolor=red!20, ncolor=red!20!black!40]{dyz}
+                    \node[rotate=225] at (0,1.1){\tikz{\orbital[pos = {(0,0)}, pcolor=red!40, ncolor=red!40!black!50]{py}}};
+                    \node[rotate=315] at (0,-1.1){\tikz{\orbital[pos = {(0,0)}, pcolor=red!40, ncolor=red!40!black!50]{py}}};
                     \node at (0,0){
                         \chemfig{[:45,2.2]*4(----)}
                     };
@@ -910,9 +900,9 @@
                 \end{scope}
 
                 \begin{scope}[shift={(3.5,-3.5)}]
-                    \orbital[pos = {(1.1,0)}, pcolor=blue!20, ncolor=blue!20!black!40]{dyz};
-                    \node[rotate=135] at (0,1.1){\tikz{\orbital[pos = {(0,0)}, pcolor=blue!40, ncolor=blue!40!black!50]{py};}};
-                    \node[rotate=45] at (0,-1.1){\tikz{\orbital[pos = {(0,0)}, pcolor=blue!40, ncolor=blue!40!black!50]{py};}};
+                    \orbital[pos = {(1.1,0)}, pcolor=blue!20, ncolor=blue!20!black!40]{dyz}
+                    \node[rotate=135] at (0,1.1){\tikz{\orbital[pos = {(0,0)}, pcolor=blue!40, ncolor=blue!40!black!50]{py}}};
+                    \node[rotate=45] at (0,-1.1){\tikz{\orbital[pos = {(0,0)}, pcolor=blue!40, ncolor=blue!40!black!50]{py}}};
                     \node at (0,0){
                         \chemfig{[:45,2.2]*4(----)}
                     };
@@ -926,12 +916,12 @@
                 \end{scope}
 
                 \begin{scope}[shift={(0,-7)}]
-                    \orbital[pos = {(-1.1,0)}, pcolor=red!20, ncolor=red!20!black!40]{dyz};
-                    \orbital[pos = {(1.1,0)}, pcolor=blue!20, ncolor=blue!20!black!40]{dyz};
-                    \node[rotate=225] at (0,1.1){\tikz{\orbital[pos = {(0,0)}, pcolor=red!40, ncolor=red!40!black!50]{py};}};
-                    \node[rotate=135] at (0,1.1){\tikz{\orbital[pos = {(0,0)}, pcolor=blue!40, ncolor=blue!40!black!50]{py};}};
-                    \node[rotate=315] at (0,-1.1){\tikz{\orbital[pos = {(0,0)}, pcolor=red!40, ncolor=red!40!black!50]{py};}};
-                    \node[rotate=45] at (0,-1.1){\tikz{\orbital[pos = {(0,0)}, pcolor=blue!40, ncolor=blue!40!black!50]{py};}};
+                    \orbital[pos = {(-1.1,0)}, pcolor=red!20, ncolor=red!20!black!40]{dyz}
+                    \orbital[pos = {(1.1,0)}, pcolor=blue!20, ncolor=blue!20!black!40]{dyz}
+                    \node[rotate=225] at (0,1.1){\tikz{\orbital[pos = {(0,0)}, pcolor=red!40, ncolor=red!40!black!50]{py}}};
+                    \node[rotate=135] at (0,1.1){\tikz{\orbital[pos = {(0,0)}, pcolor=blue!40, ncolor=blue!40!black!50]{py}}};
+                    \node[rotate=315] at (0,-1.1){\tikz{\orbital[pos = {(0,0)}, pcolor=red!40, ncolor=red!40!black!50]{py}}};
+                    \node[rotate=45] at (0,-1.1){\tikz{\orbital[pos = {(0,0)}, pcolor=blue!40, ncolor=blue!40!black!50]{py}}};
                     \node at (0,0){
                         \chemfig{[:45,2.2]*4(----)}
                     };
@@ -964,8 +954,8 @@
             \centering
             \begin{tikzpicture}
                 \clip (-5,-2) rectangle (5,1);
-                \node[rotate=45] at (-1.5,0){\tikz{\orbital[pos = {(0,0)}, pcolor=white]{dyz};}};
-                \node[rotate=135] at (1.5,0){\tikz{\orbital[pos = {(0,0)}, pcolor=white]{dyz};}};
+                \node[rotate=45] at (-1.5,0){\tikz{\orbital[pos = {(0,0)}, pcolor=white]{dyz}}};
+                \node[rotate=135] at (1.5,0){\tikz{\orbital[pos = {(0,0)}, pcolor=white]{dyz}}};
                 \node at (0,0){
                     \chemfig{-[,2.1]O-[,2.1]}
                 };
@@ -982,9 +972,9 @@
             \centering
             \begin{tikzpicture}
                 \clip (-5,-6) rectangle (5,2);
-                \node[rotate=45] at (-1.5,0){\tikz{\orbital[pos = {(0,0)}, pcolor=white]{dyz};}};
-                \node[rotate=135] at (1.5,0){\tikz{\orbital[pos = {(0,0)}, pcolor=white]{dyz};}};
-                \orbital[pos = {(0,0)}, pcolor=white]{py};
+                \node[rotate=45] at (-1.5,0){\tikz{\orbital[pos = {(0,0)}, pcolor=white]{dyz}}};
+                \node[rotate=135] at (1.5,0){\tikz{\orbital[pos = {(0,0)}, pcolor=white]{dyz}}};
+                \orbital[pos = {(0,0)}, pcolor=white]{py}
                 \node at (0,0){
                     \chemfig{-[,2.1]-[,2.1]}
                 };
@@ -996,9 +986,9 @@
                 \draw[thick,->] (0,-1)to[bend left=15]node[right,align=center]{electron\\ transfer}(0,-2.5);
 
                 \begin{scope}[shift={(0,-4.7)}]
-                    \node[rotate=45] at (-1.5,0){\tikz{\orbital[pos = {(0,0)}, pcolor=white]{dyz};}};
-                    \node[rotate=135] at (1.5,0){\tikz{\orbital[pos = {(0,0)}, pcolor=white]{dyz};}};
-                    \orbital[pos = {(0,0)}, pcolor=white]{py};
+                    \node[rotate=45] at (-1.5,0){\tikz{\orbital[pos = {(0,0)}, pcolor=white]{dyz}}};
+                    \node[rotate=135] at (1.5,0){\tikz{\orbital[pos = {(0,0)}, pcolor=white]{dyz}}};
+                    \orbital[pos = {(0,0)}, pcolor=white]{py}
                     \node at (0,0){
                         \chemfig{-[,2.1]-[,2.1]}
                     };
@@ -1018,9 +1008,9 @@
         \centering
         \begin{tikzpicture}
             \clip (-5,-1) rectangle (5,1);
-            \node at (-1,0){\tikz{\orbital[pos = {(0,0)}, pcolor=white]{dyz};}};
-            \node[rotate=90] at (1,0){\tikz{\orbital[pos = {(0,0)}, pcolor=white]{dyz};}};
-            \orbital[pos = {(0,0)}, pcolor=white]{pz};
+            \orbital[pos = {(-1,0)}, pcolor=white]{dyz}
+            \orbital[pos = {(1,0)}, pcolor=white]{dyz}
+            \orbital[pos = {(0,0)}, pcolor=white]{pz}
             \node at (0,0){
                 \chemfig{-[,1.5]-[,1.5]}
             };
@@ -1037,7 +1027,7 @@
         \textit{Planar copper dimers with two hydroxyl bridges.}
 
         We continue investigating the following family of planar copper dimers.
-
+        
         \begin{figure}[ht!]
             \centering
             \begin{tikzpicture}
@@ -1050,7 +1040,7 @@
             \end{tikzpicture}
             
         \end{figure}
-
+        
         By changing the size of the \(\mathrm{N-R-N}\) ligand, we can alter the \(\mathrm{Cu-O-Cu}\) bond angle \(\theta\). When \(\theta=90^\circ\) exactly, this is the kinetic superexchange example we met before. Since the two orbitals are orthogonal, kinetic exchange is not possible so \(J\) is positive (ferromagnetic). As the bond angle deviates from \(90^\circ\), kinetic superexchange becomes possible via scheme shown in the previous example. Hence \(J\) begins to decrease.
 
         \begin{figure}[ht!]
@@ -1070,16 +1060,16 @@
     From the above example, it can be seen that the ferromagnetic coupling is fragile. The potential superexchange can be easily overwhelmed by the kinetic superexchange even with only a tiny amount of spatial overlap. It seems that it is therefore very difficult to produce ferromagnetic materials like magnets --- and even if we can make one by carefully controlling the geometry of orbital interaction, the small \(\abs{J}\) makes the ferromagnetic alignment easily scrambled by thermal activation once \(k_B T\approx \abs{J}\) at room temperatures.
 
     We will see how this problem is resolved when we have a magnetic network.
-
+    
     \subsubsection{General Features of Superexchange}
     To conclude:
     \begin{itemize}
-        \item The kinetic exchange pathways are usually stronger than potential superexchange. As a consequence, when competing pathways are present the resultant interaction tends to be antiferromagnetic. Exceptions occur when all superexchange pathways involve orthogonal orbitals so that kinetic exchange is not possible.
+        \item The kinetic exchange pathways are usually stronger than potential superexchange. As a consequence, when competing pathways are present the resultant interaction tends to be antiferromagnetic.
         \item Because of the better overlap in \(\sigma\)-bonds, the \(\sigma\)-type superexchange tends to be greater than \(\pi\)-superexchange, i.e. the interactions involving the \(e_g\) orbitals tend to predominate. 
-        \item The magnitude of \(J\) is very sensitive to overlap (covalency). As a consequence \(\abs{J}\) tends to increase as we move from left to right (better energy match with ligand) or move down the group (more diffuse orbitals), and for softer and more polarisable ligands.
+        \item The magnitude of \(J\) is very sensitive to orbital overlap (covalency). As a consequence \(\abs{J}\) tends to increase as we move from left to right (better energy match with ligand) or move down the group (more diffuse orbitals), and for softer and more polarisable ligands.
         \item For ions with more than one magnetic orbitals, both \(\sigma\) and \(\pi\) type interactions are possible.
     \end{itemize}
-
+    
     \subsection{Magnetic Susceptibility of Clusters}
     Magnetic coupling makes the susceptibility of clusters deviate from the simple Curie law --- and the resulting general expression of \(\chi\) is usually quite complicated: coupling splits the system to a number of energy levels, with population given by the Boltzmann distribution, and each contributes accordingly to the total magnetic susceptibility. We will first investigate the high temperature and low temperature limits, which are quite easy to work out, before discussing how to find the general expression of \(\chi(T)\) for a cluster.
 
@@ -1116,6 +1106,105 @@
     \end{equation}
     If the coupling geometry is any more complex, then we need to find ground state \(S_{\text{T}}\) \textit{ad hoc}.
 
+    \begin{ex}
+        \textit{\(\mathrm{Ni_{12}(chp)_{12}(OAc)_{12}(H_2O)_6(thf)_6}\).}
+
+        This complex contains twelve octahedral \(\mathrm{Ni(II)}\) ions with \(S=1\). Using \(g=2.0\), we get the high temperature (non-interacting limit)
+        \begin{equation}
+            \lim_{T\to\infty}\chi T\approx 12\times\frac{1}{2}S(S+1)=12\unit{emu}\unit{K}\unit{mol}^{-1}\,.
+        \end{equation}
+        If the metal centres are ferromagnetically coupled, then the low temperature has \(S_{\text{T}}=12\) and
+        \begin{equation}
+            \lim_{T\to 0}\chi_{\text{ferro}} T \approx \frac{1}{2}S_{\text{T}}(S_{\text{T}} + 1)=78\unit{emu}\unit{K}\unit{mol}^{-1}\,,
+        \end{equation}
+        while if the nickel centres are antiferromagnetically coupled, the ground state has \(S_{\text{T}}=0\) and
+        \begin{equation}
+            \lim_{T\to 0}\chi_{\text{anti}} T \approx \frac{1}{2}S_{\text{T}}(S_{\text{T}} + 1)=0\unit{emu}\unit{K}\unit{mol}^{-1}\,.
+        \end{equation}
+
+        We have the experimental data in \cref{Fig:Ni12cluster}. We see that the cluster's \(\chi T\) value increases as temperature decreases, so the coupling between \(\mathrm{Ni}\) centres must be ferromagnetic. However, we found that the high temperature \(\chi T\) value levels of at around \(18\unit{emu}\unit{K}\unit{mol}^{-1}\), which is larger than our calculated value of \(12\unit{emu}\unit{K}\unit{mol}^{-1}\). This means that in this compound, we actually have a \(g\) value larger than \(2.0\): usually for \(\mathrm{Ni^{2+}}\), \(g\approx 2.2\) is a good approximation, while fitting this set of data gives \(g\approx 2.45\).
+
+        What we can also observe is that the \(\chi T\) value does not reach its low temperature limit even for the lowest-temperature data measured (\(1.8\unit{K}\)). This again suggests that the ferromagnetic coupling in this compound is really weak. Magnetic excited states with \(S_{\text{T}}<12\) have significant populations even at \(1.8\unit{K}\).
+
+        \begin{figure}
+            \centering
+            \begin{subfigure}[h]{0.4\linewidth}
+                \begin{adjustbox}{width=\linewidth}
+                \includegraphics[width=\linewidth]{figures/Ni_cluster.jpg}
+                \end{adjustbox}
+            \end{subfigure}
+            \hskip 0.8cm
+            \begin{subfigure}[h]{0.48\linewidth}
+                \begin{adjustbox}{width=\linewidth}
+                \input{figures/Ni_cluster.tex}
+                \end{adjustbox}
+            \end{subfigure}
+            \caption{The structure and the measured and fitted \(\chi T\) against \(T\) for the \(\mathrm{Ni_{12}}\) cluster.}
+            \label{Fig:Ni12cluster}
+        \end{figure}
+    \end{ex}
+
+    \begin{ex}
+        \textit{\(\mathrm{Cu_2(OAc)_4\cdot 2H_2O}\).}
+
+        This cluster contains two \(S=\frac{1}{2}\) \(\mathrm{Cu(II)}\) ions. Using \(g=2.0\), the high temperature limit is
+        \begin{equation}
+            \lim_{T\to\infty}\chi T\approx 2\times\frac{1}{2}S(S+1)=0.75\unit{emu}\unit{K}\unit{mol}^{-1}\,.
+        \end{equation}
+        If the copper ions are ferromagnetically coupled, then the low temperature has \(S_{\text{T}}=1\) and
+        \begin{equation}
+            \lim_{T\to 0}\chi_{\text{ferro}} T \approx \frac{1}{2}S_{\text{T}}(S_{\text{T}} + 1)=1\unit{emu}\unit{K}\unit{mol}^{-1}\,,
+        \end{equation}
+        while if the they are antiferromagnetically coupled, the ground state has \(S_{\text{T}}=0\) and
+        \begin{equation}
+            \lim_{T\to 0}\chi_{\text{anti}} T \approx \frac{1}{2}S_{\text{T}}(S_{\text{T}} + 1)=0\unit{emu}\unit{K}\unit{mol}^{-1}\,.
+        \end{equation}
+
+        We have the experimental data in \cref{Fig:Cu2cluster}. It is clear to see that \(J\) is large, such that even at room temperature, \(\chi T\) is not approaching its high temperature limiting value. Fitting gives \(J/k_B\approx 420\unit{K}\). Up until approximately \(80\unit{K}\), we have \(\chi T\approx 0\), suggesting that only the \(S_{\text{T}}=0\) ground state is significantly populated at that temperature.
+
+        \begin{figure}
+            \centering
+            \input{figures/Cu_cluster.tex}
+            \caption{The measured and fitted \(\chi T\) against \(T\) for the \(\mathrm{Cu_{2}}\) cluster.}
+            \label{Fig:Cu2cluster}
+        \end{figure}
+    \end{ex}
+
+    \subsection{Modelling Exchange Interactions in Clusters}
+    Now let's see how do we solve for the exact magnetic energy levels and \(\chi T(T)\) expressions for simple systems. The recipe is as follows:
+    \begin{enumerate}
+        \item Set up the Spin Hamiltonian. This essentially defines the problem that we want to solve. For the most general case, we set
+        \begin{equation}
+            \hat{H}=-2\sum_{i>j}J_{ij}\hat{\vb{S}}_i\hat{\vb{S}}_j\,,
+        \end{equation}
+        where \(\hat{\vb{S}}_i\) is the spin operator for particle \(i\), and \(J_{ij}\) is the coupling strength between spin \(i\) and spin \(j\): it's positive for ferromagnetic coupling and negative for antiferromagnetic coupling. The factor \(2\) is a matter of convention.
+
+        Practically, we don't need to couple all pairs of atoms in a cluster: we only need to consider the coupling between two spin carriers if they are close enough for the interaction to be significant. This means that we can set \(J_{ij}=0\) if \(i\) and \(j\) are far enough. Moreover, some \(J\) values may be identical by symmetry, which further simplifies the expression of the Hamiltonian. A few examples of spin Hamiltonians for simple systems are given in \cref{Fig:Hamiltonians} --- we will not consider any system more complex than these in this course.
+
+        \begin{figure}[ht!]
+            \centering
+            \begin{tikzpicture}
+                \draw (-0.7,0)node[circle, draw, fill=white]{\(1\)}--node[above]{\(J\)}(0.7,0)node[circle, draw, fill=white]{\(2\)};
+                \node at (0,-1.5) [below] {\(\hat{H}=-2J\hat{\vb{S}}_1\vdot\hat{\vb{S}}_2\)};
+
+                \begin{scope}[shift={(5,0)}]
+                    \draw (90:0.7)node[circle, draw, fill=white]{\(1\)} --node[left]{\(J\)} (210:0.7)node[circle, draw, fill=white]{\(2\)} -- (-30:0.7)node[circle, draw, fill=white]{\(3\)} -- cycle;
+                    \node at (0,-1.5) [below, align=center] {\(\hat{H}=-2J[\hat{\vb{S}}_1\vdot\hat{\vb{S}}_2+\hat{\vb{S}}_2\vdot\hat{\vb{S}}_3\) \\ \(+\hat{\vb{S}}_3\vdot\hat{\vb{S}}_1]\)};
+                \end{scope}
+
+                \begin{scope}[shift={(10,0)}]
+                    \draw (0,0.5)node[circle, draw, fill=white]{\(1\)} --node[left]{\(J\)} (-1,-0.5)node[circle, draw, fill=white]{\(2\)} --node[below]{\(J'\)} (1, -0.5) node[circle, draw, fill=white]{\(3\)} --node[right]{\(J\)} cycle;
+                    \node at (0,-1.5) [below, align=center] {\(\hat{H}=-2J[\hat{\vb{S}}_1\vdot\hat{\vb{S}}_2+\hat{\vb{S}}_1\vdot\hat{\vb{S}}_3]\) \\ \(-2J'\hat{\vb{S}}_1\vdot\hat{\vb{S}}_3\)};
+                \end{scope}
+            \end{tikzpicture}
+            \caption{}
+            \label{Fig:Hamiltonians}
+        \end{figure}
+    \end{enumerate}
+    
+    \subsubsection{Two Interacting Spins}
+    First we need to write down the spin Hamiltonian. 
+    
         
     
 

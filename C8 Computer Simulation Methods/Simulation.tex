@@ -858,21 +858,26 @@
     \begin{figure}
         \centering
         \begin{tikzpicture}
-            \fill[gray!20] (0,0) rectangle (2,2);
-            \foreach \i in {-2,0,2}{
-                \foreach \j in {-2,0,2}{
-                    \begin{scope}[shift={(\i,\j)}]
-                        \draw (0,0) rectangle (2,2);
-                        \draw (0.45,1.35) circle (0.1);
-                        \draw (0.9,0.9) circle (0.1);
-                        \draw (1.1,0.3) circle (0.1);
-                        \draw (1.5,0.5) circle (0.1);
-                        \draw (1.4,1.8) circle (0.1);
-                    \end{scope}
+            \pgfmathsetseed{10}
+            \fill[gray!20] (-1,-1) rectangle (1,1);
+            \draw[step=2cm, xshift=-3cm, yshift=-3cm] (0,0) grid (6,6);
+            \foreach \n in {0,...,5}{
+                \tikzmath{
+                    \x = rand*0.9;
+                    \y = rand*0.9;
+                }
+                \ifthenelse{\n=0}{
+                    \draw[dashed] (\x,\y) circle (1);
+                    \draw[->] (\x,\y)--node[below]{\(r_c\)} +(0.8,0.6);
+                }{}
+                \foreach \i in {-2,0,2}{
+                    \foreach \j in {-2,0,2}{
+                        \begin{scope}[shift={(\i,\j)}]
+                            \draw (\x,\y) circle (0.1);
+                        \end{scope}
+                    }
                 }
             }
-            \draw[dashed] (1.5,0.5) circle (1);
-            \draw[->] (1.5,0.5)--node[below]{\(r_c\)}(2.3,1.1);
         \end{tikzpicture}
         \caption{A simulation cell with cyclic boundary condition and cutoff radius \(r=r_c\).}
     \end{figure}
@@ -1237,18 +1242,28 @@
     \begin{figure}
         \centering
         \begin{tikzpicture}
+            \pgfmathsetseed{8}
             \draw[->] (0,0)--(10,0)node[below]{\small\(t\)};
             \draw[->] (0,0)--(0,3)node[left]{\small\(A(t)\)};
-            \begin{scope}[shift={(-0.25,0.5)}]
-                \draw[scale=0.105,thick] (2.54,10.12) .. controls (2.54,9.31) and (4.08,6.38) .. (4.46,6.02) .. controls (4.7,5.78) and (5.45,6.99) .. (5.83,6.81) .. controls (6.29,6.59) and (6.64,5.39) .. (7.2,4.96) .. controls (7.55,4.68) and (7.53,5.56) .. (7.74,5.35) .. controls (8.69,4.44) and (8.61,1.21) .. (10.48,1.52) .. controls (10.84,1.57) and (12.04,2.98) .. (12.4,3.5) .. controls (12.53,3.68) and (12.85,3.7) .. (12.95,3.9) .. controls (13.51,4.99) and (14.04,6.15) .. (14.32,7.34) .. controls (14.66,8.81) and (14.61,10.54) .. (15.28,11.84) .. controls (16.14,13.52) and (17.89,9.45) .. (18.43,8.93) .. controls (18.69,8.68) and (18.44,8.66) .. (19,9.72) .. controls (19.28,10.25) and (19.29,10.4) .. (19.52,10.52) .. controls (19.71,10.61) and (20.27,10.83) .. (20.55,9.64) .. controls (20.76,8.49) and (21.03,10.32) .. (21.44,10.52) .. controls (21.87,10.72) and (21.87,9.86) .. (22.4,9.99) .. controls (22.46,10) and (22.52,10.06) .. (22.54,10.12) .. controls (22.75,10.93) and (23.11,11.36) .. (23.5,12.11) .. controls (24.05,13.17) and (24.32,14.36) .. (25,15.02) .. controls (25.13,15.14) and (25.37,16.26) .. (25.69,15.95) .. controls (26.1,15.55) and (26.3,14.86) .. (26.65,14.36) .. controls (26.86,14.04) and (27.5,15.32) .. (27.74,14.62) .. controls (27.96,13.98) and (28.13,13.67) .. (28.28,12.94) .. controls (28.56,11.8) and (28.73,11.58) .. (29.11,11.58) .. controls (29.68,11.58) and (29.71,12.44) .. (30.34,12.24) .. controls (30.72,12.12) and (31.02,9.04) .. (31.03,8.93) .. controls (31.06,8.57) and (30.97,8.03) .. (31.3,7.87) .. controls (31.65,7.7) and (31.7,8.34) .. (32.13,8.13) .. controls (32.62,7.89) and (33.3,5.71) .. (33.77,5.49) .. controls (34.17,5.29) and (35.41,6.99) .. (35.96,6.81) .. controls (36.42,6.66) and (36.15,5.13) .. (37.13,3.63) .. controls (37.55,3.02) and (37.98,3.41) .. (38.68,4.34) .. controls (38.96,5.66) and (38.96,6.59) .. (40.07,9.33) .. controls (40.21,9.85) and (41.12,7.83) .. (41.44,8.13) .. controls (41.71,8.39) and (41.55,9.17) .. (41.85,9.46) .. controls (42.57,10.16) and (43.5,11.32) .. (44.18,11.97) .. controls (44.19,11.98) and (44.69,12.14) .. (44.73,12.11) .. controls (44.75,12.08) and (45.06,11.23) .. (45.41,11.58) .. controls (45.94,12.09) and (46.01,14.12) .. (46.78,14.49) .. controls (46.86,14.53) and (46.95,14.88) .. (47.06,14.75) .. controls (47.65,14.09) and (48.15,13.56) .. (48.42,13.03) .. controls (48.45,12.98) and (48.56,12.64) .. (48.56,12.64) .. controls (48.56,12.64) and (48.92,13.36) .. (48.97,13.17) .. controls (49.28,11.97) and (49.36,10.65) .. (49.36,9.46) .. controls (49.78,8.53) and (49.92,9.33) .. (50.48,10.25) .. controls (50.91,10.91) and (50.82,9.76) .. (51.16,9.59) .. controls (51.49,9.43) and (51.96,8.3) .. (52.67,8.53) .. controls (53.19,8.7) and (53.47,9.73) .. (54.31,9.46) .. controls (55.31,9.14) and (56.49,7.68) .. (57.46,7.21) .. controls (57.63,7.13) and (58.91,8.86) .. (59.52,8.66) .. controls (59.76,8.59) and (60,7.8) .. (60.2,7.61) .. controls (61.16,6.68) and (61.86,4.22) .. (62.81,3.77) .. controls (63.2,3.58) and (64.21,5.01) .. (64.45,5.35) .. controls (65.85,7.38) and (66.17,9.93) .. (67.74,11.44) .. controls (67.99,11.69) and (68.43,10.87) .. (68.56,10.78) .. controls (69.2,10.37) and (70.83,7.94) .. (71.44,8.13) .. controls (72.41,8.45) and (73.35,11.31) .. (74.04,11.97) .. controls (74.15,12.08) and (75.6,10.07) .. (75.68,9.99) .. controls (75.75,9.93) and (75.88,9.94) .. (75.96,9.99) .. controls (76.32,10.22) and (76.87,11.46) .. (77.33,11.31) .. controls (77.94,11.11) and (78.26,9.75) .. (78.7,9.33) .. controls (78.86,9.16) and (79.18,10.13) .. (79.24,10.25) .. controls (79.33,10.43) and (80.34,11.84) .. (80.34,11.84) .. controls (80.34,11.84) and (80.45,11.76) .. (80.48,11.71) .. controls (80.77,11.14) and (81.09,10.26) .. (81.3,9.46) .. controls (81.99,6.76) and (81.63,3.61) .. (82.53,0.99) .. controls (82.55,0.93) and (83.01,2.01) .. (83.08,2.18) .. controls (83.14,2.32) and (84.39,4.53) .. (84.45,4.56) .. controls (84.49,4.58) and (85.66,3.08) .. (85.68,3.1) .. controls (86.27,3.67) and (86.1,4.5) .. (86.91,5.09) .. controls (87.02,5.16) and (88.02,3.11) .. (88.28,3.24) .. controls (88.3,3.24) and (89.56,5.1) .. (89.65,4.82) .. controls (89.94,3.98) and (90.57,2.35) .. (91.16,1.78) .. controls (91.28,1.67) and (91.45,1.4) .. (91.57,1.52) .. controls (91.89,1.82) and (92.36,2.57) .. (92.67,2.57) ;
-            \end{scope}
-            \draw[dashed] (0,1.33)node[left]{\small\(\eval{A}\)}--(10,1.33);
-            \draw[dashed] (9.47,0)node[below]{\small\(\Delta t\)}--(9.47,0.77);
-            \draw (2,0)--(2,1.6);
-            \draw (3.5,0)--(3.5,1.2);
+
+            \pgfmathsetmacro{\a}{0.8}
+            \pgfmathsetmacro{\m}{\a / 190}
+            \foreach \i in {0,...,189}{
+                \tikzmath{
+                    \b = rand*0.2 + \a;
+                }
+                \draw (0.05*\i, \a)--(0.05*\i + 0.05, \b) coordinate (p);
+                \ifthenelse{\i = 39}{\draw (2,0)--(p);}{}
+                \ifthenelse{\i = 69}{\draw (3.5,0)--(p);}{}
+                \ifthenelse{\i = 109}{\draw (5.5,0)--(p);}{}
+                \ifthenelse{\i = 139}{\draw (7,0)--(p);}{}
+                \ifthenelse{\i = 189}{\draw[dashed] (9.5,0)node[below]{\small\(\Delta t\)}--(p);}{}
+                \xdef\a{\b}
+                \pgfmathparse{\m + \b/190}\xdef\m{\pgfmathresult}
+            }
+
+            \draw[dashed] (0,\m)node[left]{\small\(\eval{A}\)}--(10,\m);
             \draw[<->,blue] (2,-0.3)--node[below]{\(\tau\)}(3.5,-0.3);
-            \draw (5.5,0)--(5.5,1.45);
-            \draw (7,0)--(7,1.55);
             \draw[<->,blue] (5.5,-0.3)--node[below]{\(\tau\)}(7,-0.3);
         \end{tikzpicture}
         \caption{Constructing the autocorrelation function of a quantity.}
@@ -1422,23 +1437,39 @@
     \end{equation}
     But we can only simulate the system for a finite amount of time. Then how do we calculate the error of our estimate \(A_\tau\)?
 
-    \begin{figure}[ht!]
+    \begin{figure}
         \centering
         \begin{tikzpicture}
+            \pgfmathsetseed{8}
             \draw[->] (0,0)--(10,0)node[below]{\small\(t\)};
             \draw[->] (0,0)--(0,3)node[left]{\small\(A(t)\)};
-            \begin{scope}[shift={(-0.25,0.5)}]
-                \draw[scale=0.105,thick] (2.54,10.12) .. controls (2.54,9.31) and (4.08,6.38) .. (4.46,6.02) .. controls (4.7,5.78) and (5.45,6.99) .. (5.83,6.81) .. controls (6.29,6.59) and (6.64,5.39) .. (7.2,4.96) .. controls (7.55,4.68) and (7.53,5.56) .. (7.74,5.35) .. controls (8.69,4.44) and (8.61,1.21) .. (10.48,1.52) .. controls (10.84,1.57) and (12.04,2.98) .. (12.4,3.5) .. controls (12.53,3.68) and (12.85,3.7) .. (12.95,3.9) .. controls (13.51,4.99) and (14.04,6.15) .. (14.32,7.34) .. controls (14.66,8.81) and (14.61,10.54) .. (15.28,11.84) .. controls (16.14,13.52) and (17.89,9.45) .. (18.43,8.93) .. controls (18.69,8.68) and (18.44,8.66) .. (19,9.72) .. controls (19.28,10.25) and (19.29,10.4) .. (19.52,10.52) .. controls (19.71,10.61) and (20.27,10.83) .. (20.55,9.64) .. controls (20.76,8.49) and (21.03,10.32) .. (21.44,10.52) .. controls (21.87,10.72) and (21.87,9.86) .. (22.4,9.99) .. controls (22.46,10) and (22.52,10.06) .. (22.54,10.12) .. controls (22.75,10.93) and (23.11,11.36) .. (23.5,12.11) .. controls (24.05,13.17) and (24.32,14.36) .. (25,15.02) .. controls (25.13,15.14) and (25.37,16.26) .. (25.69,15.95) .. controls (26.1,15.55) and (26.3,14.86) .. (26.65,14.36) .. controls (26.86,14.04) and (27.5,15.32) .. (27.74,14.62) .. controls (27.96,13.98) and (28.13,13.67) .. (28.28,12.94) .. controls (28.56,11.8) and (28.73,11.58) .. (29.11,11.58) .. controls (29.68,11.58) and (29.71,12.44) .. (30.34,12.24) .. controls (30.72,12.12) and (31.02,9.04) .. (31.03,8.93) .. controls (31.06,8.57) and (30.97,8.03) .. (31.3,7.87) .. controls (31.65,7.7) and (31.7,8.34) .. (32.13,8.13) .. controls (32.62,7.89) and (33.3,5.71) .. (33.77,5.49) .. controls (34.17,5.29) and (35.41,6.99) .. (35.96,6.81) .. controls (36.42,6.66) and (36.15,5.13) .. (37.13,3.63) .. controls (37.55,3.02) and (37.98,3.41) .. (38.68,4.34) .. controls (38.96,5.66) and (38.96,6.59) .. (40.07,9.33) .. controls (40.21,9.85) and (41.12,7.83) .. (41.44,8.13) .. controls (41.71,8.39) and (41.55,9.17) .. (41.85,9.46) .. controls (42.57,10.16) and (43.5,11.32) .. (44.18,11.97) .. controls (44.19,11.98) and (44.69,12.14) .. (44.73,12.11) .. controls (44.75,12.08) and (45.06,11.23) .. (45.41,11.58) .. controls (45.94,12.09) and (46.01,14.12) .. (46.78,14.49) .. controls (46.86,14.53) and (46.95,14.88) .. (47.06,14.75) .. controls (47.65,14.09) and (48.15,13.56) .. (48.42,13.03) .. controls (48.45,12.98) and (48.56,12.64) .. (48.56,12.64) .. controls (48.56,12.64) and (48.92,13.36) .. (48.97,13.17) .. controls (49.28,11.97) and (49.36,10.65) .. (49.36,9.46) .. controls (49.78,8.53) and (49.92,9.33) .. (50.48,10.25) .. controls (50.91,10.91) and (50.82,9.76) .. (51.16,9.59) .. controls (51.49,9.43) and (51.96,8.3) .. (52.67,8.53) .. controls (53.19,8.7) and (53.47,9.73) .. (54.31,9.46) .. controls (55.31,9.14) and (56.49,7.68) .. (57.46,7.21) .. controls (57.63,7.13) and (58.91,8.86) .. (59.52,8.66) .. controls (59.76,8.59) and (60,7.8) .. (60.2,7.61) .. controls (61.16,6.68) and (61.86,4.22) .. (62.81,3.77) .. controls (63.2,3.58) and (64.21,5.01) .. (64.45,5.35) .. controls (65.85,7.38) and (66.17,9.93) .. (67.74,11.44) .. controls (67.99,11.69) and (68.43,10.87) .. (68.56,10.78) .. controls (69.2,10.37) and (70.83,7.94) .. (71.44,8.13) .. controls (72.41,8.45) and (73.35,11.31) .. (74.04,11.97) .. controls (74.15,12.08) and (75.6,10.07) .. (75.68,9.99) .. controls (75.75,9.93) and (75.88,9.94) .. (75.96,9.99) .. controls (76.32,10.22) and (76.87,11.46) .. (77.33,11.31) .. controls (77.94,11.11) and (78.26,9.75) .. (78.7,9.33) .. controls (78.86,9.16) and (79.18,10.13) .. (79.24,10.25) .. controls (79.33,10.43) and (80.34,11.84) .. (80.34,11.84) .. controls (80.34,11.84) and (80.45,11.76) .. (80.48,11.71) .. controls (80.77,11.14) and (81.09,10.26) .. (81.3,9.46) .. controls (81.99,6.76) and (81.63,3.61) .. (82.53,0.99) .. controls (82.55,0.93) and (83.01,2.01) .. (83.08,2.18) .. controls (83.14,2.32) and (84.39,4.53) .. (84.45,4.56) .. controls (84.49,4.58) and (85.66,3.08) .. (85.68,3.1) .. controls (86.27,3.67) and (86.1,4.5) .. (86.91,5.09) .. controls (87.02,5.16) and (88.02,3.11) .. (88.28,3.24) .. controls (88.3,3.24) and (89.56,5.1) .. (89.65,4.82) .. controls (89.94,3.98) and (90.57,2.35) .. (91.16,1.78) .. controls (91.28,1.67) and (91.45,1.4) .. (91.57,1.52) .. controls (91.89,1.82) and (92.36,2.57) .. (92.67,2.57) ;
-            \end{scope}
-            \draw[thick,red](0,1.45)--(3,1.45);
-            \draw[thick,red](3,1.4)--(6,1.4);
-            \draw[thick,red](6,1.3)--(9,1.3);
-            \draw[dashed,red](3,1.45)--(3,0);
-            \draw[dashed,red](6,1.4)--(6,0);
-            \draw[dashed,red](9,1.3)--(9,0);
-            \draw[<->,red] (0,-0.3)--node[below]{\small\(\tau\)}(3,-0.3);
-            \draw[<->,red] (3,-0.3)--node[below]{\small\(\tau\)}(6,-0.3);
-            \draw[<->,red] (6,-0.3)--node[below]{\small\(\tau\)}(9,-0.3);
+
+            \pgfmathsetmacro{\a}{0.8}
+            \pgfmathsetmacro{\m}{\a / 61}
+            \pgfmathsetmacro{\n}{0}
+            \pgfmathsetmacro{\p}{0}
+            \foreach \i in {0,...,189}{
+                \tikzmath{
+                    \b = rand*0.2 + \a;
+                }
+                \draw (0.05*\i, \a)--(0.05*\i + 0.05, \b);
+                \xdef\a{\b}
+                \ifthenelse{\i < 60}{\pgfmathparse{\m + \b/61}\xdef\m{\pgfmathresult}}{}
+                \ifthenelse{\i > 58}{\ifthenelse{\i < 120}{\pgfmathparse{\n + \b/61}\xdef\n{\pgfmathresult}}{}}{}
+                \ifthenelse{\i > 118}{\pgfmathparse{\p + \b/61}\xdef\p{\pgfmathresult}}{}
+            }
+            \draw[red,dashed] (0,0)--(0,\m);
+            \draw[red,dashed] (3,0)--(3,\m);
+            \draw[red,dashed] (3,0)--(3,\n);
+            \draw[red,dashed] (6,0)--(6,\n);
+            \draw[red,dashed] (6,0)--(6,\p);
+            \draw[red,dashed] (9,0)--(9,\p);
+            \draw[red] (0,\m)node[left]{\small\(\eval{A}\)}--(3,\m);
+            \draw[red] (3,\n)--(6,\n);
+            \draw[red] (6,\p)--(9,\p);
+            \foreach \i in {0,3,6}{
+                \draw[<->,red] (0+\i,-0.3)--node[below]{\small\(\tau\)}(3+\i,-0.3);
+            }
         \end{tikzpicture}
         \caption{Estimating the statistical error using the block average method.}
     \end{figure}
@@ -1452,41 +1483,87 @@
     \begin{figure}
         \centering
         \begin{tikzpicture}
+            \pgfmathsetseed{8}
             \draw[->] (0,0)--(10,0)node[below]{\small\(t\)};
             \draw[->] (0,0)--(0,3)node[left]{\small\(A(t)\)};
-            \begin{scope}[shift={(-0.25,0.5)}]
-                \draw[scale=0.105,thick] (2.54,10.12) .. controls (2.54,9.31) and (4.08,6.38) .. (4.46,6.02) .. controls (4.7,5.78) and (5.45,6.99) .. (5.83,6.81) .. controls (6.29,6.59) and (6.64,5.39) .. (7.2,4.96) .. controls (7.55,4.68) and (7.53,5.56) .. (7.74,5.35) .. controls (8.69,4.44) and (8.61,1.21) .. (10.48,1.52) .. controls (10.84,1.57) and (12.04,2.98) .. (12.4,3.5) .. controls (12.53,3.68) and (12.85,3.7) .. (12.95,3.9) .. controls (13.51,4.99) and (14.04,6.15) .. (14.32,7.34) .. controls (14.66,8.81) and (14.61,10.54) .. (15.28,11.84) .. controls (16.14,13.52) and (17.89,9.45) .. (18.43,8.93) .. controls (18.69,8.68) and (18.44,8.66) .. (19,9.72) .. controls (19.28,10.25) and (19.29,10.4) .. (19.52,10.52) .. controls (19.71,10.61) and (20.27,10.83) .. (20.55,9.64) .. controls (20.76,8.49) and (21.03,10.32) .. (21.44,10.52) .. controls (21.87,10.72) and (21.87,9.86) .. (22.4,9.99) .. controls (22.46,10) and (22.52,10.06) .. (22.54,10.12) .. controls (22.75,10.93) and (23.11,11.36) .. (23.5,12.11) .. controls (24.05,13.17) and (24.32,14.36) .. (25,15.02) .. controls (25.13,15.14) and (25.37,16.26) .. (25.69,15.95) .. controls (26.1,15.55) and (26.3,14.86) .. (26.65,14.36) .. controls (26.86,14.04) and (27.5,15.32) .. (27.74,14.62) .. controls (27.96,13.98) and (28.13,13.67) .. (28.28,12.94) .. controls (28.56,11.8) and (28.73,11.58) .. (29.11,11.58) .. controls (29.68,11.58) and (29.71,12.44) .. (30.34,12.24) .. controls (30.72,12.12) and (31.02,9.04) .. (31.03,8.93) .. controls (31.06,8.57) and (30.97,8.03) .. (31.3,7.87) .. controls (31.65,7.7) and (31.7,8.34) .. (32.13,8.13) .. controls (32.62,7.89) and (33.3,5.71) .. (33.77,5.49) .. controls (34.17,5.29) and (35.41,6.99) .. (35.96,6.81) .. controls (36.42,6.66) and (36.15,5.13) .. (37.13,3.63) .. controls (37.55,3.02) and (37.98,3.41) .. (38.68,4.34) .. controls (38.96,5.66) and (38.96,6.59) .. (40.07,9.33) .. controls (40.21,9.85) and (41.12,7.83) .. (41.44,8.13) .. controls (41.71,8.39) and (41.55,9.17) .. (41.85,9.46) .. controls (42.57,10.16) and (43.5,11.32) .. (44.18,11.97) .. controls (44.19,11.98) and (44.69,12.14) .. (44.73,12.11) .. controls (44.75,12.08) and (45.06,11.23) .. (45.41,11.58) .. controls (45.94,12.09) and (46.01,14.12) .. (46.78,14.49) .. controls (46.86,14.53) and (46.95,14.88) .. (47.06,14.75) .. controls (47.65,14.09) and (48.15,13.56) .. (48.42,13.03) .. controls (48.45,12.98) and (48.56,12.64) .. (48.56,12.64) .. controls (48.56,12.64) and (48.92,13.36) .. (48.97,13.17) .. controls (49.28,11.97) and (49.36,10.65) .. (49.36,9.46) .. controls (49.78,8.53) and (49.92,9.33) .. (50.48,10.25) .. controls (50.91,10.91) and (50.82,9.76) .. (51.16,9.59) .. controls (51.49,9.43) and (51.96,8.3) .. (52.67,8.53) .. controls (53.19,8.7) and (53.47,9.73) .. (54.31,9.46) .. controls (55.31,9.14) and (56.49,7.68) .. (57.46,7.21) .. controls (57.63,7.13) and (58.91,8.86) .. (59.52,8.66) .. controls (59.76,8.59) and (60,7.8) .. (60.2,7.61) .. controls (61.16,6.68) and (61.86,4.22) .. (62.81,3.77) .. controls (63.2,3.58) and (64.21,5.01) .. (64.45,5.35) .. controls (65.85,7.38) and (66.17,9.93) .. (67.74,11.44) .. controls (67.99,11.69) and (68.43,10.87) .. (68.56,10.78) .. controls (69.2,10.37) and (70.83,7.94) .. (71.44,8.13) .. controls (72.41,8.45) and (73.35,11.31) .. (74.04,11.97) .. controls (74.15,12.08) and (75.6,10.07) .. (75.68,9.99) .. controls (75.75,9.93) and (75.88,9.94) .. (75.96,9.99) .. controls (76.32,10.22) and (76.87,11.46) .. (77.33,11.31) .. controls (77.94,11.11) and (78.26,9.75) .. (78.7,9.33) .. controls (78.86,9.16) and (79.18,10.13) .. (79.24,10.25) .. controls (79.33,10.43) and (80.34,11.84) .. (80.34,11.84) .. controls (80.34,11.84) and (80.45,11.76) .. (80.48,11.71) .. controls (80.77,11.14) and (81.09,10.26) .. (81.3,9.46) .. controls (81.99,6.76) and (81.63,3.61) .. (82.53,0.99) .. controls (82.55,0.93) and (83.01,2.01) .. (83.08,2.18) .. controls (83.14,2.32) and (84.39,4.53) .. (84.45,4.56) .. controls (84.49,4.58) and (85.66,3.08) .. (85.68,3.1) .. controls (86.27,3.67) and (86.1,4.5) .. (86.91,5.09) .. controls (87.02,5.16) and (88.02,3.11) .. (88.28,3.24) .. controls (88.3,3.24) and (89.56,5.1) .. (89.65,4.82) .. controls (89.94,3.98) and (90.57,2.35) .. (91.16,1.78) .. controls (91.28,1.67) and (91.45,1.4) .. (91.57,1.52) .. controls (91.89,1.82) and (92.36,2.57) .. (92.67,2.57) ;
-            \end{scope}
-            \draw[red] (0,1.33)--(9.45,1.33);
-            \draw[red,dashed](0,0)--(0,1.33);
-            \draw[red,dashed](9.45,0)--(9.45,1.33);
-            \draw[<->,red](0,-0.3)--node[below]{\small\(\tau=\Delta t\)}(9.45,-0.3);
+
+            \pgfmathsetmacro{\a}{0.8}
+            \pgfmathsetmacro{\m}{\a / 190}
+            \foreach \i in {0,...,189}{
+                \tikzmath{
+                    \b = rand*0.2 + \a;
+                }
+                \draw (0.05*\i, \a)--(0.05*\i + 0.05, \b);
+                \xdef\a{\b}
+                \pgfmathparse{\m + \b/190}\xdef\m{\pgfmathresult}
+            }
+            \draw[red,dashed] (0,0)--(0,\m);
+            \draw[red,dashed] (9.5,0)--(9.5,\m);
+            \draw[red] (0,\m)--(9.5,\m);
+            \draw[<->,red] (0,-0.3)--node[below]{\small\(\tau=\Delta t\)}(9,-0.3);
+
+
+
             \begin{scope}[shift={(0,-4.5)}]
-                \draw[->] (0,0)--(10,0)node[below]{\small\(t\)};
-                \draw[->] (0,0)--(0,3)node[left]{\small\(A(t)\)};
-                \begin{scope}[shift={(-0.25,0.5)}]
-                    \draw[scale=0.105,thick] (2.54,10.12) .. controls (2.54,9.31) and (4.08,6.38) .. (4.46,6.02) .. controls (4.7,5.78) and (5.45,6.99) .. (5.83,6.81) .. controls (6.29,6.59) and (6.64,5.39) .. (7.2,4.96) .. controls (7.55,4.68) and (7.53,5.56) .. (7.74,5.35) .. controls (8.69,4.44) and (8.61,1.21) .. (10.48,1.52) .. controls (10.84,1.57) and (12.04,2.98) .. (12.4,3.5) .. controls (12.53,3.68) and (12.85,3.7) .. (12.95,3.9) .. controls (13.51,4.99) and (14.04,6.15) .. (14.32,7.34) .. controls (14.66,8.81) and (14.61,10.54) .. (15.28,11.84) .. controls (16.14,13.52) and (17.89,9.45) .. (18.43,8.93) .. controls (18.69,8.68) and (18.44,8.66) .. (19,9.72) .. controls (19.28,10.25) and (19.29,10.4) .. (19.52,10.52) .. controls (19.71,10.61) and (20.27,10.83) .. (20.55,9.64) .. controls (20.76,8.49) and (21.03,10.32) .. (21.44,10.52) .. controls (21.87,10.72) and (21.87,9.86) .. (22.4,9.99) .. controls (22.46,10) and (22.52,10.06) .. (22.54,10.12) .. controls (22.75,10.93) and (23.11,11.36) .. (23.5,12.11) .. controls (24.05,13.17) and (24.32,14.36) .. (25,15.02) .. controls (25.13,15.14) and (25.37,16.26) .. (25.69,15.95) .. controls (26.1,15.55) and (26.3,14.86) .. (26.65,14.36) .. controls (26.86,14.04) and (27.5,15.32) .. (27.74,14.62) .. controls (27.96,13.98) and (28.13,13.67) .. (28.28,12.94) .. controls (28.56,11.8) and (28.73,11.58) .. (29.11,11.58) .. controls (29.68,11.58) and (29.71,12.44) .. (30.34,12.24) .. controls (30.72,12.12) and (31.02,9.04) .. (31.03,8.93) .. controls (31.06,8.57) and (30.97,8.03) .. (31.3,7.87) .. controls (31.65,7.7) and (31.7,8.34) .. (32.13,8.13) .. controls (32.62,7.89) and (33.3,5.71) .. (33.77,5.49) .. controls (34.17,5.29) and (35.41,6.99) .. (35.96,6.81) .. controls (36.42,6.66) and (36.15,5.13) .. (37.13,3.63) .. controls (37.55,3.02) and (37.98,3.41) .. (38.68,4.34) .. controls (38.96,5.66) and (38.96,6.59) .. (40.07,9.33) .. controls (40.21,9.85) and (41.12,7.83) .. (41.44,8.13) .. controls (41.71,8.39) and (41.55,9.17) .. (41.85,9.46) .. controls (42.57,10.16) and (43.5,11.32) .. (44.18,11.97) .. controls (44.19,11.98) and (44.69,12.14) .. (44.73,12.11) .. controls (44.75,12.08) and (45.06,11.23) .. (45.41,11.58) .. controls (45.94,12.09) and (46.01,14.12) .. (46.78,14.49) .. controls (46.86,14.53) and (46.95,14.88) .. (47.06,14.75) .. controls (47.65,14.09) and (48.15,13.56) .. (48.42,13.03) .. controls (48.45,12.98) and (48.56,12.64) .. (48.56,12.64) .. controls (48.56,12.64) and (48.92,13.36) .. (48.97,13.17) .. controls (49.28,11.97) and (49.36,10.65) .. (49.36,9.46) .. controls (49.78,8.53) and (49.92,9.33) .. (50.48,10.25) .. controls (50.91,10.91) and (50.82,9.76) .. (51.16,9.59) .. controls (51.49,9.43) and (51.96,8.3) .. (52.67,8.53) .. controls (53.19,8.7) and (53.47,9.73) .. (54.31,9.46) .. controls (55.31,9.14) and (56.49,7.68) .. (57.46,7.21) .. controls (57.63,7.13) and (58.91,8.86) .. (59.52,8.66) .. controls (59.76,8.59) and (60,7.8) .. (60.2,7.61) .. controls (61.16,6.68) and (61.86,4.22) .. (62.81,3.77) .. controls (63.2,3.58) and (64.21,5.01) .. (64.45,5.35) .. controls (65.85,7.38) and (66.17,9.93) .. (67.74,11.44) .. controls (67.99,11.69) and (68.43,10.87) .. (68.56,10.78) .. controls (69.2,10.37) and (70.83,7.94) .. (71.44,8.13) .. controls (72.41,8.45) and (73.35,11.31) .. (74.04,11.97) .. controls (74.15,12.08) and (75.6,10.07) .. (75.68,9.99) .. controls (75.75,9.93) and (75.88,9.94) .. (75.96,9.99) .. controls (76.32,10.22) and (76.87,11.46) .. (77.33,11.31) .. controls (77.94,11.11) and (78.26,9.75) .. (78.7,9.33) .. controls (78.86,9.16) and (79.18,10.13) .. (79.24,10.25) .. controls (79.33,10.43) and (80.34,11.84) .. (80.34,11.84) .. controls (80.34,11.84) and (80.45,11.76) .. (80.48,11.71) .. controls (80.77,11.14) and (81.09,10.26) .. (81.3,9.46) .. controls (81.99,6.76) and (81.63,3.61) .. (82.53,0.99) .. controls (82.55,0.93) and (83.01,2.01) .. (83.08,2.18) .. controls (83.14,2.32) and (84.39,4.53) .. (84.45,4.56) .. controls (84.49,4.58) and (85.66,3.08) .. (85.68,3.1) .. controls (86.27,3.67) and (86.1,4.5) .. (86.91,5.09) .. controls (87.02,5.16) and (88.02,3.11) .. (88.28,3.24) .. controls (88.3,3.24) and (89.56,5.1) .. (89.65,4.82) .. controls (89.94,3.98) and (90.57,2.35) .. (91.16,1.78) .. controls (91.28,1.67) and (91.45,1.4) .. (91.57,1.52) .. controls (91.89,1.82) and (92.36,2.57) .. (92.67,2.57) ;
-                \end{scope}
-                \draw[red] (0,1.06)--(1,1.06);
-                \draw[red] (1,1.49)--(2,1.49);
-                \draw[red] (2,1.91)--(3,1.91);
-                \draw[red] (3,1.12)--(4,1.12);
-                \draw[red] (4,1.75)--(5,1.75);
-                \draw[red] (5,1.42)--(6,1.42);
-                \draw[red] (6,1.17)--(7,1.17);
-                \draw[red] (7,1.57)--(8,1.57);
-                \draw[red] (8,1.14)--(9,1.14);
-                \draw[dashed,red] (0,0)--(0,1.06);
-                \draw[dashed,red] (1,0)--(1,1.49);
-                \draw[dashed,red] (2,0)--(2,1.91);
-                \draw[dashed,red] (3,0)--(3,1.91);
-                \draw[dashed,red] (4,0)--(4,1.75);
-                \draw[dashed,red] (5,0)--(5,1.75);
-                \draw[dashed,red] (6,0)--(6,1.42);
-                \draw[dashed,red] (7,0)--(7,1.57);
-                \draw[dashed,red] (8,0)--(8,1.57);
-                \draw[dashed,red] (9,0)--(9,1.14);
-                \draw[<->,red] (0,-0.3)--node[below]{\small\(\tau\)}(1,-0.3);
+                \pgfmathsetseed{8}
+            \draw[->] (0,0)--(10,0)node[below]{\small\(t\)};
+            \draw[->] (0,0)--(0,3)node[left]{\small\(A(t)\)};
+
+            \pgfmathsetmacro{\a}{0.8}
+            \pgfmathsetmacro{\m}{\a / 21}
+            \pgfmathsetmacro{\n}{0}
+            \pgfmathsetmacro{\o}{0}
+            \pgfmathsetmacro{\p}{0}
+            \pgfmathsetmacro{\q}{0}
+            \pgfmathsetmacro{\r}{0}
+            \pgfmathsetmacro{\s}{0}
+            \pgfmathsetmacro{\t}{0}
+            \pgfmathsetmacro{\u}{0}
+            \foreach \i in {0,...,189}{
+                \tikzmath{
+                    \b = rand*0.2 + \a;
+                }
+                \draw (0.05*\i, \a)--(0.05*\i + 0.05, \b);
+                \xdef\a{\b}
+                \ifthenelse{\i < 20}{\pgfmathparse{\m + \b/21}\xdef\m{\pgfmathresult}}{}
+                \ifthenelse{\i > 18}{\ifthenelse{\i < 40}{\pgfmathparse{\n + \b/21}\xdef\n{\pgfmathresult}}{}}{}
+                \ifthenelse{\i > 38}{\ifthenelse{\i < 60}{\pgfmathparse{\o + \b/21}\xdef\o{\pgfmathresult}}{}}{}
+                \ifthenelse{\i > 58}{\ifthenelse{\i < 80}{\pgfmathparse{\p + \b/21}\xdef\p{\pgfmathresult}}{}}{}
+                \ifthenelse{\i > 78}{\ifthenelse{\i < 100}{\pgfmathparse{\q + \b/21}\xdef\q{\pgfmathresult}}{}}{}
+                \ifthenelse{\i > 98}{\ifthenelse{\i < 120}{\pgfmathparse{\r + \b/21}\xdef\r{\pgfmathresult}}{}}{}
+                \ifthenelse{\i > 118}{\ifthenelse{\i < 140}{\pgfmathparse{\s + \b/21}\xdef\s{\pgfmathresult}}{}}{}
+                \ifthenelse{\i > 138}{\ifthenelse{\i < 160}{\pgfmathparse{\t + \b/21}\xdef\t{\pgfmathresult}}{}}{}
+                \ifthenelse{\i > 158}{\ifthenelse{\i < 180}{\pgfmathparse{\u + \b/21}\xdef\u{\pgfmathresult}}{}}{}
+            }
+            \draw[red,dashed] (0,0)--(0,\m);
+            \draw[red,dashed] (1,0)--(1,\m);
+            \draw[red,dashed] (1,0)--(1,\n);
+            \draw[red,dashed] (2,0)--(2,\n);
+            \draw[red,dashed] (2,0)--(2,\o);
+            \draw[red,dashed] (3,0)--(3,\o);
+            \draw[red,dashed] (3,0)--(3,\p);
+            \draw[red,dashed] (4,0)--(4,\p);
+            \draw[red,dashed] (4,0)--(4,\q);
+            \draw[red,dashed] (5,0)--(5,\q);
+            \draw[red,dashed] (5,0)--(5,\r);
+            \draw[red,dashed] (6,0)--(6,\r);
+            \draw[red,dashed] (6,0)--(6,\s);
+            \draw[red,dashed] (7,0)--(7,\s);
+            \draw[red,dashed] (7,0)--(7,\t);
+            \draw[red,dashed] (8,0)--(8,\t);
+            \draw[red,dashed] (8,0)--(8,\u);
+            \draw[red,dashed] (9,0)--(9,\u);
+
+            \draw[red] (0,\m)--(1,\m);
+            \draw[red] (1,\n)--(2,\n);
+            \draw[red] (2,\o)--(3,\o);
+            \draw[red] (3,\p)--(4,\p);
+            \draw[red] (4,\q)--(5,\q);
+            \draw[red] (5,\r)--(6,\r);
+            \draw[red] (6,\s)--(7,\s);
+            \draw[red] (7,\t)--(8,\t);
+            \draw[red] (8,\u)--(9,\u);
+            \draw[<->,red] (0,-0.3)--node[below]{\small\(\tau\)}(1,-0.3);
             \end{scope}
         \end{tikzpicture}
         \caption{Using different block sizes to estimate the error. The first case clearly underestimates the error, and the second case overestimates it.}
@@ -1522,7 +1599,7 @@
             \draw plot[smooth, tension = 1] coordinates {(0,0) (1.1,1.45) (1.9,1.8) (2.5,1.9) (2.85,1.7) (3.3,1.8) (4,1.9)};
             \draw[red,dashed] (2.2,0)node[below]{\small\(\tau^*\)}--(2.2,1.9);
         \end{tikzpicture}
-        \caption{When \(\tau\) is small \(s\) increases with \(\tau\), indicating that the block size is too small and contain correlated data. When \(\tau-s\) curve has levelled off, the block size is long enough to ensure independent block average.}
+        \caption{When \(\tau\) is small, the statistical inefficiency \(s\) increases with \(\tau\), indicating that the block size is too small and contain correlated data. When \(\tau\)-\(s\) curve has levelled off, the block size is long enough to ensure independent block average.}
     \end{figure}
 
     \subsubsection{System Size Dependence}
@@ -1554,9 +1631,10 @@
             \end{scope}
             \node at (2,-1) {(a) Molecular dynamics};
             \begin{scope}[shift={(7,0)}]
+                \pgfmathsetseed{888}
                 \draw (0,0) rectangle (4,4);
                 \foreach \i in {0,...,100}{
-                    \draw[fill=black] (rand*2+2,rand*2+2) circle (0.02);
+                    \fill[black] (rnd*4,rnd*4) circle (0.03);
                 }
                 \node at (2,-1) {(b) Monte Carlo};
             \end{scope}
@@ -1602,13 +1680,29 @@
     \begin{figure}
         \centering
         \begin{tikzpicture}
-            \draw[fill=gray!30] (0,0) rectangle (4,4);
-            \draw[fill=white] (2,2) circle (2);
-            \foreach \i in {0,...,100}{
-                \draw[fill=black] (rand*2+2,rand*2+2) circle (0.02);
+            \draw[fill=gray!30] (-2,-2) rectangle (2,2);
+            \draw[fill=white] (0,0) circle (2);
+
+            \pgfmathsetseed{888}
+            \pgfmathsetmacro{\Nin}{0}
+            \pgfmathsetmacro{\T}{100} % number of samples
+
+            \foreach \i in {1,...,\T}{
+                % sample uniformly in [0,2) x [0,2)
+                \pgfmathsetmacro{\xx}{2*rand}
+                \pgfmathsetmacro{\yy}{2*rand}
+                \pgfmathsetmacro{\rsq}{\xx*\xx + \yy*\yy}
+
+                \fill[black] (\xx,\yy) circle (0.03);
+
+                \pgfmathparse{ifthenelse(\rsq <= 4, \Nin + 1, \Nin)}\xdef\Nin{\pgfmathresult}
             }
+
+            \pgfmathtruncatemacro{\Nint}{\Nin}
+            \pgfmathsetmacro{\piest}{4*\Nin/\T}
+            \node at (3,0)[right, align=center] {\(N=\Nint\) \\ \(\pi \approx \pgfmathprintnumber[fixed,precision=2]{\piest}\)};
         \end{tikzpicture}
-        \caption{Randomly generating \(N=100\) points in a square.}
+        \caption{Randomly sampling \(N=100\) points in a square to estimate \(\pi\).}
     \end{figure}
 
     \subsection{Importance Sampling}
@@ -1685,9 +1779,10 @@
         \begin{figure}[ht!]
             \centering
             \begin{tikzpicture}
+                \pgfmathsetseed{111}
                 \draw (-0.2,-0.2) rectangle (4.2,4.2);
                 \foreach \i in {0,...,20}{
-                    \draw (rand*2+2,rand*2+2) circle (0.2);
+                    \draw (rnd*4,rnd*4) circle (0.2);
                 }
             \end{tikzpicture}
             \caption{Randomly generating particles in a cell. Even at moderate density, there is an extremely high chance of resulting in some overlap.}
@@ -1881,13 +1976,14 @@
     \begin{figure}
         \centering
         \begin{tikzpicture}
+            \pgfmathsetseed{123}
             \draw[thick,domain=-1.85:1.7, smooth, variable=\x,samples=30] plot ({\x}, {0.5*\x-3*\x*\x+\x*\x*\x*\x});
             \draw[violet,fill=violet] (0.168,0.1)node[black,above=0.2 cm]{\scriptsize start} circle (0.05);
-            \foreach \i in {0,...,10}{
+            \foreach \i in {0,...,20}{
                 \tikzmath{\x = rand*0.35+1.15;}
                 \draw[fill=blue] (\x,0.1+0.5*\x-3*\x*\x+\x*\x*\x*\x) circle (0.05);
             }
-            \foreach \i in {0,...,10}{
+            \foreach \i in {0,...,15}{
                 \tikzmath{\x = rand*0.55+1.05;}
                 \draw[fill=blue] (\x,0.1+0.5*\x-3*\x*\x+\x*\x*\x*\x) circle (0.05);
             }

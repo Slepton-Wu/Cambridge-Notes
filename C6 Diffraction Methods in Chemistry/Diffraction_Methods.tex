@@ -1472,6 +1472,7 @@
     \begin{figure}
         \centering
         \begin{tikzpicture}[x={(1cm,0cm)},y={(0cm,1cm)},z={(-0.2cm,-0.32cm)}]
+            \pgfmathsetseed{12345}
             \foreach \i in {-2,...,2}{
                 \foreach \j in {-2,...,2}{
                     \draw[gray!50] (\i,-2,\j)--(\i,2,\j);
@@ -1611,6 +1612,7 @@
     \begin{figure}
         \centering
         \begin{tikzpicture}
+            \pgfmathsetseed{88888}
             \foreach \i in {-8,...,8}{
                 \draw[thin,color=red!20] (-2.7-0.05*\i,0.3*\i)--(2.7-0.05*\i,0.3*\i);
                 \draw[thin,color=red!20] (0.3*\i-0.45,2.7)--(0.3*\i+0.45,-2.7);

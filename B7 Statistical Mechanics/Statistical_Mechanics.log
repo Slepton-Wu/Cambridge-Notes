@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.21)  11 NOV 2025 17:40
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.21)  11 NOV 2025 21:09
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -728,7 +728,7 @@ Smallest possible random number: 0
 Largest possible random number: 2147483646
 The pseudo random numbers will be stored in the LaTeX counter `lcg@rand'
 )
-Random number generator initialized to 383899
+Random number generator initialized to 409188
 Package hyperref Info: Link coloring OFF on input line 87.
 (./Statistical_Mechanics.out) (./Statistical_Mechanics.out)
 \@outlinefile=\write4
@@ -1076,7 +1076,7 @@ File: LC.png Graphic file (type bmp)
 [58]
 
 [59]
-Package hyperref Info: bookmark level for unknown law defaults to 0 on input line 2668.
+Package hyperref Info: bookmark level for unknown law defaults to 0 on input line 2667.
 
 
 [60]
@@ -1134,7 +1134,7 @@ Package hyperref Info: bookmark level for unknown law defaults to 0 on input lin
 [86]
 
 [87]
-Package hyperref Info: bookmark level for unknown thm defaults to 0 on input line 4074.
+Package hyperref Info: bookmark level for unknown thm defaults to 0 on input line 4073.
 
 
 [88]
@@ -1164,10 +1164,10 @@ Package rerunfilecheck Info: File `Statistical_Mechanics.out' has not changed.
 (rerunfilecheck)             Checksum: 41FAB00282D3181BACE129F72DB23496;9644.
  ) 
 Here is how much of TeX's memory you used:
- 44533 strings out of 473832
- 1009602 string characters out of 5733158
- 1505507 words of memory out of 5000000
- 67009 multiletter control sequences out of 15000+600000
+ 44525 strings out of 473832
+ 1009503 string characters out of 5733158
+ 1505509 words of memory out of 5000000
+ 67001 multiletter control sequences out of 15000+600000
  575552 words of font info for 122 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  99i,22n,105p,1362b,2071s stack positions out of 10000i,1000n,20000p,200000b,200000s
