@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.21)  10 OCT 2025 17:46
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.21)  11 NOV 2025 17:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -945,8 +945,8 @@ No file Perturbation.tex.
 [32]
 
 [33]
-Package pgfplots info on input line 1905: Using 'lua backend=false' for axis: x coord trafo unsupported.
-Package pgfplots info on input line 1928: Using 'lua backend=false' for axis: x coord trafo unsupported.
+Package pgfplots info on input line 1908: Using 'lua backend=false' for axis: x coord trafo unsupported.
+Package pgfplots info on input line 1932: Using 'lua backend=false' for axis: x coord trafo unsupported.
 
 
 [34]
@@ -962,7 +962,7 @@ Package pgfplots info on input line 1928: Using 'lua backend=false' for axis: x 
 [39]
 
 [40]
-Package hyperref Info: bookmark level for unknown defn defaults to 0 on input line 2112.
+Package hyperref Info: bookmark level for unknown defn defaults to 0 on input line 2116.
 
 
 [41]
@@ -1010,7 +1010,7 @@ Package hyperref Info: bookmark level for unknown defn defaults to 0 on input li
 [62]
 
 [63]
-Underfull \hbox (badness 10000) in paragraph at lines 2992--3006
+Underfull \hbox (badness 10000) in paragraph at lines 2996--3010
 
  []
 
@@ -1041,10 +1041,10 @@ Package rerunfilecheck Info: File `Electronic_Structure.out' has not changed.
 (rerunfilecheck)             Checksum: D0D579AFFC45E205E151E9780C69EFE1;12452.
  ) 
 Here is how much of TeX's memory you used:
- 39176 strings out of 473832
- 924650 string characters out of 5733158
- 1396437 words of memory out of 5000000
- 61653 multiletter control sequences out of 15000+600000
+ 39178 strings out of 473832
+ 924683 string characters out of 5733158
+ 1396431 words of memory out of 5000000
+ 61655 multiletter control sequences out of 15000+600000
  578631 words of font info for 133 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  99i,18n,105p,1686b,2274s stack positions out of 10000i,1000n,20000p,200000b,200000s

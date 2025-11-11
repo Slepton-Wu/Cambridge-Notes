@@ -1244,6 +1244,7 @@
                 \draw (-2.75+3*\x,1.2)--(-3.25+3*\x,1.2);
                 \draw (-3.95+3*\x,2)--(-3.45+3*\x,2);
                 \draw (-2.05+3*\x,2)--(-2.55+3*\x,2);
+            }
                 \draw[->] (-0.05,1)--(-0.05,1.4);
                 \draw[<-] (0.05,1)--(0.05,1.4);
                 \draw[->] (2.25,1.8)--(2.25,2.2);
@@ -1256,7 +1257,6 @@
                 \node at (3,0.5) {\(c\)};
                 \node at (6,0.5) {\(c\)};
                 \node at (9,0.5) {\(c\)};
-            }
         \end{tikzpicture}
     \end{figure}
 
@@ -1898,10 +1898,13 @@
         \begin{tikzpicture}
             \begin{axis}[
                 axis y line*=left,
-                ylabel={Energy / \(E_h\)},
+                ylabel={\color{blue}Energy / \(E_h\)},
                 symbolic x coords={HF,MP2,MP3,MP4,MP5},
                 xtick={HF,MP2,MP3,MP4,MP5},
                 x tick label style={rotate=45,anchor=east},
+                y tick label style={
+                    color=blue
+                },
             ]
                 \addplot[blue,mark=*] coordinates {
                     (HF,-1.1329897) (MP2,-1.1646497) (MP3,-1.1702639) (MP4,-1.1717301) (MP5,-1.1721553)
@@ -1912,13 +1915,14 @@
             \end{axis}
             \begin{axis}[
                 axis y line*=right,
-                ylabel={Bond length / \AA},
+                ylabel={\color{red}Bond length / \AA},
                 y tick label style={
                     /pgf/number format/.cd,
                         fixed,
                         fixed zerofill,
                         precision=3,
-                    /tikz/.cd
+                    /tikz/.cd,
+                    color=red
                 },
                 symbolic x coords={HF,MP2,MP3,MP4,MP5},
                 xtick=data,
