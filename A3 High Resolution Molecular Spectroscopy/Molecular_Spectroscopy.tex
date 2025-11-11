@@ -63,21 +63,29 @@
 \renewcommand{\div}{\vb{\nabla}\cdot}
 \newcommand{\curl}{\vb{\nabla}\times}
 \newcommand{\laplacian}{\nabla^2}
-\newcommand{\symmtop}{\tikz{\draw[fill=white] (-0.8,0.75) circle (0.3);
-\draw[thick] (0,1)--(-0.6,0.8);
-\draw[thick] (0,1)--(0,2.5);
-\draw[thick] (0,1)--(0.95,0.68);
-\draw[fill=gray!30] (0,2.2) circle (0.3);
-\draw[thick] (0,1)--(-0.3,0.2);
-\draw[fill=white] (-0.3,0.2) circle (0.3);
-\draw[fill=white] (1.15,0.65) circle (0.3);}}
+\newcommand{\symmtop}{\tikz[z={(130:0.4cm)}]{
+    \coordinate (m) at (0,0,0);
+    \coordinate (a) at (0,1.2,0);
+    \coordinate (b) at ({1 * cos(0)},-0.5,{1 * sin(0)});
+    \coordinate (c) at ({1 * cos(120)},-0.5,{1 * sin(120)});
+    \coordinate (d) at ({1 * cos(240)},-0.5,{1 * sin(240)});
+
+    \shade[ball color=yellow] (a) circle (0.3);
+    \shade[ball color=white] (b) circle (0.2);
+    \shade[ball color=white] (c) circle (0.2);
+    \shade[ball color=white] (d) circle (0.2);
+    \draw[shorten >= 0.3 cm] (m)--(a);
+    \draw[shorten >= 0.2 cm] (m)--(b);
+    \draw[shorten >= 0.2 cm] (m)--(c);
+    \draw[shorten >= 0.2 cm] (m)--(d);
+}}
 \newcommand{\FF}{_{\text{F}}}
 \newcommand{\IC}{_{\text{IC}}}
 \newcommand{\ISC}{_{\text{ISC}}}
 \newcommand{\QQ}{_{\text{Q}}}
 \newcommand{\zeroQ}{_{\text{0,Q}}}
 
-\usetikzlibrary{decorations.pathmorphing,arrows,shapes}
+\usetikzlibrary{decorations.pathmorphing,arrows,shapes,math,shadings}
 
 
 \begin{document}
@@ -126,20 +134,27 @@
             \draw[->,thick] (0.8,0.2)--(0.8,1.9);
             \draw[->,decorate] (-0.5,1)--node[above]{\(h \nu\)}(0.6,1);
             \node[align=center] at (0.8,-0.8){stimulated \\ absorption};
-            \draw (4,0)--(5.6,0);
-            \draw (4,2)--(5.6,2);
-            \fill[black] (4.8,2) circle (0.1);
-            \draw[->,thick] (4.8,1.8)--(4.8,0.1);
-            \draw[->,decorate] (3.5,1)--node[above]{\(h \nu\)}(4.6,1);
-            \draw[->,decorate] (5.0,1.08)--node[above]{\(2 h \nu\)}(6.1,1.08);
-            \draw[->,decorate] (5.0,0.92)--(6.1,0.92);
-            \node[align=center] at (4.8,-0.8){stimulated \\ emission};
-            \draw (8,0)--(9.6,0);
-            \draw (8,2)--(9.6,2);
-            \fill[black] (8.8,2) circle (0.1);
-            \draw[->,thick] (8.8,1.8)--(8.8,0.1);
-            \draw[->,decorate] (9.0,1)--node[above]{\(h \nu\)}(10.1,1);
-            \node[align=center] at (8.8,-0.8){spontaneous \\ emission};
+
+            \begin{scope}[shift={(4,0)}]
+                \draw (0,0)--(1.6,0);
+                \draw (0,2)--(1.6,2);
+                \fill[black] (0.8,2) circle (0.1);
+                \draw[->,thick] (0.8,1.8)--(0.8,0.1);
+                \draw[->,decorate] (-0.5,1)--node[above]{\(h \nu\)}(0.6,1);
+                \draw[->,decorate] (1.0,1.08)--node[above]{\(2 h \nu\)}(2.1,1.08);
+                \draw[->,decorate] (1.0,0.92)--(2.1,0.92);
+                \node[align=center] at (0.8,-0.8){stimulated \\ emission};
+            \end{scope}
+
+            \begin{scope}[shift={(8,0)}]
+                \draw (0,0)--(1.6,0);
+                \draw (0,2)--(1.6,2);
+                \fill[black] (0.8,2) circle (0.1);
+                \draw[->,thick] (0.8,1.8)--(0.8,0.1);
+                \draw[->,decorate] (1.0,1)--node[above]{\(h \nu\)}(2.1,1);
+                \node[align=center] at (0.8,-0.8){spontaneous \\ emission};
+            \end{scope}
+
         \end{tikzpicture}
     \end{figure}
     \begin{enumerate}[topsep=0pt,label=(\roman*)]
@@ -306,7 +321,7 @@
         \centering
         \begin{tikzpicture}
             \draw[thick] (0,0)--(1.6,0);
-            \fill[top color=white,bottom color=white,middle color=gray]  (0,2.5) rectangle (1.6,2.7);
+            \shade[top color=white,bottom color=white,middle color=gray]  (0,2.5) rectangle (1.6,2.7);
             \draw[->,thick] (1.6,2)--(1.6,2.5);
             \draw[->,thick] (1.6,3.2)--(1.6,2.7);
             \node at (1.6,2.6)[right]{\small \(\Delta E\)};
@@ -320,7 +335,7 @@
             \draw[->] (5.25,2)--node[above]{\small shorter \(\tau\)}(7,2);
 
             \draw[thick] (8,0)--(9.6,0);
-            \fill[top color=white,bottom color=white,middle color=gray]  (8,2.3) rectangle (9.6,2.9);
+            \shade[top color=white,bottom color=white,middle color=gray]  (8,2.3) rectangle (9.6,2.9);
             \draw[->,thick] (9.6,1.8)--(9.6,2.3);
             \draw[->,thick] (9.6,3.4)--(9.6,2.9);
             \node at (9.6,2.6)[right]{\small \(\Delta E\)};
@@ -370,24 +385,22 @@
     Our next source of broadening is unrelated to the lifetime of the states. It originates from the Doppler effect.
 
     The Doppler shift is familiar to us as the shift in frequency of a siren as a fire engine passes by. Molecules are moving in random directions relative to the radiation which is passing through the sample and at a range of speeds so the effect is to generate a spread of frequencies which are absorbed or emitted by the molecules: this is the origin of the Doppler induced linewidth. Of course, the speed with which molecules move is only a tiny fraction of the speed of light, so the frequency shifts are very small compared to the absolute frequency, but nevertheless can be a significant contribution to the linewidth.
-
+    
     \begin{figure}[ht!]
         \centering
         \begin{tikzpicture}
+            \pgfmathsetseed{12}
             \draw (0,0) rectangle (5,3);
             \draw[gray!50,line width = 0.1 cm,->] (-2,1.5)--(7,1.5);
-            \draw[fill=black] (1,0.4) circle (0.1);
-            \draw[->] (1,0.4)--(1.4,0.7);
-            \draw[fill=black] (0.8,2) circle (0.1);
-            \draw[->] (0.8,2)--(0.3,2.8);
-            \draw[fill=black] (1.8,1.2) circle (0.1);
-            \draw[->] (1.8,1.2)--(1.3,1);
-            \draw[fill=black] (3,1.4) circle (0.1);
-            \draw[->] (3,1.4)--(3.2,0.8);
-            \draw[fill=black] (4.4,2) circle (0.1);
-            \draw[->] (4.4,2)--(3.8,2.2);
-            \draw[fill=black] (4,0.9) circle (0.1);
-            \draw[->] (4,0.9)--(4.8,0.7);
+            \foreach \i in {0,...,8}{
+                \tikzmath{
+                    \x = 2.3*rand + 2.5;
+                    \y = 1.3*rand + 1.5;
+                    \r = 0.2*rand + 0.6;
+                }
+                \fill[black] (\x,\y) circle (0.1);
+                \draw[->] (\x,\y)--+(180*rand : \r);
+            }
         \end{tikzpicture}
     \end{figure}
 
@@ -487,27 +500,44 @@
     Symmetric tops have two of the moments of inertia equal and the third different from the other two.
     \begin{figure}[ht!]
         \centering
-        \begin{tikzpicture}
-            \draw[dashed] (0,0)--(0,4)node[right]{\(I_a\)};
-            \draw[fill=gray!30] (-0.8,0.75) circle (0.3);
-            \draw[thick] (0,1)--(-0.6,0.8);
-            \draw[thick] (0,1.3)--(0,2.7);
-            \draw[thick] (0,1)--(0.95,0.68);
-            \draw[fill=gray!30] (0,1) circle (0.3);
-            \draw[fill=gray!30] (0,3) circle (0.3);
-            \draw[thick] (-0.1,0.8)--(-0.3,0.2);
-            \draw[fill=gray!30] (-0.3,0.2) circle (0.3);
-            \draw[fill=gray!30] (1.15,0.65) circle (0.3);
-            \node at (0,-0.5) {prolate};
-            \draw[dashed] (6,0)--(6,4)node[right]{\(I_c\)};
-            \draw[fill=gray!30] (7.2,2.5) circle (0.3);
-            \draw[thick] (6,2)--(7,2.42);
-            \draw[fill=gray!30] (6,2) circle (0.3);
-            \draw[thick] (6.18,1.92)--(7.2,1.5);
-            \draw[fill=gray!30] (4.2,2) circle (0.3);
-            \draw[fill=gray!30] (7.2,1.5) circle (0.3);
-            \draw[thick] (4.5,2)--(5.7,2);
-            \node at (6,-0.5) {oblate};
+        \begin{tikzpicture}[z={(130:0.4cm)}]
+
+            \draw[dashed] (0,-1,0)--(0,3,0)node[right]{\(I_a\)};
+
+            \coordinate (m) at (0,0,0);
+            \coordinate (a) at (0,2,0);
+            \coordinate (b) at ({1.15 * cos(0)},-0.5,{1.15 * sin(0)});
+            \coordinate (c) at ({1.15 * cos(120)},-0.5,{1.15 * sin(120)});
+            \coordinate (d) at ({1.15 * cos(240)},-0.5,{1.15 * sin(240)});
+
+            \shade[ball color=white] (m) circle (0.3);
+            \shade[ball color=white] (a) circle (0.3);
+            \shade[ball color=white] (b) circle (0.3);
+            \shade[ball color=white] (c) circle (0.3);
+            \shade[ball color=white] (d) circle (0.3);
+            \draw[shorten <= 0.3 cm, shorten >= 0.3 cm] (m)--(a);
+            \draw[shorten <= 0.3 cm, shorten >= 0.3 cm] (m)--(b);
+            \draw[shorten <= 0.3 cm, shorten >= 0.3 cm] (m)--(c);
+            \draw[shorten <= 0.3 cm, shorten >= 0.3 cm] (m)--(d);
+            \node at (0,-1.5,0) {prolate};
+
+            \begin{scope}[shift={(6,0)}]
+                \draw[dashed] (0,-1,0)--(0,3,0)node[right]{\(I_c\)};
+
+                \coordinate (m) at (0,1,0);
+                \coordinate (a) at ({1.8 * cos(180)},1,{1.8 * sin(180)});
+                \coordinate (b) at ({1.8 * cos(300)},1,{1.8 * sin(300)});
+                \coordinate (c) at ({1.8 * cos(60)},1,{1.8 * sin(60)});
+
+                \shade[ball color=white] (m) circle (0.3);
+                \shade[ball color=white] (a) circle (0.3);
+                \shade[ball color=white] (b) circle (0.3);
+                \shade[ball color=white] (c) circle (0.3);
+                \draw[shorten <= 0.3 cm, shorten >= 0.3 cm] (m)--(a);
+                \draw[shorten <= 0.3 cm, shorten >= 0.3 cm] (m)--(b);
+                \draw[shorten <= 0.3 cm, shorten >= 0.3 cm] (m)--(c);
+                \node at (0,-1.5,0) {oblate};
+            \end{scope}
         \end{tikzpicture}
     \end{figure}
 
@@ -533,9 +563,9 @@
         \begin{tikzpicture}
             \draw[dashed] (-3,0)--(3,0)node[right]{\(I_a\)};
             \draw[thick] (-2,0)--(2.3,0);
-            \draw[fill=gray!30] (-0.5,0) circle (0.4);
-            \draw[fill=gray!30] (-2,0) circle (0.3);
-            \draw[fill=gray!30] (2.3,0) circle (0.2);
+            \shade[ball color=white] (-0.5,0) circle (0.4);
+            \shade[ball color=white] (-2,0) circle (0.3);
+            \shade[ball color=white] (2.3,0) circle (0.2);
             \draw[dashed] (0,-1.5)--(0,1.5);
             \draw[dashed] (1,1)--(-1,-1);
         \end{tikzpicture}
@@ -576,15 +606,23 @@
     \begin{figure}[ht!]
         \centering
         \begin{tikzpicture}[scale=0.6]
-            \draw[fill=gray!30] (-0.8,0.75) circle (0.3);
-            \draw[thick] (0,1)--(-0.6,0.8);
-            \draw[thick] (0,1.3)--(0,2.5);
-            \draw[thick] (0,1)--(0.95,0.68);
-            \draw[fill=gray!30] (0,1) circle (0.3);
-            \draw[fill=gray!30] (0,2.6) circle (0.3);
-            \draw[thick] (-0.1,0.8)--(-0.3,0.2);
-            \draw[fill=gray!30] (-0.3,0.2) circle (0.3);
-            \draw[fill=gray!30] (1.15,0.65) circle (0.3);
+            \begin{scope}[shift={(0,1)},z={(130:0.4cm)},scale=0.8]
+                \coordinate (m) at (0,0,0);
+                \coordinate (a) at (0,2,0);
+                \coordinate (b) at ({1.15 * cos(0)},-0.5,{1.15 * sin(0)});
+                \coordinate (c) at ({1.15 * cos(120)},-0.5,{1.15 * sin(120)});
+                \coordinate (d) at ({1.15 * cos(240)},-0.5,{1.15 * sin(240)});
+
+                \shade[ball color=white] (m) circle (0.375);
+                \shade[ball color=white] (a) circle (0.375);
+                \shade[ball color=white] (b) circle (0.375);
+                \shade[ball color=white] (c) circle (0.375);
+                \shade[ball color=white] (d) circle (0.375);
+                \draw[shorten <= 0.18 cm, shorten >= 0.18 cm] (m)--(a);
+                \draw[shorten <= 0.18 cm, shorten >= 0.18 cm] (m)--(b);
+                \draw[shorten <= 0.18 cm, shorten >= 0.18 cm] (m)--(c);
+                \draw[shorten <= 0.18 cm, shorten >= 0.18 cm] (m)--(d);
+            \end{scope}
             \draw[dashed] (0,1.4) circle (2.45);
             \draw[thick,->] (0,1.4)--(2.45,1.4)node[right]{\small \(K=0\)};
             \draw[thick,->] (0,1.4)--(2.237,2.4)node[right]{\small \(K=1\)};
@@ -862,24 +900,26 @@
         \begin{tikzpicture}
             \node at (0,2) {(a)};
             \draw[->,gray!60,line width=2pt] (1.35,-1)--(1.35,1.5)node[black,left]{\small \(\vb{\mu}\)};
-            \node[scale=0.8] at (1.5,0) {\symmtop};
+            \node[scale=0.8] at (1.46,0) {\symmtop};
             \draw[->,gray!60,line width=2pt] (0.53,-0.54)--(2.62,0.8);
             \draw[->,line width=2pt] (1.35,0)--(2.3,1.7)node[right]{\small\(\vb{J}\)};
             \node at (2,1.155){\tikz{\draw[rotate=-28.68] (0,0) ellipse (0.72cm and 0.2cm)}};
             \draw (1.35,0.4) arc (90:61.32:0.4);
             \node at (1.35,0.4) [left]{\scriptsize\(\alpha\)};
 
-            \node at (5,2) {(b)};
-            \node[rotate=-40] at (6.5,0.4){\tikz{
-                \node[scale=0.8] at (1.5,0) {\symmtop};
-                \draw[->,line width=2pt] (1.35,0)--(2.3,1.7);
-                \draw[->,gray!60,line width=2pt] (1.35,0)--(2,1.155);
-            }};
-            \draw[thick,->] (6.2,-1)--(6.2,2)node[right]{\small\(\vb{E}_{\text{field}}\)};
-            \draw (6.2,0.7) arc (90:15:0.4);
-            \node at (6.2,0.7)[left]{\small \(\beta\)};
-            \node at (7.4,0.6)[below]{\small \(\bar{\vb{\mu}}\)};
-            \node at (8,0.8)[below]{\small \(\vb{J}\)};
+            \begin{scope}[shift={(5,0)}]
+                \node at (0,2) {(b)};
+                \node[rotate=-40] at (1.5,0.4){\tikz{
+                    \node[scale=0.8] at (1.45,0) {\symmtop};
+                    \draw[->,line width=2pt] (1.35,0)--(2.3,1.7);
+                    \draw[->,gray!60,line width=2pt] (1.35,0)--(2,1.155);
+                }};
+                \draw[thick,->] (1.2,-1)--(1.2,2)node[right]{\small\(\vb{E}_{\text{field}}\)};
+                \draw (1.2,0.7) arc (90:15:0.4);
+                \node at (1.2,0.7)[left]{\small \(\beta\)};
+                \node at (2.4,0.6)[below]{\small \(\bar{\vb{\mu}}\)};
+                \node at (3,0.8)[below]{\small \(\vb{J}\)};
+            \end{scope}
         \end{tikzpicture}
     \end{figure}
 
@@ -937,19 +977,22 @@
             \node at (2.7,-1.1){\small\(M_J\)};
             \draw[<->] (3,0)--node[right]{\footnotesize\(\mu E/2\)}(3,-0.66);
             \draw[<->] (3,3.56)--node[right]{\footnotesize\(\mu E/6\)}(3,3.78);
-            \draw[thick,domain=-1:1, smooth, variable=\x,samples=100] plot ({\x+8}, {2.5+1.8*2.72^(-100*\x*\x)});
-            \draw [thick] (6,2.5)--(7,2.5);
-            \draw [thick] (9,2.5)--(10,2.5);
-            \draw[thick,domain=-1:1, smooth, variable=\x,samples=100] plot ({\x+8}, {0.6*2.72^(-100*\x*\x)});
-            \draw[thick,domain=-0.6:0.6, smooth, variable=\x,samples=100] plot ({\x+6.6}, {0.6*2.72^(-100*\x*\x)});
-            \draw[thick,domain=-0.6:0.6, smooth, variable=\x,samples=100] plot ({\x+9.4}, {0.6*2.72^(-100*\x*\x)});
-            \draw[dashed] (8,0.8)--(8,2.5);
-            \draw[<->] (6.6,0.7)--node[above]{\small \(\mu E/3h\)}(8,0.7);
-            \node at (5.7,-0.5) {\small \(M_J\)};
-            \node at (6.6,-0.5) {\small \(-1\)};
-            \node at (8,-0.5) {\small \(0\)};
-            \node at (9.4,-0.5) {\small \(+1\)};
-            \draw[->] (8,-1)--node[below]{frequency}(10,-1);
+
+            \begin{scope}[shift={(8,0)}]
+                \draw[thick,domain=-1:1, smooth, variable=\x,samples=100] plot ({\x}, {2.5+1.8*2.72^(-100*\x*\x)});
+                \draw [thick] (-2,2.5)--(-1,2.5);
+                \draw [thick] (1,2.5)--(2,2.5);
+                \draw[thick,domain=-1:1, smooth, variable=\x,samples=100] plot ({\x}, {0.6*2.72^(-100*\x*\x)});
+                \draw[thick,domain=-0.6:0.6, smooth, variable=\x,samples=100] plot ({\x-1.4}, {0.6*2.72^(-100*\x*\x)});
+                \draw[thick,domain=-0.6:0.6, smooth, variable=\x,samples=100] plot ({\x+1.4}, {0.6*2.72^(-100*\x*\x)});
+                \draw[dashed] (0,0.8)--(0,2.5);
+                \draw[<->] (-1.4,0.7)--node[above]{\small \(\mu E/3h\)}(0,0.7);
+                \node at (-2.3,-0.5) {\small \(M_J\)};
+                \node at (-1.4,-0.5) {\small \(-1\)};
+                \node at (0,-0.5) {\small \(0\)};
+                \node at (1.4,-0.5) {\small \(+1\)};
+                \draw[->] (0,-1)--node[below]{frequency}(2,-1);
+            \end{scope}
         \end{tikzpicture}
     \end{figure}
     
@@ -1147,28 +1190,24 @@
             \draw[->] (0,0)--(0.5,0)node[right]{\small\(y\)};
             \draw[->] (0,0)--(0,0.5)node[above]{\small \(z\)};
             \draw[->] (0,0)--(-0.15,-0.3)node[below]{\small \(x\)};
-            \draw (2,-0.2)--(3,0.5)--(4,-0.2);
-            \draw[fill=white] (3,0.5) circle (0.2);
-            \draw[fill=white] (2,-0.2) circle (0.1);
-            \draw[fill=white] (4,-0.2) circle (0.1);
+
+            \foreach \i in {0,1,2}{
+                \draw (2+4*\i,-0.2)--(3+4*\i,0.5)--(4+4*\i,-0.2);
+                \draw[fill=white] (3+4*\i,0.5) circle (0.2);
+                \draw[fill=white] (2+4*\i,-0.2) circle (0.1);
+                \draw[fill=white] (4+4*\i,-0.2) circle (0.1);
+            }
+            
             \draw[thick,->] (2,-0.2)--(1.5,-0.55);
             \draw[thick,->] (4,-0.2)--(4.5,-0.55);
             \draw[thick,->] (3,0.5)--(3,0.65);
             \node[align=center] at (3,-1.3){\(A_1\) \\ \(3657\unit{cm}^{-1}\)};
 
-            \draw (6,-0.2)--(7,0.5)--(8,-0.2);
-            \draw[fill=white] (7,0.5) circle (0.2);
-            \draw[fill=white] (6,-0.2) circle (0.1);
-            \draw[fill=white] (8,-0.2) circle (0.1);
             \draw[thick,->] (6,-0.2)--(5.65,0.3);
             \draw[thick,->] (8,-0.2)--(8.35,0.3);
             \draw[thick,->] (7,0.5)--(7,0.35);
             \node[align=center] at (7,-1.3){\(A_1\) \\ \(1595\unit{cm}^{-1}\)};
 
-            \draw (10,-0.2)--(11,0.5)--(12,-0.2);
-            \draw[fill=white] (11,0.5) circle (0.2);
-            \draw[fill=white] (10,-0.2) circle (0.1);
-            \draw[fill=white] (12,-0.2) circle (0.1);
             \draw[thick,->] (10,-0.2)--(10.5,0.15);
             \draw[thick,->] (12,-0.2)--(12.5,-0.55);
             \draw[thick,->] (11,0.5)--(10.85,0.5);
@@ -1465,7 +1504,7 @@
     \end{figure}
 
     \subsection{Theory of Raman Scattering}
-    An explanation of Raman scattering using quantum mechanics is not possible using the framework we have introduced so far. It is necessary to postulate the existence of ``virtual energy states'' which are created by the transient interaction between the molecule and the laser photon: these states are not the same as the normal energy levels of the molecule. The details of this approach are well beyond the level of this course, so we will not pursue it further.\footnote{An incomplete explanation using time-dependent perturbation theory can be found in C7: \textit{Further Quantum Mechanics}.} We can, however, develop a classical description of scattering which is helpful in interpreting the results of the full quantum mechanical analysis and which will provide us with a framework for understanding the Raman effect.
+    An explanation of Raman scattering using quantum mechanics is not possible using the framework we have introduced so far. It is necessary to postulate the existence of ``virtual energy states'' which are created by the transient interaction between the molecule and the laser photon: these states are not the same as the normal energy levels of the molecule. The details of this approach are well beyond the level of this course, so we will not pursue it further.\footnote{An explanation using time-dependent perturbation theory can be found in C7: \textit{Further Quantum Mechanics}.} We can, however, develop a classical description of scattering which is helpful in interpreting the results of the full quantum mechanical analysis and which will provide us with a framework for understanding the Raman effect.
 
     \subsubsection{Classical Description}
     The key idea in this classical description is that the electric field of the laser light causes a distortion of the electron density of the molecule, resulting in the generation of an induced dipole.\footnote{The argument we present in this section is somewhat less handwaving than the one presented in the official handout.}
@@ -1568,29 +1607,34 @@
     \begin{figure}
         \centering
         \begin{tikzpicture}
-            \draw[domain=0:3, smooth, variable=\x,samples=500] plot ({\x}, {sin(40*\x r)});
-            \draw[domain=0:3, smooth, variable=\x,samples=500] plot ({\x+6}, {(sin(40*\x r))*(1+0.06*cos(4*\x r))});
-            \draw[dashed,domain=0:3, smooth, variable=\x,samples=300] plot ({\x+6}, {1+0.06*cos(4*\x r)});
-            \draw[dashed,domain=0:3, smooth, variable=\x,samples=300] plot ({\x+6}, {-1-0.06*cos(4*\x r)});
+            \draw[domain=0:3, smooth, variable=\x,samples=300] plot ({\x}, {sin(30*\x r)});
             \node at (1.5,1.5) {\small oscillation at \(\omega_L\)};
-            \node at (7.5,1.5) {\small modulated by \(2\omega_R\)};
-            \draw[domain=-0.3:0.3, smooth, variable=\x,samples=50] plot ({\x+1.5}, {2*2.72^(-500*\x*\x)-4});
-            \draw (0,-4)--(1.2,-4);
-            \draw (1.8,-4)--(3,-4);
-            \node at (1.5,-4.3) {\scriptsize\(\omega_L\)};
-            \node at (1.5,-4.6) {\scriptsize Rayleigh};
-            \draw[domain=-0.3:0.3, smooth, variable=\x,samples=50] plot ({\x+7.5}, {2*2.72^(-500*\x*\x)-4});
-            \draw[domain=-0.3:0.3, smooth, variable=\x,samples=50] plot ({\x+6}, {0.5*2.72^(-500*\x*\x)-4});
-            \draw[domain=-0.3:0.3, smooth, variable=\x,samples=50] plot ({\x+9}, {0.5*2.72^(-500*\x*\x)-4});
-            \draw (6.3,-4)--(7.2,-4);
-            \draw (7.8,-4)--(8.7,-4);
-            \node at (7.5,-4.3) {\scriptsize\(\omega_L\)};
-            \node at (7.5,-4.6) {\scriptsize Rayleigh};
-            \node at (6,-4.3) {\scriptsize\(\omega_L-2\omega_R\)};
-            \node at (6,-4.6) {\scriptsize Stokes};
-            \node at (9,-4.3) {\scriptsize\(\omega_L+2\omega_R\)};
-            \node at (9,-4.6) {\scriptsize anti-Stokes};
+            
+            \begin{scope}[shift={(0,-3.5)}]
+                \draw[domain=-0.3:0.3, smooth, variable=\x,samples=50] plot ({\x+1.5}, {2*2.72^(-500*\x*\x)});
+                \draw (0,0)--(1.2,0);
+                \draw (1.8,0)--(3,0);
+                \node at (1.5,-0.5) [align=center] {\scriptsize\(\omega_L\) \\[-3pt] \scriptsize Rayleigh};
+            \end{scope}
+
+            \begin{scope}[shift={(6,0)}]
+                \draw[domain=0:3, smooth, variable=\x,samples=300] plot ({\x}, {(sin(30*\x r))*(1+0.06*cos(4*\x r))});
+                \draw[dashed,domain=0:3, smooth, variable=\x,samples=50] plot ({\x}, {1+0.06*cos(4*\x r)});
+                \draw[dashed,domain=0:3, smooth, variable=\x,samples=50] plot ({\x}, {-1-0.06*cos(4*\x r)});
+                \node at (1.5,1.5) {\small modulated by \(2\omega_R\)};
+            \end{scope}
+            \begin{scope}[shift={(6,-3.5)}]
+                \draw[domain=-0.3:0.3, smooth, variable=\x,samples=50] plot ({\x+1.5}, {2*2.72^(-500*\x*\x)});
+                \draw[domain=-0.3:0.3, smooth, variable=\x,samples=50] plot ({\x}, {0.5*2.72^(-500*\x*\x)});
+                \draw[domain=-0.3:0.3, smooth, variable=\x,samples=50] plot ({\x+3}, {0.5*2.72^(-500*\x*\x)});
+                \draw (0.3,0)--(1.2,0);
+                \draw (1.8,0)--(2.7,0);
+                \node at (1.5,-0.5) [align=center] {\scriptsize\(\omega_L\) \\[-3pt] \scriptsize Rayleigh};
+                \node at (0,-0.5) [align=center] {\scriptsize\(\omega_L-2\omega_R\) \\[-3pt] \scriptsize Stokes};
+                \node at (3,-0.5) [align=center] {\scriptsize\(\omega_L+2\omega_R\) \\[-3pt] \scriptsize anti-Stokes};
+            \end{scope}
         \end{tikzpicture}
+        \caption{Anisotropy in molecular polarisability leads to modulation in scattered beam.}
     \end{figure}
 
     Within the terms of this explanation, we see that all that is required for Raman scattering due to rotation is that the molecule has an anisotropic polarisability. Therefore, all diatomics (including homonuclear ones) give rise to rotational Raman scattering, as do all linear polyatomic molecules. This is in contrast to microwave spectroscopy where molecules belonging to the point group \(D_{\infty h}\) do not give rise to spectra.
@@ -1603,21 +1647,26 @@
     \begin{figure}[ht!]
         \centering
         \begin{tikzpicture}
-            \draw[rounded corners] (-4.2,2) rectangle (-1.8,3.4);
-            \draw (-3.2,2.3)node[left]{\scriptsize\(E_{\text{lower}}\)}--(-2,2.3);
-            \draw (-3.2,3.1)node[left]{\scriptsize\(E_{\text{upper}}\)}--(-2,3.1);
-            \fill[gray] (-2.6,2.3) circle (0.08);
-            \draw[thick,->] (-2.6,2.4)--(-2.6,3.05);
-            \draw[->,decoration = {snake,amplitude=0.5pt,segment length=2mm},decorate,thick] (-5.5,2.7)--node[above]{\small laser}node[below]{\small \(h\nu_L\)}(-4.3,2.7);
-            \draw[->,decoration = {snake,amplitude=1.2pt,segment length=2mm},decorate,thick] (-1.7,2.7)--node[below,align=center]{\scriptsize \(h\nu_L\) \\[-3pt] \scriptsize \(-(E_{\text{up}}-E_{\text{low}})\)}(0,2.7);
-            \draw[rounded corners] (5.2,2) rectangle (2.8,3.4);
-            \draw (3.8,2.3)node[left]{\scriptsize\(E_{\text{lower}}\)}--(5,2.3);
-            \draw (3.8,3.1)node[left]{\scriptsize\(E_{\text{upper}}\)}--(5,3.1);
-            \fill[gray] (4.4,3.1) circle (0.08);
-            \draw[thick,<-] (4.4,2.35)--(4.4,3);
-            \draw[->,decoration = {snake,amplitude=0.5pt,segment length=2mm},decorate,thick] (1.5,2.7)--node[above]{\small laser}node[below]{\small \(h\nu_L\)}(2.7,2.7);
-            \draw[->,decoration = {snake,amplitude=1.2pt,segment length=2mm},decorate,thick] (5.3,2.7)--node[below,align=center]{\scriptsize \(h\nu_L\) \\[-3pt] \scriptsize \(+(E_{\text{up}}-E_{\text{low}})\)}(7,2.7);
+            \draw[rounded corners] (0,2) rectangle (2.4,3.4);
+            \draw (1,2.3)node[left]{\scriptsize\(E_{\text{lower}}\)}--(2.2,2.3);
+            \draw (1,3.1)node[left]{\scriptsize\(E_{\text{upper}}\)}--(2.2,3.1);
+            \fill[gray] (1.6,2.3) circle (0.08);
+            \draw[thick,->] (1.6,2.4)--(1.6,3.05);
+            \draw[->,decoration = {snake,amplitude=0.5pt,segment length=2mm},decorate,thick] (-1.3,2.7)--node[above]{\small laser}node[below]{\small \(h\nu_L\)}(-0.1,2.7);
+            \draw[->,decoration = {snake,amplitude=1.2pt,segment length=2mm},decorate,thick] (2.5,2.7)--node[below,align=center]{\scriptsize \(h\nu_L\) \\[-3pt] \scriptsize \(-(E_{\text{up}}-E_{\text{low}})\)}(4.2,2.7);
+
+            \begin{scope}[shift={(7,0)}]
+                \draw[rounded corners] (0,2) rectangle (2.4,3.4);
+                \draw (1,2.3)node[left]{\scriptsize\(E_{\text{lower}}\)}--(2.2,2.3);
+                \draw (1,3.1)node[left]{\scriptsize\(E_{\text{upper}}\)}--(2.2,3.1);
+                \fill[gray] (1.6,3.1) circle (0.08);
+                \draw[thick,<-] (1.6,2.35)--(1.6,3);
+                \draw[->,decoration = {snake,amplitude=0.5pt,segment length=2mm},decorate,thick] (-1.3,2.7)--node[above]{\small laser}node[below]{\small \(h\nu_L\)}(-0.1,2.7);
+                \draw[->,decoration = {snake,amplitude=1.2pt,segment length=2mm},decorate,thick] (2.5,2.7)--node[below,align=center]{\scriptsize \(h\nu_L\) \\[-3pt] \scriptsize \(+(E_{\text{up}}-E_{\text{low}})\)}(4.2,2.7);
+            \end{scope}
+
         \end{tikzpicture}
+        \caption{Quantum description of Raman scattering.}
     \end{figure}
 
     If in the scattering process the molecule moves from a lower energy level, with energy \(E_{\text{lower}}\), to a higher energy level \(E_{\text{upper}}\), the conservation of energy dictates that
@@ -1810,38 +1859,47 @@
             \draw (0,2)--(1.5,2);
             \draw (0,3)--(1.5,3);
             \draw (0,3.6)--(1.5,3.6);
-            \draw (4.5,0)--(3,0);
-            \draw (4.5,0.5)--(3,0.5);
-            \draw (4.5,2)--(3,2);
-            \draw (4.5,3)--(3,3);
-            \draw (4.5,3.6)--(3,3.6);
             \draw[fill=black] (0.6,0) circle (0.06);
             \draw[fill=black] (0.9,0) circle (0.06);
             \draw[fill=black] (0.6,0.5) circle (0.06);
             \draw[fill=black] (0.9,0.5) circle (0.06);
-            \draw[fill=black] (3.6,0) circle (0.06);
-            \draw[fill=black] (3.9,0) circle (0.06);
-            \draw[fill=black] (3.6,0.5) circle (0.06);
-            \draw[fill=black] (3.9,3) circle (0.06);
+            
+            \begin{scope}[shift={(3,0)}]
+                \draw (0,0)--(1.5,0);
+                \draw (0,0.5)--(1.5,0.5);
+                \draw (0,2)--(1.5,2);
+                \draw (0,3)--(1.5,3);
+                \draw (0,3.6)--(1.5,3.6);
+                \draw[fill=black] (0.6,0) circle (0.06);
+                \draw[fill=black] (0.9,0) circle (0.06);
+                \draw[fill=black] (0.6,0.5) circle (0.06);
+                \draw[fill=black] (0.9,3) circle (0.06);
+            \end{scope}
+            
             \draw[very thick,->] (1.8,1.8)--(2.7,1.8);
             \node at (-1,1.8) {\small orbitals};
             \node at (2.25,-0.5) {\small approximate};
 
-            \draw[very thick] (7,0)node[left]{\small\(\Psi_i\)}--(8.5,0);
-            \draw (7,1)--(8.5,1);
-            \draw (7,1.8)--(8.5,1.8);
-            \draw (7,2.7)--(8.5,2.7);
-            \draw (7,3.1)--(8.5,3.1);
-            \draw (7,3.6)--(8.5,3.6);
-            \draw (11.5,0)--(10,0);
-            \draw (11.5,1)--(10,1);
-            \draw[very thick] (11.5,1.8)node[right]{\small\(\Psi_f\)}--(10,1.8);
-            \draw (11.5,2.7)--(10,2.7);
-            \draw (11.5,3.1)--(10,3.1);
-            \draw (11.5,3.6)--(10,3.6);
-            \draw[very thick,->] (8.8,1.8)--(9.7,1.8);
-            \node at (6,1.8) {\small levels};
-            \node at (9.25,-0.5) {\small exact};
+            \begin{scope}[shift={(7,0)}]
+                \draw[very thick] (0,0)node[left]{\small\(\Psi_i\)}--(1.5,0);
+                \draw (0,1)--(1.5,1);
+                \draw (0,1.8)--(1.5,1.8);
+                \draw (0,2.7)--(1.5,2.7);
+                \draw (0,3.1)--(1.5,3.1);
+                \draw (0,3.6)--(1.5,3.6);
+                \draw[very thick,->] (1.8,1.8)--(2.7,1.8);
+                \node at (-1,1.8) {\small levels};
+                \node at (2.25,-0.5) {\small exact};
+            \end{scope}
+
+            \begin{scope}[shift={(10,0)}]
+                \draw (0,0)--(1.5,0);
+                \draw (0,1)--(1.5,1);
+                \draw[very thick] (0,1.8)--(1.5,1.8)node[right]{\small\(\Psi_f\)};
+                \draw (0,2.7)--(1.5,2.7);
+                \draw (0,3.1)--(1.5,3.1);
+                \draw (0,3.6)--(1.5,3.6);
+            \end{scope}
         \end{tikzpicture}
     \end{figure}
 
@@ -2081,28 +2139,32 @@
             \draw[->] (0.6,0.33)--node[right]{\small \(\tilde{\nu}_{\text{lim}}\)}(0.6,5.5);
             \draw[->] (4.5,2.5)--node[right]{\small \(\Delta\tilde{E}_{\text{atomic}}\)}(4.5,5.5);
 
-            \draw[thick,domain=-0.4:2.5, smooth, variable=\x,samples=100] plot ({2*\x+8}, {1+3*(1-2.72^(-2*\x))^2});
-            \draw (7,1.4)--(9,1.4);
-            \draw (7,2)--(9.3,2);
-            \draw (7,2.5)--(9.7,2.5);
-            \draw (7,2.9)--(10.2,2.9);
-            \draw (7,3.25)--(10.7,3.25);
-            \draw (7,3.5)--(11,3.5);
-            \draw (7,3.7)--(11.6,3.7);
-            \draw (7,3.83)--(12.2,3.83);
-            \draw (7,3.9)--(12.8,3.9);
-            \draw (7,3.95)--(13.2,3.95);
-            \draw[dashed] (7,4)--(13.5,4);
-            \draw[dashed] (7,1)--(9,1);
+            \begin{scope}[shift={(7,0)}]
+                \draw[thick,domain=-0.4:2.5, smooth, variable=\x,samples=100] plot ({2*\x+1}, {1+3*(1-2.72^(-2*\x))^2});
+                \draw (0,1.4)--(2,1.4);
+                \draw (0,2)--(2.3,2);
+                \draw (0,2.5)--(2.7,2.5);
+                \draw (0,2.9)--(3.2,2.9);
+                \draw (0,3.25)--(3.7,3.25);
+                \draw (0,3.5)--(4,3.5);
+                \draw (0,3.7)--(4.6,3.7);
+                \draw (0,3.83)--(5.2,3.83);
+                \draw (0,3.9)--(5.8,3.9);
+                \draw (0,3.95)--(6.2,3.95);
+                \draw[dashed] (0,4)--(6.5,4);
+                \draw[dashed] (0,1)--(2,1);
+            \end{scope}
 
-            \draw[thick,domain=-0.45:2.5, smooth, variable=\x,samples=100] plot ({1.5*\x+8.8}, {2.5+1.5*(1-2.72^(-1.7*\x))^2});
-            \draw (8,2.77)--(9.6,2.77);
-            \draw (8,3.15)--(10.1,3.15);
-            \draw (8,3.45)--(10.6,3.45);
-            \draw (8,3.72)--(11.5,3.72);
-            \draw (8,3.88)--(12.4,3.88);
-            \draw (8,3.95)--(12.9,3.95);
-            \draw[dashed] (8,2.5)--(10,2.5);
+            \begin{scope}[shift={(8,0)}]
+                \draw[thick,domain=-0.45:2.5, smooth, variable=\x,samples=100] plot ({1.5*\x+0.8}, {2.5+1.5*(1-2.72^(-1.7*\x))^2});
+                \draw (0,2.77)--(1.6,2.77);
+                \draw (0,3.15)--(2.1,3.15);
+                \draw (0,3.45)--(2.6,3.45);
+                \draw (0,3.72)--(3.5,3.72);
+                \draw (0,3.88)--(4.4,3.88);
+                \draw (0,3.95)--(4.9,3.95);
+                \draw[dashed] (0,2.5)--(2,2.5);
+            \end{scope}
         \end{tikzpicture}
         \caption{Parameters for a transition between two electronic levels.}
     \end{figure}
@@ -2117,26 +2179,22 @@
         \begin{tikzpicture}
             \foreach \i in {0,...,3}{
                 \draw (0,0.65*\i-0.05*\i*\i)node[left]{\small \(\i\)}--(3,0.65*\i-0.05*\i*\i);
-            }
-            \foreach \i in {4,5,6}{
-                \draw (0,0.65*\i-0.05*\i*\i)--(3,0.65*\i-0.05*\i*\i);
-            }
-            \foreach \i in {0,...,6}{
-                \draw (4,0.65*\i-0.05*\i*\i)--(7,0.65*\i-0.05*\i*\i);
-                \draw (8,0.65*\i-0.05*\i*\i)--(11,0.65*\i-0.05*\i*\i);
-            }
-            \node at (-0.25,2.5){\small \(v''\)};
-            \foreach \i in {0,...,3}{
                 \draw (0,5+0.5*\i-0.04*\i*\i)node[left]{\small \(\i\)}--(3,5+0.5*\i-0.04*\i*\i);
             }
             \foreach \i in {4,5,6}{
+                \draw (0,0.65*\i-0.05*\i*\i)--(3,0.65*\i-0.05*\i*\i);
                 \draw (0,5+0.5*\i-0.04*\i*\i)--(3,5+0.5*\i-0.04*\i*\i);
             }
-            \foreach \i in {0,...,6}{
-                \draw (4,5+0.5*\i-0.04*\i*\i)--(7,5+0.5*\i-0.04*\i*\i);
-                \draw (8,5+0.5*\i-0.04*\i*\i)--(11,5+0.5*\i-0.04*\i*\i);
+            \foreach \x in {4,8}{
+                \foreach \i in {0,...,6}{
+                    \draw (\x,0.65*\i-0.05*\i*\i)--(\x+3,0.65*\i-0.05*\i*\i);
+                    \draw (\x,5+0.5*\i-0.04*\i*\i)--(\x+3,5+0.5*\i-0.04*\i*\i);
+                }
             }
+            
+            \node at (-0.25,2.5){\small \(v''\)};
             \node at (-0.2,7){\small \(v'\)};
+
             \foreach \i in {1,...,5}{
                 \draw[thick,->] (0.9+0.2*\i,0.6)--(0.9+0.2*\i,5+0.5*\i-0.04*\i*\i);
                 \draw[thick,<-] (4.9+0.2*\i,0.65*\i-0.05*\i*\i)--(4.9+0.2*\i,5.84);
@@ -2299,30 +2357,36 @@
             \draw[->] (0.4,0.33)--(0.4,5.2);
             \draw[<->] (1.8,4.8)--node[right]{\footnotesize\(\Delta\tilde{G}(v'+1/2)\)}(1.8,5.2);
 
-            \draw[thick,domain=-0.45:2.5, smooth, variable=\x,samples=100] plot ({1.5*\x+8}, {4+2*(1-2.72^(-1.7*\x))^2});
-            \draw (7,4.3)node[left]{\footnotesize\(v'=0\)}--(9,4.3);
-            \draw (7,4.8)node[left]{\footnotesize\(1\)}--(9.5,4.8);
-            \draw (7,5.2)node[left]{\footnotesize\(2\)}--(9.9,5.2);
-            \draw (7,5.52)node[left]{\footnotesize\(3\)}--(10.5,5.52);
-            \draw (7,5.74)--(11.3,5.74);
-            \draw (7,5.86)--(11.8,5.86);
-            \draw (7,5.95)--(12.3,5.95);
-            \draw[dashed] (7,6)--(13,6);
-            \node at (9,4.55)[right]{\footnotesize\(\Delta\tilde{G}(1/2)\)};
-            \node at (9.4,5)[right]{\footnotesize\(\Delta\tilde{G}(3/2)\)};
-            \node at (9.8,5.36)[right]{\footnotesize\(\Delta\tilde{G}(5/2)\)};
-            \draw[dashed] (9,4.3)--(13,4.3);
-            \draw[->] (12.6,4.3)--node[right]{\footnotesize\(\tilde{D}_0\)}(12.6,6);
-            \draw[->] (7,0)--(12.5,0)node[below]{\footnotesize\(v+1/2\)};
-            \draw[->] (7,0)--(7,3.5)node[left]{\footnotesize\(\Delta\tilde{G}(v+1/2)\)};
-            \foreach \x in {0,...,6}{
-                \draw (7.3+0.6*\x,0)--(7.3+0.6*\x,0.06);
-                \draw (7+0.6*\x,0) rectangle (7.6+0.6*\x,3-0.4*\x);
-                \draw[fill=black] (7.3+0.6*\x,3-0.4*\x) circle (0.04);
-            }
-            \draw (7,3.2)--(11.8,0);
-            \draw[->] (11.8,1.3)node[above]{\footnotesize dissociation}--(11.8,0.1);
+            \begin{scope}[shift={(7,4)}]
+                \draw[thick,domain=-0.45:2.5, smooth, variable=\x,samples=100] plot ({1.5*\x+1}, {2*(1-2.72^(-1.7*\x))^2});
+                \draw (0,0.3)node[left]{\footnotesize\(v'=0\)}--(2,0.3);
+                \draw (0,0.8)node[left]{\footnotesize\(1\)}--(2.5,0.8);
+                \draw (0,1.2)node[left]{\footnotesize\(2\)}--(2.9,1.2);
+                \draw (0,1.52)node[left]{\footnotesize\(3\)}--(3.5,1.52);
+                \draw (0,1.74)--(4.3,1.74);
+                \draw (0,1.86)--(4.8,1.86);
+                \draw (0,1.95)--(5.3,1.95);
+                \draw[dashed] (0,2)--(6,2);
+                \node at (2,0.55)[right]{\footnotesize\(\Delta\tilde{G}(1/2)\)};
+                \node at (2.4,1)[right]{\footnotesize\(\Delta\tilde{G}(3/2)\)};
+                \node at (2.8,1.36)[right]{\footnotesize\(\Delta\tilde{G}(5/2)\)};
+                \draw[dashed] (2,0.3)--(6,0.3);
+                \draw[->] (5.6,0.3)--node[right]{\footnotesize\(\tilde{D}_0\)}(5.6,2);
+            \end{scope}
+
+            \begin{scope}[shift={(7,0)}]
+                \draw[->] (0,0)--(5.5,0)node[below]{\footnotesize\(v+1/2\)};
+                \draw[->] (0,0)--(0,3.5)node[left]{\footnotesize\(\Delta\tilde{G}(v+1/2)\)};
+                \foreach \x in {0,...,6}{
+                    \draw (0.3+0.6*\x,0)--(0.3+0.6*\x,0.06);
+                    \draw (0.6*\x,0) rectangle (0.6+0.6*\x,3-0.4*\x);
+                    \draw[fill=black] (0.3+0.6*\x,3-0.4*\x) circle (0.04);
+                }
+                \draw (0,3.2)--(4.8,0);
+                \draw[->] (4.8,1.3)node[above]{\footnotesize dissociation}--(4.8,0.1);
+            \end{scope}
         \end{tikzpicture}
+        \caption{Schematic illustration of Birge--Sponer extrapolation}
     \end{figure}
 
     Let \(\Delta\tilde{G}(v+\frac{1}{2})\) be the energy separation between the transitions in the same progression with a common lower level and upper vibrational level \(v'\) and \(v'+1\). Then obviously the dissociation energy is
