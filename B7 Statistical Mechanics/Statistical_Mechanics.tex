@@ -1993,28 +1993,28 @@
     \begin{figure}
         \centering
         \begin{tikzpicture}
-            \node at (-5,0){\tikz{\pgfmathsetseed{1}
+            \node at (-5,0){\tikz{\pgfmathsetseed{1234}
             \coordinate (p) at (0,0);
             \pgfmathsetmacro{\a}{360*rnd}
 
-            \foreach \i in {1,...,70}{
-                \draw[blue] (p) -- ++({\a}: rand*0.07 + 0.3) coordinate (p);
+            \foreach \i in {1,...,100}{
+                \draw[blue] (p) -- ++({\a}: rand*0.07 + 0.25) coordinate (p);
                 \pgfmathparse{mod(\a + 180 + 90*rand,360)}\xdef\a{\pgfmathresult}
             }}};
 
             \node at (0,0){\tikz{\pgfmathsetseed{12345}
             \coordinate (p) at (5,0);
 
-            \foreach \i in {1,...,70}{
-                \draw[blue!50!cyan] (p) -- ++(360*rand: rand*0.07 + 0.3) coordinate (p);
+            \foreach \i in {1,...,100}{
+                \draw[blue!50!cyan] (p) -- ++(360*rand: rand*0.07 + 0.25) coordinate (p);
             }}};
 
             \node at (5,0){\tikz{\pgfmathsetseed{123456}
             \coordinate (p) at (10,0);
             \pgfmathsetmacro{\a}{360*rnd}
 
-            \foreach \i in {1,...,70}{
-                \draw[cyan] (p) -- ++({\a}: rand*0.07 + 0.3) coordinate (p);
+            \foreach \i in {1,...,100}{
+                \draw[cyan] (p) -- ++({\a}: rand*0.07 + 0.25) coordinate (p);
                 \pgfmathparse{mod(\a + 260*rand*rand,360)}\xdef\a{\pgfmathresult}
             }}};
 
