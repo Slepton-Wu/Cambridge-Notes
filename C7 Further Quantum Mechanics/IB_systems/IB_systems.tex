@@ -292,7 +292,7 @@
     We need to find the eigenvalues and eigenfunctions of \(\hat{\vb{L}}^2\).
 
     \subsection{Angular Momentum}
-    Following the definition \(\hat{\vb{L}}=\hat{\vb{x}}\cross\vb{\vb{p}}\), it is easy to check that the components of \(\hat{\vb{L}}\) are defined by
+    Following the definition \(\hat{\vb{L}}=\hat{\vb{x}}\cross\hat{\vb{p}}\), it is easy to check that the components of \(\hat{\vb{L}}\) are defined by
     \begin{equation}
         \hat{L}_i=-\ii\hbar\sum_{j,k}\varepsilon_{ijk}x_j\pdv{}{x_k}\,,
     \end{equation}
@@ -382,7 +382,7 @@
         \hat{\vb{L}}^2Y_{\ell,m}(\theta,\varphi)&=\ell(\ell+1)\hbar^2 Y_{\ell,m}(\theta,\varphi)\,,\\
         \hat{L}_z Y_{\ell,m}(\theta,\varphi)&=m\hbar Y_{\ell,m}(\theta,\varphi)\,.
     \end{align*}
-    The integer \(\ell\) is called the \textit{total angular momentum quantum number} (even though, strictly speaking, the total angular momentum is really \(\ell(\ell+1)\hbar\).) The integer \(m\) is called the \textit{azimuthal angular momentum}. For each value of \(\ell\), there are \(2\ell+1\) values \(m\) can take.
+    The integer \(\ell\) is called the \textit{total angular momentum quantum number} (even though, strictly speaking, the total angular momentum is really \(\sqrt{\ell(\ell+1)}\hbar\)). The integer \(m\) is called the \textit{azimuthal angular momentum}. For each value of \(\ell\), there are \(2\ell+1\) values \(m\) can take.
 
     Back to the rigid rotor, the eigenstates can also be labelled by \(\ket{\ell,m}\). The eigenvalues are
     \begin{equation}
@@ -499,9 +499,9 @@
     \end{equation}
     Therefore, in atomic unit, the hydrogen energy level is simply \(-\frac{1}{2n^2}\).
 
-    There's actually an extra surprise. The energy spectrum of hydrogen does not depend on the angular momentum \(\ell\). This is not generally true for any system --- in fact, the are only two 3D systems where the energy spectrum doesn't explicitly depend on angular momentum are the harmonic oscillator and the hydrogen atom!
+    There's actually an extra surprise. The energy spectrum of hydrogen does not depend on the angular momentum \(\ell\). This is not generally true for any system --- in fact, the are only two 3D systems whose the energy spectrum doesn't explicitly depend on angular momentum: the isotropic harmonic oscillator and the hydrogen-like atom.
 
-    There is no \(\hat{L}_z\) involved in the expression of the Hamiltonian, so we are quite happy to accept that the energy of the hydrogen is independent of \(m\), i.e. the states that differ only by \(m\) are degenerate. This naturally follows from rotational symmetry of hydrogen atom --- it should have no preference on in which direction the angular momentum lies. However, we do have \(\hat{L}^2\) appearing explicitly in the Hamiltonian, so we generally would not expect states with different \(\ell\)'s to be degenerate. In fact, this is true for any other atom, or indeed for any other central potentials --- the degeneracy is \(2\ell+1\) for the states that differ by \(m_\ell\) only. However, there is another conserved quantity in hydrogen atom that arises because the potential is exactly \(\sim r^{-1}\). It is called the \textit{Runge--Lenz} vector, which also appears in many other places like planetary orbits. This enhances the symmetry of a hydrogen atom. Roughly speaking, aside from simply rotating our system, we can also trade radial kinetic energy and Coulomb potential for different orbital kinetic energy whilst keeping the total energy constant. This means that the degeneracy at level of the state at level \(n\) is
+    There is no \(\hat{L}_z\) involved in the expression of the Hamiltonian, so we are quite happy to accept that the energy of the hydrogen is independent of \(m\), i.e. the states that differ only by \(m\) are degenerate. This naturally follows from rotational symmetry of hydrogen atom --- it should have no preference on in which direction the angular momentum lies. However, we do have \(\hat{L}^2\) appearing explicitly in the Hamiltonian, so we generally would not expect states with different \(\ell\)'s to be degenerate. In fact, this is true for any other atom, or indeed for any general central potentials (other than the two stated above) --- the degeneracy is \(2\ell+1\) for the states that differ by \(m_\ell\) only. However, there is another conserved quantity in hydrogen atom that arises because the potential is exactly \(\sim r^{-1}\). It is called the \textit{Runge--Lenz} vector, which also appears in many other places like planetary orbits. This enhances the symmetry of a hydrogen atom. Roughly speaking, aside from simply rotating our system, we can also trade radial kinetic energy and Coulomb potential for different orbital kinetic energy whilst keeping the total energy constant. This means that the degeneracy at level of the state at level \(n\) is
    \begin{equation}
         \text{Total Degeneracy}=\sum_{\ell=0}^{n-1}(2\ell+1)=n^2\,.
     \end{equation}
