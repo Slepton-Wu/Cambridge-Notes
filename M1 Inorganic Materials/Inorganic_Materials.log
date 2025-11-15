@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.21)  15 NOV 2025 01:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.21)  15 NOV 2025 15:47
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -833,7 +833,11 @@ File: tikzlibrarycalc.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \tikz@math@for@depth=\count362
 \tikz@math@dimen=\dimen347
 \tikz@math@toks=\toks68
-) (c:/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+) (c:/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshadings.code.tex
+File: tikzlibraryshadings.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (c:/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibraryshadings.code.tex
+File: pgflibraryshadings.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)) (c:/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count363
 \l__pdf_internal_box=\box101
@@ -1016,10 +1020,29 @@ Package pdftex.def Info: ./svg-inkscape/Cu_Mn_dimer_svg-tex.pdf , page1 used on 
 [23 <./svg-inkscape/Cu_Mn_dimer_svg-tex.pdf>] (./figures/Cu_tetra.tex)
 
 [24]
+Package svg Info: Last page of `./svg-inkscape/Linear_Xray_svg-tex.pdf' is 1 on input line 1442.
+ (./svg-inkscape/Linear_Xray_svg-tex.pdf_tex
+<./svg-inkscape/Linear_Xray_svg-tex.pdf, id=417, page=1, 182.93344pt x 76.33519pt>
+File: ./svg-inkscape/Linear_Xray_svg-tex.pdf Graphic file (type pdf)
+<use ./svg-inkscape/Linear_Xray_svg-tex.pdf, page 1>
+Package pdftex.def Info: ./svg-inkscape/Linear_Xray_svg-tex.pdf , page1 used on input line 56.
+(pdftex.def)             Requested size: 219.2565pt x 91.49692pt.
+)
+Package svg Info: Last page of `./svg-inkscape/Linear_structure_svg-tex.pdf' is 1 on input line 1443.
+ (./svg-inkscape/Linear_structure_svg-tex.pdf_tex
+<./svg-inkscape/Linear_structure_svg-tex.pdf, id=419, page=1, 116.43866pt x 45.89145pt>
+File: ./svg-inkscape/Linear_structure_svg-tex.pdf Graphic file (type pdf)
+<use ./svg-inkscape/Linear_structure_svg-tex.pdf, page 1>
+Package pdftex.def Info: ./svg-inkscape/Linear_structure_svg-tex.pdf , page1 used on input line 56.
+(pdftex.def)             Requested size: 166.63707pt x 65.67607pt.
+)
 
 [25]
 
-[26]
+[26 <./svg-inkscape/Linear_Xray_svg-tex.pdf> <./svg-inkscape/Linear_structure_svg-tex.pdf
+
+pdfTeX warning: pdflatex.exe (file ./svg-inkscape/Linear_structure_svg-tex.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+>]
 \tf@thm=\write6
 \openout6 = `Inorganic_Materials.thm'.
 
@@ -1031,21 +1054,21 @@ LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `Inorganic_Materials.out' has not changed.
-(rerunfilecheck)             Checksum: D25206A9853F7BF8E7BBF4323E335F01;2390.
+(rerunfilecheck)             Checksum: 1F4D6C0E2BE21F755A3402C4AA10FC15;2390.
  ) 
 Here is how much of TeX's memory you used:
- 46795 strings out of 473190
- 1059908 string characters out of 5719979
- 1828339 words of memory out of 5000000
- 69097 multiletter control sequences out of 15000+600000
+ 46921 strings out of 473190
+ 1064126 string characters out of 5719979
+ 1832843 words of memory out of 5000000
+ 69202 multiletter control sequences out of 15000+600000
  580400 words of font info for 117 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,23n,105p,1384b,2888s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy8.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on Inorganic_Materials.pdf (30 pages, 799771 bytes).
+Output written on Inorganic_Materials.pdf (30 pages, 846705 bytes).
 PDF statistics:
- 622 PDF objects out of 1000 (max. 8388607)
- 503 compressed objects within 6 object streams
- 204 named destinations out of 1000 (max. 500000)
- 184 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 655 PDF objects out of 1000 (max. 8388607)
+ 527 compressed objects within 6 object streams
+ 213 named destinations out of 1000 (max. 500000)
+ 210 words of extra memory for PDF output out of 10000 (max. 10000000)
 

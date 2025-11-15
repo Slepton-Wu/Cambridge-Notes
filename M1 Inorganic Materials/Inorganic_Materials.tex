@@ -78,7 +78,7 @@
 \newcommand{\nuc}{_{\text{n}}}
 \newcommand{\el}{_{\text{e}}}
 
-\usetikzlibrary{arrows.meta,calc, math}
+\usetikzlibrary{arrows.meta,calc, math,shadings}
 
 \setchemfig{
   atom sep=2em,
@@ -1382,7 +1382,79 @@
             \caption{Structure and experimental magnetic susceptibility of \(\mathrm{[Cu_4OCl_{10}]^{4-}}\).}
             \label{Fig:Cu_tetramer}
         \end{figure}
+
+        This cluster has tetrahedral symmetry (point group \(T_d\)), so the coupling constant between any pair of \(\mathrm{Cu}\) atoms must be the same. The spin Hamiltonian is therefore
+        \begin{equation}
+            \hat{H}=-2J[\hat{\vb{S}}_1\vdot\hat{\vb{S}}_2+\hat{\vb{S}}_1\vdot\hat{\vb{S}}_3+\hat{\vb{S}}_1\vdot\hat{\vb{S}}_4+\hat{\vb{S}}_2\vdot\hat{\vb{S}}_3+\hat{\vb{S}}_2\vdot\hat{\vb{S}}_4+\hat{\vb{S}}_3\vdot\hat{\vb{S}}_4]\,.
+        \end{equation}
+        To solve this Hamiltonian, we define \(\hat{\vb{S}}_{\text{T}}=\hat{\vb{S}}_1+\hat{\vb{S}}_2+\hat{\vb{S}}_3+\hat{\vb{S}}_4\), then
+        \begin{equation}
+            \hat{\vb{S}}_{\text{T}}^2=\hat{\vb{S}}_1^2+\hat{\vb{S}}_2^2+\hat{\vb{S}}_3^2+\hat{\vb{S}}_4^2+2(\hat{\vb{S}}_1\vdot\hat{\vb{S}}_2+\hat{\vb{S}}_1\vdot\hat{\vb{S}}_3+\hat{\vb{S}}_1\vdot\hat{\vb{S}}_4+\hat{\vb{S}}_2\vdot\hat{\vb{S}}_3+\hat{\vb{S}}_2\vdot\hat{\vb{S}}_4+\hat{\vb{S}}_3\vdot\hat{\vb{S}}_4)\,.
+        \end{equation}
+        Therefore the spin Hamiltonian can be rewritten as
+        \begin{equation}
+            \hat{H}=J[\hat{\vb{S}}_1^2+\hat{\vb{S}}_2^2+\hat{\vb{S}}_3^2+\hat{\vb{S}}_4^2-\hat{\vb{S}}_{\text{T}}^2]\,.
+        \end{equation}
+        The energy spectrum is therefore
+        \begin{equation}
+            E=J[S_1(S_1+1)+S_2(S_1+1)+S_3(S_3+1)+S_4(S_4+1)-S_{\text{T}}(S_{\text{T}}+1)]\,.
+        \end{equation}
+        Since all spins carry the same spin quantum number, \(S_1=S_2=S_3=S_4=S\),
+        \begin{equation}
+            E=J[4S(S+1)-S_{\text{T}}(S_{\text{T}}+1)]\,.
+        \end{equation}
+        We need to work out the range \(S_{\text{T}}\) can take. We know how to add two angular momenta. To add four angular momenta, we add them in pair. Define \(\hat{\vb{S}}_A=\hat{\vb{S}}_1+\hat{\vb{S}}_2\) and \(\hat{\vb{S}}_B=\hat{\vb{S}}_3+\hat{\vb{S}}_4\), then \(\hat{\vb{S}}_{\text{T}}=\hat{\vb{S}}_A+\hat{\vb{S}}_B\). Then \(S_A\) takes values \(S_1+S_2,\dots \abs{S_1-S_2}\), \(S_B\) takes values \(S_3+S_4,\dots \abs{S_3-S_4}\), and for each \(S_A\) and \(S_B\), \(S_{\text{T}}\) takes values \(S_A+S_B,\dots \abs{S_A-S_B}\).
+
+        In our case of \(\mathrm{Cu^{II}}\), \(S=\frac{1}{2}\), \(S_A\) and \(S_B\) take values in \(\{0, 1\}\). The energy levels are summarised in the table below.
+
+        \begin{table}[ht!]
+            \centering
+            \begin{tabular}{cccc}
+                \toprule
+                \(S_A\) & \(S_B\) & \(S_{\text{T}}\) & \(E\) \\ \midrule
+                \multirow{3}{*}{\(1\)} & \multirow{3}{*}{\(1\)} & \(2\) & \(-3J\) \\
+                ~ & ~ & \(1\) & \(+J\) \\
+                ~ & ~ & \(0\) & \(+3J\) \\
+                \(1\) & \(0\) & \(1\) & \(+J\) \\
+                \(0\) & \(1\) & \(1\) & \(+J\) \\
+                \(0\) & \(0\) & \(0\) & \(+3J\) \\ \bottomrule
+            \end{tabular}
+        \end{table}
         
+        The magnetic susceptibility is given by the van Vleck equation
+        \begin{equation}
+            \chi=\frac{N_A g^2\mu_{\text{B}}^2}{3k_B T}\frac{30\ee^{+3J/k_B T} + 18\ee^{-J/k_B T}}{5\ee^{+3J/k_B T} + 9\ee^{-J/k_B T} + 2\ee^{-3J/k_B T}}\,.
+        \end{equation}
+        This equation is fitted to the experimental data with \(J/k_B=-23.0\unit{T}\) and \(g=2.0\). We see that the fit does not work well at low temperature: we expect the magnetic susceptibility to \(\to 0\) as \(T\to 0\), but it seems that the experimental data does not. This is likely due to an artifact in the experiment, as the sample may contain a slight amount of paramagnetic impurities, whose magnetic susceptibility diverges as \(T\to 0\).
+
+        A broad maximum in \(\chi\) is indicative of antiferromagnetic interactions. In the high temperature limit, we expect the spins to appear independent, so it shows the Curie--Weiss-like \(\sim1/T\) dependence. At low temperature, however, we fall into a non-magnetic \(S_{\text{T}}=0\) ground state with \(\chi=0\). Therefore \(\chi\) must have a maximum somewhere in the middle.
+
+    \end{ex}
+
+    \begin{ex}
+        \textit{A linear trimer.}
+
+        Apart from transition metals, radial ligands also have unpaired electrons leading to magnetism. In this example we examine the behaviour of two organic verdazyl radicals coordinated to \(\mathrm{Ni}\). This compound was reported by Hicks and coworkers in 2002 (T.M. Barclay, R.G.Hicks, M.T. Lemaire, L.K. Thomson and Z. Xu, \textit{Chem. Commun.}, 2002, 1688). It comprises two verdazyl radicals (\(S = \frac{1}{2}\)) bound to a central \(\mathrm{Ni}\) ion (\(S=1\)) via the heterocyclic \(\mathrm{N}\) which bears some of the unpaired \(\pi\)-spin density. The structure and spin interaction topology of the compound \(\mathrm{Ni(vd)_2\cdot 2H_2O}\) are shown in \cref{Fig:trimer_structure}.
+
+        \begin{figure}[ht!]
+            \centering
+            \begin{tikzpicture}
+                \node at (-3.8,0){\includesvg[width=0.5\textwidth]{figures/Linear_Xray.svg}};
+                \node at (3.8,0.8){\includesvg[width=0.38\textwidth]{figures/Linear_structure.svg}};
+                \begin{scope}[shift={(3.8,-1.4)}]
+                    \draw(-1,0)--(1,0);
+                    \shade[ball color=white] (-1,0) circle (0.2);
+                    \shade[ball color=white] (0,0) circle (0.2);
+                    \shade[ball color=white] (1,0) circle (0.2);
+                    \draw[<->] (-0.95,0.28)--node[above]{\scriptsize\(J\)}(-0.05,0.25);
+                    \draw[<->] (0.95,0.28)--node[above]{\scriptsize\(J\)}(0.05,0.25);
+                    \draw[<->] (-0.95,-0.28)--node[below]{\scriptsize\(J'\)}(0.95,-0.25);
+                \end{scope}
+                
+            \end{tikzpicture}
+            \caption{X-ray structure, structural formula and spin topology of \(\mathrm{Ni(vd)_2\cdot 2H_2O}\).}
+            \label{Fig:trimer_structure}
+        \end{figure}
     \end{ex}
     
     

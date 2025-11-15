@@ -24,5 +24,5 @@
 \contentsline {subsubsection}{\numberline {2.4.1}High Temperature Limit}{18}{subsubsection.2.4.1}%
 \contentsline {subsubsection}{\numberline {2.4.2}Low Temperature Limit}{19}{subsubsection.2.4.2}%
 \contentsline {subsection}{\numberline {2.5}Modelling Exchange Interactions in Clusters}{20}{subsection.2.5}%
-\contentsline {part}{\numberline {}Appendices}{25}{part*.30}%
-\contentsline {section}{\numberline {A}Solving Spin Hamiltonian by Matrix Diagonalisation}{25}{appendix.A}%
+\contentsline {part}{\numberline {}Appendices}{26}{part*.32}%
+\contentsline {section}{\numberline {A}Solving Spin Hamiltonian by Matrix Diagonalisation}{26}{appendix.A}%
