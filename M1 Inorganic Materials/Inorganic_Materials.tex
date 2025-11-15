@@ -1,6 +1,6 @@
 \documentclass{article}
 
-\usepackage{amsmath,geometry,amsfonts,array,makecell,enumitem,bm,esint,booktabs,multirow,mathtools,upgreek,amssymb,pgfplots, chemfig, tikzorbital,subcaption,adjustbox}
+\usepackage{amsmath,geometry,amsfonts,array,makecell,enumitem,bm,esint,booktabs,multirow,mathtools,upgreek,amssymb,pgfplots, chemfig, tikzorbital,subcaption,adjustbox,svg}
 \usepackage[amsmath]{ntheorem}
 \usepackage[hidelinks,naturalnames]{hyperref}
 \usepackage[nameinlink,noabbrev]{cleveref}
@@ -20,6 +20,10 @@
 \hyphenpenalty=1000
 \exhyphenpenalty=100
 \righthyphenmin=3
+
+\svgsetup{
+  inkscapeexe="C:/Program Files/Inkscape/bin/inkscape.exe",
+}
 
 \pgfplotsset{compat=1.18}
 \usetikzlibrary{decorations.markings}
@@ -1173,11 +1177,11 @@
     \subsection{Modelling Exchange Interactions in Clusters}
     Now let's see how do we solve for the exact magnetic energy levels and \(\chi T(T)\) expressions for simple systems. The recipe is as follows:
     \begin{enumerate}
-        \item Set up the Spin Hamiltonian. This essentially defines the problem that we want to solve. For the most general case, we set
+        \item Set up the Hamiltonian. The \textit{Heisenberg--Dirac--van Vleck Hamiltonian} is\footnote{Here we assumed both the spins and the interactions are \textit{isotropic}, i.e. the same in every direction. We will explore more possibility later.}
         \begin{equation}
             \hat{H}=-2\sum_{i>j}J_{ij}\hat{\vb{S}}_i\hat{\vb{S}}_j\,,
         \end{equation}
-        where \(\hat{\vb{S}}_i\) is the spin operator for particle \(i\), and \(J_{ij}\) is the coupling strength between spin \(i\) and spin \(j\): it's positive for ferromagnetic coupling and negative for antiferromagnetic coupling. The factor \(2\) is a matter of convention.
+        where \(\hat{\vb{S}}_i\) is the spin operator for particle \(i\), and \(J_{ij}\) is the coupling strength between spin \(i\) and spin \(j\): it's positive for ferromagnetic coupling and negative for antiferromagnetic coupling.
 
         Practically, we don't need to couple all pairs of atoms in a cluster: we only need to consider the coupling between two spin carriers if they are close enough for the interaction to be significant. This means that we can set \(J_{ij}=0\) if \(i\) and \(j\) are far enough. Moreover, some \(J\) values may be identical by symmetry, which further simplifies the expression of the Hamiltonian. A few examples of spin Hamiltonians for simple systems are given in \cref{Fig:Hamiltonians} --- we will not consider any system more complex than these in this course.
 
@@ -1196,14 +1200,192 @@
                     \draw (0,0.5)node[circle, draw, fill=white]{\(1\)} --node[left]{\(J\)} (-1,-0.5)node[circle, draw, fill=white]{\(2\)} --node[below]{\(J'\)} (1, -0.5) node[circle, draw, fill=white]{\(3\)} --node[right]{\(J\)} cycle;
                     \node at (0,-1.5) [below, align=center] {\(\hat{H}=-2J[\hat{\vb{S}}_1\vdot\hat{\vb{S}}_2+\hat{\vb{S}}_1\vdot\hat{\vb{S}}_3]\) \\ \(-2J'\hat{\vb{S}}_1\vdot\hat{\vb{S}}_3\)};
                 \end{scope}
+
+                \begin{scope}[shift={(2,-4.5)}, z={(40:0.4)}]
+                    \coordinate (A) at (0,0.7,0);
+                    \coordinate (B) at ({0.8485 * cos(0)},-0.5,{0.8485 * sin(0)});
+                    \coordinate (C) at ({0.8485 * cos(120)},-0.5,{0.8485 * sin(120)});
+                    \coordinate (D) at ({0.8485 * cos(240)},-0.5,{0.8485 * sin(240)});
+
+                    \draw (A)node[circle, draw, fill=white]{\(1\)}--node[right]{\(J\)}(B)node[circle, draw, fill=white]{\(2\)}--(C)node[circle, draw, fill=white]{\(3\)}--(D)node[circle, draw, fill=white]{\(4\)};
+                    \draw[shorten <= 0.3cm, shorten >= 0.25cm] (D)--(B);
+                    \draw[shorten <= 0.3cm, shorten >= 0.26cm] (A)--(C);
+                    \draw[shorten <= 0.26cm, shorten >= 0.3cm] (A)--(D);
+                    \draw[shorten <= 0.2cm, shorten >= 0.31cm] (C)--(D);
+                    \node at (0,-1.5) [below, align=center] {\(\hat{H}=-2J[\hat{\vb{S}}_1\vdot\hat{\vb{S}}_2+\hat{\vb{S}}_1\vdot\hat{\vb{S}}_3\) \\ \(\hat{\vb{S}}_1\vdot\hat{\vb{S}}_4+\hat{\vb{S}}_2\vdot\hat{\vb{S}}_3+\hat{\vb{S}}_2\vdot\hat{\vb{S}}_4+\hat{\vb{S}}_3\vdot\hat{\vb{S}}_4]\)};
+                \end{scope}
+                \begin{scope}[shift={(8,-4.5)}]
+                    \coordinate (A) at (-0.6,0);
+                    \coordinate (B) at (0.6,0);
+                    \coordinate (C) at (0,1.0392);
+                    \coordinate (D) at (0,-1.0392);
+                    \draw (A) --node[above]{\(J'\)} (B) --node[right]{\(J\)} (C) node[circle, draw, fill=white]{\(2\)} -- (A)node[circle, draw, fill=white]{\(1\)} -- (D) node[circle, draw, fill=white]{\(4\)} -- (B)node[circle, draw, fill=white]{\(3\)};
+                    \node at (0,-1.5) [below, align=center] {\(\hat{H}=-2J[\hat{\vb{S}}_1\vdot\hat{\vb{S}}_2+\hat{\vb{S}}_2\vdot\hat{\vb{S}}_3\) \\ \(\hat{\vb{S}}_3\vdot\hat{\vb{S}}_4+\hat{\vb{S}}_4\vdot\hat{\vb{S}}_1]-2J'\hat{\vb{S}}_1\vdot\hat{\vb{S}}_3\)};
+                \end{scope}
             \end{tikzpicture}
-            \caption{}
+            \caption{Examples of spin Hamiltonians of small clusters.}
             \label{Fig:Hamiltonians}
         \end{figure}
+
+        \item Solving the spin Hamiltonian. This is the hard bit. The brute force approach is matrix diagonalisation. This is discussed in appendix \cref{Chap:Spin_matrix}, assuming familiarity with quantum mechanics.
+        
+        Here we will instead use another method called \textit{Kambe vector coupling}. It does not involve diagonalising a matrix, and easily doable by hand for small systems. The basic idea of this method is that although we don't know the eigenvalues of \(\hat{\vb{S}}_1\vdot\hat{\vb{S}}_2\) of two spins, we do know that of \((\hat{\vb{S}}_1+\hat{\vb{S}}_2)^2\equiv \hat{\vb{S}}_{\text{T}}^2\): if spin 1 has spin quantum number \(S_1\) and spin 2 has spin quantum number \(S_2\), then the total spin can take is quantum number \(S_{\text{T}}\) in \(S_1+S_2, S_1+S_2-1,\dots\abs{S_1-S_2}\). Moreover, since
+        \begin{equation}
+            \hat{\vb{S}}_{\text{T}}^2=(\hat{\vb{S}}_1+\hat{\vb{S}}_2)^2=\hat{\vb{S}}_1^2+\hat{\vb{S}}_2^2+2\hat{\vb{S}}_1\vdot\hat{\vb{S}}_2\,,
+        \end{equation}
+        we can rewrite the coupling Hamiltonian as
+        \begin{equation}
+            \hat{H}_{ij}=-2J\vb{S}_1\vdot\vb{S}_2=J[\hat{\vb{S}}_1^2+\hat{\vb{S}}_2^2-\hat{\vb{S}}_{\text{T}}^2]\,.
+        \end{equation}
+        Since the eigenvalue of the squared (spin) angular momentum operator is \(\hat{\vb{S}}^2\ket{S}=S(S+1)\ket{S}\), the energy spectrum of \(\hat{H}_{ij}\) is therefore
+        \begin{equation}
+            E(S_{\text{T}}, S_1, S_2)=J[S_1(S_1+1) + S_2(S_2+1) - S_{\text{T}}(S_{\text{T}}+1)]\,.
+        \end{equation}
+
+        The above process solves the coupling between two spins. It can be generalised to the coupling between more spins --- although it gets algebraically tricker, it is still essentially just rewriting the dot product of spin operators in terms of the squared spin operators. We will see a couple of examples later.
+
+        \item Finally, to work out the magnetic susceptibility at a certain temperature, we need to apply the Boltzmann distribution to work out the thermal average.
+        
+        A state with total spin \(S_{\text{T}}\) has magnetic susceptibility
+        \begin{equation}
+            \chi(S_{\text{T}})=\frac{N_Ag^2\mu_{\text{B}}^2}{3k_B T}S_{\text{T}}(S_{\text{T}}+1)\,.
+        \end{equation}
+        Suppose it has energy \(E(S_{\text{T}})\), since the degeneracy of the state is \(2S_{\text{T}}+1\), it carries Boltzmann weight
+        \begin{equation}
+            (2S_{\text{T}}+1)e^{-E(S_{\text{T}})/k_B T}\,.
+        \end{equation}
+        The thermal (canonical) average of the magnetic susceptibility is therefore
+        \begin{equation}
+            \chi=\frac{N_Ag^2\mu_{\text{B}}^2}{3k_B T}\frac{\sum_{S_{\text{T}}} S_{\text{T}}(S_{\text{T}}+1) (2S_{\text{T}}+1)e^{-E(S_{\text{T}})/k_B T}}{\sum_{S_{\text{T}}}(2S_{\text{T}}+1)e^{-E(S_{\text{T}})/k_B T}}\,.
+        \end{equation}
+        This is the \textit{van Vleck equation}.
+
     \end{enumerate}
+
+    Let's see a couple of examples.
+
+    \begin{ex}
+        \textit{A \(\mathrm{Cu(II)/Mn(II)}\) dimer.}
+
+        Let's have a look at the \(\mathrm{Cu(II)/Mn(II)}\) complex \(\mathrm{Cu[(prp)_2pr]Mn(hfac)_2}\) was reported by Brewer and Sinn (\textit{Inorg.Chem}, 1987, 26, 1529). It was studied as part of a more extended study of heteronuclear diatomics as models for the enzyme cytochrome oxidase. The structure of the \(\mathrm{Fe}\) analogue is shown below. The two metal ions are bridged by two \(\mu_2\)-phenoxy groups which are likely to provide the superexchange pathway.
+
+        \begin{figure}[ht!]
+            \centering
+            \begin{tikzpicture}
+                \node at (0,0){\includesvg[width=0.45\textwidth]{figures/Cu_Mn_dimer}};
+                \draw[red,dashed,thick] (-3.5,-2.8) rectangle (-1.55,0.9);
+                \draw[blue,dashed,thick] (-0.45,-3.1) rectangle (1.35,-0.6);
+                \node[red] at (-4.8,-0.5){
+                    \chemfig{[:150]Fe**[60,300,dash pattern=on 3pt off 3pt]6(-O-(-CF_3)--(-CF_3)-O-)}
+                    \chemmove{
+                        \node[at=(cyclecenter1)](){\(\ominus\)};
+                    }
+                };
+                \node[blue] at (4.8,-0.5){
+                    \definesubmol{wb}{
+                        (-[::90,.5,,,draw=none]%
+                        -[::180,,,,blue,decorate,decoration={%
+                        snake,amplitude=0.2mm,segment length=0.75mm }%
+                    ])}
+                    \chemfig{*6(-=-(-!{wb})=(-O(-[:30]Cu)-[:150]Fe)-=)}
+                };
+            \end{tikzpicture}
+            \caption{X-ray structure of the \(\mathrm{Fe}\) analogue \(\mathrm{Cu[(prp)_2pr]Fe(hfac)_2}\).}
+        \end{figure}
+
+        The compound has spin Hamiltonian
+        \begin{equation}
+            \hat{H}=-2J\hat{\vb{S}}_{\mathrm{Cu}}\vdot\hat{\vb{S}}_{\mathrm{Mn}}\,.
+        \end{equation}
+        \(\mathrm{Cu^{II}}\) and \(\mathrm{Mn^{II}}\) have spins \(S_{\mathrm{Cu}}=\frac{1}{2}\) and \(S_{\mathrm{Mn}}=\frac{5}{2}\) respectively. When the two ions couple, the total spin \(S_{\text{T}}\) takes values \(S_{\text{T}}\in\{S_{\mathrm{Cu}}+S_{\mathrm{Mn}}, \dots, \abs{S_{\mathrm{Cu}}-S_{\mathrm{Mn}}}\}=\{3,2\}\).
+
+        Using the Kambe vector coupling method, the spin Hamiltonian can be rewritten as
+        \begin{equation}
+            \hat{H}=J[\hat{\vb{S}}_{\mathrm{Cu}}^2+\hat{\vb{S}}_{\mathrm{Mn}}^2-\hat{\vb{S}}_{\text{T}}^2]\,,
+        \end{equation}
+        and so the energy spectrum are
+        \begin{align}
+            E&=J[S_{\mathrm{Cu}}(S_{\mathrm{Cu}}+1)+S_{\mathrm{Mn}}(S_{\mathrm{Mn}})-S_{\text{T}}(S_{\text{T}}+1)] \notag \\
+            &=J\left[\frac{19}{2}-S_{\text{T}}(S_{\text{T}}+1)\right]\,.
+        \end{align}
+
+        The energy eigenvalues are tabulated as follows.
+
+        \begin{table}[ht!]
+            \renewcommand{\arraystretch}{1.2}
+            \centering
+            \begin{tabular}{cccc}
+                \toprule
+                \(S_{\mathrm{Cu}}\) & \(S_{\mathrm{Mn}}\) & \(S_{\text{T}}\) & \(E\) \\ \midrule
+                \(\frac{1}{2}\) & \(\frac{5}{2}\) & \(3\) & \(-\frac{5}{2}J\) \\
+                \(\frac{1}{2}\) & \(\frac{5}{2}\) & \(2\) & \(+\frac{7}{2}J\) \\ \bottomrule
+            \end{tabular}
+        \end{table}
+
+        A convenient sanity check of the solutions obtained is that the `centre of mass' of these energy levels, accounting for the degeneracies, should be zero:
+        \begin{equation}
+            \sum E(S_{\text{T}}) (2S_{\text{T}}+1)=0\,.
+        \end{equation}
+        Now, applying the van Vleck equation, we get the temperature-dependent magnetic susceptibility
+        \begin{equation}
+            \chi=\frac{N_Ag^2\mu_{\text{B}}^2}{3k_B T}\frac{84\ee^{6J/k_B T}+30}{7\ee^{6J/k_B T}+5}\,.
+        \end{equation}
+
+        The experimental \(\chi T\) value of this compound is shown in \cref{Fig:Cu_Mn_cluster}. Our theoretical model fits the data really well, giving \(J/k_B=-21\unit{K}\) and \(g=2.05\). The coupling is antiferromagnetic.
+
+        We can also double check the high temperature and low temperature limit. When \(T\to 0\), only the \(S_{\text{T}}=2\) ground state is occupied, giving
+        \begin{equation}
+            \lim_{T\to 0}\chi T =\frac{1}{8}g^2S_{\text{T}}(S_{\text{T}}+1)\approx 3.15\unit{emu}\unit{K}\unit{mol}^{-1}
+        \end{equation}
+        using the fitted \(g\) value of \(2.05\). (An \textit{a priori} estimation using \(g\approx 2.0\) would give \(\chi T\to 3.0\unit{emu}\unit{K}\unit{mol}^{-1}\).) The high temperature limit is
+        \begin{equation}
+            \lim_{T\to\infty}\chi T=\frac{1}{8}g^2\sum_i S_i(S_i+1)=4.99\unit{emu}\unit{K}\unit{mol}^{-1}
+        \end{equation}
+        using \(g\approx 2.05\) (\(g=2.0\) gives \(\chi T\to 3.75\unit{emu}\unit{K}\unit{mol}^{-1}\)). We see that our graph hasn't reached this limit yet.
+
+        \begin{figure}
+            \centering
+            \input{figures/CuMncluster.tex}
+            \caption{Experimental temperature dependence of \(\chi T\) for \(\mathrm{Cu[(prp)_2 pr]Mn(hfac)_2}\).}
+            \label{Fig:Cu_Mn_cluster}
+        \end{figure}
+        
+    \end{ex}
+
+    \begin{ex}
+        \textit{A tetrahedral tetamer \(\mathrm{[Cu_4OCl_{10}]^{4-}}\).}
+
+        Reaction of \(\mathrm{CuCl_2\cdot 2H_2O}\) with \(\mathrm{CuO}\) and \(\mathrm{[Me_4N]Cl}\) forms an oxo-centred tetrahedral complex, \(\mathrm{[Me_4N]_4[Cu_4OCl_{10}]}\) (J.A. Bertrand and J. Kelley, \textit{Inorg. Chem.}, 1967, 6, 495). There are two likely superexchange pathways which may contribute to the magnetic exchange; the \(\mu_4\)-\(\mathrm{O}\) and the \(\mu_2\)-\(\mathrm{Cl}\). Magnetic data on this complex were reported by J.A. Barnes, G.W. Inman and W.E. Hatfield (\textit{Inorg. Chem.}, 1971, 10, 1725).The temperature dependence of \(\chi T\) and the structure are shown in \cref{Fig:Cu_tetramer}.
+
+        \begin{figure}
+            \centering
+            \begin{tikzpicture}[z={(140:0.4)}]
+                \node at (-7,0){\input{figures/Cu_tetra.tex}};
+                \pgfmathsetmacro{\a}{1}
+                \pgfmathsetmacro{\b}{\a * sqrt(2) * 2/3}
+                \coordinate (O) at (0,0,0);
+                \coordinate (Cu1) at (0,\a,0);
+                \coordinate (Cu2) at ({\b * cos(0)},{-\a / 3},{\b * sin(0)});
+                \coordinate (Cu3) at ({\b * cos(120)},{-\a / 3},{\b * sin(120)});
+                \coordinate (Cu4) at ({\b * cos(240)},{-\a / 3},{\b * sin(240)});
+                \foreach \i in {1,2,3,4}{
+                    \draw (O) node[fill=white, inner sep=0 pt]{\(\mathrm{O}\)} -- (Cu\i) node[fill=white, inner sep=1 pt]{\(\mathrm{Cu}\)} -- +(0,\a,0) coordinate (Cl\i) node[fill=white, inner sep=0 pt]{\(\mathrm{Cl}\)};
+                }
+                \foreach \i in {2,3,4}{
+                    \draw  (Cl\i) node[fill=white, inner sep=0 pt]{\(\mathrm{Cl}\)} -- (Cu1) node[fill=white, inner sep=1 pt]{\(\mathrm{Cu}\)};
+                    \foreach \j in {0,120,240}{
+                        \draw (Cu\i) node[fill=white, inner sep=1 pt]{\(\mathrm{Cu}\)} -- ++ ({\b * cos(\j)},{-\a / 3},{\b * sin(\j)}) node[fill=white, inner sep=1 pt]{\(\mathrm{Cl}\)};
+                    }
+                }
+
+            \end{tikzpicture}
+            \caption{Structure and experimental magnetic susceptibility of \(\mathrm{[Cu_4OCl_{10}]^{4-}}\).}
+            \label{Fig:Cu_tetramer}
+        \end{figure}
+        
+    \end{ex}
     
-    \subsubsection{Two Interacting Spins}
-    First we need to write down the spin Hamiltonian. 
+    
     
         
     
@@ -1222,4 +1404,117 @@
     \part*{Appendices}
     \addcontentsline{toc}{part}{\protect\numberline{}Appendices}
     \appendix
+    \section{Solving Spin Hamiltonian by Matrix Diagonalisation}\label{Chap:Spin_matrix}
+    The most general spin interaction Hamiltonian has the form
+    \begin{equation}
+        \hat{H}=-2\sum_{i>j}J_{ij}^{\alpha\beta}\sum_{\alpha,\beta}\hat{S}_i^{\alpha}\hat{S}_j^{\beta}\,,
+    \end{equation}
+    where the exchange parameter between two spins \(i\) and \(j\) is characterised by a 2-tensor \(\mathsf{J}_{ij}\). We assume that the exchange is isotropic, then this becomes
+    \begin{align}
+        \hat{H}&=-2\sum_{i>j}J_{ij}\hat{\vb{S}}_i\vdot\hat{\vb{S}}_j\notag\\
+        &=-2\sum_{i>j}J_{ij}[\hat{S}_i^x\hat{S}_j^x + \hat{S}_i^y\hat{S}_j^y + \hat{S}_i^z\hat{S}_j^z]\,.\label{Isotropic_coupling}
+    \end{align}
+
+    If the spin is anisotropic, e.g. if we have an Ising spin, then the transverse \((x,y)\) components of the spin vectors are energetically suppressed. Therefore, we can ignore the \(x\) and \(y\) components in the Hamiltonian (\ref{Isotropic_coupling}) and write
+    \begin{equation}
+        \hat{H}=-2\sum_{ij}J_{ij}\hat{S}_i^z\hat{S}_j^z\,.
+    \end{equation}
+    This is mathematically equivalent to coupling only happening along in \(z\) directions, known as the \textit{Ising Hamiltonian}.
+
+    We will illustrate the idea using the isotropic (Heisenberg) Hamiltonian (\ref{Isotropic_coupling}). Our first step is to choose a basis for the \(N\) spins. A convenient choice is the direct product of the \(S^z\) basis
+    \begin{equation}
+        \left\{\ket{S^z_1, S^z_2, \dots, S^z_n}\mid -S_i\le S^z_i\le S_i\right\}
+    \end{equation}
+    with dimensionality \(\prod(2S_i+1)\). For simplicity, we will consider \(N\) spin-\(\frac{1}{2}\) particles, so the basis is
+    \begin{equation}
+        \left\{\ket{S_1^z, S_2^z,\dots,S_N^z}\mid S_i^z=\pm\frac{1}{2}\right\}
+    \end{equation}
+    with dimensionality \(2^N\). For example, for \(N=2\), the basis set is
+    \begin{equation}
+        \left\{\ket{\frac{1}{2},\frac{1}{2}}, \ket{\frac{1}{2},-\frac{1}{2}}, \ket{-\frac{1}{2},\frac{1}{2}}, \ket{-\frac{1}{2},-\frac{1}{2}}\right\}\,,
+    \end{equation}
+    or equivalently
+    \begin{equation}
+        \{\ket{\uparrow\uparrow}, \ket{\uparrow\downarrow}, \ket{\downarrow\uparrow}, \ket{\downarrow\downarrow}\}\,.
+    \end{equation}
+
+    The spin operators are the representations of the \(SU(2)\) group. For a spin-\(\frac{1}{2}\) particle in the \(S^z\) basis, these are the \textit{Pauli matrices}
+    \begin{equation}
+        \mathsf{S}^x=\frac{1}{2}\begin{pmatrix}
+            0 & 1 \\ 1 & 0
+        \end{pmatrix} \quad \mathsf{S}^y = \frac{1}{2}\begin{pmatrix}
+            0 & -\ii \\ \ii & 0
+        \end{pmatrix} \quad \mathsf{S}^z =\frac{1}{2}\begin{pmatrix}
+            1 & 0 \\ 0 & -1
+        \end{pmatrix}\,,
+    \end{equation}
+    assuming \(\hbar=1\). In our composite space of \(N\) particles, the operator \(\hat{S}_i^\alpha\) is given by the tensor product
+    \begin{equation}
+        \hat{S}_i^\alpha = \hat{I} \otimes\dots\otimes\underbrace{\hat{S}^\alpha}_{\text{site }i}\otimes\dots\hat{I}\,,
+    \end{equation}
+    where \(\hat{I}\) is the identity operator, and so
+    \begin{equation}
+        \hat{S}_i^\alpha \hat{S}_j^\alpha = \hat{I} \otimes\dots\otimes \hat{S}^\alpha\otimes\dots\otimes \hat{S}^\alpha\otimes\dots\hat{I}\,,
+    \end{equation}
+    with \(\hat{S}^\alpha\) at sites \(i\) and \(j\). Summing all the matrices up, we will get the full Hamiltonian in the \(S^z\) representation.
+
+    For example, for the simplest Heisenberg Hamiltonian
+    \begin{equation}
+        \hat{H}=-2J\hat{\vb{S}}_1\vdot\hat{\vb{S}}_2\,,
+    \end{equation}
+    we have
+    \begin{equation}
+        \mathsf{S}^x\otimes \mathsf{S}^x =\frac{1}{4}\begin{pmatrix}
+            0 & 0 & 0 & 1 \\
+            0 & 0 & 1 & 0 \\
+            0 & 1 & 0 & 0 \\
+            1 & 0 & 0 & 0
+        \end{pmatrix}\quad \mathsf{S}^y\otimes \mathsf{S}^y=\frac{1}{4}\begin{pmatrix}
+            0 & 0 & 0 & -1 \\
+            0 & 0 & 1 & 0 \\
+            0 & 1 & 0 & 0 \\
+            -1 & 0 & 0 & 0
+        \end{pmatrix}\quad \mathsf{S}^z\otimes \mathsf{S}^z=\frac{1}{4}\begin{pmatrix}
+            1 & 0 & 0 & 0 \\
+            0 & -1 & 0 & 0 \\
+            0 & 0 & -1 & 0 \\
+            0 & 0 & 0 & 1
+        \end{pmatrix}\,.
+    \end{equation}
+    Summing these up, the Hamiltonian in our representation is
+    \begin{equation}
+        \mathsf{H}=J\begin{pmatrix}
+            -\frac{1}{2} & 0 & 0 & 0 \\
+            0 & \frac{1}{2} & -1 & 0 \\
+            0 & -1 & \frac{1}{2} & 0 \\
+            0 & 0 & 0 & -\frac{1}{2}
+        \end{pmatrix}\,.
+    \end{equation}
+    Diagonalising this matrix gives us a set of triply degenerate eigenvectors
+    \begin{equation}
+        \begin{pmatrix}
+            1 \\ 0 \\ 0 \\ 0
+        \end{pmatrix}\ ,\quad\frac{1}{\sqrt{2}}\begin{pmatrix}
+            0 \\ 1 \\ 1 \\ 0
+        \end{pmatrix}\ ,\quad\begin{pmatrix}
+            0 \\ 0 \\ 0 \\ 1
+        \end{pmatrix}\ ,\qquad \lambda=-\frac{1}{2}J
+    \end{equation}
+    and a non-degenerate eigenvector
+    \begin{equation}
+        \frac{1}{\sqrt{2}}\begin{pmatrix}
+            0 \\ 1 \\ -1 \\ 0
+        \end{pmatrix}\ ,\qquad \lambda=\frac{3}{2}J\,.
+    \end{equation}
+    These are exactly the triplet states
+    \begin{equation}
+        \ket{\uparrow\uparrow}\,,\ \ket{\downarrow\downarrow}\,,\ \frac{1}{\sqrt{2}}(\ket{\uparrow\downarrow}+\ket{\downarrow\uparrow})\qquad E_{\text{triplet}}=-\frac{1}{2}J
+    \end{equation}
+    and the singlet state
+    \begin{equation}
+        \frac{1}{\sqrt{2}}(\ket{\uparrow\downarrow}-\ket{\downarrow\uparrow})\qquad E_{\text{triplet}}=\frac{3}{2}J\,.
+    \end{equation}
+
+    As you can see, the dimensionality of the matrix that we have to diagonalise goes with exponentially with the system size, so it is really a computationally expensive method for large systems.
+
 \end{document}
