@@ -78,6 +78,8 @@
 \newcommand{\nuc}{_{\text{n}}}
 \newcommand{\el}{_{\text{e}}}
 
+\renewcommand{\arraystretch}{1.2}
+
 \usetikzlibrary{arrows.meta,calc, math,shadings}
 
 \setchemfig{
@@ -1312,13 +1314,12 @@
         The energy eigenvalues are tabulated as follows.
 
         \begin{table}[ht!]
-            \renewcommand{\arraystretch}{1.2}
             \centering
             \begin{tabular}{cccc}
                 \toprule
                 \(S_{\mathrm{Cu}}\) & \(S_{\mathrm{Mn}}\) & \(S_{\text{T}}\) & \(E\) \\ \midrule
-                \(\frac{1}{2}\) & \(\frac{5}{2}\) & \(3\) & \(-\frac{5}{2}J\) \\
-                \(\frac{1}{2}\) & \(\frac{5}{2}\) & \(2\) & \(+\frac{7}{2}J\) \\ \bottomrule
+                \multirow{2}{*}{\(\frac{1}{2}\)} & \multirow{2}{*}{\(\frac{5}{2}\)} & \(3\) & \(-\frac{5}{2}J\) \\
+                ~ & ~ & \(2\) & \(+\frac{7}{2}J\) \\ \bottomrule
             \end{tabular}
         \end{table}
 
@@ -1455,8 +1456,57 @@
             \caption{X-ray structure, structural formula and spin topology of \(\mathrm{Ni(vd)_2\cdot 2H_2O}\).}
             \label{Fig:trimer_structure}
         \end{figure}
+
+        The spin Hamiltonian is
+        \begin{equation}
+            \hat{H}=-2J[\hat{\vb{S}}_1\vdot\hat{\vb{S}}_2+\hat{\vb{S}}_2\vdot\hat{\vb{S}}_3]-2J'\hat{\vb{S}}_1\vdot\hat{\vb{S}}_3\,.
+        \end{equation}
+        Reducing this Hamiltonian requires some consideration. We define \(\hat{\vb{S}}_+ =\hat{\vb{S}}_1+\hat{\vb{S}}_3\), then \(\hat{\vb{S}}_{\text{T}}=\hat{\vb{S}}_+ +\hat{\vb{S}}_2\). Squaring these operators give
+        \begin{align}
+            (\hat{\vb{S}}^+)^2&=\hat{\vb{S}}_1^2+\hat{\vb{S}}_3^2+2\hat{\vb{S}}_1\vdot\hat{\vb{S}}_3 & &\implies & 2\hat{\vb{S}}_1\vdot\hat{\vb{S}}_3&=(\hat{\vb{S}}^+)^2-\hat{\vb{S}}_1^2-\hat{\vb{S}}_3^2 \,,\\
+            (\hat{\vb{S}}_{\text{T}})^2&=\hat{\vb{S}}_+^2+\hat{\vb{S}}_2^2+2\hat{\vb{S}}_+\vdot\hat{\vb{S}}_2  & &\implies & 2[\hat{\vb{S}}_1\vdot\hat{\vb{S}}_2+\hat{\vb{S}}_2\vdot\hat{\vb{S}}_3]&=(\hat{\vb{S}}_{\text{T}})^2-\hat{\vb{S}}_+^2-\hat{\vb{S}}_2^2\,.
+        \end{align}
+        Therefore we can rewrite the spin Hamiltonian as
+        \begin{equation}
+            \hat{H}=J[\hat{\vb{S}}_+^2 + \hat{\vb{S}}_2^2 - (\hat{\vb{S}}_{\text{T}})^2] + J' [\hat{\vb{S}}_1^2 + \hat{\vb{S}}_3^2-(\hat{\vb{S}}^+)^2]\,,
+        \end{equation}
+        so the energy spectrum is
+        \begin{equation}
+            E=J[S_+(S_+ + 1)+S_2(S_2+1)-S_{\text{T}}(S_{\text{T}}+1)]+J'[S_1(S_1+1)+S_3(S_3+1)-S_+(S_+ + 1)]\,.
+        \end{equation}
+
+        In our compound, we have \(S_1=S_3=\frac{1}{2}\) for the verdazyl radical and \(S_2=1\) for \(\mathrm{Ni^{II}}\), so
+        \begin{equation}
+            E=J[S_+(S_+ + 1)+2-S_{\text{T}}(S_{\text{T}}+1)]+J\left[\frac{3}{2}-S_+(S_+ + 1)\right]\,.
+        \end{equation}
+        The energy states are listed in the table below.
+        \begin{table}[ht!]
+            \centering
+            \begin{tabular}{ccc}
+                \toprule
+                \(S^+\) & \(S_{\text{T}}\) & \(E\) \\ \midrule
+                \multirow{3}{*}{\(1\)} & \(2\) & \(-2J-\frac{1}{2}J'\) \\
+                ~ & \(1\) & \(+2J-\frac{1}{2}J'\) \\
+                ~ & \(0\) & \(+4J-\frac{1}{2}J'\) \\
+                \(0\) & \(1\) & \(+\frac{3}{2}J'\) \\ \bottomrule
+            \end{tabular}
+        \end{table}
+
+        The van Vleck equation gives the theoretical magnetic susceptibility
+        \begin{equation}
+            \chi = \frac{N_A g^2 \mu_{\text{B}}^2}{3k_B T}\frac{30\ee^{-(-2J-\frac{1}{2}J')/k_B T} + 6\ee^{-(+2J-\frac{1}{2}J')/k_B T} + 6\ee^{-(+\frac{3}{2}J')/k_B T}}{5\ee^{-(-2J-\frac{1}{2}J')/k_B T} + 3\ee^{-(+2J-\frac{1}{2}J')/k_B T} + \ee^{-(+4J-\frac{1}{2}J')/k_B T} + 3\ee^{-(+\frac{3}{2}J')/k_B T}}\,.
+        \end{equation}
+        A fit is shown in \cref{Fig:linear_chiT}. We see that our equation does not fit well with the experimental data. It is suggested that this is because there is a very weak through-space antiferromagnetic coupling between clusters which eliminates the spins at very low temperatures.
+
+        \begin{figure}[ht!]
+            \centering
+            \input{figures/linear_cluster.tex}
+            \caption{Experimental \(\chi T\) of the linear \(\mathrm{Ni(vd)_2\cdot 2H_2O}\).}
+            \label{Fig:linear_chiT}
+        \end{figure}
     \end{ex}
     
+    \subsection{Frustration}
     
     
         

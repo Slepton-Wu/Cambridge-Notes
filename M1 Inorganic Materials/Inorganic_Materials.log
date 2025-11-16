@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.21)  15 NOV 2025 15:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.21)  16 NOV 2025 03:16
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -844,24 +844,24 @@ File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 ) (./Inorganic_Materials.aux)
 \openout1 = `Inorganic_Materials.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -921,13 +921,13 @@ Package pgfplots notification 'compat/show suggested version=true': document has
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring OFF on input line 90.
+Package hyperref Info: Link coloring OFF on input line 92.
 (./Inorganic_Materials.out) (./Inorganic_Materials.out)
 \@outlinefile=\write4
 \openout4 = `Inorganic_Materials.out'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 102--103
+Underfull \hbox (badness 10000) in paragraph at lines 104--105
 
  []
 
@@ -960,7 +960,7 @@ File: uesint.fd
 [1]
 
 [2]
-Package hyperref Info: bookmark level for unknown ex defaults to 0 on input line 215.
+Package hyperref Info: bookmark level for unknown ex defaults to 0 on input line 217.
 
 
 [3]
@@ -994,10 +994,10 @@ Package hyperref Info: bookmark level for unknown ex defaults to 0 on input line
 [17]
 
 [18]
-<figures/Ni_cluster.jpg, id=325, 210.0648pt x 211.0284pt>
+<figures/Ni_cluster.jpg, id=330, 210.0648pt x 211.0284pt>
 File: figures/Ni_cluster.jpg Graphic file (type jpg)
 <use figures/Ni_cluster.jpg>
-Package pdftex.def Info: figures/Ni_cluster.jpg  used on input line 1137.
+Package pdftex.def Info: figures/Ni_cluster.jpg  used on input line 1139.
 (pdftex.def)             Requested size: 175.40251pt x 176.20647pt.
  (./figures/Ni_cluster.tex)
 
@@ -1006,9 +1006,9 @@ Package pdftex.def Info: figures/Ni_cluster.jpg  used on input line 1137.
 [20 <./figures/Ni_cluster.jpg>]
 
 [21]
-Package svg Info: Last page of `./svg-inkscape/Cu_Mn_dimer_svg-tex.pdf' is 1 on input line 1275.
+Package svg Info: Last page of `./svg-inkscape/Cu_Mn_dimer_svg-tex.pdf' is 1 on input line 1277.
  (./svg-inkscape/Cu_Mn_dimer_svg-tex.pdf_tex
-<./svg-inkscape/Cu_Mn_dimer_svg-tex.pdf, id=364, page=1, 179.09409pt x 153.55118pt>
+<./svg-inkscape/Cu_Mn_dimer_svg-tex.pdf, id=369, page=1, 179.09409pt x 153.55118pt>
 File: ./svg-inkscape/Cu_Mn_dimer_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/Cu_Mn_dimer_svg-tex.pdf, page 1>
 Package pdftex.def Info: ./svg-inkscape/Cu_Mn_dimer_svg-tex.pdf , page1 used on input line 56.
@@ -1020,55 +1020,59 @@ Package pdftex.def Info: ./svg-inkscape/Cu_Mn_dimer_svg-tex.pdf , page1 used on 
 [23 <./svg-inkscape/Cu_Mn_dimer_svg-tex.pdf>] (./figures/Cu_tetra.tex)
 
 [24]
-Package svg Info: Last page of `./svg-inkscape/Linear_Xray_svg-tex.pdf' is 1 on input line 1442.
+Package svg Info: Last page of `./svg-inkscape/Linear_Xray_svg-tex.pdf' is 1 on input line 1443.
  (./svg-inkscape/Linear_Xray_svg-tex.pdf_tex
-<./svg-inkscape/Linear_Xray_svg-tex.pdf, id=417, page=1, 182.93344pt x 76.33519pt>
+<./svg-inkscape/Linear_Xray_svg-tex.pdf, id=422, page=1, 182.93344pt x 76.33519pt>
 File: ./svg-inkscape/Linear_Xray_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/Linear_Xray_svg-tex.pdf, page 1>
 Package pdftex.def Info: ./svg-inkscape/Linear_Xray_svg-tex.pdf , page1 used on input line 56.
 (pdftex.def)             Requested size: 219.2565pt x 91.49692pt.
 )
-Package svg Info: Last page of `./svg-inkscape/Linear_structure_svg-tex.pdf' is 1 on input line 1443.
+Package svg Info: Last page of `./svg-inkscape/Linear_structure_svg-tex.pdf' is 1 on input line 1444.
  (./svg-inkscape/Linear_structure_svg-tex.pdf_tex
-<./svg-inkscape/Linear_structure_svg-tex.pdf, id=419, page=1, 116.43866pt x 45.89145pt>
+<./svg-inkscape/Linear_structure_svg-tex.pdf, id=424, page=1, 116.43866pt x 45.89145pt>
 File: ./svg-inkscape/Linear_structure_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/Linear_structure_svg-tex.pdf, page 1>
 Package pdftex.def Info: ./svg-inkscape/Linear_structure_svg-tex.pdf , page1 used on input line 56.
 (pdftex.def)             Requested size: 166.63707pt x 65.67607pt.
 )
 
-[25]
+[25] (./figures/linear_cluster.tex)
 
 [26 <./svg-inkscape/Linear_Xray_svg-tex.pdf> <./svg-inkscape/Linear_structure_svg-tex.pdf
 
 pdfTeX warning: pdflatex.exe (file ./svg-inkscape/Linear_structure_svg-tex.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 >]
+
+[27]
+
+[28]
 \tf@thm=\write6
 \openout6 = `Inorganic_Materials.thm'.
 
 
 
-[27] (./Inorganic_Materials.aux)
+[29] (./Inorganic_Materials.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `Inorganic_Materials.out' has not changed.
-(rerunfilecheck)             Checksum: 1F4D6C0E2BE21F755A3402C4AA10FC15;2390.
+(rerunfilecheck)             Checksum: 9CC5E00A138A14A99CB9CF4B92FC56DD;2503.
  ) 
 Here is how much of TeX's memory you used:
- 46921 strings out of 473190
- 1064126 string characters out of 5719979
- 1832843 words of memory out of 5000000
- 69202 multiletter control sequences out of 15000+600000
+ 46955 strings out of 473190
+ 1064757 string characters out of 5719979
+ 1879594 words of memory out of 5000000
+ 69221 multiletter control sequences out of 15000+600000
  580400 words of font info for 117 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,23n,105p,1384b,2888s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy8.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on Inorganic_Materials.pdf (30 pages, 846705 bytes).
+Output written on Inorganic_Materials.pdf (32 pages, 860894 bytes).
 PDF statistics:
- 655 PDF objects out of 1000 (max. 8388607)
- 527 compressed objects within 6 object streams
- 213 named destinations out of 1000 (max. 500000)
- 210 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 684 PDF objects out of 1000 (max. 8388607)
+ 554 compressed objects within 6 object streams
+ 225 named destinations out of 1000 (max. 500000)
+ 218 words of extra memory for PDF output out of 10000 (max. 10000000)
 
