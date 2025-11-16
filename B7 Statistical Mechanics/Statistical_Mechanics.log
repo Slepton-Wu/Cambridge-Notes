@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.21)  12 NOV 2025 13:13
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.21)  16 NOV 2025 15:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -728,7 +728,7 @@ Smallest possible random number: 0
 Largest possible random number: 2147483646
 The pseudo random numbers will be stored in the LaTeX counter `lcg@rand'
 )
-Random number generator initialized to 383547
+Random number generator initialized to 532135
 Package hyperref Info: Link coloring OFF on input line 87.
 (./Statistical_Mechanics.out) (./Statistical_Mechanics.out)
 \@outlinefile=\write4
@@ -1039,11 +1039,11 @@ NOTE: coordinate (3Y0.0e0],2Y1.073805e0]) has been dropped because it is unbound
 [41]
 
 [42]
+
+[43]
 File: LC.png Graphic file (type bmp)
 <LC.png>
 
-
-[43]
 
 [44]
 
@@ -1076,10 +1076,10 @@ File: LC.png Graphic file (type bmp)
 [58]
 
 [59]
-Package hyperref Info: bookmark level for unknown law defaults to 0 on input line 2667.
-
 
 [60]
+Package hyperref Info: bookmark level for unknown law defaults to 0 on input line 2740.
+
 
 [61]
 
@@ -1134,10 +1134,10 @@ Package hyperref Info: bookmark level for unknown law defaults to 0 on input lin
 [86]
 
 [87]
-Package hyperref Info: bookmark level for unknown thm defaults to 0 on input line 4073.
-
 
 [88]
+Package hyperref Info: bookmark level for unknown thm defaults to 0 on input line 4146.
+
 
 [89]
 
@@ -1150,12 +1150,14 @@ Package hyperref Info: bookmark level for unknown thm defaults to 0 on input lin
 [93]
 
 [94]
+
+[95]
 \tf@thm=\write6
 \openout6 = `Statistical_Mechanics.thm'.
 
 
 
-[95] (./Statistical_Mechanics.aux)
+[96] (./Statistical_Mechanics.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -1164,12 +1166,12 @@ Package rerunfilecheck Info: File `Statistical_Mechanics.out' has not changed.
 (rerunfilecheck)             Checksum: 41FAB00282D3181BACE129F72DB23496;9644.
  ) 
 Here is how much of TeX's memory you used:
- 44650 strings out of 473832
- 1012403 string characters out of 5733158
- 1516507 words of memory out of 5000000
- 67126 multiletter control sequences out of 15000+600000
+ 44691 strings out of 473832
+ 1013298 string characters out of 5733158
+ 1517123 words of memory out of 5000000
+ 67167 multiletter control sequences out of 15000+600000
  575552 words of font info for 122 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 99i,22n,105p,1362b,2071s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,22n,105p,1421b,2288s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Statistical_Mechanics.pdf (99 pages).
+Output written on Statistical_Mechanics.pdf (100 pages).

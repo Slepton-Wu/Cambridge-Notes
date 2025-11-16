@@ -776,7 +776,7 @@
     \subsection{Equilibrium between Phases}
     Consider an isolated system of \(N\) particles in a volume \(V\) with a total energy \(E\). The system consists of multiple distinct phases between which particles, volume and energy can be exchanged. We ignore any contributions of the interfaces to the extensive properties, as their contribution scales as \(N^{2/3}\), so their ratio compared with bulk contributions scales as \(N^{-1/3}\), vanishing in the thermodynamic limit as \(N\to\infty\). Then the equilibrium conditions of coexistence of phases are that the pressures of all coexisting phases must be equal (\(P_1=P_2=\dots=P\)), as must be the temperatures (\(T_1=T_2=\dots=T\)) and the chemical potentials of all species (\(\mu_1^\alpha=\mu_2^\alpha=\dots=\mu^\alpha\)).
     \subsubsection{Stability}
-    We use the thermodynamic arguments to find conditions for the stability of a single phase. Consider a homogeneous phase in an isolated system with constant \(N\), \(V\) and \(E\) that is divided into two equal halves. At equilibrium, the entropy of the total system is at a maximum. Now consider transferring a small amount of energy \(\Delta E\) from one half of the system to the other. At equilibrium, the temperature in the two halves of the system is the same, and hence to linear order of \(\Delta E\), the entropy does not change. Consider the second order variation,
+    We use thermodynamic arguments to find conditions for the stability of a single phase. Consider a homogeneous phase in an isolated system with constant \(N\), \(V\) and \(E\) that is divided into two equal halves. At equilibrium, the entropy of the total system is at a maximum. Now consider transferring a small amount of energy \(\Delta E\) from one half of the system to the other. At equilibrium, the temperature in the two halves of the system is the same, and hence to linear order in \(\Delta E\), the entropy does not change. Consider the second order variation,
     \begin{equation}
         \Delta S=\frac{1}{2}\left(\pdv{(1/T)}{E}(\Delta E)^2\right)_1+\frac{1}{2}\left(\pdv{(1/T)}{E}(\Delta E)^2\right)_2\,.
     \end{equation}
@@ -837,7 +837,7 @@
         \end{tikzpicture}
     \end{figure}
 
-    If the system is at some volume \(V^*\) with \(V_1\le V^*\le V_2\), the system would have lower Helmholtz energy if it is separated into the two phases than if it exists in either of the single phase. Define \(v\coloneqq V/N\), then
+    If the system is at some volume \(V^*\) with \(V_1\le V^*\le V_2\), the system would have lower Helmholtz energy if it is separated into the two phases than if it exists in either of the single phases. Define \(v\coloneqq V/N\), then
     \begin{equation}
         Nv^*=N_1v_1+(N-N_1)v_2\,.
     \end{equation}
@@ -846,7 +846,7 @@
         x_1\coloneqq\frac{N_1}{N}=\frac{v^*-v_2}{v_1-v_2}\,.
     \end{equation}
 
-    Suppose now we have a free energy curve for some phase. We have shown that the free energy must be a convex function of \(V\) because the compressibility \(\kappa\) must be non-negative at equilibrium. Hence, the non-convex part in curve \(A\) versus \(V\) does not correspond to an equilibrium situation. We can still work out the point of coexistence by common tangent construction. But now we have a region where the phase separation is thermodynamically favourable, but the local second derivative of \(A\) with respect to \(V\) is still positive, meaning that any perturbation of such system will increase the free energy. Such a system is described as \textit{metastable} as phase separation will involve a free-energy barrier. Between the inflection points, the free energy curve is non-convex and hence in this range a homogeneous phase would be absolutely unstable, with a negative compressibility. Such a system will phase separate spontaneously under any infinitesimal fluctuation. The boundary between the metastable and unstable regions is called \textit{spinodal}.
+    Suppose now we have a free energy curve for some phase. We have shown that the free energy must be a convex function of \(V\) because the compressibility \(\kappa\) must be non-negative at equilibrium. Hence, the non-convex part in curve \(A\) versus \(V\) does not correspond to an equilibrium situation. We can still work out the point of coexistence by the common tangent construction. But now we have a region where the phase separation is thermodynamically favourable, but the local second derivative of \(A\) with respect to \(V\) is still positive, meaning that any perturbation of such a system will increase the free energy. Such a system is described as \textit{metastable} as phase separation will involve a free-energy barrier. Between the inflection points, the free energy curve is non-convex and hence in this range a homogeneous phase would be absolutely unstable, with a negative compressibility. Such a system will phase separate spontaneously under any infinitesimal fluctuation. The boundary between the metastable and unstable regions is called the \textit{spinodal}.
 
     \begin{figure}[ht!]
         \centering
@@ -908,7 +908,7 @@
     \begin{equation}\label{thermal_value_derivatives}
         \left(\pdv{A}{V}\right)_{N,T}=-P\text{ and }\left(\pdv{(A/T)}{(1/T)}\right)_{N,V}=E\,.
     \end{equation}
-    In order to compute the free energy of a system at a given temperature and density, we must find a reversible path in the volume-temperature plane that links the state under consideration to a state of known free energy. The change in \(A\) along that path can then simply be evaluated by integrating (\ref{thermal_value_derivatives}). Only a few thermodynamic states exist whose free energy is known exactly: one such state is the ideal gas; another may be perfectly ordered ground state at \(T=0\unit{K}\).
+    In order to compute the free energy of a system at a given temperature and density, we must find a reversible path in the volume-temperature plane that links the state under consideration to a state of known free energy. The change in \(A\) along that path can then simply be evaluated by integrating (\ref{thermal_value_derivatives}). Only a few thermodynamic states exist whose free energy is known exactly: one such state is the ideal gas; another may be a perfectly ordered ground state at \(T=0\unit{K}\).
 
     \subsection{Gibbs--Bogoliubov Inequality}
     The aim of thermodynamic perturbation theory is to arrive at an estimate of the free energy (and all derived properties) of a many-body system, using as input information about the free energy and structure of a simpler reference system. We assume that the potential energy function of this reference system is denoted by \(U_0\), while the potential energy function of the system of interest is denoted by \(U_1\). In order to compute the free-energy difference between the known reference system and the system of interest, we use a linear parameterisation of the potential energy function
@@ -979,7 +979,7 @@
         \eval{U_1-U_0}_{\lambda=0}=\frac{\int\prod_{i=1}^{N}\dd[3]{\vb{r}_i}(U_1-U_0)\exp(-\beta U_0)}{\int\prod_{i=1}^{N}\dd[3]{\vb{r}_i}\exp(-\beta U_0)}\,.
     \end{equation}
 
-    The usefulness of (\ref{Gibbs_Bogoliubov}) depends crucially on the quality of the choice of reference system. A good reference system is not necessarily close in free energy to the system of interest, but one for which the fluctuation in the potential energy difference \(U_1-U_0\) are small. Thermodynamic perturbation theory for simple liquids has been very successfully precise because the structure of the reference system (hard-sphere fluid) and the liquid under consideration (e.g. Lennard-Jones) are very similar. As a result, \(\eval{U_1-U_0}_{\lambda}\) hardly depends on \(\lambda\) and so its derivative is small.
+    The usefulness of (\ref{Gibbs_Bogoliubov}) depends crucially on the quality of the choice of reference system. A good reference system is not necessarily close in free energy to the system of interest, but one for which the fluctuation in the potential energy difference \(U_1-U_0\) are small. Thermodynamic perturbation theory for simple liquids has been very precise because the structure of the reference system (hard-sphere fluid) and the liquid under consideration (e.g. Lennard-Jones) are very similar. As a result, \(\eval{U_1-U_0}_{\lambda}\) hardly depends on \(\lambda\) and so its derivative is small.
 
     \subsection{Mean-Field Theory and the Ising Model}
     The Gibbs--Bogoliubov inequality can be used as a starting point from which we can derive mean-field theory, which provides a systematic approximation to the free energy of a many-body system. Let's start with a seemingly simple yet interesting and arguably the most important model in statistical mechanics and related fields --- the Ising model. The Ising model describes the magnetism of materials by considering spins on a lattice with Hamiltonian
@@ -1121,13 +1121,16 @@
         \caption{(a) A graphical method for the solution of the mean magnetisation in Ising model. (b) The phase diagram of an Ising model system.}
     \end{figure}
 
-    Above the \textit{critical} (or \textit{Curie}) \textit{temperature} \(k_B T=Jz\), there is only one solution \(\eval{s}_0=0\): at high temperatures, the entropy dominates the free energy and so the spins are randomly distributed. The significance of the entropy as a driving force is diminished as the temperature is decreased, and below the Curie temperature, the net alignment of spins, which is energetically favourable, becomes dominant, and we get two extra solutions with non-zero mean magnetisation. Amongst all the three solutions, the \(\eval{s}_0=0\) solution is actually a maximum rather than a minimum so we will ignore it. In the absence of an external magnetic field, the system is equally likely to be magnetised in the up or the down spin configurations, but the fluctuations causing the transitions between the two are extremely unlikely. The ergodic hypothesis\footnote{Being \textit{ergodic} means that a point (the state of the system in this case) will eventually visit all parts of the space (the phase space) as it evolves over time, in a uniform and random sense.} is thus formally violated, and this phenomenon is sometimes described as \textit{spontaneous symmetry breaking}.
+    Above the \textit{critical} (or \textit{Curie}) \textit{temperature} \(k_B T_c=Jz\), there is only one solution \(\eval{s}_0=0\): at high temperatures, the entropy dominates the free energy and so the spins are randomly distributed. The significance of the entropy as a driving force is diminished as the temperature is decreased, and below the Curie temperature, the net alignment of spins, which is energetically favourable, becomes dominant, and we get two extra solutions with non-zero mean magnetisation. Amongst all the three solutions, the \(\eval{s}_0=0\) solution is actually a maximum rather than a minimum so we will ignore it. In the absence of an external magnetic field, the system is equally likely to be magnetised in the up or the down spin configurations. This kind of phenomenon is known as \textit{spontaneous symmetry breaking}: we have a system symmetric with respect to \(\{s_i\}\leftrightarrow \{-s_i\}\), i.e. the energy of the system does not change when we flip all the spins at the same time. The ground states are two degenerate symmetry-related states with opposite spins. The system has to choose to reside in either one of the ground states: just like if you put a ball on the top of a hill, it will spontaneously roll down hill in an arbitrary direction, breaking the symmetry. This will be more apparent when we discuss Landau theory later.
+
+    Moreover, if you fall in either of the free energy minima, it will be very difficult to get into the other: it involves flipping all the spins one by one, and doing so would require overcoming a huge free energy barrier. This makes it extremely unlikely for thermal fluctuations to cause the transitions between the two states. This type of behaviour is \textit{non-ergodicity}, and it is a huge problem in simulating statistical mechanical systems on a computer. You will investigate this in detail in C8: \textit{Computer Simulation Methods}. In short, being \textit{ergodic} means that a point (the state of the system in this case) will eventually visit all parts of the space (the phase space) as it evolves over time, in a uniform and random sense. Here, our system is non-ergodic, meaning that if start in the \(\eval{s}>0\) state, you will probably stay there for an extremely long time without knowing that there is also a degenerate \(\eval{s}<0\) minimum.
 
     The free energy estimate that we obtain when inserting (\ref{Ising_mean_field_strength}) into (\ref{Ising_free_energy}) is
     \begin{equation}\label{Ising_MF_free_energy}
         a_{\text{MF}}=a_0+\frac{J}{2}z\eval{s}_0^2\,.
     \end{equation}
-    The subscript `MF' in this expression stands for the mean field approximation. It is very important to bear in mind that the free energy that results from the mean-field approximation is in general not simply the free energy of the reference system with the effective field, but has an additional term that depends on the difference between the two potentials measured for the system with the effective field.
+    The subscript `MF' in this expression stands for the mean field approximation. It is very important to bear in mind that the free energy that results from the mean-field approximation is in general not simply the free energy of the reference system with the effective field, but has an additional term  \(\eval{U_1-U_0}_{0}\) that depends on the difference between the two potentials measured for the system with the effective field.
+
     \subsubsection{Validity of Mean Field Theory}
     Having solved the Ising model using mean field theory, a question that arises is: are our results correct?
 
@@ -1135,22 +1138,28 @@
     
     But what about dimensions of interest? Mean field theory gets things most dramatically wrong in \(d=1\). In that case, no phase transition actually occurs. We will solve the 1D Ising model exactly in the appendix \cref{Chap:Exact_Ising}. There is a general lesson here: in low dimensions, both thermal and quantum fluctuations are more important and invariably stop systems forming ordered phases.
 
-    In higher dimensions, \(d\ge 2\), the crude features of the phase diagram, including the existence of a phase transition, given by mean field theory are essentially correct. In fact, the very existence of a phase transition is already worthy of comment. The defining feature of a phase transition is behaviour that jumps discontinuously as we vary \(\beta\). Mathematically, the functions must be non-analytic. Yet all properties of the theory can be extracted from the partition function \(Q\) which is a sum of smooth, analytic exponential functions
-    \begin{equation}
-        Q=\sum_{\ket{i}}\ee^{-\beta E_i}\,.
-    \end{equation}
-    How can we get a phase transition? The loophole is that \(Q\) is only necessarily analytic if the sum is finite. But there is no such guarantee when the number of lattice sites \(N\to\infty\). We reach a conclusion: phase transitions only strictly happen in the thermodynamic limit. There are no phase transitions in finite systems.
+    In higher dimensions, \(d\ge 2\), the crude features of the phase diagram, including the existence of a phase transition, given by mean field theory are essentially correct. We can examine this by comparing the phase transition temperature we obtained by mean field theory with exact (numerical) results.
 
     The 2D Ising model in a square lattice has been solved exactly, first by Onsager --- his method was famously complicated. In appendix \cref{Chap:Exact_Ising}, we will use a clever trick to obtain the exact result of critical temperature, which is
     \begin{equation}
-        k_B T=\frac{2J}{\ln(\sqrt{2}+1)}\approx 2.269J\,.
+        k_B T_c=\frac{2J}{\ln(\sqrt{2}+1)}\approx 2.269J\,.
     \end{equation}
     This is actually not hugely different from the mean field approximation, which predicts
     \begin{equation}
-        k_B T=Jz=4J\,.
+        k_B T_c=Jz=4J\,.
     \end{equation}
 
-    \begin{figure}
+    The 3D Ising model, on the other hand, has not been solved analytically. We can still obtain a numerical result using high-precision simulation methods like Monte Carlo, which gives
+    \begin{equation}
+        k_B T_c\approx 4.5115 J
+    \end{equation}
+    for a cubic lattice, while our mean-field treatment gives
+    \begin{equation}
+        k_B T_c=Jz=6J\,.
+    \end{equation}
+    We see our mean field treatment gets better for higher spatial dimensions. In \cref{Fig:Ising_temperature}, we plot the mean-field and exact (numerical) Ising phase transition temperatures against spatial dimensions for (hyper)cubic lattices, and we see that numerical results asymptotes the mean-field result as the spatial dimension increases, justifying our claim that the mean field treatment is exact in \(d\to\infty\) dimension.
+
+    \begin{figure}[ht!]
         \centering
         \begin{tikzpicture}
             \begin{axis}[
@@ -1204,6 +1213,70 @@
         \end{tikzpicture}
         \caption{Mean magnetisation of the exact (red) and the mean field (blue) 2D square lattice Ising model.}
     \end{figure}
+
+    \begin{figure}[ht!]
+        \centering
+        \begin{tikzpicture}
+            \definecolor{darkgray176}{RGB}{176,176,176}
+            \definecolor{darkorange25512714}{RGB}{255,127,14}
+            \definecolor{lightgray204}{RGB}{204,204,204}
+            \definecolor{steelblue31119180}{RGB}{31,119,180}
+
+            \begin{axis}[
+                legend cell align={left},
+                legend style={
+                fill opacity=0.8,
+                draw opacity=1,
+                text opacity=1,
+                at={(0.03,0.97)},
+                anchor=north west,
+                draw=lightgray204
+                },
+                tick align=outside,
+                tick pos=left,
+                x grid style={darkgray176},
+                xlabel={Dimension \(\displaystyle d\)},
+                xmin=0.7, xmax=7.3,
+                xtick style={color=black},
+                y grid style={darkgray176},
+                ylabel={\(\displaystyle k_B T_c/J\)},
+                ymin=-0.7, ymax=14.7,
+                ytick style={color=black}
+            ]
+            \addplot [semithick, steelblue31119180, mark=x, mark size=1.5, mark options={solid}]
+            table {%
+            1 2
+            2 4
+            3 6
+            4 8
+            5 10
+            6 12
+            7 14
+            };
+            \addlegendentry{Mean field}
+            \addplot [semithick, darkorange25512714, mark=x, mark size=1.5, mark options={solid}]
+            table {%
+            1 0
+            2 2.269
+            3 4.5115
+            4 6.68
+            5 8.78
+            6 10.83
+            7 12.87
+            };
+            \addlegendentry{Exact (numerical)}
+            \end{axis}
+        \end{tikzpicture}
+        \caption{Mean-field and exact phase transition temperatures for Ising model in (hyper)cubic lattices of different spatial dimensions.}
+        \label{Fig:Ising_temperature}
+    \end{figure}
+
+    \subsubsection{Why Phase Behaviour Exists}
+    In fact, the very existence of a phase transition is already worthy of comment. The defining feature of a phase transition is behaviour that jumps discontinuously as we vary \(\beta\). Mathematically, the functions must be non-analytic. Yet all properties of the theory can be extracted from the partition function \(Q\) which is a sum of smooth, analytic exponential functions
+    \begin{equation}
+        Q=\sum_{\ket{i}}\ee^{-\beta E_i}\,.
+    \end{equation}
+    How can we get a phase transition? The loophole is that \(Q\) is only necessarily analytic if the sum is finite. But there is no such guarantee when the number of lattice sites \(N\to\infty\). We reach a conclusion: phase transitions only strictly happen in the thermodynamic limit. There are no phase transitions in finite systems.
 
     \subsection{Liquid-Gas Phase Transition}
     Now we will investigate probably the most common phase transition --- liquid-gas phase transition. We will take a hard-sphere gas as a reference system and add a very weak, attractive interaction \(-\epsilon\) that extends to a very large distance \(R_c\). This crude model leads to the famous van der Waals equation of state.
@@ -1547,7 +1620,7 @@
         B&\sim m^\delta & \delta&=3 \\
         \chi&\sim(T-T_c)^{-\gamma} & \gamma&= 1\,,
     \end{align}
-    where \(m=\eval{s}\) is the mean magnetisation, \(m_0\) is the mean magnetisation at \(B=0\) and \(\kappa\) is the magnetic susceptibility defined as
+    where \(m=\eval{s}\) is the mean magnetisation, \(m_0\) is the mean magnetisation at \(B=0\) and \(\chi\) is the magnetic susceptibility defined as
     \begin{equation}
         \chi=N\left(\pdv{m}{B}\right)_T\,.
     \end{equation}
@@ -1586,7 +1659,7 @@
         \mu^{\text{ex}}(N/V,T)&=-k_B T\ln\left(\frac{\int\dd[3]{\vb{r}_{N+1}}\int\prod_{i=1}^{N}\dd[3]{\vb{r}_i}\exp[-\beta U(\{\vb{r}_i\}_{i=1}^{N})]\exp[-\beta\Delta U_{N,N+1}]}{V\int\prod_{j=1}^{N}\dd[3]{\vb{r}_j}\exp[-\beta U(\{\vb{r}_i\}_{i=1}^{N})]}\right)\notag\\
         &=-k_B T\ln\left(\frac{1}{V}\int\dd[3]{\vb{r}_{N+1}}\eval{\exp(-\beta\Delta U_{N,N+1})}_N\right)\,.
     \end{align}
-    Here \(\eval{-}_N\) denote the canonical ensemble average over the configuration space of the \(N\)-particles. In other words, the excess chemical potential is related to the average of \(\eval{\exp(-\beta\Delta U_{N,N+1})}_N\) over all possible positions of the particle \(N+1\). In a translationally invariant system, such as a liquid or a gas, this quantity should not depend \(\vb{r}_{N+1}\), so we may write
+    Here \(\eval{-}_N\) denotes the canonical ensemble average over the configuration space of the \(N\)-particles. In other words, the excess chemical potential is related to the average of \(\eval{\exp(-\beta\Delta U_{N,N+1})}_N\) over all possible positions of the particle \(N+1\). In a translationally invariant system, such as a liquid or a gas, this quantity should not depend \(\vb{r}_{N+1}\), so we may write
     \begin{equation}\label{Widom_formula}
         \mu^{\text{ex}}(N/V,T)=-k_B T\ln\eval{\exp(-\beta\Delta U_{N,N+1})}_N\,.
     \end{equation}
@@ -1625,7 +1698,7 @@
                 \draw[blue,fill=blue!30] (0.3,0.8) circle (0.3);
             \end{scope}
         \end{tikzpicture}
-        \caption{A sample configuration of a hard sphere system.}
+        \caption{A sample configuration of a hard-sphere system.}
 
     \end{figure}
 
@@ -1710,7 +1783,7 @@
                 \draw[blue,fill=blue!30] (0.4,0) circle (0.1);
             \end{scope}
         \end{tikzpicture}
-        \caption{Widom insertion method to determine the excess chemical potential of a dilute non-ideal gas system.}
+        \caption{Widom's insertion method to determine the excess chemical potential of a dilute non-ideal gas system.}
     \end{figure}
 
     Now, if we insert a particle randomly, it has probability \((V-V_{\text{int}})/V\) to not fall into the interaction zone with any of the other particles, giving \(\Delta U=0\). With a probability \(V_{\text{int}}/V\), the insertion will happen in one of the interaction zones, and the average value of \(\exp(-\beta \Delta U)\) is
@@ -2462,7 +2535,7 @@
     \end{equation}
     This is known as the \textit{Langevin equation}.
 
-    We can multiply both sides of the Langevin equation (\ref{Langevin}) by \(v(0)\) and use the assumption \(\eval{v_x(0)F_x^R(t)}=0\) to obtain the condition of the velocity correlation function
+    We can multiply both sides of the Langevin equation (\ref{Langevin}) by \(v(0)\) and use the assumption\footnote{Is the velocity really not correlated with the force? It is a good approximation since the force is random, but we will examine this more carefully in Part III M4: \textit{Energy Landscapes and Soft Matters.}} \(\eval{v_x(0)F_x^R(t)}=0\) to obtain the condition of the velocity correlation function
     \begin{equation}
         m\eval{v_x(0)\dot{v}_x(t)}+\gamma\eval{v_x(0)v_x(t)}=0\,.
     \end{equation}
