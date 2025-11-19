@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.21)  11 NOV 2025 20:57
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.21)  18 NOV 2025 23:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1116,7 +1116,12 @@ Package hyperref Info: bookmark level for unknown hyp defaults to 0 on input lin
 
 [21]
 
-[22] (./Python_plots/Verlet_timestep.tex) (./Python_plots/Verlet_timestep_phase.tex) (./Python_plots/vdW_fluid_0.001.tex) (./Python_plots/vdW_fluid_0.05.tex) (./Python_plots/vdW_fluid_0.19.tex)
+[22] (./Python_plots/Verlet_timestep.tex) (./Python_plots/Verlet_timestep_phase.tex) (./Python_plots/vdW_fluid_0.05.tex) (./Python_plots/vdW_fluid_0.15.tex)
+Underfull \hbox (badness 10000) in paragraph at lines 921--934
+
+ []
+
+(./Python_plots/vdW_fluid_0.18.tex) (./Python_plots/vdW_drift.tex)
 
 [23]
 
@@ -1145,7 +1150,7 @@ Package hyperref Info: bookmark level for unknown hyp defaults to 0 on input lin
 [35]
 
 [36]
-Package hyperref Info: bookmark level for unknown law defaults to 0 on input line 1648.
+Package hyperref Info: bookmark level for unknown law defaults to 0 on input line 1660.
 
 
 [37] (./Python_plots/Uniform.tex) (./Python_plots/Biased.tex) (./Python_plots/Integral_Hist.tex)
@@ -1155,13 +1160,13 @@ Package hyperref Info: bookmark level for unknown law defaults to 0 on input lin
 [39]
 
 [40]
-Package hyperref Info: bookmark level for unknown defn defaults to 0 on input line 1821.
+Package hyperref Info: bookmark level for unknown defn defaults to 0 on input line 1833.
 
 
 [41]
 
 [42]
-Package hyperref Info: bookmark level for unknown ex defaults to 0 on input line 1902.
+Package hyperref Info: bookmark level for unknown ex defaults to 0 on input line 1914.
 
 
 [43]
@@ -1216,12 +1221,12 @@ Package rerunfilecheck Info: File `Simulation.out' has not changed.
 (rerunfilecheck)             Checksum: E635208CD9FD8C89C754821EEF33179D;3502.
  ) 
 Here is how much of TeX's memory you used:
- 46767 strings out of 473832
- 1082368 string characters out of 5733158
- 3440015 words of memory out of 5000000
- 69080 multiletter control sequences out of 15000+600000
+ 46817 strings out of 473832
+ 1083360 string characters out of 5733158
+ 3440884 words of memory out of 5000000
+ 69127 multiletter control sequences out of 15000+600000
  576644 words of font info for 131 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 99i,20n,105p,6936b,2383s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,22n,105p,6936b,2545s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on Simulation.pdf (57 pages).
