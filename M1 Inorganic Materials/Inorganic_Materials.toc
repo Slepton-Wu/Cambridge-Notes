@@ -11,19 +11,22 @@
 \contentsline {subsubsection}{\numberline {1.3.3}The Brillouin Function}{8}{subsubsection.1.3.3}%
 \contentsline {subsubsection}{\numberline {1.3.4}The Curie's Law}{10}{subsubsection.1.3.4}%
 \contentsline {subsubsection}{\numberline {1.3.5}Deviation from Curie Behaviour}{12}{subsubsection.1.3.5}%
-\contentsline {section}{\numberline {2}Magnetism in Polynuclear Species}{13}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Interactions between Two Spins}{13}{subsection.2.1}%
-\contentsline {subsubsection}{\numberline {2.1.1}Heitler--London Model (Non-examinable)}{13}{subsubsection.2.1.1}%
-\contentsline {subsection}{\numberline {2.2}Direct Exchange}{14}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Superexchange}{14}{subsection.2.3}%
-\contentsline {subsubsection}{\numberline {2.3.1}Potential Superexchange}{15}{subsubsection.2.3.1}%
-\contentsline {subsubsection}{\numberline {2.3.2}Kinetic Superexchange}{16}{subsubsection.2.3.2}%
-\contentsline {subsubsection}{\numberline {2.3.3}Angular Dependence of Superexchange}{17}{subsubsection.2.3.3}%
-\contentsline {subsubsection}{\numberline {2.3.4}General Features of Superexchange}{18}{subsubsection.2.3.4}%
-\contentsline {subsection}{\numberline {2.4}Magnetic Susceptibility of Clusters}{18}{subsection.2.4}%
-\contentsline {subsubsection}{\numberline {2.4.1}High Temperature Limit}{18}{subsubsection.2.4.1}%
-\contentsline {subsubsection}{\numberline {2.4.2}Low Temperature Limit}{19}{subsubsection.2.4.2}%
-\contentsline {subsection}{\numberline {2.5}Modelling Exchange Interactions in Clusters}{20}{subsection.2.5}%
-\contentsline {subsection}{\numberline {2.6}Frustration}{26}{subsection.2.6}%
-\contentsline {part}{\numberline {}Appendices}{27}{part*.34}%
-\contentsline {section}{\numberline {A}Solving Spin Hamiltonian by Matrix Diagonalisation}{27}{appendix.A}%
+\contentsline {subsection}{\numberline {1.4}Magnetic Anisotropy}{13}{subsection.1.4}%
+\contentsline {section}{\numberline {2}Magnetism in Polynuclear Species}{16}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Interactions between Two Spins}{16}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Heitler--London Model (Non-examinable)}{16}{subsubsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.2}Direct Exchange}{17}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Superexchange}{17}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Potential Superexchange}{18}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}Kinetic Superexchange}{19}{subsubsection.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.3}Angular Dependence of Superexchange}{20}{subsubsection.2.3.3}%
+\contentsline {subsubsection}{\numberline {2.3.4}General Features of Superexchange}{21}{subsubsection.2.3.4}%
+\contentsline {subsection}{\numberline {2.4}Magnetic Susceptibility of Clusters}{21}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}High Temperature Limit}{21}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}Low Temperature Limit}{22}{subsubsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.5}Modelling Exchange Interactions in Clusters}{23}{subsection.2.5}%
+\contentsline {subsubsection}{\numberline {2.5.1}A note on Anisotropy}{30}{subsubsection.2.5.1}%
+\contentsline {subsection}{\numberline {2.6}Frustration}{31}{subsection.2.6}%
+\contentsline {section}{\numberline {3}Magnetism of Networks}{33}{section.3}%
+\contentsline {part}{\numberline {}Appendices}{34}{part*.43}%
+\contentsline {section}{\numberline {A}Solving Spin Hamiltonian by Matrix Diagonalisation}{34}{appendix.A}%

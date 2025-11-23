@@ -678,7 +678,7 @@
     \begin{equation}
         \vb{B}_{\text{cgs}}=\vb{H}_{\text{cgs}}
     \end{equation}
-    so the magnetic field and magnetic flux density now becomes the same. The cgs unit of \(\vb{B}\) is Gauss (\(\mathrm{G}\)), with \(1\unit{T}=10,000\unit{G}\), and the unit of \(\vb{H}\) is Oersted (\(\mathrm{Oe}\)), so a magnetic field of \(1\unit{Oe}\) produces a magnetic flux density \(1\unit{G}\) in vacuum. The down side is that people often forget which is the correct unit of which, and tend to use them interchangeably.
+    so the magnetic field and magnetic flux density now becomes the same. The cgs unit of \(\vb{B}\) is Gauss (\(\mathrm{G}\)), with \(1\unit{T}=10,000\unit{G}\), and the unit of \(\vb{H}\) is Oersted (\(\mathrm{Oe}\)), so a magnetic field of \(1\unit{Oe}\) produces a magnetic flux density \(1\unit{G}\) in vacuum. When the field is small, \(\vb{M}_{\text{cgs}}\) is also small so we carry on with this equality approximately --- this is why we almost always use \(B\) and \(H\) interchangeably in this course. The down side is that people often forget which is the correct unit of which, and tend to use them interchangeably.
 
     Two additional units in the cgs system are the energy \(1\unit{erg}=10^{-7}\unit{J}\) and the \textit{electromagnetic unit} for magnetic moments \(1\unit{emu}\equiv 1\unit{erg}\unit{G}^{-1}=10^{-3}\unit{J}\unit{T}^{-1}\). One mole of Bohr magnetons is \(N_A\mu_{\text{B}}=5,585\unit{emu}\unit{mol}^{-1}\) in cgs units, and the saturation magnetisation is
     \begin{equation}
@@ -758,6 +758,138 @@
     \end{figure}
 
     If the ferromagnetic/antiferromagnetic interactions are too strong, then the system's behaviour will deviate from the Curie--Weiss law again. In such cases, we can still fit the Curie--Weiss law to the high temperature regime, and hence we usually linearly extrapolate the high temperature data and obtain a \(x\)-intercept to determine a suitable value of \(\Theta\).
+
+    \subsection{Magnetic Anisotropy}
+    So far we've been considering the behaviour of an ideal spin which has no preference in which direction it lies. In this case the Hamiltonian of the interaction between the spin and a magnetic field, known as the \textit{Zeeman Hamiltonian}, is
+    \begin{equation}
+        \hat{H}=\mu_{\text{B}}g\vb{S}\vdot\vb{B}\,.
+    \end{equation}
+    Such system has rotational symmetry and therefore has the same magnetic susceptibility in all directions (isotropic). However, this is not always true. The theory of the origin of spin anisotropy is beyond the scope of this course. However there are two common causes of such anisotropy that we should be aware of:
+    \begin{itemize}[topsep=0pt]
+        \item Distortion of the ligand field.
+        
+        This may occur because the ligands in different directions are not the same, or the symmetry is broken by Jahn--Teller distortion. This with distorted the metal orbitals, which will no longer respond the same way along each axis. This will also effectively increase the \(g\) value slightly, but it is usually still close to \(2.0\). For example, \(\mathrm{Cu}^{2+}\) and \(\mathrm{Ni}^{2+}\) with Jahn--Teller distortion usually have \(g\) values of \(2.1\sim 2.2\).\footnote{Actually, to account for this anisotropy, one should modify the Zeeman Hamiltonian to
+        \begin{equation}
+            \hat{H}=\mu_{\text{B}}\vb{S}\tp\mathsf{g}\vb{B}\,,
+        \end{equation}
+        with \(\mathsf{g}=\operatorname{diag}(g_x,g_y,g_z)\) now being a diagonal tensor so that the \(g\) values along different directions are not the same. However, in solutions or in powders, the orientation of the molecules are different, so what you measured is an orientationally averaged \(g\) value \(g_{\text{eff}}=\sqrt{\frac{1}{3}(g_x^2+g_y^2+g_z^2)}\).}
+
+        \item Spin-orbit coupling.
+        
+        This is a strong effect. The spin-orbit coupling has a Hamiltonian
+        \begin{equation}
+            \hat{H}_{\text{SO}}=\lambda\hat{\vb{L}}\vdot\hat{\vb{S}}
+        \end{equation}
+        for some factor \(\lambda\). The orientation of the orbitals and hence \(\vb{L}\) is locked in a molecule, so this interaction Hamiltonian makes \(\vb{S}\) preferred in some direction.
+
+        This effect is significant if the ground state has non-zero (unquenched) orbital angular momentum, for example in Lanthanide ions or some \(3\mathrm{d}\) ions with a \(T\) term. For example, high-spin \(\mathrm{Co^{2+}}\) \(\mathrm{d}^7\) usually has a \(g\) value of about \(2.7\).
+    \end{itemize}
+
+    We will consider the simplest case in which we have a unique \(z\) axis, while \(x\) and \(y\) are the same. We can then describe the anisotropy by a single parameter \(D\). The sign of \(D\) indicates whether the susceptibility is greater in the \(z\) direction or in the \(xy\) plane, while the magnitude \(\abs{D}\) describes its strength. By convention, we set \(D<0\) if a molecule has greater susceptibility in the \(z\) axis (so \(z\) is the easy axis), while \(D>0\) if the susceptibility is greater in the \(xy\) plane (so this is the easy plane).
+
+    Classically, we can consider the energy of the spin (under no external field) against the angle \(\theta\) it makes with the \(z\) axis.
+    \begin{itemize}[topsep=0pt]
+        \item \(D=0\): Heisenberg (3D) spin.
+        
+        In this case the spin has no preference of where to lie, and the energy is constant against \(\theta\).
+
+        \begin{figure}[ht!]
+            \centering
+            \begin{tikzpicture}
+                \draw[->] (0,0)--(6,0)node[right]{\(\theta\)};
+                \draw[->] (0,0)--(0,2.5)node[left]{\(E\)};
+                \draw[thick,red] (0,1.25)--(5.5,1.25);
+            \end{tikzpicture}
+        \end{figure}
+
+        \item \(D<0\): Ising (1D) spin.
+        
+        In this case the spin has lowest energy when it is \(0^\circ\) or \(180^\circ\) from the \(z\) axis. Deviation from alignment with \(z\) axis will lead to energy penalty, and hence if \(\abs{D}\) is large, we can effectively treat the spin as 1-dimensional (lying either completely parallel or antiparallel to \(z\)).
+
+        \begin{figure}[ht!]
+            \centering
+            \begin{tikzpicture}
+                \draw[->] (0,0)--(6,0)node[right]{\(\theta\)};
+                \draw[->] (0,0)--(0,2.5)node[left]{\(E\)};
+                \draw[thick,red,domain=0:1, smooth, variable=\x,samples=100] plot ({\x*5 +0.5}, {1.25-0.9*cos(6.28 * \x r)});
+                \draw (0.5,0)--(0.5,-0.1)node[below]{\(0^\circ\)};
+                \draw (3,0)--(3,-0.1)node[below]{\(90^\circ\)};
+                \draw (5.5,0)--(5.5,-0.1)node[below]{\(180^\circ\)};
+            \end{tikzpicture}
+        \end{figure}
+
+        \item \(D>0\): XY (2D) spin.
+        
+        Now the spin has lowest energy when it lies completely on the \(xy\)-plane, or equivalently \(90^\circ\) from the \(z\) axis. Now if \(\abs{D}\) is large, we can effectively treat the spin as 2-dimensional (free to rotate in the \(xy\) plane).
+
+        \begin{figure}[ht!]
+            \centering
+            \begin{tikzpicture}
+                \draw[->] (0,0)--(6,0)node[right]{\(\theta\)};
+                \draw[->] (0,0)--(0,2.5)node[left]{\(E\)};
+                \draw[thick,red,domain=0:1, smooth, variable=\x,samples=100] plot ({\x*5 +0.5}, {1.25+0.9*cos(6.28 * \x r)});
+                \draw (0.5,0)--(0.5,-0.1)node[below]{\(0^\circ\)};
+                \draw (3,0)--(3,-0.1)node[below]{\(90^\circ\)};
+                \draw (5.5,0)--(5.5,-0.1)node[below]{\(180^\circ\)};
+            \end{tikzpicture}
+        \end{figure}
+    \end{itemize}
+
+    In the quantum view, the \(M_S\) value determines the component of the spin along the \(z\) axis, and hence the anisotropy. We will illustrate with a \(S=2\) spin. When \(D=0\), the spin is isotropic and all \(M_S\) levels are degenerate when \(H=0\). When the applied field increases, the levels split linearly with
+    \begin{equation}
+        E=\mu_{\text{B}}gHM_S\,.
+    \end{equation}
+    \begin{figure}[ht!]
+        \centering
+        \begin{tikzpicture}
+            \draw[->] (0,-2.5)--(0,2.5)node[left]{\(E\)};
+            \draw[->] (0,-2.5)--(8,-2.5)node[right]{\(H\)};
+            \foreach \i in {-2,-1,...,2}{
+                \draw (0,0)--(8,0.5*\i)node[right]{\small \(\i\)};
+            }
+            \node at (8,1.5)[right]{\(M_S\)};
+        \end{tikzpicture}
+    \end{figure}
+
+    The spin with magnetic quantum number \(M_S\) has spin component \(S_z=\hbar M_S\) along \(z\) axis, so when \(D\ne 0\), states with different \(M_S\) values has different energies even at \(H=0\) due to this anisotropy, given by
+    \begin{equation}
+        E(0)=M_S D^2\,.
+    \end{equation}
+    Hence the energy at a non-zero field \(H\) is
+    \begin{equation}
+        E(H)=M_S D^2+\mu_{\text{B}}gHM_S\,.
+    \end{equation}
+    For \(D>0\), the spin has lowest energy in the \(xy\) plane, i.e. \(M_S=0\) is the ground state.
+    \begin{figure}[ht!]
+        \centering
+        \begin{tikzpicture}
+            \draw[->] (0,-2.5)--(0,2.5)node[left]{\(E\)};
+            \draw[->] (0,-2.5)--(8,-2.5)node[right]{\(H\)};
+            \foreach \i in {-2,-1,...,2}{
+                \draw (0,0.7*\i*\i-1.5)--(8,0.3*\i+0.7*\i*\i-1.5);
+            }
+            \node at (0.3,-1.5)[below right]{\small \(M_S=0\)};
+            \node at (0.3,-0.75)[above right]{\small \(M_S=\pm 1\)};
+            \node at (0.3,1.4)[above right]{\small \(M_S=\pm 2\)};
+        \end{tikzpicture}
+    \end{figure}
+
+    For \(D<0\), the highest value of \(M_S\) will be the ground state.
+    \begin{figure}[ht!]
+        \centering
+        \begin{tikzpicture}
+            \draw[->] (0,-2.5)--(0,2.5)node[left]{\(E\)};
+            \draw[->] (0,-2.5)--(8,-2.5)node[right]{\(H\)};
+            \foreach \i in {-2,-1,...,2}{
+                \draw (0,-0.7*\i*\i+1.5)--(8,0.3*\i-0.7*\i*\i+1.5);
+            }
+            \node at (0.3,1.5)[above right]{\small \(M_S=0\)};
+            \node at (0.3,0.75)[below right]{\small \(M_S=\pm 1\)};
+            \node at (0.3,-1.4)[below right]{\small \(M_S=\pm 2\)};
+        \end{tikzpicture}
+    \end{figure}
+
+    As a result, unless going to very large field (which is usually not of our interest), the spins are constrained to \(M_S=\pm 2\).
     
     \newpage
     \section{Magnetism in Polynuclear Species}
@@ -1505,8 +1637,120 @@
             \label{Fig:linear_chiT}
         \end{figure}
     \end{ex}
+
+    \subsubsection{A note on Anisotropy}
+    In the previous discussion, we have assumed that both the spin and the exchange interaction is isotropic, so the spin Hamiltonian is
+    \begin{align}
+        \hat{H}&=-2\sum_{i>j}J_{ij}\hat{\vb{S}}_i\vdot\hat{\vb{S}}_j\notag\\
+        &=-2\sum_{i>j}J_{ij}[\hat{S}_i^x\hat{S}_j^x + \hat{S}_i^y\hat{S}_j^y + \hat{S}_i^z\hat{S}_j^z]\,.\label{Isotropic_coupling}
+    \end{align}
+
+    We can generalise this by adding in some anisotropy to the Hamiltonian. The most generalised form could be
+    \begin{equation}
+        \hat{H}=-2\sum_{i>j}J_{ij}^{\alpha\beta}\sum_{\alpha,\beta}\hat{S}_i^{\alpha}\hat{S}_j^{\beta}\,,
+    \end{equation}
+    where the exchange parameter between two spins \(i\) and \(j\) is characterised by a 2-tensor \(\mathsf{J}_{ij}\) and \(\alpha,\beta\in\{x,y,z\}\) are the spatial components. We will consider the effect of \(\mathsf{J}\) being anisotropic later when we talk about spin canting. We will first investigate the effect when instead of Heisenberg spins, we have Ising and XY spins interacting.
+
+    For an Ising spin, the transverse components of the spin vectors are energetically suppressed, \(S_i^x, S_i^y\approx 0\). Therefore, we can ignore the \(x\) and \(y\) components in the Hamiltonian (\ref{Isotropic_coupling}) and write
+    \begin{equation}\label{Ising_Hamiltonian}
+        \hat{H}=-2\sum_{ij}J_{ij}\hat{S}_i^z\hat{S}_j^z\,.
+    \end{equation}
+    This is mathematically equivalent to spins being isotropic but the coupling only happening along \(z\) direction, i.e. \(J_{ij}^{\alpha\beta}\ne 0\) only when \(\alpha=\beta=z\). This is known as the \textit{Ising model}, and the Hamiltonian (\ref{Ising_Hamiltonian}) which you might have met in B7: \textit{Statistical Mechanics} is the \textit{Ising Hamiltonian}.
+
+    Similarly, XY spin anisotropy with isotropic coupling is identical to coupling between isotropic spins only along \(x\) and \(y\) directions --- both with Hamiltonian
+    \begin{equation}
+        \hat{H}=-2\sum_{ij}J_{ij}(\hat{S}_i^x\hat{S}_j^x+\hat{S}_i^y\hat{S}_j^y)\,.
+    \end{equation}
     
     \subsection{Frustration}
+    Some of you might have noticed that in an antiferromagnetically coupled network, it is sometimes impossible to have all spins antiferromagnetically aligned. Whether this will occur or not is determined by the interaction topology. For example, four spins in a square cluster can arranged to be perfectly antiparallel between every pair of neighbouring spins, while this is not possible in a triangle. If we made any two of the spins antiparallel, then there is no way for the third spin to be antiparallel to both of then. We say this spin and the system are \textit{frustrated}.
+
+    \begin{figure}[ht!]
+        \centering
+        \begin{tikzpicture}
+            \draw (-1,-1) rectangle (1,1);
+            \draw[<-,thick] (-1.25,-1.5)--(-1.25,-0.9);
+            \draw[->,thick] (1.25,-1.5)--(1.25,-0.9);
+            \draw[<-,thick] (-1.25,1.5)--(-1.25,0.9);
+            \draw[->,thick] (1.25,1.5)--(1.25,0.9);
+            \node at (1,0)[right]{\(J\)};
+            \node at (-1,0)[left]{\(J\)};
+            \node at (0,1)[above]{\(J\)};
+            \node at (0,-1)[below]{\(J\)};
+
+            \begin{scope}[shift={(5,-0.35)}]
+                \draw (90:1.4)--node[left]{\(J\)}(210:1.4)--node[below]{\(J\)}(330:1.4)--node[right]{\(J\)} cycle;
+
+                \draw[->,thick] (-1.45,-1)--(-1.45,-0.4);
+                \draw[<-,thick] (1.45,-1)--(1.45,-0.4);
+                \node[red] at (0,1.5)[above]{\large ?};
+            \end{scope}
+        \end{tikzpicture}
+    \end{figure}
+
+    Similar effect occurs in many other systems, like larger odd-member rings or higher dimensional systems with odd-member rings e.g. tetrahedron.
+
+    \begin{figure}[ht!]
+        \centering
+        \begin{tikzpicture}[z={(40:0.4)}]
+            \coordinate (A) at (0,1.5,0);
+            \coordinate (B) at ({1.4142 * cos(0)},-0.5,{1.4142 * sin(0)});
+            \coordinate (C) at ({1.4142 * cos(120)},-0.5,{1.4142 * sin(120)});
+            \coordinate (D) at ({1.4142 * cos(240)},-0.5,{1.4142 * sin(240)});
+
+            \draw (A)--(B)--(C)--(D)--(A)--(C)--(A)--(D)--(B);
+            \draw[->,thick] (-0.2,1.5)--(-0.2,2.1);
+            \draw[<-,thick] (1.55,-0.8)--(1.5,-0.2);
+            \node[red] at (C)[above right]{\large ?};
+            \node[red] at (D)[left]{\large ?};
+        \end{tikzpicture}
+    \end{figure}
+
+    Let's investigate the effect of frustration on the energy manifold of the cluster. Consider a triangular cluster of three \(S=\frac{1}{2}\) spins. We will make the spin Ising so we do not need to do Kambe vector coupling: we just need to assign \(S_i^z=\pm \frac{1}{2}\) for \(i\) in the Hamiltonian
+    \begin{equation}
+        \hat{H}=-2J[S_1^zS_2^z + S_2^zS_3^z + S_3^zS_1^z]\,.
+    \end{equation}
+    For all \(2^3=8\) possible configurations, there are 6 states with two spins aligned and one spins flipped: this is our ground state of energy \(2J\) with a degeneracy of \(6\). The excited states are the two in which all spins are aligned: they have energy \(-6J\). Comparing with the non-existing `ideal' case where all spins can be antiparallel, with energy \(+6J\), we see the frustrated system has two very important characteristics:
+    \begin{itemize}[topsep=0pt]
+        \item Higher ground state energy,
+        \item Large ground state degeneracy.
+    \end{itemize}
+    Or we can say a frustrated system has a compressed energy manifold.
+    \begin{figure}
+        \centering
+        \begin{tikzpicture}
+            \draw[->] (0,-3)--(0,3)node[left]{\(E\)};
+            \draw[dashed] (0,-2.1)node[left]{\(+6J\)}--(4.5,-2.1);
+            \draw[dashed] (0,2.1)node[left]{\(-6J\)}--(4.5,2.1);
+            \draw (1,-0.8)--(2,-0.8);
+            \draw (1,-0.7)--(2,-0.7);
+            \draw (1,-0.6)--(2,-0.6);
+            \draw (2.5,-0.8)--(3.5,-0.8);
+            \draw (2.5,-0.7)--(3.5,-0.7);
+            \draw (2.5,-0.6)--(3.5,-0.6);
+            \draw (1,2.1)--(2,2.1);
+            \draw (2.5,2.1)--(3.5,2.1);
+            \draw[<->] (4.8,-2.1)--node[right,align=center]{`ideal'\\ energy\\ range}(4.8,2.1);
+        \end{tikzpicture}
+    \end{figure}
+
+    This also inspires us to define a way to quantify the degree of frustration: we can compare the energy of the ground state of the frustrated system to the sum of the non-frustrated pairwise interactions. The `ideal' antiferromagnetic energy is
+    \begin{equation}
+        E_{\text{ideal}}=\sum_k \abs{J_k}\abs{\vb{S}_{k1}}\abs{\vb{S}_{k2}}\,,
+    \end{equation}
+    where the sum is over all exchange coupling pathways \(k\), coupling spins \(S_{k1}\) and \(S_{k2}\) with coupling constant \(J_k\) (recall \(J_k\) are negative). The actual ground state energy is
+    \begin{equation}
+        E_{\text{GS}}=\sum_k J_k \vb{S}_{k1}\vdot\vb{S}_{k2}\,.
+    \end{equation}
+    We define the negative of their ratio to be the the \textit{Lacorre constraint function}
+    \begin{equation}
+        F_c=-\frac{\sum_k J_k \vb{S}_{k1}\vdot\vb{S}_{k2}}{\sum_k \abs{J_k}\abs{\vb{S}_{k1}}\abs{\vb{S}_{k2}}}\,,
+    \end{equation}
+    such that if the system is fully frustrated, \(F_c=+1\), while if there is no frustration, \(F_c=-1\).
+
+    \newpage
+    \section{Magnetism of Networks}
+
     
     
         
@@ -1527,22 +1771,6 @@
     \addcontentsline{toc}{part}{\protect\numberline{}Appendices}
     \appendix
     \section{Solving Spin Hamiltonian by Matrix Diagonalisation}\label{Chap:Spin_matrix}
-    The most general spin interaction Hamiltonian has the form
-    \begin{equation}
-        \hat{H}=-2\sum_{i>j}J_{ij}^{\alpha\beta}\sum_{\alpha,\beta}\hat{S}_i^{\alpha}\hat{S}_j^{\beta}\,,
-    \end{equation}
-    where the exchange parameter between two spins \(i\) and \(j\) is characterised by a 2-tensor \(\mathsf{J}_{ij}\). We assume that the exchange is isotropic, then this becomes
-    \begin{align}
-        \hat{H}&=-2\sum_{i>j}J_{ij}\hat{\vb{S}}_i\vdot\hat{\vb{S}}_j\notag\\
-        &=-2\sum_{i>j}J_{ij}[\hat{S}_i^x\hat{S}_j^x + \hat{S}_i^y\hat{S}_j^y + \hat{S}_i^z\hat{S}_j^z]\,.\label{Isotropic_coupling}
-    \end{align}
-
-    If the spin is anisotropic, e.g. if we have an Ising spin, then the transverse \((x,y)\) components of the spin vectors are energetically suppressed. Therefore, we can ignore the \(x\) and \(y\) components in the Hamiltonian (\ref{Isotropic_coupling}) and write
-    \begin{equation}
-        \hat{H}=-2\sum_{ij}J_{ij}\hat{S}_i^z\hat{S}_j^z\,.
-    \end{equation}
-    This is mathematically equivalent to coupling only happening along in \(z\) directions, known as the \textit{Ising Hamiltonian}.
-
     We will illustrate the idea using the isotropic (Heisenberg) Hamiltonian (\ref{Isotropic_coupling}). Our first step is to choose a basis for the \(N\) spins. A convenient choice is the direct product of the \(S^z\) basis
     \begin{equation}
         \left\{\ket{S^z_1, S^z_2, \dots, S^z_n}\mid -S_i\le S^z_i\le S_i\right\}
